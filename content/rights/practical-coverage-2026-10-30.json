@@ -1,0 +1,104 @@
+{
+  "batch": "practical-coverage-2026-10-30",
+  "created_at": "2026-10-30T16:44:11.938540+00:00",
+  "new_document_ids": [
+    "usda-kitchen-companion-2015",
+    "cdc-use-safe-water",
+    "cdc-wash-hands",
+    "cdc-prevent-diarrhea-after-disaster",
+    "cpsc-portable-generator-hazards"
+  ],
+  "new_document_count": 5,
+  "rights_evidence": [
+    {
+      "url": "https://www.cdc.gov/other/agencymaterials.html?download=1",
+      "final_url": "https://www.cdc.gov/other/agencymaterials.html?download=1",
+      "retrieved_at": "2026-10-30T16:34:41.836908+00:00",
+      "sha256": "5204c374cc86f838e898026cba3d224a86731e12fbcd72f61533d99d272a7066",
+      "bytes": 84017,
+      "file": "rights/cdc-agency-materials-2026-10-30.html",
+      "kind": "publisher-reuse-policy",
+      "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+    },
+    {
+      "url": "https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy",
+      "final_url": "https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy",
+      "retrieved_at": "2026-10-30T16:39:10.721631+00:00",
+      "sha256": "cc22ebb36259dffec0ce22a73ff84ddf2276d363b2d95c43f4e38f26bdf09fea",
+      "bytes": 73889,
+      "file": "rights/cpsc-copyright-2026-10-30.html",
+      "kind": "publisher-reuse-policy",
+      "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+    },
+    {
+      "url": "https://www.cpsc.gov/Safety-Education/Neighborhood-Safety-Network/Neighborhood-Safety-Network-Frequently-Asked-Questions",
+      "final_url": "https://www.cpsc.gov/Safety-Education/Neighborhood-Safety-Network/Neighborhood-Safety-Network-Frequently-Asked-Questions",
+      "retrieved_at": "2026-10-30T16:39:10.555256+00:00",
+      "sha256": "7dc074b0f2ad785e3d11912a2afefe0bd9aa494f6df7ad57034f1a1b0564db5b",
+      "bytes": 54500,
+      "file": "rights/cpsc-guides-reuse-2026-10-30.html",
+      "kind": "publisher-reuse-policy",
+      "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+    },
+    {
+      "url": "https://www.govinfo.gov/metadata/pkg/GOVPUB-A110-PURL-gpo234150/mods.xml",
+      "final_url": "https://www.govinfo.gov/metadata/pkg/GOVPUB-A110-PURL-gpo234150/mods.xml",
+      "retrieved_at": "2026-10-30T16:39:10.460039+00:00",
+      "sha256": "ced65fb4a693b837ed526ca54594c7f2dc0713f73fc094527de9eda9cd716610",
+      "bytes": 7866,
+      "file": "rights/usda-kitchen-companion-gpo-2026-10-30.xml",
+      "kind": "government-authorship-and-archival-provenance",
+      "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+    },
+    {
+      "url": "https://www.energy.gov/about-us/web-policies",
+      "final_url": "https://www.energy.gov/web-policies",
+      "retrieved_at": "2026-10-30T16:31:30.977657+00:00",
+      "sha256": "85fb46e822a349703f827740beccc2446948722393533b4d62dd84f12c419939",
+      "bytes": 133113,
+      "file": "rights/doe-web-policies-2026-10-30.html",
+      "kind": "excluded-candidate-policy",
+      "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+    },
+    {
+      "url": "https://www.usda.gov/about-usda/policies-and-links",
+      "final_url": null,
+      "retrieved_at": "2026-10-30T16:39:54.541066+00:00",
+      "sha256": "c1843119d58ee8ca5348a4215ec45e9f4c7b3d6b20203eb886af9c3c917c8870",
+      "bytes": 12368,
+      "file": "rights/usda-policies-2026-10-30-extracted.json",
+      "kind": "publisher-reuse-policy",
+      "snapshot_method": "web_extract publisher-page text response; not raw publisher HTML. Direct urllib and browser requests returned access denied. No verified HTTP final URL exposed by extraction service."
+    }
+  ],
+  "extraction_status": "UNVERIFIED SEARCH AIDS ONLY. No AI-authored safety instructions or summaries; original PDF bytes preserved.",
+  "admission_review": {
+    "usda-kitchen-companion-2015": "USDA FSIS government authorship confirmed by original PDF and GPO MODS. Full extracted text scanned for rights/credits; all pages inspected in contact sheet and cover/agency notice/edition pages reviewed enlarged. Photographs are present; no separate stock-photo/copyright credits or reuse restriction identified. Reliance is on USDA policy plus work-specific government authorship and credit review, not domain suffix.",
+    "cdc": "Agency authorship/marks and publication IDs inspected in complete one-page originals. No third-party credits identified; agency policy and its exceptions retained.",
+    "cpsc-portable-generator-hazards": "Full one-page original inspected; diagram, no photographs or third-party credits. CPSC policy and guide-reuse FAQ archived."
+  },
+  "excluded_candidates": [
+    {
+      "publisher": "U.S. Department of Energy / NREL (contractor-operated laboratory)",
+      "title": "Own Your Power! A Consumer Guide to Solar Electricity for the Home",
+      "url": "https://www1.eere.energy.gov/solar/pdfs/43844.pdf",
+      "download_sha256": "27001e4f6cfd00d99e83031b62800266a9d247557f352c9669dc0748503841c2",
+      "download_pages": 16,
+      "decision": "Not installed. PDF identifies preparation by NREL operated by Alliance for Sustainable Energy, LLC and includes photographs. DOE policy distinguishes government information from contractor/private material; a document-wide redistribution basis covering the laboratory work and pictures was not established. January 2009 edition also contains historical prices/incentives.",
+      "rights_evidence_file": "rights/doe-web-policies-2026-10-30.html"
+    },
+    {
+      "publisher": "OSHA",
+      "url": "https://www.osha.gov/sites/default/files/publications/OSHA3286.pdf",
+      "decision": "Not installed: direct PDF requests returned HTTP 403, including browser retrieval. Official obis endpoint timed out; no byte-complete original admitted. CPSC direct-source generator hazard sheet used instead."
+    }
+  ],
+  "limitations": [
+    "Source admission is not qualified safety or legal certification. No topic is complete.",
+    "USDA uses an official GPO archival rendition due publisher-access errors; current FSIS-endpoint byte identity not established.",
+    "USDA rights evidence is a labeled web_extract text response, not an HTTP HTML snapshot; service did not expose verified final HTTP URL. Other archived evidence is unmodified response body.",
+    "Photographs and government marks are retained only as part of intact publisher documents, not extracted or used as Gravestone branding.",
+    "External manufacturer manuals, linked pages and standards are not automatically installed.",
+    "No solar setup guide, PV/battery wiring or sizing manual installed. No private notes, source image or conversation copied."
+  ]
+}

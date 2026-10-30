@@ -32,6 +32,293 @@
       "pages": 1,
       "extraction_status": "Machine-extracted search index; not visually verified; consult original PDF for all instructions.",
       "text_sha256": "620291ffa38797ed5511ff26f2b36b53ada7563a50ea5ba02a4fac1b8adad1e5"
+    },
+    {
+      "id": "usda-kitchen-companion-2015",
+      "title": "Kitchen Companion: Your Safe Food Handbook",
+      "publisher": "U.S. Department of Agriculture, Food Safety and Inspection Service (USDA FSIS)",
+      "edition": "February 2008; Slightly Revised March 2015 (printed inside back cover)",
+      "publisher_url": "https://www.fsis.usda.gov/sites/default/files/media_file/2020-12/Kitchen-Companion.pdf",
+      "source_landing_url": "https://www.fsis.usda.gov/news-events/publications/kitchen-companion-your-safe-food-handbook",
+      "rights": "USDA government-authored handbook, identified as USDA FSIS authorship by the official GPO MODS record. USDA Digital Rights and Copyright policy permits copying public-domain information, subject to marked third-party exceptions. Text and source-page review found no third-party copyright/stock-photo credits or personal-use restriction in this edition; USDA attribution and agency notices retained. Not based on .gov hosting alone. No endorsement implied; marks not reused as branding. U.S. reuse basis; foreign rights not determined.",
+      "rights_url": "https://www.usda.gov/about-usda/policies-and-links",
+      "rights_evidence": [
+        {
+          "url": "https://www.usda.gov/about-usda/policies-and-links",
+          "final_url": null,
+          "retrieved_at": "2026-10-30T16:39:54.541066+00:00",
+          "sha256": "c1843119d58ee8ca5348a4215ec45e9f4c7b3d6b20203eb886af9c3c917c8870",
+          "bytes": 12368,
+          "file": "rights/usda-policies-2026-10-30-extracted.json",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "web_extract publisher-page text response; not raw publisher HTML. Direct urllib and browser requests returned access denied. No verified HTTP final URL exposed by extraction service."
+        },
+        {
+          "url": "https://www.govinfo.gov/metadata/pkg/GOVPUB-A110-PURL-gpo234150/mods.xml",
+          "final_url": "https://www.govinfo.gov/metadata/pkg/GOVPUB-A110-PURL-gpo234150/mods.xml",
+          "retrieved_at": "2026-10-30T16:39:10.460039+00:00",
+          "sha256": "ced65fb4a693b837ed526ca54594c7f2dc0713f73fc094527de9eda9cd716610",
+          "bytes": 7866,
+          "file": "rights/usda-kitchen-companion-gpo-2026-10-30.xml",
+          "kind": "government-authorship-and-archival-provenance",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        }
+      ],
+      "topics": [
+        "food-storage",
+        "sanitation"
+      ],
+      "acquisition_note": "Official U.S. Government Publishing Office (GovInfo) preserved 50-page PDF rendition, harvested from USDA FSIS according to archived MODS. Direct FSIS HTTP/HTTPS requests returned 403. Stored bytes match the GPO download, not a claimed byte comparison with the inaccessible current FSIS endpoint. GPO records its rendition as born digital; PDF modification metadata is 2026-06-26, not the publication edition.",
+      "dependencies": [
+        "Publisher refers to A Consumer’s Guide to Food Safety: Severe Storms and Hurricanes for additional container-salvage procedures; that separate document is not installed.",
+        "Publisher web links, hotline availability, regulatory references and edition currency have not been validated as current."
+      ],
+      "url": "https://www.govinfo.gov/content/pkg/GOVPUB-A110-PURL-gpo234150/pdf/GOVPUB-A110-PURL-gpo234150.pdf",
+      "final_url": "https://www.govinfo.gov/content/pkg/GOVPUB-A110-PURL-gpo234150/pdf/GOVPUB-A110-PURL-gpo234150.pdf",
+      "file": "originals/usda-kitchen-companion-2015.pdf",
+      "sha256": "dc32aebc29ffd72ca6eb13949949e1638aa38289fa99e1cda822b47cdf9d4279",
+      "retrieved_at": "2026-10-30T16:37:59.873811+00:00",
+      "bytes": 2014368,
+      "pages": 50,
+      "text_file": "search/usda-kitchen-companion-2015.txt",
+      "text_sha256": "41cc3d4f46aeb24995ad9ee3d6e357d529d36d5d6f37e4d5338f9ff67e109278",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult the complete original PDF for figures, warnings, tables and context. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4; page.extract_text() or empty string, physical pages joined by U+000C form feed; UTF-8, no OCR or manual corrections. Publisher-provided OCR/text layers are retained as extracted, including errors.",
+      "review_status": "Provenance and reuse-policy/credit check only; no qualified safety/medical/electrical review or edition-currency certification.",
+      "acquisition_batch": "practical-coverage-2026-10-30",
+      "http_last_modified": "Fri, 26 Jun 2026 05:37:37 GMT",
+      "pdf_metadata": {
+        "/Author": "USDA FSIS",
+        "/CreationDate": "D:20150513123010-04'00'",
+        "/Creator": "Adobe InDesign CC 2014 (Windows)",
+        "/Keywords": "safe food handling, booklet, fact sheet, Kitchen Companion, safe food handbook",
+        "/ModDate": "D:20260626013718-04'00'",
+        "/Producer": "Adobe PDF Library 11.0",
+        "/Subject": "Safe Food Handling ",
+        "/Title": "Kitchen Companion: Your Safe Food Handbook",
+        "/Trapped": "/False"
+      }
+    },
+    {
+      "id": "cdc-use-safe-water",
+      "title": "Use Safe Water During an Emergency",
+      "publisher": "Centers for Disease Control and Prevention (CDC)",
+      "edition": "CS334749-B (printed footer); PDF subject metadata dated 11/9/2022. No separate edition date printed on the page.",
+      "publisher_url": "https://www.cdc.gov/water-emergency/media/pdfs/334749-B_UseSafeWater-OnePager-508.pdf",
+      "source_landing_url": "https://www.cdc.gov/water-emergency/communication-resources/index.html",
+      "rights": "CDC agency publication, with no third-party copyright or image credits identified in the intact document. CDC Use of Agency Materials permits reproduction of public-domain agency material subject to attribution, unchanged substantive content, non-endorsement and free-availability notices. Source: CDC. Available without charge from CDC. Agency marks retained only within the original; no endorsement implied. U.S. reuse basis; foreign rights not determined.",
+      "rights_url": "https://www.cdc.gov/other/agencymaterials.html",
+      "rights_evidence": [
+        {
+          "url": "https://www.cdc.gov/other/agencymaterials.html?download=1",
+          "final_url": "https://www.cdc.gov/other/agencymaterials.html?download=1",
+          "retrieved_at": "2026-10-30T16:34:41.836908+00:00",
+          "sha256": "5204c374cc86f838e898026cba3d224a86731e12fbcd72f61533d99d272a7066",
+          "bytes": 84017,
+          "file": "rights/cdc-agency-materials-2026-10-30.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        }
+      ],
+      "topics": [
+        "drinkable-water",
+        "sanitation"
+      ],
+      "dependencies": [
+        "Publisher refers to additional CDC emergency-water information online; those linked webpages are not archived as installed guidance."
+      ],
+      "url": "https://www.cdc.gov/water-emergency/media/pdfs/334749-B_UseSafeWater-OnePager-508.pdf?download=1",
+      "final_url": "https://www.cdc.gov/water-emergency/media/pdfs/334749-B_UseSafeWater-OnePager-508.pdf?download=1",
+      "file": "originals/cdc-use-safe-water.pdf",
+      "sha256": "f7bda1f9e7827ee74278d408001e9cdf4529924fa70144e0696ee0fd4ee39bad",
+      "retrieved_at": "2026-10-30T16:36:44.089424+00:00",
+      "bytes": 141092,
+      "pages": 1,
+      "text_file": "search/cdc-use-safe-water.txt",
+      "text_sha256": "d64406905bb9fccac087500ab0f8402f4b933da919b7e0ca70afb47106d1900a",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult the complete original PDF for figures, warnings, tables and context. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4; page.extract_text() or empty string, physical pages joined by U+000C form feed; UTF-8, no OCR or manual corrections. Publisher-provided OCR/text layers are retained as extracted, including errors.",
+      "review_status": "Provenance and reuse-policy/credit check only; no qualified safety/medical/electrical review or edition-currency certification.",
+      "acquisition_batch": "practical-coverage-2026-10-30",
+      "http_last_modified": "Thu, 18 Dec 2025 16:16:57 GMT",
+      "pdf_metadata": {
+        "/Author": "Centers for Disease Control and Prevention (CDC)",
+        "/CreationDate": "D:20221109134002-05'00'",
+        "/Creator": "Adobe InDesign 18.0 (Windows)",
+        "/Keywords": "Hurricane; water; emergency",
+        "/ModDate": "D:20221109155752-05'00'",
+        "/Producer": "Adobe PDF Library 17.0",
+        "/Subject": "CS334749-B, 11/9/2022",
+        "/Title": "Use Safe Water During an Emergency",
+        "/Trapped": "/False"
+      }
+    },
+    {
+      "id": "cdc-wash-hands",
+      "title": "Wash Your Hands",
+      "publisher": "Centers for Disease Control and Prevention (CDC)",
+      "edition": "CS283831-A; no publication date printed. PDF creation metadata 2017-09-27 is not a verified edition date.",
+      "publisher_url": "https://www.cdc.gov/water-emergency/media/pdfs/factsheet-wash-your-hands.pdf",
+      "source_landing_url": "https://www.cdc.gov/water-emergency/communication-resources/index.html",
+      "rights": "CDC agency publication, with no third-party copyright or image credits identified in the intact document. CDC Use of Agency Materials permits reproduction of public-domain agency material subject to attribution, unchanged substantive content, non-endorsement and free-availability notices. Source: CDC. Available without charge from CDC. Agency marks retained only within the original; no endorsement implied. U.S. reuse basis; foreign rights not determined.",
+      "rights_url": "https://www.cdc.gov/other/agencymaterials.html",
+      "rights_evidence": [
+        {
+          "url": "https://www.cdc.gov/other/agencymaterials.html?download=1",
+          "final_url": "https://www.cdc.gov/other/agencymaterials.html?download=1",
+          "retrieved_at": "2026-10-30T16:34:41.836908+00:00",
+          "sha256": "5204c374cc86f838e898026cba3d224a86731e12fbcd72f61533d99d272a7066",
+          "bytes": 84017,
+          "file": "rights/cdc-agency-materials-2026-10-30.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        }
+      ],
+      "topics": [
+        "sanitation"
+      ],
+      "dependencies": [
+        "Publisher links to CDC handwashing webpages; those webpages are not installed."
+      ],
+      "url": "https://www.cdc.gov/water-emergency/media/pdfs/factsheet-wash-your-hands.pdf?download=1",
+      "final_url": "https://www.cdc.gov/water-emergency/media/pdfs/factsheet-wash-your-hands.pdf?download=1",
+      "file": "originals/cdc-wash-hands.pdf",
+      "sha256": "afd3dbf6a5ac9e3e40c6d9ed4d3e00d0e6493a468db7c02c4f2aadbe9d394a03",
+      "retrieved_at": "2026-10-30T16:34:41.862016+00:00",
+      "bytes": 282412,
+      "pages": 1,
+      "text_file": "search/cdc-wash-hands.txt",
+      "text_sha256": "d7a76ca9b9cc930815d1fc2bd724785bae17eb60809ffca3c31925631ba9a745",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult the complete original PDF for figures, warnings, tables and context. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4; page.extract_text() or empty string, physical pages joined by U+000C form feed; UTF-8, no OCR or manual corrections. Publisher-provided OCR/text layers are retained as extracted, including errors.",
+      "review_status": "Provenance and reuse-policy/credit check only; no qualified safety/medical/electrical review or edition-currency certification.",
+      "acquisition_batch": "practical-coverage-2026-10-30",
+      "http_last_modified": "Tue, 19 Aug 2025 18:18:53 GMT",
+      "pdf_metadata": {
+        "/Author": "CDC",
+        "/CreationDate": "D:20170927154054-04'00'",
+        "/Creator": "Adobe InDesign CC 2015 (Windows)",
+        "/ModDate": "D:20170927154213-04'00'",
+        "/Producer": "Adobe PDF Library 15.0",
+        "/Subject": "During an emergency, keeping hands clean can help keep you and others healthy. ",
+        "/Title": "Wash Your Hands",
+        "/Trapped": "/False"
+      }
+    },
+    {
+      "id": "cdc-prevent-diarrhea-after-disaster",
+      "title": "Preventing Diarrhea After A Disaster",
+      "publisher": "Centers for Disease Control and Prevention (CDC)",
+      "edition": "CS286698-I; November 27, 2018 (printed footer). Embedded PDF title uses an older Hurricanes title; catalog title follows the visible page.",
+      "publisher_url": "https://www.cdc.gov/water-emergency/media/pdfs/preventing-diarrheal-illness-after-disaster-english-H.pdf",
+      "source_landing_url": "https://www.cdc.gov/water-emergency/communication-resources/index.html",
+      "rights": "CDC agency publication, with no third-party copyright or image credits identified in the intact document. CDC Use of Agency Materials permits reproduction of public-domain agency material subject to attribution, unchanged substantive content, non-endorsement and free-availability notices. Source: CDC. Available without charge from CDC. Agency marks retained only within the original; no endorsement implied. U.S. reuse basis; foreign rights not determined.",
+      "rights_url": "https://www.cdc.gov/other/agencymaterials.html",
+      "rights_evidence": [
+        {
+          "url": "https://www.cdc.gov/other/agencymaterials.html?download=1",
+          "final_url": "https://www.cdc.gov/other/agencymaterials.html?download=1",
+          "retrieved_at": "2026-10-30T16:34:41.836908+00:00",
+          "sha256": "5204c374cc86f838e898026cba3d224a86731e12fbcd72f61533d99d272a7066",
+          "bytes": 84017,
+          "file": "rights/cdc-agency-materials-2026-10-30.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        }
+      ],
+      "topics": [
+        "sanitation",
+        "drinkable-water"
+      ],
+      "dependencies": [
+        "Publisher links to further CDC disaster-disease information and an accessible webpage; those webpages are not installed. This sheet is not a complete medical-treatment reference."
+      ],
+      "url": "https://www.cdc.gov/water-emergency/media/pdfs/preventing-diarrheal-illness-after-disaster-english-H.pdf?download=1",
+      "final_url": "https://www.cdc.gov/water-emergency/media/pdfs/preventing-diarrheal-illness-after-disaster-english-H.pdf?download=1",
+      "file": "originals/cdc-prevent-diarrhea-after-disaster.pdf",
+      "sha256": "a83519f0de21e14665a55f79ca6540a842f9a4569e80bb2753293cf0b5eb1a93",
+      "retrieved_at": "2026-10-30T16:34:42.058567+00:00",
+      "bytes": 583497,
+      "pages": 1,
+      "text_file": "search/cdc-prevent-diarrhea-after-disaster.txt",
+      "text_sha256": "bc666bb15c077868007038887054d82388b70ceb823182dc6ffad49edb8d11d0",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult the complete original PDF for figures, warnings, tables and context. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4; page.extract_text() or empty string, physical pages joined by U+000C form feed; UTF-8, no OCR or manual corrections. Publisher-provided OCR/text layers are retained as extracted, including errors.",
+      "review_status": "Provenance and reuse-policy/credit check only; no qualified safety/medical/electrical review or edition-currency certification.",
+      "acquisition_batch": "practical-coverage-2026-10-30",
+      "http_last_modified": "Tue, 19 Aug 2025 18:18:52 GMT",
+      "pdf_metadata": {
+        "/Author": "CDC",
+        "/CreationDate": "D:20181127112218-05'00'",
+        "/Creator": "Adobe InDesign CC 13.0 (Windows)",
+        "/Keywords": "",
+        "/ModDate": "D:20230816071917-04'00'",
+        "/Producer": "Adobe PDF Library 15.0",
+        "/Subject": "CS 286698A\nAccessible version: https://www.cdc.gov/healthywater/emergency/planning-training-response/preventing-diarrheal-illness-after-disaster.html",
+        "/Title": "Preventing Diarrheal Illness After Hurricanes ",
+        "/Trapped": "/Unknown"
+      }
+    },
+    {
+      "id": "cpsc-portable-generator-hazards",
+      "title": "CPSC Safety Alert: Portable Generator Hazards",
+      "publisher": "U.S. Consumer Product Safety Commission (CPSC)",
+      "edition": "Publication 5123/102021 (printed footer); October 2021. PDF metadata modified 2024-11-14; no claim of a new substantive edition.",
+      "publisher_url": "https://www.cpsc.gov/s3fs-public/5123_SafetyAlert_PortableGenerators_102021.pdf",
+      "rights": "CPSC safety guide. CPSC Privacy and Security Notice permits copying/distributing brochures with credit and no implied endorsement; CPSC Neighborhood Safety Network FAQ explicitly permits use of CPSC safety guides in their entirety and identifies them as public domain. Full-page review found no photographs or third-party copyright credits; the original includes its warning-label diagram and CPSC marks. Source: U.S. Consumer Product Safety Commission. Marks retained only within original; no endorsement implied. U.S. reuse basis; foreign rights not determined.",
+      "rights_url": "https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy",
+      "rights_evidence": [
+        {
+          "url": "https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy",
+          "final_url": "https://www.cpsc.gov/About-CPSC/Policies-Statements-and-Directives/Privacy-Policy",
+          "retrieved_at": "2026-10-30T16:39:10.721631+00:00",
+          "sha256": "cc22ebb36259dffec0ce22a73ff84ddf2276d363b2d95c43f4e38f26bdf09fea",
+          "bytes": 73889,
+          "file": "rights/cpsc-copyright-2026-10-30.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        },
+        {
+          "url": "https://www.cpsc.gov/Safety-Education/Neighborhood-Safety-Network/Neighborhood-Safety-Network-Frequently-Asked-Questions",
+          "final_url": "https://www.cpsc.gov/Safety-Education/Neighborhood-Safety-Network/Neighborhood-Safety-Network-Frequently-Asked-Questions",
+          "retrieved_at": "2026-10-30T16:39:10.555256+00:00",
+          "sha256": "7dc074b0f2ad785e3d11912a2afefe0bd9aa494f6df7ad57034f1a1b0564db5b",
+          "bytes": 54500,
+          "file": "rights/cpsc-guides-reuse-2026-10-30.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        }
+      ],
+      "topics": [
+        "solar-generators"
+      ],
+      "dependencies": [
+        "Publisher directs users to generator and CO-alarm manufacturer instructions and applicable standards; equipment-specific manuals and standards are not installed. No solar or battery-system installation manual is included."
+      ],
+      "url": "https://www.cpsc.gov/s3fs-public/5123_SafetyAlert_PortableGenerators_102021.pdf?VersionId=3D.6KZkXcpeiyriLmSswrdnVQI4JERoN",
+      "final_url": "https://www.cpsc.gov/s3fs-public/5123_SafetyAlert_PortableGenerators_102021.pdf?VersionId=3D.6KZkXcpeiyriLmSswrdnVQI4JERoN",
+      "file": "originals/cpsc-portable-generator-hazards.pdf",
+      "sha256": "e0d63358b2c45b5b6250cb43173113e406b71d49a4bd557e60130dae8ec2ad36",
+      "retrieved_at": "2026-10-30T16:39:10.555385+00:00",
+      "bytes": 111498,
+      "pages": 1,
+      "text_file": "search/cpsc-portable-generator-hazards.txt",
+      "text_sha256": "8fff280d020a63ceaac80f4b0897a44e02ed1943e8eeabb358b279bc4973d729",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult the complete original PDF for figures, warnings, tables and context. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4; page.extract_text() or empty string, physical pages joined by U+000C form feed; UTF-8, no OCR or manual corrections. Publisher-provided OCR/text layers are retained as extracted, including errors.",
+      "review_status": "Provenance and reuse-policy/credit check only; no qualified safety/medical/electrical review or edition-currency certification.",
+      "acquisition_batch": "practical-coverage-2026-10-30",
+      "http_last_modified": "Mon, 21 Apr 2025 15:28:46 GMT",
+      "pdf_metadata": {
+        "/Author": "U.S. Consumer Product Safety Commission",
+        "/CreationDate": "D:20220105164922-05'00'",
+        "/Creator": "Adobe InDesign 17.0 (Macintosh)",
+        "/ModDate": "D:20241114135208-05'00'",
+        "/Producer": "Adobe Acrobat Pro (64-bit) 24 Paper Capture Plug-in",
+        "/Title": "CPSC Safety Alert: Portable Generator Hazards",
+        "/Trapped": "/False"
+      },
+      "extraction_caveat": "This publisher PDF includes an existing OCR layer. Mechanical extraction contains visible OCR/spelling/reading-order defects (for example missing letters); nothing has been silently repaired."
     }
   ],
   "map": {

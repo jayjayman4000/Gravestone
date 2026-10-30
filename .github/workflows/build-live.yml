@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          scripts/smoke-iso.sh dist/gravestone-0.2.0-amd64.iso logs 2>&1 | tee logs/smoke.log
+          scripts/smoke-iso.sh dist/gravestone-0.3.0-amd64.iso logs 2>&1 | tee logs/smoke.log
       - name: Record final disk use
         if: always()
         run: |
@@ -54,7 +54,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: gravestone-0.2.0-amd64
+          name: gravestone-0.3.0-amd64
           path: dist/
           if-no-files-found: warn
           compression-level: 0

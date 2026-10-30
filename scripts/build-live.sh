@@ -22,7 +22,7 @@ cd "$build"
 # auto/config is the single source of lb config options.
 lb config
 lb build
-name=gravestone-0.2.0-amd64.iso
+name=gravestone-0.3.0-amd64.iso
 shopt -s nullglob
 images=(*.hybrid.iso *.iso)
 # .hybrid.iso also matches *.iso; deduplicate before selecting.

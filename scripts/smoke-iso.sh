@@ -52,6 +52,10 @@ firmware_boot UEFI -boot d -cdrom "$iso" \
     -drive "if=pflash,format=raw,readonly=on,file=$ovmf/OVMF_CODE_4M.fd" \
     -drive "if=pflash,format=raw,file=$work/OVMF_VARS.fd"
 # A flashed DD image must boot as USB mass storage, without a fallback CD.
+firmware_boot BIOS-USB \
+    -drive "if=none,id=stick,format=raw,readonly=on,file=$iso" \
+    -device qemu-xhci \
+    -device usb-storage,drive=stick,removable=on,bootindex=1
 cp "$ovmf/OVMF_VARS_4M.fd" "$work/OVMF_USB_VARS.fd"
 firmware_boot UEFI-USB \
     -drive "if=pflash,format=raw,readonly=on,file=$ovmf/OVMF_CODE_4M.fd" \

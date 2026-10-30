@@ -24,7 +24,23 @@
     {
       "id": "food-storage",
       "title": "Foods to keep and shelf-stable foods to acquire",
-      "status": "source-acquisition-pending"
+      "status": "partial-source-backed",
+      "source_ids": [
+        "usda-kitchen-companion-2015"
+      ],
+      "source_pages": [
+        {
+          "source_id": "usda-kitchen-companion-2015",
+          "pdf_pages": [
+            13,
+            14,
+            15,
+            16
+          ],
+          "printed_pages": "11–14"
+        }
+      ],
+      "coverage_scope": "Catalog scope only: USDA food-storage chapter, including shelf-stable food and its associated warnings. Not a complete food-stockpiling, home-canning, nutrition or dietary-needs manual. Edition March 2015; currency not certified."
     },
     {
       "id": "radio-antennas",
@@ -48,7 +64,7 @@
     },
     {
       "id": "bow-crafting",
-      "title": "Bow crafting; the words following \u201cbow and\u201d are unclear in the photo",
+      "title": "Bow crafting; the words following “bow and” are unclear in the photo",
       "status": "source-acquisition-pending"
     },
     {
@@ -59,7 +75,19 @@
     {
       "id": "solar-generators",
       "title": "Setting up solar power and generators",
-      "status": "source-acquisition-pending"
+      "status": "partial-source-backed",
+      "source_ids": [
+        "cpsc-portable-generator-hazards"
+      ],
+      "source_pages": [
+        {
+          "source_id": "cpsc-portable-generator-hazards",
+          "pdf_pages": [
+            1
+          ]
+        }
+      ],
+      "coverage_scope": "Generator hazard reference only. Solar setup, PV component selection, battery storage design, wiring, sizing and equipment-specific installation remain unfilled; no DIY installation procedure supplied."
     },
     {
       "id": "renewable-energy",
@@ -68,18 +96,70 @@
     },
     {
       "id": "salvaged-electronics",
-      "title": "Repurposing electronics for generation; feasibility must be checked, not assumed for \u201calmost any\u201d device",
+      "title": "Repurposing electronics for generation; feasibility must be checked, not assumed for “almost any” device",
       "status": "source-acquisition-pending"
     },
     {
       "id": "drinkable-water",
       "title": "What water is suitable to drink",
-      "status": "source-acquisition-pending"
+      "status": "partial-source-backed",
+      "source_ids": [
+        "cdc-make-water-safe",
+        "cdc-use-safe-water",
+        "cdc-prevent-diarrhea-after-disaster"
+      ],
+      "source_pages": [
+        {
+          "source_id": "cdc-make-water-safe",
+          "pdf_pages": [
+            1
+          ]
+        },
+        {
+          "source_id": "cdc-use-safe-water",
+          "pdf_pages": [
+            1
+          ]
+        },
+        {
+          "source_id": "cdc-prevent-diarrhea-after-disaster",
+          "pdf_pages": [
+            1
+          ]
+        }
+      ],
+      "coverage_scope": "Limited CDC emergency-water fact sheets and warnings. Not field-source identification, contaminant testing, a comprehensive filter specification, or a complete water-system design."
     },
     {
       "id": "sanitation",
       "title": "Staying sanitary",
-      "status": "source-acquisition-pending"
+      "status": "partial-source-backed",
+      "source_ids": [
+        "cdc-wash-hands",
+        "cdc-use-safe-water",
+        "cdc-prevent-diarrhea-after-disaster"
+      ],
+      "source_pages": [
+        {
+          "source_id": "cdc-wash-hands",
+          "pdf_pages": [
+            1
+          ]
+        },
+        {
+          "source_id": "cdc-use-safe-water",
+          "pdf_pages": [
+            1
+          ]
+        },
+        {
+          "source_id": "cdc-prevent-diarrhea-after-disaster",
+          "pdf_pages": [
+            1
+          ]
+        }
+      ],
+      "coverage_scope": "Limited CDC handwashing, safe-water use and disaster hygiene references. No comprehensive emergency toilets, sewage, solid-waste management or infection-control manual."
     },
     {
       "id": "finding-water",
@@ -91,5 +171,20 @@
       "title": "Filtering water",
       "status": "source-acquisition-pending"
     }
-  ]
+  ],
+  "status_definitions": {
+    "source-acquisition-pending": "Requested topic; no topic-specific acquisition completed here. Starter sources may overlap.",
+    "partial-source-backed": "Named originals installed with limited page associations; neither complete coverage nor validated safety guidance. Editorial metadata only."
+  },
+  "last_source_acquisition": {
+    "batch": "practical-coverage-2026-10-30",
+    "new_document_ids": [
+      "usda-kitchen-companion-2015",
+      "cdc-use-safe-water",
+      "cdc-wash-hands",
+      "cdc-prevent-diarrhea-after-disaster",
+      "cpsc-portable-generator-hazards"
+    ],
+    "scope": "Food storage, emergency water/hygiene, generator hazards. Solar-source admission deferred; no topic certified complete."
+  }
 }

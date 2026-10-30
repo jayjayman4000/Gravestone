@@ -39,6 +39,29 @@ class AppTests(unittest.TestCase):
             self.server = None
 
     def request(self, path, body=None, headers=None, method=None):
+        if headers and headers.get('Transfer-Encoding') == 'chunked':
+            # Send this deliberately rejected request in one write. urllib
+            # otherwise races the server's early 400 while sending its final
+            # chunk, raising BrokenPipe before it reads the correct response.
+            import http.client
+            import socket
+            from urllib.parse import urlsplit
+            target = urlsplit(self.base)
+            wire_headers = {'Host': target.netloc, 'Connection': 'close', **headers}
+            packet = (f'{method or "POST"} {path} HTTP/1.1\r\n' + ''.join(
+                f'{name}: {value}\r\n' for name, value in wire_headers.items()) + '\r\n').encode('ascii')
+            data = body or b''
+            if data:
+                packet += f'{len(data):x}\r\n'.encode('ascii') + data + b'\r\n'
+            packet += b'0\r\n\r\n'
+            with socket.create_connection((target.hostname, target.port), timeout=3) as connection:
+                connection.sendall(packet)
+                response = http.client.HTTPResponse(connection)
+                response.begin()
+                try:
+                    return response.status, response.headers, response.read()
+                finally:
+                    response.close()
         req = Request(self.base + path, data=body, headers=headers or {}, method=method)
         try:
             response = urlopen(req, timeout=3)
@@ -256,6 +279,9 @@ class AppTests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertEqual(headers['X-Content-Type-Options'], 'nosniff')
         self.assertIn("default-src 'self'", headers['Content-Security-Policy'])
+        self.assertIn("worker-src 'self'", headers['Content-Security-Policy'])
+        self.assertIn("font-src 'self' blob: data:", headers['Content-Security-Policy'])
+        self.assertNotIn("'unsafe-eval'", headers['Content-Security-Policy'])
         self.assertEqual(headers['Cache-Control'], 'no-store')
         self.assertEqual(headers['Referrer-Policy'], 'no-referrer')
 

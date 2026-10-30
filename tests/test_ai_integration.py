@@ -24,7 +24,7 @@ class AIImageIntegrationTests(unittest.TestCase):
         for dependency in ('build-essential', 'cmake', 'pkg-config', 'curl', 'python3'):
             self.assertIn(dependency, workflow)
         for text in (build, workflow):
-            self.assertIn('gravestone-0.2.0-amd64', text)
+            self.assertIn('gravestone-0.3.0-amd64', text)
 
 if __name__ == '__main__':
     unittest.main()

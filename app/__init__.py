@@ -79,6 +79,8 @@ class DashboardServer(ThreadingHTTPServer):
         self.content_dir = content_dir
         self.data_dir = data_dir
         self.note_lock = threading.Lock()
+        from .maps import MapManager
+        self.maps = MapManager(data_dir)
         super().__init__(address, Handler)
 
 
@@ -96,7 +98,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-store')
         self.send_header('Referrer-Policy', 'no-referrer')
         self.send_header('X-Frame-Options', 'SAMEORIGIN' if getattr(self, 'reader_pdf', False) else 'DENY')
-        policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
+        policy = "default-src 'self'; script-src 'self'; worker-src 'self'; font-src 'self' blob: data:; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
         if urlsplit(self.path).path.startswith('/content/'):
             policy = "sandbox; default-src 'none'; style-src 'unsafe-inline'; img-src data:; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
         if getattr(self, 'reader_pdf', False):
@@ -156,6 +158,13 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if not self.valid_host():
             return self.send_json(403, {'error': 'Loopback Host required'})
+        path = urlsplit(self.path).path
+        if path == '/api/system':
+            from .system_status import system_status
+            return self.send_json(200, system_status(self.app.data_dir))
+        if path.startswith('/api/maps/'):
+            from .maps import handle_get
+            return handle_get(self)
         if self.path == '/api/status':
             self.send_json(200, {
                 'status': 'prototype',
@@ -219,9 +228,14 @@ class Handler(BaseHTTPRequestHandler):
                         text = read_text(self.app.content_dir, document['text_file'], 16 * 1024 * 1024)
                     except (OSError, ValueError):
                         continue
-                    for match in re.finditer(re.escape(query), text, re.IGNORECASE):
-                        results.append({'id': document['id'], 'title': document['title'],
-                                        'file': document['file'], 'excerpt': text[max(0, match.start()-100):match.end()+160]})
+                    for page, source in enumerate(text.split('\f'), 1):
+                        for match in re.finditer(re.escape(query), source, re.IGNORECASE):
+                            results.append({'id': document['id'], 'title': document['title'],
+                                            'publisher': document.get('publisher', ''),
+                                            'file': document['file'], 'page': page,
+                                            'excerpt': source[max(0, match.start()-100):match.end()+160]})
+                            if len(results) >= 50:
+                                break
                         if len(results) >= 50:
                             break
                     if len(results) >= 50:
@@ -232,6 +246,13 @@ class Handler(BaseHTTPRequestHandler):
 
 
     def do_POST(self):
+        if urlsplit(self.path).path in ('/api/maps/download', '/api/maps/import', '/api/maps/remove'):
+            host = self.headers.get('Host', '')
+            if (not self.valid_host() or self.headers.get('Origin') != 'http://' + host
+                    or self.headers.get('Sec-Fetch-Site', 'same-origin') not in ('same-origin', 'none')):
+                return self.send_json(403, {'error': 'Same-origin request required'})
+            from .maps import handle_post
+            return handle_post(self)
         if self.path != '/api/notes':
             return self.send_json(404, {'error': 'Not found'})
         host = self.headers.get('Host', '')

@@ -1,42 +1,38 @@
-# Gravestone 0.2.0 — command-console USB test
+# Gravestone 0.3.0 — civilian kiosk and controlled-reader USB test
 
-Engineering prototype: limited original FEMA/CDC content, worldwide country outlines, and an optional CPU-only local model for keyword assistance. This is an interaction/boot test, not emergency-readiness certification. The model never authors the survival guidance shown in results.
+Engineering prototype: limited original FEMA/CDC/USDA/CPSC content, worldwide country outlines, an opt-in U.S. county map-pack manager, and a CPU-only local model for keyword assistance. This is an interaction/boot test, not emergency-readiness certification. The model never authors the survival guidance shown in results.
 
 ## Release verification
 
 Only use the matching **published prerelease** after its build and boot checks pass. A GitHub Actions artifact can exist even when a test fails; artifact existence alone is not approval to flash it. Read the release's exact build run, source commit, checksum, measured image size, and remaining test limits.
 
-The 0.2.0 build requires:
+The 0.3.0 build requires:
 
 - Application/configuration/source-integrity tests.
 - Pinned model, runtime-source, license and installed-binary integrity checks.
 - Actual source-built bookworm llama.cpp inference and production retrieval, not an HTTP mock. Evidence: `real-inference.json` and `AI_BUILD_PROVENANCE.json`.
 - Real Debian bookworm amd64 hybrid ISO construction, with the 14,000,000,000-byte ceiling enforced.
-- Offline QEMU direct-kernel, BIOS optical, UEFI optical, and UEFI USB-as-disk backend boot checks, with no internal disk attached.
+- Offline QEMU direct-kernel, BIOS optical, UEFI optical, BIOS USB-as-disk and UEFI USB-as-disk backend boot checks, with no internal disk attached.
 
 These checks are distinct from the physical machine test below. They do not prove universal hardware compatibility or notebook persistence across shutdown.
 
 ## Download and verify
 
-Download `gravestone-0.2.0-amd64.iso` and `gravestone-0.2.0-amd64.iso.sha256` from the matching release, not the GitHub Source code ZIP. Compare the checksum with the independently published full checksum in that release.
+Download `gravestone-0.3.0-amd64.iso` and `gravestone-0.3.0-amd64.iso.sha256` from the matching release, not the GitHub Source code ZIP. Compare the checksum with the independently published full checksum in that release.
 
 In Windows PowerShell, in the download directory:
 
 ```powershell
-$expected = ((Get-Content .\gravestone-0.2.0-amd64.iso.sha256 -Raw).Trim() -split '\s+')[0]
+$expected = ((Get-Content .\gravestone-0.3.0-amd64.iso.sha256 -Raw).Trim() -split '\s+')[0]
 if ($expected -notmatch '^[0-9a-fA-F]{64}$') { throw 'Invalid checksum file' }
-$actual = (Get-FileHash .\gravestone-0.2.0-amd64.iso -Algorithm SHA256).Hash
+$actual = (Get-FileHash .\gravestone-0.3.0-amd64.iso -Algorithm SHA256).Hash
 if ($actual -ne $expected) { throw 'CHECKSUM MISMATCH: do not flash' }
 "Checksum matches: $actual"
 ```
 
 A matching hash checks bytes, not publisher guidance accuracy or software safety.
 
-For `v0.2.0-alpha.1` (source `943ea081fe7e75d933205ccc73b5b0efe7041977`, [successful build](https://github.com/jayjayman4000/Gravestone/actions/runs/41081405816)):
-- ISO size: **1,194,983,424 bytes** (1.11 GiB).
-- SHA-256: `918e31863262ea4a309b1f6deb343b590131f9b90def3f39af5c4dbdb175e16e`.
-- Source-built packaged inference, production retrieval, direct-kernel, BIOS/UEFI optical and UEFI raw USB-as-disk backend checks passed. The downloaded ISO checksum and embedded model/runtime/original-document hashes were independently checked.
-- Separate Firefox ESR kiosk interactions passed. Physical 0.2.0 USB/AI retesting and two-reboot persistence remain unverified.
+For this candidate, obtain the exact size, checksum, source commit and successful build link from its published release and `RELEASE_PROVENANCE.json`. Earlier 0.2.0 measurements in `docs/VALIDATION.md` do not validate the 0.3.0 image. Separate controlled-reader Firefox ESR kiosk acceptance passed 24/24 assertions; physical USB/AI retesting and two-reboot persistence remain unverified until performed on this image.
 
 ## Flash from Windows
 
@@ -53,7 +49,7 @@ No remote automation should select, format, or write a physical device on your b
 1. Save work and shut down the target computer. Connect the USB.
 2. Use its one-time firmware boot menu and choose the USB's x86-64 UEFI entry. The correct menu key depends on the manufacturer.
 3. Secure Boot remains unsupported. Before changing firmware settings on a BitLocker/device-encrypted Windows PC, ensure its recovery key is accessible to you offline. Never post that key in chat. Do not clear the TPM or change storage-controller settings.
-4. The live entry should start automatically into **Gravestone / Command**, with the question input as the main screen. No internal-disk installation is supplied.
+4. The live entry should start automatically into **Gravestone**, with top-center search and six topic tiles as the main screen. No internal-disk installation is supplied.
 5. Use a keyboard/mouse and display. Networking is intentionally not configured. ARM/Apple Silicon, firmware-locked computers, unusual graphics hardware, and fixed-advertising USB SSDs remain outside the support claim.
 
 For the desktop plus AI, plan 4 GiB total RAM and 2 GiB available for AI. These are planning targets, not measured universal minima. Older CPUs may be slow; model failure must leave the library and keyword search usable.
@@ -61,7 +57,7 @@ For the desktop plus AI, plan 4 GiB total RAM and 2 GiB available for AI. These 
 ## Interaction checklist
 
 - [ ] Boot menu recognizes the USB and the live entry starts.
-- [ ] Full-screen **Gravestone / Command** appears without a login or terminal command.
+- [ ] Full-screen **Gravestone** appears without a login or terminal command.
 - [ ] Text, mouse, keyboard, scrolling and screen resolution are usable.
 - [ ] Type a question such as `Find safe drinking water guidance`; results show publisher, page and unverified-preview warning, not a generated answer.
 - [ ] After model startup, a successful search explicitly reports local-model keyword assistance. If unavailable/slow, verify the honest keyword fallback still returns source matches. Record which mode was actually observed.
@@ -71,7 +67,9 @@ For the desktop plus AI, plan 4 GiB total RAM and 2 GiB available for AI. These 
 - [ ] Open and return from both original FEMA and CDC PDFs from the library.
 - [ ] Search for a topic outside the collection; it reports limited coverage/no matching sources rather than inventing guidance.
 - [ ] Requested coverage is visibly labeled **not installed**.
-- [ ] Atlas responds to zoom/pan/coordinates. It is country-outline reference geography, not road navigation.
+- [ ] Atlas responds to zoom/pan/coordinates. Default geography is country outlines; road/water geometry requires user-installed county packs. There is no route calculation or potable-water claim.
+- [ ] Four palettes are available: Amber, Red, Green and Contrast. Publisher PDF colors remain unchanged.
+- [ ] PDF Next/Previous change the displayed physical page; Copy matches that page; zoom changes its visible size. A page still rendering must not enable Copy.
 - [ ] Notebook saves and reads back during the current session.
 - [ ] Repeat core interactions with Ethernet disconnected and no Wi-Fi configuration.
 - [ ] Shut down cleanly. A brief press of the physical power button may request shutdown; do not hold it to cut power during a save.

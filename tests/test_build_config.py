@@ -120,7 +120,7 @@ class BuildConfigTests(unittest.TestCase):
             self.assertIn(token, workflow_text)
         self.assertNotIn("gh release create", workflow_text)
         build = (ROOT / "scripts/build-live.sh").read_text()
-        for token in ("lb config", "lb build", "gravestone-0.2.0-amd64.iso", "14000000000", "sha256sum"):
+        for token in ("lb config", "lb build", "gravestone-0.3.0-amd64.iso", "14000000000", "sha256sum"):
             self.assertIn(token, build)
         smoke = (ROOT / "scripts/smoke-iso.sh").read_text()
         for token in ("qemu-system-x86_64", "240", "-accel tcg", "-m 2048", "-smp 2", "-kernel", "-initrd", "-cdrom", "gravestone.smoke=1", "GRAVESTONE_BOOT_OK", "-nic none"):

@@ -40,11 +40,14 @@ else:
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             invocations = [json.loads(line) for line in calls.read_text().splitlines()]
             usb = [args for args in invocations if any('usb-storage,' in arg for arg in args)]
-            self.assertEqual(len(usb), 1, 'Need a distinct raw USB firmware boot, not only CD-ROM boots')
-            self.assertNotIn('-cdrom', usb[0], 'A fallback CD could hide a USB boot failure')
-            self.assertTrue(any('removable=on' in arg for arg in usb[0]))
-            self.assertTrue(any('readonly=on' in arg and 'test.iso' in arg for arg in usb[0]))
-            self.assertEqual(len(invocations), 4)
+            self.assertEqual(len(usb), 2, 'Need separate BIOS and UEFI raw USB firmware boots')
+            for args in usb:
+                self.assertNotIn('-cdrom', args, 'A fallback CD could hide a USB boot failure')
+                self.assertTrue(any('removable=on' in arg for arg in args))
+                self.assertTrue(any('readonly=on' in arg and 'test.iso' in arg for arg in args))
+            self.assertEqual(sum(any('if=pflash' in arg for arg in args) for args in usb), 1)
+            self.assertEqual(len(invocations), 5)
+            self.assertIn('BIOS-USB', result.stdout)
             self.assertIn('UEFI-USB', result.stdout)
 
 if __name__ == '__main__':

@@ -1,31 +1,12 @@
 'use strict';
-// Retrieval UI only. Publisher excerpts are displayed verbatim, never rewritten.
+// Retrieval UI: exact publisher excerpts, never generated procedures.
 (() => {
   const state = $('model-state');
   const status = $('command-status');
   const results = $('command-results');
   const cancel = $('command-cancel');
-  let searched = false;
   let version = 0;
   let controller = null;
-
-  api('/api/status').then(() => {
-    if (!searched) state.textContent = 'Model status shown after search';
-  }).catch(() => {
-    if (!searched) state.textContent = 'Model status shown after search';
-  });
-
-  api('/content/coverage.json').then(data => {
-    if (!Array.isArray(data.topics)) throw new Error('Coverage list unavailable');
-    $('coverage-description').textContent = (typeof data.description === 'string' ? data.description + ' ' : '') + 'Requests only — not installed instructions.';
-    $('coverage-topics').replaceChildren();
-    for (const topic of data.topics) {
-      if (typeof topic.title === 'string') $('coverage-topics').append(element('li', topic.title + ' — not installed; source acquisition pending'));
-    }
-    if (!data.topics.length) $('coverage-topics').append(element('li', 'No coverage requests listed.'));
-  }).catch(() => {
-    $('coverage-topics').replaceChildren(element('li', 'Requested coverage list unavailable. This does not change the installed source library.'));
-  });
 
   async function search(event) {
     event.preventDefault();
@@ -33,47 +14,43 @@
     if (controller) controller.abort();
     controller = null;
     cancel.hidden = true;
-    searched = true;
     results.replaceChildren();
     const query = $('command-query').value.trim();
     if (!query || query.length > 200) {
-      state.textContent = 'Model status shown after search';
-      status.textContent = query ? 'Use at most 200 characters per question.' : 'Enter a question to search the installed library.';
+      state.textContent = '';
+      status.textContent = query ? 'Use at most 200 characters per search.' : 'Enter a search term or choose a topic.';
       $('command-query').focus();
       return;
     }
     controller = new AbortController();
     cancel.hidden = false;
-    state.textContent = 'Local model: checking';
+    state.textContent = 'Searching…';
     status.textContent = 'Searching installed source text…';
     results.setAttribute('aria-busy', 'true');
     try {
       const data = await api('/api/command?q=' + encodeURIComponent(query), {signal: controller.signal});
-      await libraryReady; // Retain full publisher URL and rights from the manifest.
+      await libraryReady;
       if (current !== version) return;
-      state.textContent = (data.mode === 'ai-assisted' ? 'Locally powered by Qwen · keyword assistance' : 'Keyword search') + ' · ' + (data.model_status || 'Status not supplied');
-      status.textContent = data.results.length + ' source preview matches. Read the originals before relying on any excerpt.';
-      results.append(element('p', 'Question: ' + data.query, 'query-echo'),
-                     element('p', 'Search terms: ' + data.terms.join(', '), 'terms'),
-                     element('p', data.warning || PREVIEW_WARNING, 'warning'));
-      if (data.message) results.append(element('p', data.message, 'retrieval-message'));
-      if (!data.results.length) results.append(element('p', 'Collection gap: no matching source previews in this search. Coverage is incomplete; browse the original library or obtain an identified publisher source. No answer is generated.', 'warning'));
+      state.textContent = data.mode === 'ai-assisted' ? 'Keyword assistance' : 'Keyword search';
+      status.textContent = data.results.length ? data.results.length + ' source excerpts for “' + query + '”' : 'No matching installed source for “' + query + '”. Try another term or browse Source Documents.';
+      if (!data.results.length) return;
       for (const hit of data.results) {
-        const source = {...hit, ...documentsByFile.get(hit.file)};
+        // Provenance comes from the manifest; the physical page belongs to this hit.
+        const source = {...hit, ...documentsByFile.get(hit.file), page: hit.page};
         const card = element('article', undefined, 'search-hit');
-        card.append(element('h3', hit.title),
-                    element('p', (hit.publisher || 'Publisher not supplied') + ' · ' + (hit.page ? 'Page ' + hit.page : 'Page not available'), 'source-meta'),
-                    element('p', data.warning || PREVIEW_WARNING, 'warning'),
-                    element('pre', hit.excerpt),
-                    element('p', 'Matched terms: ' + (hit.matched_terms || []).join(', '), 'small'),
-                    localLink(source, 'Read original in full'));
+        const open = localLink(source, hit.title);
+        open.className = 'source-open';
+        open.setAttribute('aria-label', hit.title + ' — ' + (hit.page ? 'open PDF page ' + hit.page : 'open original'));
+        card.append(open,
+          element('p', (hit.publisher || source.publisher || 'Publisher not supplied') + ' · ' + (hit.page ? 'PDF page ' + hit.page : 'Page not indexed'), 'source-meta'),
+          element('pre', hit.excerpt, 'snippet'));
         results.append(card);
       }
     } catch (error) {
       if (current !== version) return;
-      state.textContent = 'Search unavailable · model state not confirmed';
+      state.textContent = 'Search unavailable';
       results.replaceChildren();
-      status.textContent = 'Search failed: ' + error.message + '. Retry or use the source library below.';
+      status.textContent = 'Search failed: ' + error.message + '. Retry or browse Source Documents.';
     } finally {
       if (current === version) {
         controller = null;
@@ -89,16 +66,30 @@
     controller = null;
     cancel.hidden = true;
     results.setAttribute('aria-busy', 'false');
-    state.textContent = 'Model status shown after search';
-    status.textContent = 'Search cancelled. No results retained.';
+    state.textContent = '';
+    status.textContent = 'Search cancelled.';
     results.replaceChildren();
     $('command-query').focus();
   });
-  for (const id of ['example-water', 'example-power']) {
-    $(id).addEventListener('click', () => {
-      $('command-query').value = id === 'example-water' ? 'Find safe drinking water guidance' : 'Find power outage guidance';
+  const topics = {
+    'first-aid': 'first aid trauma', water: 'water food', repair: 'engine repair',
+    power: 'generator radio', shelter: 'shelter heating'
+  };
+  for (const [topic, query] of Object.entries(topics)) {
+    $('topic-' + topic).addEventListener('click', () => {
+      $('command-query').value = query;
       $('command-query').focus();
       return search({preventDefault() {}});
     });
   }
+  libraryReady.then(library => {
+    if (!library) return;
+    const titles = library.documents.map(doc => doc.title).join(' ');
+    // These labels describe title-level coverage, not source safety verification.
+    $('coverage-first-aid').textContent = /first aid|trauma/i.test(titles) ? 'Search installed sources' : 'Trauma manual: Not installed';
+    $('coverage-repair').textContent = /repair|maintenance/i.test(titles) ? 'Search installed sources' : 'Repair manual: Not installed';
+    $('coverage-water').textContent = /water|food/i.test(titles) ? 'Water & food sources · foraging not installed' : 'Dedicated sources: Not installed';
+    $('coverage-power').textContent = /generator/i.test(titles) ? 'Generator safety · radio manual not installed' : 'Dedicated sources: Not installed';
+    $('coverage-shelter').textContent = /preparedness/i.test(titles) ? 'Preparedness · defense manual not installed' : 'Dedicated sources: Not installed';
+  });
 })();

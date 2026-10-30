@@ -6,3 +6,13 @@ content/maps/** -text
 # Preserve pinned upstream license/model-card bytes, including CRLF/spacing.
 ai/licenses/** -text -whitespace
 ai/upstream/** -text -whitespace
+# Preserve downloaded map evidence and vendored runtime/resource bytes.
+content/maps/*-original.* -text -whitespace
+app/_vendor/shapefile.py -text -whitespace
+app/_vendor/LICENSE-pyshp.TXT -text -whitespace
+app/static/pdfjs/pdf.min.mjs -text -whitespace
+app/static/pdfjs/pdf.worker.min.mjs -text -whitespace
+app/static/pdfjs/LICENSE -text -whitespace
+app/static/pdfjs/cmaps/** -text -whitespace
+app/static/pdfjs/standard_fonts/** -text -whitespace
+app/static/pdfjs/wasm/** -text -whitespace

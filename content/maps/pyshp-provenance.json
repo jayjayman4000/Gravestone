@@ -1,0 +1,16 @@
+{
+  "version": "2.3.1",
+  "license": "MIT",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/GeospatialPython/pyshp/2.3.1/shapefile.py",
+      "path": "app/_vendor/shapefile.py",
+      "sha256": "9c749d73e31cc332e4683130a808258b407d2ba8cf33a5e1d5ea190c0eaae73f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GeospatialPython/pyshp/2.3.1/LICENSE.TXT",
+      "path": "app/_vendor/LICENSE-pyshp.TXT",
+      "sha256": "6cfcbf778f6ff3a4dc29e864f5729828c3cfc0ad8140f3e9951a68c4e6dbbdfa"
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+<mods xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd" ID="P0b002ee1d0e00805">
+    <name type="corporate">
+         <namePart>United States Government Publishing Office</namePart>
+         <role>
+              <roleTerm authority="marcrelator" type="text">publisher</roleTerm>
+              <roleTerm authority="marcrelator" type="code">pbl</roleTerm>
+        </role>
+         <role>
+              <roleTerm authority="marcrelator" type="text">distributor</roleTerm>
+              <roleTerm authority="marcrelator" type="code">dst</roleTerm>
+        </role>
+    </name>
+    <name type="corporate">
+         <namePart>United States</namePart>
+         <namePart>Agriculture Department</namePart>
+         <namePart>Food Safety and Inspection Service</namePart>
+         <role>
+              <roleTerm authority="marcrelator" type="text">author</roleTerm>
+              <roleTerm authority="marcrelator" type="code">aut</roleTerm>
+        </role>
+         <description>Government Organization</description>
+    </name>
+    <typeOfResource>text</typeOfResource>
+    <genre authority="marcgt">government publication</genre>
+    <language>
+         <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+    </language>
+    <extension>
+         <collectionCode>GOVPUB</collectionCode>
+         <category>Executive Agency Publications</category>
+         <branch>executive</branch>
+         <dateIngested>2025-03-20</dateIngested>
+    </extension>
+    <originInfo>
+         <publisher>Agriculture Department</publisher>
+         <dateIssued encoding="w3cdtf">2015-01-01</dateIssued>
+         <issuance>monographic</issuance>
+    </originInfo>
+    <physicalDescription>
+         <note type="source content type">harvested</note>
+         <digitalOrigin>born digital</digitalOrigin>
+         <extent>50 digital object pages</extent>
+    </physicalDescription>
+    <classification authority="sudocs">A 110.8:K 64/2015</classification>
+    <identifier type="uri">https://www.govinfo.gov/app/details/GOVPUB-A110-PURL-gpo234150</identifier>
+    <identifier type="local">P0b002ee1d0e00805</identifier>
+    <identifier type="ILS system id">001443138</identifier>
+    <identifier type="purl">https://purl.fdlp.gov/GPO/gpo234150</identifier>
+    <identifier type="oclc">(OCoLC)1463919754</identifier>
+    <recordInfo>
+         <recordContentSource authority="marcorg">DGPO</recordContentSource>
+         <recordCreationDate encoding="w3cdtf">2025-03-20</recordCreationDate>
+         <recordChangeDate encoding="w3cdtf">2026-06-26</recordChangeDate>
+         <recordIdentifier source="DGPO">GOVPUB-A110-PURL-gpo234150</recordIdentifier>
+         <recordOrigin>machine generated</recordOrigin>
+         <languageOfCataloging>
+              <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+        </languageOfCataloging>
+    </recordInfo>
+    <accessCondition type="GPO scope determination">fdlp</accessCondition>
+    <extension>
+         <docClass>A110</docClass>
+         <accessId>GOVPUB-A110-PURL-gpo234150</accessId>
+         <uniqueId>PURL-gpo234150</uniqueId>
+         <ACCode>GOVPUB</ACCode>
+         <field name="Content Origin">This content was harvested from online sources of the original hosting or authoring agency and may not reflect current policy. As Federal agencies add publications to their websites, or report new publications to GPO per statutory mandate (44 U.S.C. §§ 1710, 1902-1903), GPO ensures long-term preservation of and access to the content.</field>
+         <dateIssued notSpecified="day-month">2015</dateIssued>
+         <digitizedContent>
+              <code>BIBCONEW</code>
+              <date>20241028</date>
+        </digitizedContent>
+         <digitizedContent>
+              <code>UNREPORTEDPUBSSTAFF</code>
+        </digitizedContent>
+         <digitizedContent>
+              <code>PERM_INGEST_01162025</code>
+        </digitizedContent>
+         <purlNumber>gpo234150</purlNumber>
+    </extension>
+    <location>
+         <url displayLabel="Content Detail" access="object in context">https://www.govinfo.gov/app/details/GOVPUB-A110-PURL-gpo234150</url>
+         <url displayLabel="PDF rendition" access="raw object">https://www.govinfo.gov/content/pkg/GOVPUB-A110-PURL-gpo234150/pdf/GOVPUB-A110-PURL-gpo234150.pdf</url>
+    </location>
+    <titleInfo>
+         <title>Kitchen Companion: Your Safe Food Handbook</title>
+    </titleInfo>
+    <subject>
+         <topic>Food</topic>
+         <topic>Food handling</topic>
+         <topic>Food spoilage</topic>
+         <topic>Safety measures</topic>
+    </subject>
+    <identifier type="sudoc item number">0032-A-03 (online)</identifier>
+    <name type="corporate">
+         <namePart>United States</namePart>
+         <namePart>Food Safety and Inspection Service,</namePart>
+         <role>
+              <roleTerm type="text">issuing body.</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+         <place>
+              <placeTerm authority="marccountry" type="code">dcu</placeTerm>
+        </place>
+         <publisher>United States Department of Agriculture, [Food Safety and Inspection Service]</publisher>
+         <dateIssued>2015.</dateIssued>
+         <issuance>monographic</issuance>
+    </originInfo>
+    <physicalDescription>
+         <extent>1 online resource (46 pages) : color illustrations</extent>
+    </physicalDescription>
+    <classification authority="sudocs">A 110.8:K 64/2015</classification>
+    <identifier type="sudoc-item-number">0032-A-03 (online)</identifier>
+    <typeOfResource>text</typeOfResource>
+    <genre authority="marcgt">handbook</genre>
+    <genre authority="lcgft">Handbooks and manuals.</genre>
+    <language>
+         <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+    </language>
+    <note>&quot;February 2008; slightly revised March 2015&quot;--Page [3] of cover.</note>
+    <note>&quot;Clean, separate, cook, chill.&quot;</note>
+    <note>In scope of the U.S. Government Publishing Office Catalog and Indexing Program (C&amp;I) and Federal Depository Library Program (FDLP).</note>
+    <subject>
+         <geographicCode authority="marcgac">n-us---</geographicCode>
+    </subject>
+    <subject authority="lcsh">
+         <topic>Food</topic>
+         <topic>Safety measures</topic>
+         <genre>Handbooks, manuals, etc</genre>
+    </subject>
+    <subject authority="lcsh">
+         <topic>Food handling</topic>
+         <genre>Handbooks, manuals, etc</genre>
+    </subject>
+    <subject authority="lcsh">
+         <topic>Food spoilage</topic>
+         <genre>Handbooks, manuals, etc</genre>
+    </subject>
+    <relatedItem displayLabel="Print version:" type="otherFormat">
+         <titleInfo>
+              <title>Kitchen companion: your safe food handbook</title>
+        </titleInfo>
+         <originInfo>
+              <publisher>Washington, D.C. : United States Department of Agriculture, 2015</publisher>
+        </originInfo>
+         <identifier type="local">(OCoLC)918585870</identifier>
+    </relatedItem>
+    <location>
+         <url displayLabel="electronic resource" usage="primary display">https://purl.fdlp.gov/GPO/gpo234150</url>
+    </location>
+    <location>
+         <url displayLabel="electronic resource" note="Address at time of PURL creation">https://www.fsis.usda.gov/sites/default/files/media_file/2020-12/Kitchen-Companion.pdf</url>
+    </location>
+    <titleInfo type="alternative">
+         <title>Kitchen companion: your safe food handbook</title>
+    </titleInfo>
+    <extension>
+         <searchTitle>
+              <title>Kitchen companion: your safe food handbook</title>
+        </searchTitle>
+    </extension>
+</mods>

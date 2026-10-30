@@ -6,7 +6,14 @@
     return [width / 2 + (lon - view.lon) * scale, height / 2 - (lat - view.lat) * scale];
   }
   function changeView(view, lon, lat, factor) {
-    return {lon: clamp(view.lon + lon, -180, 180), lat: clamp(view.lat + lat, -90, 90), zoom: clamp(view.zoom * factor, 1, 16)};
+    return {...view, lon: clamp(view.lon + lon, -180, 180), lat: clamp(view.lat + lat, -90, 90), zoom: clamp(view.zoom * factor, 1, view.maxZoom || 16)};
+  }
+  function fitBounds(bbox, width, height) {
+    width = Math.max(1,width); height = Math.max(1,height);
+    const [west,south,east,north] = bbox;
+    const scale = Math.min(width / 360, height / 180);
+    const zoom = Math.min(width / Math.max(.001,east-west), height / Math.max(.001,north-south)) * .8 / scale;
+    return {lon:(west+east)/2, lat:(south+north)/2, zoom:clamp(zoom,1,131072), maxZoom:131072};
   }
   function parseCoordinates(latitude, longitude) {
     if (!latitude.trim() || !longitude.trim()) throw new Error('Enter both latitude and longitude.');
@@ -27,7 +34,7 @@
     return placed.every(([px,py,pw,ph]) => x > px+pw+4 || x+w+4 < px || y > py+ph+4 || y+h+4 < py);
   }
   if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {projectPoint, changeView, parseCoordinates, rings, labelFits};
+    module.exports = {projectPoint, changeView, parseCoordinates, rings, labelFits, fitBounds};
     return;
   }
   class Atlas {
@@ -36,7 +43,10 @@
       this.ctx = canvas.getContext('2d');
       if (!this.ctx) throw new Error('Canvas rendering is unavailable in this browser.');
       this.features = features;
-      this.view = {lon:0, lat:0, zoom:1};
+      this.view = {lon:0, lat:0, zoom:1, maxZoom:131072};
+      this.packs = [];
+      this.layers = {roads:true,water:true,labels:true};
+      new MutationObserver(() => this.schedule()).observe(document.documentElement, {attributes:true,attributeFilter:['data-theme']});
       this.marker = null;
       this.drag = null;
       this.frame = null;
@@ -76,6 +86,9 @@
       const rect = this.canvas.getBoundingClientRect();
       this.width = rect.width;
       this.height = rect.height;
+      if (this.pendingBounds && this.width > 0 && this.height > 0) {
+        this.view = fitBounds(this.pendingBounds,this.width,this.height);this.pendingBounds=null;
+      }
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       this.canvas.width = Math.round(this.width * dpr);
       this.canvas.height = Math.round(this.height * dpr);
@@ -87,19 +100,29 @@
       this.frame = requestAnimationFrame(() => {this.frame = null; this.draw();});
     }
     zoom(factor) { this.view = changeView(this.view, 0, 0, factor); this.schedule(); }
-    reset() { this.view = {lon:0, lat:0, zoom:1}; this.marker = null; this.schedule(); }
+    reset() { this.view = {lon:0, lat:0, zoom:1,maxZoom:131072}; this.marker = null; this.schedule(); }
+    setPacks(packs, fit=true) {
+      this.packs = packs;
+      if (fit && packs.length) {
+        if (this.width > 0 && this.height > 0) this.view = fitBounds(packs[0].bbox,this.width,this.height);
+        else this.pendingBounds = packs[0].bbox;
+      }
+      this.schedule();
+    }
     draw() {
       const ctx = this.ctx;
       const point = (lon, lat) => projectPoint(lon,lat,this.view,this.width,this.height);
-      ctx.fillStyle = '#101a14';
+      const styles = getComputedStyle(document.documentElement);
+      const color = name => styles.getPropertyValue('--map-' + name).trim() || styles.getPropertyValue('--text').trim() || '#888';
+      ctx.fillStyle = color('bg');
       ctx.fillRect(0,0,this.width,this.height);
-      ctx.strokeStyle = '#263a2c';
+      ctx.strokeStyle = color('grid');
       ctx.lineWidth = .7;
       ctx.beginPath();
       for (let lon=-180; lon<=180; lon+=30) {ctx.moveTo(...point(lon,-90));ctx.lineTo(...point(lon,90));}
       for (let lat=-90; lat<=90; lat+=30) {ctx.moveTo(...point(-180,lat));ctx.lineTo(...point(180,lat));}
       ctx.stroke();
-      ctx.strokeStyle = '#a8bc86';
+      ctx.strokeStyle = color('line');
       ctx.lineWidth = 1;
       const labelBoxes = [];
       for (const feature of this.features) {
@@ -130,16 +153,53 @@
             const box = [x-width/2,y-10,width,13];
             if (box[0] < 4 || box[0]+width > this.width-4 || !labelFits(box,labelBoxes)) continue;
             labelBoxes.push(box);
-            ctx.textAlign='center'; ctx.fillStyle='#d0dbbd'; ctx.fillText(String(name),x,y);
+            ctx.textAlign='center'; ctx.fillStyle=color('label'); ctx.fillText(String(name),x,y);
           }
         }
       }
+      for (const pack of this.packs) {
+        if (!this.layers[pack.layer]) continue;
+        // Draw minor paths first; primary/secondary highways remain distinguishable.
+        const ranked = pack.features;
+        for (const feature of ranked) {
+          const major = ['S1100','S1200'].includes(feature.properties.mtfcc);
+          ctx.strokeStyle = color(pack.layer === 'water' ? 'water' : 'road');
+          ctx.lineWidth = pack.layer === 'water' ? 1.1 : major ? 2.5 : .8;
+          ctx.globalAlpha = pack.layer === 'water' ? .75 : major ? 1 : .55;
+          ctx.setLineDash(pack.layer === 'water' ? [5,3] : []);
+          ctx.beginPath();
+          let anchor = null;
+          for (const line of feature.geometry.coordinates) {
+            let previous = null;
+            for (const coordinate of line) {
+              const xy = point(...coordinate);
+              if (!previous || Math.abs(coordinate[0]-previous[0]) > 180) ctx.moveTo(...xy);
+              else ctx.lineTo(...xy);
+              if (xy[0]>8 && xy[0]<this.width-8 && xy[1]>16 && xy[1]<this.height-8) anchor = xy;
+              previous = coordinate;
+            }
+          }
+          ctx.stroke();
+          const name = feature.properties.name;
+          if (this.layers.labels && name && anchor && (major || this.view.zoom > 1000)) {
+            ctx.font = '11px system-ui';
+            const width = ctx.measureText(name).width;
+            const box = [anchor[0]-width/2,anchor[1]-10,width,13];
+            if (labelFits(box,labelBoxes)) {
+              labelBoxes.push(box); ctx.globalAlpha=1; ctx.textAlign='center';
+              ctx.lineWidth=3; ctx.strokeStyle=color('bg');ctx.strokeText(name,...anchor);
+              ctx.fillStyle=color('label');ctx.fillText(name,...anchor);
+            }
+          }
+        }
+      }
+      ctx.globalAlpha=1;ctx.setLineDash([]);
       if (this.marker) {
         const [x,y] = point(this.marker.lon,this.marker.lat);
-        ctx.strokeStyle='#efc78a';ctx.lineWidth=2;ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);
+        ctx.strokeStyle=color('marker');ctx.lineWidth=2;ctx.beginPath();ctx.arc(x,y,5,0,Math.PI*2);
         ctx.moveTo(x-12,y);ctx.lineTo(x+12,y);ctx.moveTo(x,y-12);ctx.lineTo(x,y+12);ctx.stroke();
       }
-      document.getElementById('map-status').textContent = `Center ${this.view.lat.toFixed(2)}°, ${this.view.lon.toFixed(2)}° · ${this.view.zoom.toFixed(1)}× · equirectangular overview`;
+      document.getElementById('map-status').textContent = `Center ${this.view.lat.toFixed(4)}°, ${this.view.lon.toFixed(4)}° · ${this.view.zoom.toFixed(1)}× · ${this.packs.length ? this.packs.map(p => p.name + ' ' + p.layer + ' (2025)').join(' · ') : 'country overview; no regional detail displayed'} · reference, not routing`;
     }
   }
   async function loadMap() {
@@ -155,6 +215,8 @@
       const features = geo.features.filter(f => f.geometry && ['Polygon','MultiPolygon'].includes(f.geometry.type));
       if (!features.length) throw new Error('No country polygons are available.');
       const atlas = new Atlas(get('world-map'), features);
+      window.gravestoneAtlas = atlas;
+      document.dispatchEvent(new Event('gravestone:map-ready'));
       get('map-source').textContent = [library.map.publisher, library.map.rights].filter(Boolean).join(' · ') || 'Map provenance not supplied.';
       const names = features.map(f => f.properties && (f.properties.name || f.properties.iso_a3)).filter(Boolean).sort();
       get('map-countries').textContent = names.length ? names.join(' · ') : 'Country names are not supplied in this map.';
@@ -167,7 +229,7 @@
         try {
           const coordinates = parseCoordinates(get('latitude').value,get('longitude').value);
           atlas.marker = coordinates;
-          atlas.view = {...coordinates,zoom:Math.max(3,atlas.view.zoom)};
+          atlas.view = {...coordinates,zoom:Math.max(3,atlas.view.zoom),maxZoom:131072};
           get('coordinate-status').textContent = 'Entered reference point only; not a GPS fix. Coordinates are not saved.';
           atlas.schedule();
         } catch (error) {get('coordinate-status').textContent = error.message;}
@@ -178,4 +240,7 @@
     }
   }
   loadMap();
+  if (!document.querySelector('script[src="/static/maps.js"]')) {
+    const script = document.createElement('script');script.src='/static/maps.js';document.head.append(script);
+  }
 })();

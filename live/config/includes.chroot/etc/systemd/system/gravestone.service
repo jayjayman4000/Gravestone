@@ -1,0 +1,29 @@
+[Unit]
+Description=Gravestone local offline application
+Requires=live-config.service
+After=live-config.service
+
+[Service]
+Type=simple
+User=user
+Group=user
+WorkingDirectory=/opt/gravestone
+Environment=HOME=/home/user
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStartPre=/usr/bin/mkdir -p /home/user/.local/share/gravestone
+ExecStart=/usr/bin/python3 -m app --data-dir /home/user/.local/share/gravestone --host 127.0.0.1 --port 8766
+ExecStartPost=/usr/local/bin/gravestone-wait-ready
+ExecStartPost=/usr/bin/echo GRAVESTONE_SERVICE_READY
+StandardOutput=journal+console
+TimeoutStartSec=150
+Restart=on-failure
+RestartSec=2
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=false
+ReadWritePaths=/home/user
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

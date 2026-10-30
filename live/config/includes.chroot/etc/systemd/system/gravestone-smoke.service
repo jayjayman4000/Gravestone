@@ -1,0 +1,15 @@
+[Unit]
+Description=Opt-in CI boot smoke and shutdown
+ConditionKernelCommandLine=gravestone.smoke=1
+Requires=gravestone.service
+After=gravestone.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/gravestone-boot-smoke
+TimeoutStartSec=150
+StandardOutput=journal+console
+StandardError=journal+console
+
+[Install]
+WantedBy=multi-user.target

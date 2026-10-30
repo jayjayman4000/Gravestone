@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+xset s off || true
+xset -dpms || true
+xset s noblank || true
+openbox &
+wm=$!
+trap 'kill "$wm" 2>/dev/null || true' EXIT HUP INT TERM
+/usr/local/bin/gravestone-wait-ready
+# Keep the X session alive; restart the kiosk if its window is closed.
+while :; do
+    firefox-esr --no-remote --kiosk http://127.0.0.1:8766 || true
+    sleep 2
+done

@@ -1,0 +1,13 @@
+{
+  "policies": {
+    "DisableAppUpdate": true,
+    "DisableTelemetry": true,
+    "DisableFirefoxStudies": true,
+    "DisablePocket": true,
+    "DontCheckDefaultBrowser": true,
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "CaptivePortal": false,
+    "DNSOverHTTPS": {"Enabled": false, "Locked": true}
+  }
+}

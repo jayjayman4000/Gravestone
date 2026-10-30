@@ -1,0 +1,16 @@
+#!/bin/sh
+# A bounded check shared by the kiosk and boot smoke service.
+set -eu
+url=${1:-http://127.0.0.1:8766/api/status}
+attempts=${2:-90}
+delay=${3:-1}
+i=0
+while [ "$i" -lt "$attempts" ]; do
+    if curl --noproxy '*' --fail --silent --show-error --max-time 2 "$url" >/dev/null 2>&1; then
+        exit 0
+    fi
+    i=$((i + 1))
+    sleep "$delay"
+done
+printf 'Gravestone readiness failed: %s\n' "$url" >&2
+exit 1

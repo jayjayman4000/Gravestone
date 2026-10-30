@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.local/
+build/
+dist/
+*.iso
+*.img
+*.qcow2
+*.log
+notes.txt

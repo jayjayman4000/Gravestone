@@ -1,0 +1,10 @@
+#!/bin/sh
+set -eu
+# Defense in depth: ordinary boots never power off automatically.
+case " $(cat /proc/cmdline) " in
+    *" gravestone.smoke=1 "*) ;;
+    *) exit 0 ;;
+esac
+/usr/local/bin/gravestone-wait-ready http://127.0.0.1:8766/api/status 100 1
+printf '\nGRAVESTONE_BOOT_OK\n' >/dev/ttyS0
+systemctl poweroff --no-block

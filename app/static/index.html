@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Gravestone offline reference library, world overview, and private notebook.">
+  <title>Gravestone · Offline field desk</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/style.css">
+  <script defer src="/static/app.js"></script>
+  <script defer src="/static/map.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<aside class="sidebar">
+  <a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">G</span><span>Gravestone<span class="brand-sub">OFFLINE FIELD DESK</span></span></a>
+  <div class="sidebar-section">YOUR WORKSPACE</div>
+  <nav aria-label="Main navigation">
+    <a href="#main"><span aria-hidden="true">◈</span> Overview</a>
+    <a href="#library"><span aria-hidden="true">▤</span> Source library</a>
+    <a href="#atlas"><span aria-hidden="true">◎</span> Reference atlas</a>
+    <a href="#notebook"><span aria-hidden="true">▱</span> Field notebook</a>
+  </nav>
+  <div class="sidebar-bottom"><span class="pill">LOCAL-FIRST</span><p>No cloud. No account.<br>No generated guidance.</p><span class="small">PROTOTYPE / OFFLINE EDITION</span></div>
+</aside>
+<div class="workspace">
+<header class="topbar"><span>WORKSPACE <span class="separator">/</span> OVERVIEW</span><span class="connection"><span aria-hidden="true">●</span> Local service</span></header>
+<main id="main" tabindex="-1">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="eyebrow">BUILT FOR WHEN THE NETWORK ISN’T THERE</div>
+    <h1 id="hero-title">Knowledge, without<br>a connection<span class="accent">.</span></h1>
+    <p>Original reference documents. An offline world overview.<br>Your own notes. All in one quiet place.</p>
+    <a class="button primary" href="#library">Explore the library <span aria-hidden="true">↗</span></a>
+    <div class="hero-stamp" aria-hidden="true"><span>G</span><small>GRAVESTONE<br>OFFLINE REFERENCE</small></div>
+  </section>
+  <section class="status-grid" aria-label="Workspace status">
+    <div><span class="eyebrow">SOURCE DOCUMENTS</span><strong id="document-count">—</strong><span class="small">Original files, not AI answers</span></div>
+    <div><span class="eyebrow">RUNTIME</span><strong id="runtime-status">Connecting…</strong><span class="small">Loopback service · no remote assets</span></div>
+    <div class="persistence"><span class="eyebrow">NOTE STORAGE</span><strong>Verify persistence</strong><span class="small" id="persistence-note">Persistence is not verified. Check your data directory before relying on saved notes.</span></div>
+  </section>
+  <section class="panel" id="library" aria-labelledby="library-title">
+    <div class="section-head"><div><span class="eyebrow">01 / ORIGINAL SOURCES</span><h2 id="library-title">The reference shelf</h2></div><span class="pill">READ THE ORIGINAL</span></div>
+    <p class="muted">Open locally stored originals for complete context. Source metadata is supplied with the collection; the app does not verify the advice or its currency.</p>
+    <form id="search-form" role="search"><label for="search-query">Search machine-extracted document text</label><div class="input-row"><input id="search-query" type="search" maxlength="200" placeholder="Find a word or phrase in the collection…"><button type="submit">Search sources</button></div></form>
+    <div id="search-results" aria-live="polite"></div>
+    <div id="document-list" class="document-list" aria-live="polite"><p>Loading source library…</p></div>
+  </section>
+  <section class="panel" id="atlas" aria-labelledby="atlas-title">
+    <div class="section-head"><div><span class="eyebrow">02 / GEOGRAPHIC REFERENCE</span><h2 id="atlas-title">A wider perspective</h2></div><span class="pill">WORLD OVERVIEW</span></div>
+    <p class="muted">Country outlines for reference only — not a navigation or street map. No routes, terrain, live location, or detailed regional coverage.</p>
+    <div id="map-container">
+      <canvas id="world-map" tabindex="0" role="img" aria-label="Offline country outlines; interactive equirectangular reference map" aria-describedby="map-instructions map-status">Country outlines require a canvas-capable browser. See the country list below.</canvas>
+      <div class="map-toolbar"><span id="map-status" role="status" aria-live="polite">Loading reference map…</span><div class="map-buttons"><button type="button" id="zoom-in" aria-label="Zoom in" disabled>+</button><button type="button" id="zoom-out" aria-label="Zoom out" disabled>−</button><button type="button" id="map-reset" disabled>Reset</button></div></div>
+    </div>
+    <p id="map-instructions" class="small">Drag to pan; scroll to zoom. Keyboard: focus the map, use arrow keys to pan, + / − to zoom, Home to reset. Buttons provide another way to zoom.</p>
+    <form id="map-center-form"><div class="coordinate-inputs"><div><label for="latitude">Latitude (−90 to 90)</label><input id="latitude" type="number" step="any" min="-90" max="90" placeholder="35.2" required></div><div><label for="longitude">Longitude (−180 to 180)</label><input id="longitude" type="number" step="any" min="-180" max="180" placeholder="−111.6" required></div><button id="map-center" type="submit" disabled>Center on coordinates</button></div><p id="coordinate-status" class="small" role="status" aria-live="polite">Optional reference point. No location is detected or stored.</p></form>
+    <p id="map-source" class="small"></p>
+    <details><summary>Accessible country index (map data labels)</summary><p id="map-countries" class="small">Country names loading…</p></details>
+  </section>
+  <section class="panel" id="notebook" aria-labelledby="notebook-title">
+    <div class="section-head"><div><span class="eyebrow">03 / YOUR WORDS, NOT OURS</span><h2 id="notebook-title">Field notebook</h2></div><span class="pill">PLAIN TEXT</span></div>
+    <p class="muted">A single local notebook, saved only when you choose. Not encrypted; anyone with access to this system may read it. Maximum 256 KiB of UTF-8 text.</p>
+    <form id="note-form"><label for="note-text">Your notes</label><textarea id="note-text" rows="8" disabled placeholder="Your observations, references, and plans…" aria-describedby="note-status"></textarea><div class="note-actions"><span id="note-status" role="status" aria-live="polite">Loading notebook…</span><button type="submit" id="save-note" disabled>Save notebook</button></div></form>
+    <details><summary>Saved text preview</summary><pre id="saved-preview"></pre></details>
+  </section>
+  <footer><span>GRAVESTONE <span class="accent">/</span> OFFLINE FIELD DESK</span><p>Prototype software, not an emergency service. Interface text and navigation are AI-authored; reference documents remain their publishers’ originals. No personal accounts or generated survival advice are included.</p></footer>
+</main>
+</div>
+<noscript>This dashboard needs JavaScript to load its local library, map, and notebook. No internet connection is required.</noscript>
+</body>
+</html>

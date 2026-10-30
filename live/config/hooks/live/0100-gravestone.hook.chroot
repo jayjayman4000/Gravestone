@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+chmod 0755 /usr/local/bin/gravestone-* /usr/local/sbin/gravestone-boot-smoke
+systemctl enable gravestone.service gravestone-smoke.service lightdm.service
+# No external network auto-configuration, desktop disk automount, or swap.
+# Mask absent units as well, so a future dependency cannot silently activate them.
+systemctl mask networking.service NetworkManager.service systemd-networkd.service \
+    systemd-networkd.socket wpa_supplicant.service udisks2.service swap.target
+systemctl set-default graphical.target

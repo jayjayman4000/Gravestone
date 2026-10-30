@@ -1,0 +1,5 @@
+# Preserve publisher original bytes across all checkout platforms.
+content/originals/** -text -diff
+content/rights/** -text -whitespace
+content/search/** -text -whitespace
+content/maps/** -text

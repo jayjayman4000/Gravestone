@@ -1,0 +1,3 @@
+# Offline by default: no DHCP or external-interface configuration.
+auto lo
+iface lo inet loopback

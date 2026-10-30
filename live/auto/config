@@ -1,0 +1,34 @@
+#!/bin/sh
+set -eu
+lb config noauto \
+    --mode debian \
+    --distribution bookworm \
+    --architectures amd64 \
+    --linux-flavours amd64 \
+    --binary-image iso-hybrid \
+    --bootloaders 'syslinux grub-efi' \
+    --uefi-secure-boot disable \
+    --debian-installer none \
+    --archive-areas main \
+    --apt-secure true \
+    --apt-recommends false \
+    --apt-indices false \
+    --apt-source-archives false \
+    --cache false \
+    --memtest none \
+    --win32-loader false \
+    --firmware-chroot false \
+    --firmware-binary false \
+    --chroot-filesystem squashfs \
+    --chroot-squashfs-compression-type xz \
+    --checksums sha256 \
+    --image-name gravestone \
+    --iso-volume GRAVESTONE_010 \
+    --iso-application Gravestone \
+    --mirror-bootstrap http://deb.debian.org/debian \
+    --mirror-chroot http://deb.debian.org/debian \
+    --mirror-binary http://deb.debian.org/debian \
+    --mirror-chroot-security http://security.debian.org/debian-security \
+    --mirror-binary-security http://security.debian.org/debian-security \
+    --bootappend-live 'boot=live components live-media=removable username=user hostname=gravestone locales=en_US.UTF-8 keyboard-layouts=us persistence persistence-media=removable-usb persistence-storage=filesystem persistence-label=persistence swap=false noswap ip=frommedia noeject console=tty0 console=ttyS0,115200' \
+    "$@"

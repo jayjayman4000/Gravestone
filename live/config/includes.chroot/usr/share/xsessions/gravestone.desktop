@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Gravestone
+Comment=Offline Gravestone kiosk
+Exec=/usr/local/bin/gravestone-session
+TryExec=/usr/local/bin/gravestone-session
+Type=Application
+DesktopNames=Openbox

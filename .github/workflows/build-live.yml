@@ -1,0 +1,68 @@
+name: Build Gravestone live ISO
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: gravestone-live-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build-and-boot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test source and recipe
+        run: python3 -m unittest discover -s tests -v
+      - name: Prepare output and record disk space
+        run: |
+          mkdir -p dist logs
+          df -h | tee logs/disk-before.log
+      - name: Build signed-repository Debian bookworm live image
+        shell: bash
+        run: |
+          set -o pipefail
+          docker run --rm --privileged \
+            --mount type=bind,source="$GITHUB_WORKSPACE",target=/src,readonly \
+            --mount type=bind,source="$GITHUB_WORKSPACE/dist",target=/out \
+            debian:bookworm bash -euxo pipefail -c '
+              export DEBIAN_FRONTEND=noninteractive
+              apt-get update
+              apt-get install -y --no-install-recommends \
+                live-build debootstrap debian-archive-keyring ca-certificates \
+                apt-utils bzip2 cpio file rsync wget xz-utils \
+                xorriso isolinux syslinux-common syslinux-utils \
+                grub-pc-bin grub-efi-amd64-bin mtools dosfstools squashfs-tools
+              /src/scripts/build-live.sh /build/work /out
+            ' 2>&1 | tee logs/build.log
+      - name: Install VM test dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends qemu-system-x86 ovmf xorriso
+      - name: Boot extracted kernel and whole BIOS and UEFI ISO
+        shell: bash
+        run: |
+          set -o pipefail
+          scripts/smoke-iso.sh dist/gravestone-0.1.0-amd64.iso logs 2>&1 | tee logs/smoke.log
+      - name: Record final disk use
+        if: always()
+        run: |
+          mkdir -p logs
+          df -h > logs/disk-after.log
+      - name: Upload ISO and checksum (including failed smoke builds)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravestone-0.1.0-amd64
+          path: dist/
+          if-no-files-found: warn
+          compression-level: 0
+          retention-days: 7
+      - name: Upload build and VM evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravestone-build-logs
+          path: logs/
+          if-no-files-found: warn
+          retention-days: 14

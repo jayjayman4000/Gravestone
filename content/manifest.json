@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "documents": [
+    {
+      "id": "fema-are-you-ready",
+      "title": "Are You Ready? An In-Depth Guide to Citizen Preparedness",
+      "publisher": "FEMA",
+      "url": "https://www.ready.gov/sites/default/files/2021-11/are-you-ready-guide.pdf",
+      "final_url": "https://www.ready.gov/sites/default/files/2021-11/are-you-ready-guide.pdf",
+      "file": "originals/fema-are-you-ready.pdf",
+      "sha256": "3873f8ae7528389adacab72259c37b9ae3c507bd3ae23783122e06586560040c",
+      "rights": "US federal government publication; retained intact. No endorsement implied. Review third-party credits before expansion.",
+      "rights_url": "https://www.usa.gov/government-copyright",
+      "retrieved_at": "2026-10-30T07:35:21.062586+00:00",
+      "text_file": "search/fema-are-you-ready.txt",
+      "pages": 36,
+      "extraction_status": "Machine-extracted search index; not visually verified; consult original PDF for all instructions.",
+      "text_sha256": "dbfc32f68985d3d8beb3a16632f931fa055bae0af69ab2ab8b49590fe5d4b750"
+    },
+    {
+      "id": "cdc-make-water-safe",
+      "title": "Make Water Safe During an Emergency (Print-only)",
+      "publisher": "Centers for Disease Control and Prevention (CDC)",
+      "url": "https://www.cdc.gov/water-emergency/media/pdfs/make-water-safe-during-emergency-p.pdf",
+      "final_url": "https://www.cdc.gov/water-emergency/media/pdfs/make-water-safe-during-emergency-p.pdf",
+      "file": "originals/cdc-make-water-safe.pdf",
+      "sha256": "c39b55b4d8f3dd40ecd2b13175f7661b52dfc6e73e4a24ef189de64fb9d513b1",
+      "rights": "CDC public-domain agency material subject to agency reuse requirements; attribution and non-endorsement notice retained in app and THIRD_PARTY_NOTICES.md. Available free from CDC.",
+      "rights_url": "https://www.cdc.gov/other/agencymaterials.html",
+      "retrieved_at": "2026-10-30T07:35:21.062586+00:00",
+      "text_file": "search/cdc-make-water-safe.txt",
+      "pages": 1,
+      "extraction_status": "Machine-extracted search index; not visually verified; consult original PDF for all instructions.",
+      "text_sha256": "620291ffa38797ed5511ff26f2b36b53ada7563a50ea5ba02a4fac1b8adad1e5"
+    }
+  ],
+  "map": {
+    "id": "natural-earth-world-reference",
+    "file": "maps/world.geojson",
+    "publisher": "Natural Earth / NACIS",
+    "url": "https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_countries.zip",
+    "final_url": "https://naciscdn.org/naturalearth/110m/cultural/ne_110m_admin_0_countries.zip",
+    "rights": "Public domain. Geographic reference dataset, not street-level navigation. Simplified source geography; boundaries reflect publisher conventions.",
+    "rights_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "retrieved_at": "2026-10-30T07:35:21.062586+00:00",
+    "sha256": "fe2bc8cda2079e58a3b5ea2282b12cd76a36e1401f06188bc99c86050aaadafa",
+    "original_file": "originals/ne_110m_admin_0_countries.zip",
+    "original_sha256": "0f243aeac8ac6cf26f0417285b0bd33ac47f1b5bdb719fd3e0df37d03ea37110",
+    "transformation": "Deterministic shapefile to GeoJSON conversion using pyshp 3.1.6. Original coordinates preserved; attributes reduced to source name and ADM0_A3. No AI-generated geography.",
+    "scale": "1:110,000,000",
+    "feature_count": 177
+  }
+}

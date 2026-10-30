@@ -66,6 +66,41 @@ def fetch(artifact, path):
     return path
 
 
+def extract_source(archive, destination, expected_root):
+    """Extract pinned regular-file source without Python's newer filter API.
+
+    Reject the complete archive before writing if it contains links, devices,
+    traversal, duplicate paths, or anything outside the expected commit root.
+    The immutable upstream archive contains only ordinary files/directories.
+    """
+    destination = Path(destination).resolve()
+    source_root = destination / expected_root
+    if source_root.exists() or source_root.is_symlink():
+        raise ValueError('source extraction requires a fresh commit directory')
+    with tarfile.open(archive, 'r:*') as tar:
+        members = tar.getmembers()
+        seen = set()
+        for member in members:
+            path = Path(member.name)
+            if (path.is_absolute() or '..' in path.parts or not path.parts
+                    or path.parts[0] != expected_root
+                    or not (member.isfile() or member.isdir()) or path in seen):
+                raise ValueError(f'unsafe source archive member: {member.name}')
+            seen.add(path)
+        for member in members:
+            target = destination / member.name
+            if member.isdir():
+                target.mkdir(parents=True, exist_ok=True)
+            else:
+                target.parent.mkdir(parents=True, exist_ok=True)
+                stream = tar.extractfile(member)
+                if stream is None:
+                    raise ValueError(f'missing source file data: {member.name}')
+                with stream, target.open('xb') as output:
+                    shutil.copyfileobj(stream, output)
+                target.chmod(member.mode & 0o755)
+
+
 def prepare(target):
     target = validate_target(target)
     if platform.machine() not in ("x86_64", "amd64") or sys.platform != "linux":
@@ -82,9 +117,7 @@ def prepare(target):
         for document in package["documents"]:
             fetch(document, work / document["path"])
         source = work / ("llama.cpp-" + package["runtime"]["commit"])
-        with tarfile.open(archive, "r:gz") as tar:
-            # data filter rejects traversal and unsafe links on Python 3.11+.
-            tar.extractall(work, filter="data")
+        extract_source(archive, work, source.name)
         build = work / "build"
         configure = ["cmake", "-S", str(source), "-B", str(build), *CMAKE_FLAGS]
         # Do not inherit host ISA overrides or a surprise compiler/cache wrapper.

@@ -42,8 +42,7 @@ apt-get install -y --no-install-recommends build-essential cmake curl ca-certifi
 `pkg-config` is harmless but not required for this CPU-only configuration. No
 CUDA, GPU driver, OpenMP, SSL development package, Node, Rust, external model
 client, privileged operation, or root access is needed by the packager itself.
-Python 3.11 with tar extraction filters is required (current bookworm security
-updates provide them).
+Python 3.11 is required. Stock bookworm Python does not provide the newer tarfile extraction-filter API; the packager instead prevalidates the pinned archive's complete member list and manually copies regular files/directories under the expected commit root. It rejects links, devices, traversal and duplicate paths before writing, without importing archive ownership or special permissions.
 
 Run after staging the app and before `lb config`/`lb build`:
 

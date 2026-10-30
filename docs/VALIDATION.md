@@ -39,3 +39,20 @@ The user opened the original FEMA PDF successfully, then could not find a visibl
 - Provisioned persistent USB storage and note survival across two clean reboots.
 
 Do not infer successful interactions merely from the dashboard being visible. Treat notes as disposable until restart persistence is deliberately provisioned and demonstrated.
+
+## 0.2.0 command-console verification (application, not image)
+
+- Local Python/Node-backed regression suite after the packaging compatibility fix: 47 tests run, 45 passed and 2 installed-model/inference tests explicitly skipped pending build artifacts.
+- Browser QA used Debian bookworm Firefox ESR 153.6.0esr, non-headless under Xvfb with `--kiosk`, against the running application. This is the recipe's browser family/distribution, not a booted ISO or physical test.
+- Command search returned original-source previews with explicit keyword-only fallback while no model server was installed on the QA host. This is not evidence of working model inference.
+- Both FEMA and CDC originals visibly rendered through Firefox PDF.js. The large Back to library button remained visible, one tab remained open, closing removed the PDF frame, and the exact unsaved notebook draft remained marked unsaved. Parent independently inspected both screenshots and the structured result record.
+- The isolated browser container required a sandbox override; no browser-hardening claim is inferred. No notebook was saved and no private notes were published.
+- Parent preserved the browser evidence with a SHA-256 manifest under `/home/jayjayman4000/gravestone-test-evidence/0.2.0-command-console/`, outside the public checkout. The original temporary copy remains under `/tmp/gravestone-firefox-qa/`. Neither local path is a public release asset.
+
+## 0.2.0 initial build failure and targeted reproduction
+
+- Build run https://github.com/jayjayman4000/Gravestone/actions/runs/41080556859 failed before runtime compilation or ISO construction.
+- Exact cause: the builder's Debian Python 3.11.2 lacks the `TarFile.extractall(filter=...)` parameter. No ISO was produced.
+- The replacement extractor prevalidates the complete archive and permits only regular files/directories below the pinned commit root. It rejects traversal, unexpected roots, links, devices and duplicate paths; it does not import special permissions.
+- Regression tests and full-byte comparisons of all 3,976 original source files passed inside the actual `debian:bookworm` container on Python 3.11.2 with the filter API confirmed absent. This proves the failed extraction seam is fixed, not that the remaining compilation, inference or image boot steps pass.
+- The replacement build, packaged inference and ISO boot results must be recorded separately when available.

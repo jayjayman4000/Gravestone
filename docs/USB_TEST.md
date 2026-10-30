@@ -32,6 +32,12 @@ if ($actual -ne $expected) { throw 'CHECKSUM MISMATCH: do not flash' }
 
 A matching hash checks bytes, not publisher guidance accuracy or software safety.
 
+For `v0.2.0-alpha.1` (source `943ea081fe7e75d933205ccc73b5b0efe7041977`, [successful build](https://github.com/jayjayman4000/Gravestone/actions/runs/41081405816)):
+- ISO size: **1,194,983,424 bytes** (1.11 GiB).
+- SHA-256: `918e31863262ea4a309b1f6deb343b590131f9b90def3f39af5c4dbdb175e16e`.
+- Source-built packaged inference, production retrieval, direct-kernel, BIOS/UEFI optical and UEFI raw USB-as-disk backend checks passed. The downloaded ISO checksum and embedded model/runtime/original-document hashes were independently checked.
+- Separate Firefox ESR kiosk interactions passed. Physical 0.2.0 USB/AI retesting and two-reboot persistence remain unverified.
+
 ## Flash from Windows
 
 1. Back up anything on the selected 16 GB USB: **the entire selected drive will be erased**, including any previously provisioned persistence. Unplug unrelated removable drives. Identify the intended device by model and capacity.

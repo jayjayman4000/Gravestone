@@ -55,4 +55,13 @@ Do not infer successful interactions merely from the dashboard being visible. Tr
 - Exact cause: the builder's Debian Python 3.11.2 lacks the `TarFile.extractall(filter=...)` parameter. No ISO was produced.
 - The replacement extractor prevalidates the complete archive and permits only regular files/directories below the pinned commit root. It rejects traversal, unexpected roots, links, devices and duplicate paths; it does not import special permissions.
 - Regression tests and full-byte comparisons of all 3,976 original source files passed inside the actual `debian:bookworm` container on Python 3.11.2 with the filter API confirmed absent. This proves the failed extraction seam is fixed, not that the remaining compilation, inference or image boot steps pass.
-- The replacement build, packaged inference and ISO boot results must be recorded separately when available.
+## 0.2.0 replacement build and image verification
+
+- Successful build: https://github.com/jayjayman4000/Gravestone/actions/runs/41081405816 ; exact image source commit `943ea081fe7e75d933205ccc73b5b0efe7041977`.
+- ISO: `gravestone-0.2.0-amd64.iso`, 1,194,983,424 bytes; SHA-256 `918e31863262ea4a309b1f6deb343b590131f9b90def3f39af5c4dbdb175e16e`. Full checksum matched after artifact download.
+- All six installed-package/inference tests passed in the actual bookworm builder without skips. The real Qwen model and source-built runtime produced JSON, and production `command_search` returned source excerpts in AI-assisted mode (3.802 seconds in that runner; not a hardware latency guarantee).
+- Model inference is not a relevance guarantee: this probe yielded no additional accepted keywords beyond the user's terms. Keyword ranking remains basic and can return broad or unrelated previews. No generated answer is shown; open the full publisher document.
+- Direct-kernel live-root/backend, whole-image BIOS optical, UEFI optical and UEFI USB mass-storage backend checks passed with no network adapter or internal disk. Serial logs contain their required readiness markers. BIOS USB-as-disk, visible kiosk inside this exact ISO, physical 0.2.0 hardware/AI use, and persistence are not implied by these checks.
+- A read-only audit of the downloaded ISO independently matched the embedded Qwen weights, runtime executable, complete runtime source archive, all pinned AI license/model-card files, and both publisher-original PDFs against their recorded digests. It also confirmed the command/reader shell and enabled loopback-only AI service in the image.
+- Release provenance, packaged runtime build provenance, actual inference evidence, Debian package manifest, checksum and build/boot logs accompany the test candidate. Source commit remains distinct from this later documentation update.
+- Physical reflash testing should follow `docs/USB_TEST.md`, using Rufus DD mode. Notes remain disposable until deliberate persistence provisioning and two clean reboot checks.

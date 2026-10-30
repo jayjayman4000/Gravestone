@@ -3,3 +3,6 @@ content/originals/** -text -diff
 content/rights/** -text -whitespace
 content/search/** -text -whitespace
 content/maps/** -text
+# Preserve pinned upstream license/model-card bytes, including CRLF/spacing.
+ai/licenses/** -text -whitespace
+ai/upstream/** -text -whitespace

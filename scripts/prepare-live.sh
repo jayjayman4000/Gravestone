@@ -17,7 +17,8 @@ target="$build/config/includes.chroot/opt/gravestone"
 mkdir -p -- "$target"
 # Include the repository sources/docs, never history, build output or caches.
 tar -C "$repo" --exclude='.git' --exclude='__pycache__' --exclude='*.pyc' \
-    --exclude='.venv' --exclude='dist' --exclude='build' --exclude='.pytest_cache' \
+    --exclude='.venv' --exclude='.local' --exclude='qa-output' --exclude='build-logs' \
+    --exclude='dist' --exclude='build' --exclude='.pytest_cache' \
     --exclude='.github' --exclude='live' --exclude='scripts' --exclude='tests' \
     -cf - . | tar -C "$target" -xf -
 chmod 0755 "$build/auto/config"

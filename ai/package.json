@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "model": {
+    "filename": "Qwen3-0.6B-Q8_0.gguf",
+    "revision": "23749fefcc72300e3a2ad315e1317431b06b590a",
+    "license": "Apache-2.0",
+    "url": "https://huggingface.co/Qwen/Qwen3-0.6B-GGUF/resolve/23749fefcc72300e3a2ad315e1317431b06b590a/Qwen3-0.6B-Q8_0.gguf",
+    "bytes": 639446688,
+    "sha256": "9465e63a22add5354d9bb4b99e90117043c7124007664907259bd16d043bb031"
+  },
+  "runtime": {
+    "release": "b12001",
+    "commit": "eb4e244be77a906a183cd4a00fd51d9ad3200955",
+    "license": "MIT",
+    "url": "https://codeload.github.com/ggml-org/llama.cpp/tar.gz/eb4e244be77a906a183cd4a00fd51d9ad3200955",
+    "bytes": 38818990,
+    "sha256": "bd2f111a77f617614fd58e1202bed7d0249d3ea8949ad8a1a183915d612f0aad"
+  },
+  "documents": [
+    {
+      "path": "licenses/Qwen-LICENSE",
+      "url": "https://huggingface.co/Qwen/Qwen3-0.6B-GGUF/resolve/23749fefcc72300e3a2ad315e1317431b06b590a/LICENSE",
+      "bytes": 11544,
+      "sha256": "5de36594c10839788a8c589443a8ef9d8b8d17c65a1b5807206ae037fc36c6bd"
+    },
+    {
+      "path": "licenses/llama.cpp-LICENSE",
+      "url": "https://raw.githubusercontent.com/ggml-org/llama.cpp/eb4e244be77a906a183cd4a00fd51d9ad3200955/LICENSE",
+      "bytes": 1078,
+      "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+    },
+    {
+      "path": "upstream/Qwen-README.md",
+      "url": "https://huggingface.co/Qwen/Qwen3-0.6B-GGUF/resolve/23749fefcc72300e3a2ad315e1317431b06b590a/README.md",
+      "bytes": 6236,
+      "sha256": "44adabae2153c3a7bb741b86fbffd48736bc95118831935fdfc4d3cc1854f2f5"
+    }
+  ]
+}

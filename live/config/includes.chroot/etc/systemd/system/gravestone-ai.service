@@ -1,0 +1,33 @@
+[Unit]
+Description=Gravestone offline search-term expansion (optional)
+After=live-config.service
+ConditionPathExists=/opt/gravestone/models/Qwen3-0.6B-Q8_0.gguf
+ConditionFileIsExecutable=/opt/gravestone/ai/runtime/llama-server
+
+[Service]
+Type=simple
+User=user
+Group=user
+WorkingDirectory=/opt/gravestone
+ExecStart=/opt/gravestone/ai/runtime/llama-server --host 127.0.0.1 --port 8767 --model /opt/gravestone/models/Qwen3-0.6B-Q8_0.gguf --ctx-size 2048 --threads 2 --threads-batch 2 --parallel 1 --n-predict 128 --n-gpu-layers 0 --no-webui --offline
+# No dependency from app readiness: failure leaves keyword search usable.
+Restart=no
+TimeoutStopSec=15
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+IPAddressDeny=any
+IPAddressAllow=localhost
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

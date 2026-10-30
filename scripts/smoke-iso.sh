@@ -30,7 +30,7 @@ firmware_boot() {
     # These are the unchanged deliverable ISO, without the smoke shutdown flag.
     timeout 240 qemu-system-x86_64 -accel tcg -m 2048 -smp 2 \
         -display none -serial stdio -monitor none -nic none -no-reboot \
-        -boot d -cdrom "$iso" "$@" >"$log" 2>&1 &
+        "$@" >"$log" 2>&1 &
     local vm=$!
     while kill -0 "$vm" 2>/dev/null; do
         if grep -q 'GRAVESTONE_SERVICE_READY' "$log"; then
@@ -45,10 +45,18 @@ firmware_boot() {
     printf '%s whole-ISO boot failed; see %s\n' "$label" "$log" >&2
     return 1
 }
-firmware_boot BIOS
+firmware_boot BIOS -boot d -cdrom "$iso"
 ovmf=${OVMF_DIR:-/usr/share/OVMF}
 cp "$ovmf/OVMF_VARS_4M.fd" "$work/OVMF_VARS.fd"
-firmware_boot UEFI \
+firmware_boot UEFI -boot d -cdrom "$iso" \
     -drive "if=pflash,format=raw,readonly=on,file=$ovmf/OVMF_CODE_4M.fd" \
     -drive "if=pflash,format=raw,file=$work/OVMF_VARS.fd"
+# A flashed DD image must boot as USB mass storage, without a fallback CD.
+cp "$ovmf/OVMF_VARS_4M.fd" "$work/OVMF_USB_VARS.fd"
+firmware_boot UEFI-USB \
+    -drive "if=pflash,format=raw,readonly=on,file=$ovmf/OVMF_CODE_4M.fd" \
+    -drive "if=pflash,format=raw,file=$work/OVMF_USB_VARS.fd" \
+    -drive "if=none,id=stick,format=raw,readonly=on,file=$iso" \
+    -device qemu-xhci \
+    -device usb-storage,drive=stick,removable=on,bootindex=1
 printf 'All ISO smoke checks passed\n'

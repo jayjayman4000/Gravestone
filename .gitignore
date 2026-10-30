@@ -10,3 +10,8 @@ dist/
 *.qcow2
 *.log
 notes.txt
+models/*.gguf
+ai/runtime/
+ai/sources/
+build-logs/
+qa-output/

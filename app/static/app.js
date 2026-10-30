@@ -8,25 +8,75 @@ function element(tag, text, className) {
   return node;
 }
 function contentURL(path) {
-  if (typeof path !== 'string' || !path || path.includes('\\') || path.includes('\0')) return null;
+  if (typeof path !== 'string' || !path || /^[a-z][a-z0-9+.-]*:/i.test(path) || path.includes('\\') || path.includes('\0')) return null;
   const parts = path.split('/');
   if (parts.some(part => !part || part === '.' || part === '..')) return null;
   return '/content/' + parts.map(encodeURIComponent).join('/');
 }
-function localLink(path, title) {
-  const link = element('a', title, 'button');
-  const url = contentURL(path);
-  if (url) {
-    link.href = url;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.setAttribute('aria-label', title + ' (opens original in a new tab)');
+const documentsByFile = new Map();
+let readerOpener = null;
+let readerVersion = 0;
+async function openReader(doc, opener) {
+  const version = ++readerVersion;
+  readerOpener = opener;
+  $('reader-title').textContent = doc.title;
+  $('reader-source').replaceChildren(
+    element('p', 'Unmodified local publisher original · ' + (doc.publisher || 'Publisher not supplied')),
+    element('p', doc.rights || 'Rights information not supplied. Consult collection provenance.'),
+    element('p', 'Publisher URL (requires network): ' + (doc.url || 'Not supplied'))
+  );
+  if (/cdc|centers for disease control/i.test((doc.publisher || '') + ' ' + (doc.url || ''))) {
+    $('reader-source').append(element('p', 'Source: Centers for Disease Control and Prevention (CDC). This material is available free from CDC. Reference to CDC does not imply endorsement by CDC, ATSDR, HHS, or the United States Government of Gravestone or any product or service.'));
+  }
+  const url = contentURL(doc.file);
+  $('reader-body').replaceChildren();
+  $('reader-status').textContent = 'Checking local original…';
+  $('reader-download').hidden = true;
+  $('reader-download').removeAttribute('href');
+  $('reader').showModal();
+  $('reader-back').focus();
+  try {
+    const response = await fetch(url, {method: 'HEAD', redirect: 'error', credentials: 'same-origin'});
+    if (version !== readerVersion || !$('reader').open) return;
+    if (!response.ok || response.headers.get('Content-Type') !== 'application/pdf') {
+      throw new Error('Local PDF original unavailable or not a PDF.');
+    }
+    $('reader-download').href = url;
+    $('reader-download').download = doc.file.split('/').pop();
+    $('reader-download').hidden = false;
+    $('reader-status').textContent = 'If the PDF is blank or cannot display, download the original for a PDF-capable viewer, or use Back to library. Downloading does not save your notebook.';
+    const frame = element('iframe');
+    frame.title = doc.title;
+    frame.addEventListener('error', () => {
+      if (version === readerVersion) $('reader-status').textContent = 'PDF could not display. Download the original or use Back to library.';
+    });
+    frame.src = url;
+    $('reader-body').replaceChildren(frame);
+  } catch (_) {
+    if (version === readerVersion && $('reader').open) {
+      $('reader-status').textContent = 'Local PDF original unavailable or could not be opened. Use Back to library and check the installed collection.';
+    }
+  }
+}
+$('reader-back').addEventListener('click', () => $('reader').close());
+$('reader').addEventListener('close', () => {
+  ++readerVersion;
+  $('reader-body').replaceChildren();
+  if (readerOpener && readerOpener.isConnected) readerOpener.focus();
+  readerOpener = null;
+});
+function localLink(doc, title) {
+  const link = element('button', title, 'button');
+  link.type = 'button';
+  if (contentURL(doc.file) && /\.pdf$/i.test(doc.file)) {
+    link.addEventListener('click', () => openReader(doc, link));
   } else {
-    link.textContent = 'Original file unavailable';
-    link.removeAttribute('href');
+    link.textContent = 'Original file unavailable (local PDF required)';
+    link.disabled = true;
   }
   return link;
 }
+window.localLink = localLink;
 async function api(path, options) {
   const response = await fetch(path, options);
   const data = await response.json();
@@ -51,10 +101,11 @@ async function loadLibrary() {
     $('document-count').textContent = String(library.documents.length).padStart(2, '0');
     $('document-list').replaceChildren();
     for (const doc of library.documents) {
+      documentsByFile.set(doc.file, doc);
       const card = element('article', undefined, 'document');
       card.append(element('span', doc.publisher || 'Publisher not supplied', 'eyebrow'),
                   element('h3', doc.title), element('p', 'Locally stored original document', 'muted'),
-                  localLink(doc.file, 'Open original ↗'));
+                  localLink(doc, 'Open original'));
       const details = element('details');
       details.append(element('summary', 'Provenance & file details'));
       const list = element('dl');
@@ -94,12 +145,13 @@ $('search-form').addEventListener('submit', async event => {
   $('search-results').replaceChildren(element('p', 'Searching installed text…'));
   try {
     const data = await api('/api/search?q=' + encodeURIComponent(query));
+    await libraryReady; // Reuse full source/rights metadata for search originals.
     if (version !== searchVersion) return;
     $('search-results').replaceChildren(element('p', `${data.results.length} preview matches (maximum 50). Missing or unextractable text is not searched.`, 'muted'));
     for (const hit of data.results) {
       const card = element('article', undefined, 'search-hit');
       card.append(element('h3', hit.title), element('p', PREVIEW_WARNING, 'warning'),
-                  element('pre', hit.excerpt), localLink(hit.file, 'Read original in full ↗'));
+                  element('pre', hit.excerpt), localLink(documentsByFile.get(hit.file) || hit, 'Read original in full'));
       $('search-results').append(card);
     }
     if (!data.results.length) $('search-results').append(element('p', 'No matching preview text found. Browse the originals; this does not mean the topic is absent.'));

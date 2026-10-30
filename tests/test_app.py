@@ -148,6 +148,46 @@ class AppTests(unittest.TestCase):
         self.assertEqual(self.request('/content/missing.pdf')[0], 404)
         self.assertEqual(self.request('/content/')[0], 404)
 
+    def test_only_real_content_pdfs_allow_same_origin_reader_framing(self):
+        original = b'%PDF-1.7\nTest-only original\x00\xff'
+        (self.content / 'original.pdf').write_bytes(original)
+        (self.content / 'page.html').write_bytes(b'<html><script>bad()</script></html>')
+        (self.content / 'disguised.pdf').write_bytes(b'<html>not a PDF</html>')
+        self.start()
+        content_policy = "sandbox; default-src 'none'; style-src 'unsafe-inline'; img-src data:; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
+        pdf_policy = "default-src 'none'; frame-ancestors 'self'; base-uri 'none'; form-action 'none'"
+        status, headers, body = self.request('/content/original.pdf')
+        self.assertEqual(status, 200)
+        self.assertEqual(body, original)
+        self.assertEqual(headers['Content-Type'], 'application/pdf')
+        self.assertEqual(headers['Content-Security-Policy'], pdf_policy)
+        self.assertEqual(headers['X-Frame-Options'], 'SAMEORIGIN')
+        self.assertEqual(headers['X-Content-Type-Options'], 'nosniff')
+        status, head, body = self.request('/content/original.pdf', method='HEAD')
+        self.assertEqual(status, 200)
+        self.assertEqual(body, b'')
+        self.assertEqual(int(head['Content-Length']), len(original))
+        self.assertEqual(head['Content-Type'], 'application/pdf')
+        self.assertEqual(head['Content-Security-Policy'], pdf_policy)
+        self.assertEqual(head['X-Frame-Options'], 'SAMEORIGIN')
+        for path in ['/content/page.html', '/content/disguised.pdf', '/content/missing.pdf']:
+            for method in ['GET', 'HEAD']:
+                with self.subTest(path=path, method=method):
+                    status, headers, body = self.request(path, method=method)
+                    self.assertEqual(status, 404 if 'missing' in path else 200)
+                    self.assertEqual(headers['X-Frame-Options'], 'DENY')
+                    self.assertEqual(headers['Content-Security-Policy'], content_policy)
+                    self.assertNotEqual(headers['Content-Type'], 'application/pdf')
+                    if method == 'HEAD':
+                        self.assertEqual(body, b'')
+        for path in ['/', '/static/app.js', '/api/status']:
+            _, headers, _ = self.request(path)
+            self.assertEqual(headers['X-Frame-Options'], 'DENY')
+            self.assertIn("frame-src 'self'", headers['Content-Security-Policy'])
+            self.assertIn("frame-ancestors 'none'", headers['Content-Security-Policy'])
+        self.assertEqual(self.request('/content/original.pdf', method='HEAD', headers={'Host': 'evil.invalid'})[0], 403)
+        self.assertIn(self.request('/content/%2e%2e/secret.pdf', method='HEAD')[0], (400, 404))
+
     def test_storage_rejects_symlinks_and_repository_data_directories(self):
         from app import make_server
         repo = Path(__file__).resolve().parents[1]

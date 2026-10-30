@@ -23,7 +23,7 @@ lb config noauto \
     --chroot-squashfs-compression-type xz \
     --checksums sha256 \
     --image-name gravestone \
-    --iso-volume GRAVESTONE_010 \
+    --iso-volume GRAVESTONE_020 \
     --iso-application Gravestone \
     --mirror-bootstrap http://deb.debian.org/debian \
     --mirror-chroot http://deb.debian.org/debian \

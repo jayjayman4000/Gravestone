@@ -8,11 +8,21 @@ out=${2:-/out}
 command -v lb >/dev/null
 mkdir -p "$out"
 "$repo/scripts/prepare-live.sh" "$build"
+"$repo/scripts/prepare-ai.sh" "$build/config/includes.chroot/opt/gravestone"
+# Test the exact packaged runtime/model, not an HTTP mock or a host prebuilt.
+app_root="$build/config/includes.chroot/opt/gravestone"
+cd "$repo"
+GRAVESTONE_AI_PACKAGE_ROOT="$app_root" \
+GRAVESTONE_AI_SERVER="$app_root/ai/runtime/llama-server" \
+GRAVESTONE_AI_MODEL="$app_root/models/Qwen3-0.6B-Q8_0.gguf" \
+GRAVESTONE_AI_EVIDENCE="$out/real-inference.json" \
+    python3 -m unittest discover -s tests -p test_ai_package.py -v
+cp -- "$app_root/ai/BUILD_PROVENANCE.json" "$out/AI_BUILD_PROVENANCE.json"
 cd "$build"
 # auto/config is the single source of lb config options.
 lb config
 lb build
-name=gravestone-0.1.0-amd64.iso
+name=gravestone-0.2.0-amd64.iso
 shopt -s nullglob
 images=(*.hybrid.iso *.iso)
 # .hybrid.iso also matches *.iso; deduplicate before selecting.

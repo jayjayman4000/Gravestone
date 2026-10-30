@@ -36,6 +36,12 @@ Original ZIP retained. The app's GeoJSON is a deterministic conversion of the 1:
 
 Extracted with pypdf 6.21.4 and fonttools 4.68.0; GeoJSON converted using pyshp 3.1.6. These are ingestion tools, not bundled app runtime dependencies. Extracted text is an unverified search aid and may have encoding, reading-order, numeric or table errors. It is not a replacement for original PDFs.
 
+## Local keyword-assistance model and runtime
+
+The 0.2.0 image build includes Qwen's official `Qwen3-0.6B-Q8_0.gguf` model under Apache-2.0 and a source-built llama.cpp `b12001` runtime under MIT. Their original license texts, the upstream model card, immutable revisions, download URLs, byte sizes and SHA-256 pins are retained under `ai/`; see `ai/package.json` and `ai/README.md`. The image also carries the complete pinned llama.cpp source archive and runtime build provenance, including bundled third-party notices. Model weights/binaries are installed during image construction, not committed to the repository.
+
+The model only proposes search keywords; publisher originals remain authoritative. Neither Qwen nor llama.cpp authors are represented as endorsing Gravestone or its emergency suitability. Their licenses do not relicense publisher documents or Debian packages.
+
 ## Debian live system
 
 Linux, Debian packages, browser and bootloader retain their own licenses. Package licenses reside under `/usr/share/doc/*/copyright` in the live system. The build should retain package inventories and source-retrieval instructions; corresponding-source obligations must be reviewed before wider redistribution. No hardware warranty, emergency fitness guarantee, or agency endorsement is claimed.

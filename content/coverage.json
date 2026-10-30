@@ -1,0 +1,95 @@
+{
+  "description": "Requested coverage, not installed safety guidance. Editorial topic labels derived from the owner's handwritten image; spelling normalized. This is not a verbatim transcript. Uncertain handwriting remains marked. No original photo or private conversation is distributed.",
+  "topics": [
+    {
+      "id": "vehicle-repair",
+      "title": "Vehicle repair and maintenance",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "linux-security-tools",
+      "title": "Linux and ethical cybersecurity tools",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "ai-security-tools",
+      "title": "Possible AI-assisted cybersecurity tool; handwritten wording needs confirmation",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "locks",
+      "title": "Physical and digital locks / authorized access recovery",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "food-storage",
+      "title": "Foods to keep and shelf-stable foods to acquire",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "radio-antennas",
+      "title": "Building antennas and understanding useful radio types",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "combat-preparation",
+      "title": "Basic combat training / preparation guides (requested topic; scope not yet reviewed)",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "firearm-maintenance",
+      "title": "Firearm maintenance (manufacturer and safety references; specific models not supplied)",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "basic-tools",
+      "title": "Making basic tools",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "bow-crafting",
+      "title": "Bow crafting; the words following \u201cbow and\u201d are unclear in the photo",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "fire",
+      "title": "Starting and maintaining a fire; helpful materials",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "solar-generators",
+      "title": "Setting up solar power and generators",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "renewable-energy",
+      "title": "Building renewable-energy devices",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "salvaged-electronics",
+      "title": "Repurposing electronics for generation; feasibility must be checked, not assumed for \u201calmost any\u201d device",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "drinkable-water",
+      "title": "What water is suitable to drink",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "sanitation",
+      "title": "Staying sanitary",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "finding-water",
+      "title": "Finding water",
+      "status": "source-acquisition-pending"
+    },
+    {
+      "id": "water-filtration",
+      "title": "Filtering water",
+      "status": "source-acquisition-pending"
+    }
+  ]
+}

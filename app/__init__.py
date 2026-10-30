@@ -95,10 +95,12 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('Cache-Control', 'no-store')
         self.send_header('Referrer-Policy', 'no-referrer')
-        self.send_header('X-Frame-Options', 'DENY')
-        policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
+        self.send_header('X-Frame-Options', 'SAMEORIGIN' if getattr(self, 'reader_pdf', False) else 'DENY')
+        policy = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
         if urlsplit(self.path).path.startswith('/content/'):
             policy = "sandbox; default-src 'none'; style-src 'unsafe-inline'; img-src data:; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
+        if getattr(self, 'reader_pdf', False):
+            policy = "default-src 'none'; frame-ancestors 'self'; base-uri 'none'; form-action 'none'"
         self.send_header('Content-Security-Policy', policy)
         super().end_headers()
 
@@ -115,7 +117,8 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-Type', 'application/json; charset=utf-8')
         self.send_header('Content-Length', str(len(body)))
         self.end_headers()
-        self.wfile.write(body)
+        if self.command != 'HEAD':
+            self.wfile.write(body)
 
     def serve_file(self, root, relative):
         if not relative:
@@ -127,11 +130,28 @@ class Handler(BaseHTTPRequestHandler):
         except OSError:
             return self.send_json(404, {'error': 'File unavailable'})
         with stream:
+            media_type = mimetypes.guess_type(relative)[0] or 'application/octet-stream'
+            # Only actual local PDF bytes get the framing exception, never HTML.
+            is_pdf = media_type == 'application/pdf' and stream.read(5) == b'%PDF-'
+            stream.seek(0)
+            if media_type == 'application/pdf' and not is_pdf:
+                media_type = 'application/octet-stream'
+            self.reader_pdf = root == self.app.content_dir and is_pdf
             self.send_response(200)
-            self.send_header('Content-Type', mimetypes.guess_type(relative)[0] or 'application/octet-stream')
+            self.send_header('Content-Type', media_type)
             self.send_header('Content-Length', str(os.fstat(stream.fileno()).st_size))
             self.end_headers()
-            shutil.copyfileobj(stream, self.wfile)
+            if self.command != 'HEAD':
+                shutil.copyfileobj(stream, self.wfile)
+
+    def do_HEAD(self):
+        # Reader preflight checks status and MIME without downloading the original.
+        if not self.valid_host():
+            return self.send_json(403, {'error': 'Loopback Host required'})
+        path = urlsplit(self.path).path
+        if path.startswith('/content/'):
+            return self.serve_file(self.app.content_dir, unquote(path[len('/content/'):]))
+        self.send_json(404, {'error': 'Not found'})
 
     def do_GET(self):
         if not self.valid_host():
@@ -169,6 +189,18 @@ class Handler(BaseHTTPRequestHandler):
             except (OSError, ValueError):
                 return self.send_json(503, {'error': 'Library manifest unavailable or invalid'})
             self.send_json(200, manifest)
+        elif urlsplit(self.path).path == '/api/command':
+            query = parse_qs(urlsplit(self.path).query).get('q', [''])[0].strip()
+            if not query or len(query) > 200:
+                return self.send_json(400, {'error': 'Enter a question of 1–200 characters'})
+            try:
+                # Lazy import avoids a circular dependency on safe content readers.
+                from .retrieval import command_search
+                result = command_search(self.app.content_dir, query,
+                                        model_url=os.environ.get('GRAVESTONE_MODEL_URL', 'http://127.0.0.1:8767'))
+            except (OSError, ValueError, ImportError):
+                return self.send_json(503, {'error': 'Command search unavailable; check the installed library'})
+            self.send_json(200, result)
         elif urlsplit(self.path).path == '/api/search':
             query = parse_qs(urlsplit(self.path).query).get('q', [''])[0].strip()
             if len(query) > 200:

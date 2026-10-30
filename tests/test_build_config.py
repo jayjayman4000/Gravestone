@@ -22,6 +22,8 @@ class BuildConfigTests(unittest.TestCase):
             (repo / "app/__main__.py").write_text("print('fixture')\n")
             (repo / "content/index.json").write_text("{}\n")
             (repo / "app/__pycache__/stale.pyc").write_bytes(b"stale")
+            (repo / ".local").mkdir()
+            (repo / ".local/private-notes.txt").write_text("private fixture")
             build = base / "build"
             subprocess.run(["bash", str(repo / "scripts/prepare-live.sh"), str(build)], check=True)
             target = build / "config/includes.chroot/opt/gravestone"
@@ -29,6 +31,7 @@ class BuildConfigTests(unittest.TestCase):
             self.assertTrue((target / "content/index.json").is_file())
             self.assertFalse(list(target.rglob(".git")))
             self.assertFalse(list(target.rglob("*.pyc")))
+            self.assertFalse((target / ".local").exists(), 'Private runtime data must not enter an image')
             self.assertTrue((build / "auto/config").is_file())
             result = subprocess.run(["bash", str(repo / "scripts/prepare-live.sh"), str(build)], capture_output=True, text=True)
             self.assertNotEqual(result.returncode, 0, "must refuse nonempty build directory")
@@ -117,7 +120,7 @@ class BuildConfigTests(unittest.TestCase):
             self.assertIn(token, workflow_text)
         self.assertNotIn("gh release create", workflow_text)
         build = (ROOT / "scripts/build-live.sh").read_text()
-        for token in ("lb config", "lb build", "gravestone-0.1.0-amd64.iso", "14000000000", "sha256sum"):
+        for token in ("lb config", "lb build", "gravestone-0.2.0-amd64.iso", "14000000000", "sha256sum"):
             self.assertIn(token, build)
         smoke = (ROOT / "scripts/smoke-iso.sh").read_text()
         for token in ("qemu-system-x86_64", "240", "-accel tcg", "-m 2048", "-smp 2", "-kernel", "-initrd", "-cdrom", "gravestone.smoke=1", "GRAVESTONE_BOOT_OK", "-nic none"):

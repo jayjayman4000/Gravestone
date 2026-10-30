@@ -9,17 +9,18 @@ A portable, offline survival-reference computer: knowledge that remains usable w
 - Bootable USB for compatible 64-bit Intel/AMD PCs, targeting an advertised 16 GB drive.
 - Starts in an offline dashboard; core browsing and search never require an AI model or network.
 - U.S.-focused source library, worldwide reference geography, and eventually selected detailed regional maps.
-- Optional local AI retrieval later; never an authority replacing the originals.
+- Local AI keyword assistance for retrieval; never an authority replacing the originals.
 - Portable field notes and optional owner-authored perspectives, kept separate from published guidance.
 - Usable by another person without the original owner's account, passwords, or presence.
 
 ## This prototype
 
-- Python standard-library dashboard, original PDF library, literal search through an explicitly unverified extraction index, and local notebook.
+- Command-first Python standard-library interface, original PDF library with a visible return control, model-assisted keywords, fallback literal search through an explicitly unverified extraction index, and local notebook.
 - FEMA's *Are You Ready?* and CDC's *Make Water Safe During an Emergency*, retained as original PDF bytes with SHA-256 records.
 - Natural Earth worldwide country outlines at 1:110 million scale: **not a detailed road map or navigation system**.
 - Debian Live build recipe and automated build/boot checks; see workflow results for actual verification, not merely this feature list.
-- **No AI model, detailed U.S. roads, comprehensive survival library, or imported personal accounts yet.**
+- Source-built CPU-only llama.cpp and the pinned Qwen3-0.6B model are included by the 0.2.0 image recipe; the Git checkout alone contains neither binary nor weights. Build and real-inference evidence are required before release.
+- **No detailed U.S. roads, comprehensive survival library, or imported personal accounts yet.** Requested handwritten topics are an acquisition backlog, not installed instructions.
 
 ## Run on an existing computer
 

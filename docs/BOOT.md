@@ -36,15 +36,15 @@ gh workflow run build-live.yml --ref main
 gh run list --workflow build-live.yml --limit 5
 # Replace RUN_ID with the id returned by the listing.
 gh run watch RUN_ID --exit-status
-gh run download RUN_ID --name gravestone-0.4.0-amd64 --dir dist
+gh run download RUN_ID --name gravestone-0.4.1-amd64 --dir dist
 gh run download RUN_ID --name gravestone-build-logs --dir build-logs
-(cd dist && sha256sum -c gravestone-0.4.0-amd64.iso.sha256)
+(cd dist && sha256sum -c gravestone-0.4.1-amd64.iso.sha256)
 ```
 
 Outputs:
 
-- `dist/gravestone-0.4.0-amd64.iso`
-- `dist/gravestone-0.4.0-amd64.iso.sha256`
+- `dist/gravestone-0.4.1-amd64.iso`
+- `dist/gravestone-0.4.1-amd64.iso.sha256`
 - `dist/filesystem.packages` (installed Debian package/version manifest)
 - Build, boot-catalog, extraction, serial VM and disk-space logs in the log
   artifact. ISO artifacts are retained seven days; logs fourteen days.
@@ -90,7 +90,7 @@ lb config noauto --validate
 Install `qemu-system-x86`, `ovmf`, and `xorriso` on the test host, then run:
 
 ```sh
-scripts/smoke-iso.sh dist/gravestone-0.4.0-amd64.iso logs
+scripts/smoke-iso.sh dist/gravestone-0.4.1-amd64.iso logs
 ```
 
 All VMs use TCG, two vCPUs, 2 GiB RAM, no network adapter and no user/internal
@@ -181,6 +181,8 @@ Boot the USB through your firmware's one-time boot menu. Select its BIOS or
 persistence volume, edits and notes are **RAM-only and lost at shutdown**.
 
 ## Optional `/home` persistence
+
+The released DD-image procedure below is separate from Rufus's persistence slider. With a nonzero slider Rufus does not offer the same DD choice, and its inspected Debian persistence configuration uses `/ union`, not `/home union`. The reported 0.4.0 extracted-layout GRUB failure and the additional verification required for that workflow are recorded in [Rufus persistence diagnosis](RUFUS_PERSISTENCE.md). Do not treat the existing `/home` VM test as validation of that alternative.
 
 Persistence is deliberately restricted to **removable USB storage** and
 filesystem labels (`persistence-media=removable-usb persistence-storage=filesystem`).

@@ -8,6 +8,10 @@ out=${2:-/out}
 command -v lb >/dev/null
 mkdir -p "$out"
 "$repo/scripts/prepare-live.sh" "$build"
+# binary_grub-efi copies this helper into the chroot; reject upstream drift.
+# Exercise real firmware before model download/compilation or lb build.
+python3 "$repo/scripts/patch-live-build-efi.py"
+python3 "$repo/scripts/test-efi-fat.py" --output "$out/efi-fat-bootstrap"
 "$repo/scripts/prepare-ai.sh" "$build/config/includes.chroot/opt/gravestone"
 # Test the exact packaged runtime/model, not an HTTP mock or a host prebuilt.
 app_root="$build/config/includes.chroot/opt/gravestone"
@@ -22,7 +26,7 @@ cd "$build"
 # auto/config is the single source of lb config options.
 lb config
 lb build
-name=gravestone-0.4.0-amd64.iso
+name=gravestone-0.4.1-amd64.iso
 shopt -s nullglob
 images=(*.hybrid.iso *.iso)
 # .hybrid.iso also matches *.iso; deduplicate before selecting.
@@ -31,6 +35,8 @@ mapfile -t images < <(printf '%s\n' "${images[@]}" | sort -u)
 size=$(stat -c %s "${images[0]}")
 (( size <= 14000000000 )) || { printf 'ISO exceeds 14,000,000,000 bytes: %s\n' "$size" >&2; exit 1; }
 cp -- "${images[0]}" "$out/$name"
+# Repeat against the shipped executable/template, not just a helper sample.
+python3 "$repo/scripts/test-efi-fat.py" --iso "$out/$name" --output "$out/efi-fat-shipped"
 cp -- binary/live/filesystem.packages "$out/filesystem.packages"
 cd "$out"
 sha256sum "$name" >"$name.sha256"

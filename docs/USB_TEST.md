@@ -43,6 +43,8 @@ For this candidate, obtain the exact size, checksum, source commit and successfu
 4. Click **Start**. Choose **DD Image mode**, not ISO Image mode. The original prototype's EFI loader failed on extracted partitioned-FAT layouts; changing GPT to MBR was not a fix. DD preserves the tested hybrid layout. Read the destructive-device warning before accepting.
 5. Wait for writing to complete, then safely eject the USB. If Windows asks to format an unrecognized partition, **cancel**; do not reformat the Linux media.
 
+**Rufus persistence-slider caveat:** the ISO/DD prompt is offered only when the slider is zero in the inspected upstream source. A nonzero slider takes a different, extracted-image path. The user reported the same GRUB failure with 0.4.0 and 4 GB persistence enabled; do not repeatedly erase the drive or ask them to choose a DD option that this path does not offer. See [the diagnosis and separate acceptance gates](RUFUS_PERSISTENCE.md). The existing VM persistence test does not validate Rufus's full-root persistence configuration.
+
 No remote automation should select, format, or write a physical device on your behalf.
 
 ## Boot the physical computer

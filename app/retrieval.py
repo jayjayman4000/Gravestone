@@ -5,6 +5,8 @@ import ipaddress
 import json
 import socket
 import os
+import threading
+import time
 from urllib.parse import urlsplit
 
 from . import PREVIEW_WARNING, read_manifest, read_text, open_file
@@ -67,42 +69,121 @@ def _model_terms(query, model_url, timeout):
         'temperature': 0, 'max_tokens': 128,
         'response_format': {'type': 'json_object'},
         'chat_template_kwargs': {'enable_thinking': False}}
-    connection = http.client.HTTPConnection(str(host), port, timeout=max(0.01, min(float(timeout), 20)))
+    budget = max(0.01, min(float(timeout), 20))
+    deadline = time.monotonic() + budget
+    connection = http.client.HTTPConnection(str(host), port, timeout=budget)
+    response = connected_socket = timer = None
+
+    def remaining():
+        seconds = deadline - time.monotonic()
+        if seconds <= 0:
+            raise TimeoutError('Local model deadline exceeded')
+        return seconds
+
+    def interrupt(sock):
+        # Capture the socket BEFORE getresponse(): Connection: close detaches
+        # connection.sock, but the response can still be blocked in recv().
+        try:
+            sock.shutdown(socket.SHUT_RDWR)
+        except OSError:
+            pass
+
     try:
+        # Numeric loopback only: connect has its own bounded timeout; the same
+        # monotonic budget then covers request, headers, body and decoding.
+        connection.connect()
+        connected_socket = connection.sock
+        connected_socket.settimeout(remaining())
+        timer = threading.Timer(remaining(), interrupt, args=(connected_socket,))
+        timer.start()
         connection.request('POST', '/v1/chat/completions', json.dumps(payload).encode(),
                            {'Content-Type': 'application/json', 'Accept': 'application/json'})
+        remaining()
         response = connection.getresponse()
+        remaining()
         if response.status != 200:
             return [], 'unavailable'
         raw = response.read(32769)
+        remaining()
         if len(raw) > 32768:
             return [], 'invalid-response'
         completion = json.loads(raw)['choices'][0]['message']['content']
-        return _parse_terms(completion, query), 'available'
+        terms = _parse_terms(completion, query)
+        remaining()
+        return terms, 'available'
     except (TimeoutError, socket.timeout):
         return [], 'timeout'
     except (OSError, ValueError, TypeError, KeyError, IndexError, RecursionError, http.client.HTTPException):
-        return [], 'invalid-response'
+        # shutdown may surface as EOF, incomplete JSON, or a socket error.
+        return [], 'timeout' if time.monotonic() >= deadline else 'invalid-response'
     finally:
+        if timer is not None:
+            timer.cancel()
+            timer.join()  # No outstanding callback or per-request thread.
+        if response is not None:
+            response.close()
         connection.close()
+        if connected_socket is not None:
+            connected_socket.close()
+
+
+def _best_passage(source, original_terms):
+    """Find maximum distinct local coverage, then its shortest physical span.
+
+    All occurrences matter: first occurrences can be far from the best cluster.
+    The sliding window is bounded by the same 600 characters we actually show.
+    """
+    occurrences = sorted((match.start(), match.end(), term)
+                         for term in original_terms
+                         for match in re.finditer(r'(?<!\w)' + re.escape(term) + r'(?!\w)',
+                                                  source, re.I))
+    counts = {}
+    left = 0
+    best = None
+    for right, (_, end, term) in enumerate(occurrences):
+        counts[term] = counts.get(term, 0) + 1
+        while end - occurrences[left][0] > 600:
+            old = occurrences[left][2]
+            counts[old] -= 1
+            if not counts[old]:
+                del counts[old]
+            left += 1
+        # Discard redundant leading occurrences to measure the tightest cluster.
+        while left < right and counts[occurrences[left][2]] > 1:
+            counts[occurrences[left][2]] -= 1
+            left += 1
+        first = occurrences[left][0]
+        # PDF layout whitespace is not semantic distance. Normalize only for
+        # scoring; the returned preview is still an untouched physical slice.
+        span = len(re.sub(r'\s+', ' ', source[first:end]))
+        key = (len(counts), -span, -first)
+        if best is None or key > best[0]:
+            best = (key, max(0, end - 600, first - 100), len(counts), span)
+    assert best is not None  # Caller admits only pages anchored by original terms.
+    return best[1:]
 
 
 def command_search(content_dir, query, *, model_url='http://127.0.0.1:8767', timeout: float = 20):
     """Return mechanically sliced search previews, not substantive generated text."""
     if not isinstance(query, str) or len(query) > 2048 or not _query_terms(query):
         return {'query': query if isinstance(query, str) else '', 'mode': 'keyword-only',
-                'model_status': 'not-called', 'terms': [], 'results': [], 'warning': PREVIEW_WARNING,
+                'model_status': 'not-called', 'terms': [], 'expansion_terms': [],
+                'results': [], 'warning': PREVIEW_WARNING,
                 'message': 'Enter a topic with meaningful search words (maximum 2048 characters). No model was called.'}
     original_terms = _query_terms(query)
     if model_url == 'http://127.0.0.1:8767':
         model_url = os.environ.get('GRAVESTONE_MODEL_URL', model_url)
     additions, status = _model_terms(query, model_url, timeout)
     terms = list(dict.fromkeys(original_terms + additions))
-    response = {'query': query, 'mode': 'ai-assisted' if status == 'available' else 'keyword-only', 'model_status': status,
-                'terms': terms, 'results': [], 'warning': PREVIEW_WARNING,
-                'message': ('Local model supplied search keywords. ' if status == 'available' else
-                            'Keyword-only search; local model not available or response unusable. ') +
-                           'Partial keyword matches may be unrelated; matches are not answers. Read the original in full context.'}
+    if additions:
+        message = 'Local model supplied search keywords. '
+    elif status == 'available':
+        message = 'Keyword-only search; local model responded but supplied no accepted new keywords. '
+    else:
+        message = 'Keyword-only search; local model not available or response unusable. '
+    response = {'query': query, 'mode': 'ai-assisted' if additions else 'keyword-only', 'model_status': status,
+                'terms': terms, 'expansion_terms': additions, 'results': [], 'warning': PREVIEW_WARNING,
+                'message': message + 'Partial keyword matches may be unrelated; matches are not answers. Read the original in full context.'}
     try:
         documents = read_manifest(content_dir)['documents']
     except (OSError, ValueError):
@@ -126,14 +207,11 @@ def command_search(content_dir, query, *, model_url='http://127.0.0.1:8767', tim
             if not original_matches:
                 continue  # AI keywords can refine ranking, never admit an unanchored page.
             phrase = re.search(r'(?<!\w)' + r'\s+'.join(map(re.escape, original_terms)) + r'(?!\w)', source, re.I)
-            if phrase:
-                start = max(0, phrase.start() - 100)
-            else:
-                starts = [max(0, match.start() - 100) for _, match in original_matches]
-                start = max(starts, key=lambda offset: sum(
-                    bool(re.search(r'(?<!\w)' + re.escape(term) + r'(?!\w)', source[offset:offset + 600], re.I))
-                    for term in original_terms))
-            score = 100 * len(original_matches) + min(4, len(matches) - len(original_matches))
+            start, local_coverage, span = _best_passage(source, original_terms)
+            # Local original-query coverage dominates phrase/proximity bonuses.
+            # Whole-page incidental matches and AI additions only break close ties.
+            score = (1000 * local_coverage + 600 - span + len(original_matches)
+                     + min(4, len(matches) - len(original_matches)))
             if phrase and len(original_terms) > 1:
                 score += 200
             response['results'].append({'id': doc['id'], 'title': doc['title'],

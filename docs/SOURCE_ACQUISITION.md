@@ -1,4 +1,59 @@
-# Practical source acquisition — 2026-10-30
+# Practical source acquisition
+
+## Expansion actually admitted — 2026-10-31
+
+Batch `practical-expansion-2026-10-31` adds **four complete publisher PDFs, 274 physical pages, 8,016,554 original-file bytes**. The seven pre-existing PDFs and their derivatives remain untouched. The catalog now has **11 PDFs / 365 physical pages**; map data and rights snapshots are not documents. These are checkout additions, not a rebuilt or shipped ISO.
+
+| Source ID / original under `content/originals/` | Pages | Bytes | Edition |
+| --- | ---: | ---: | --- |
+| `fema-cert-2019.pdf` | 268 | 5,509,166 | FEMA *CERT Basic Training Participant Manual*, August 2019 / 2019 Update |
+| `epa-emergency-disinfection.pdf` | 2 | 754,723 | EPA Office of Water, EPA 816-F-15-003, September 2017 |
+| `epa-wells-after-flood.pdf` | 3 | 743,298 | EPA Office of Water, *What to Do After the Flood*, EPA 816-F-05-021, August 2005; updated October 2024 |
+| `cdc-backcountry-treatment.pdf` | 1 | 1,009,367 | CDC *Drinking Water Treatment Methods for Backcountry and Travel Use*, February 20, 2009 |
+
+Each has a same-basename `.txt` derivative in `content/search/`. `content/manifest.json` records exact request and final URLs, UTC retrieval times, publisher edition, byte size, page count, original and derivative SHA-256, source dependencies and document-specific rights basis. `content/rights/practical-expansion-2026-10-31.json` retains the admission/exclusion audit. No AI-written procedures, answers, OCR repairs or replacement pages were added.
+
+### Agency authorship and work-specific rights checks
+
+- **FEMA:** the actual introduction identifies the National CERT Program Office and the 2019 update; PDF Author is FEMA. The archived FEMA Reuse and Copyright policy permits copying/distribution but excludes restricted or licensed graphics. Complete extracted-text credit searches and selected cover, medical, sanitation and illustration renders found no third-party copyright/photo credits or contractor authorship notice. **Physical page 169 contains a sample manufacturer label with the UL registered certification mark**; it remains only in the intact reference, not extracted, used as branding, or relicensed. This is not a claim of ownership of marks or a blanket license for FEMA-site images. The historical LAFD program origin and references to outside training are preserved; no Red Cross manual is bundled.
+- **EPA:** Office of Water authorship appears in both originals' printed publication identifiers and PDF metadata; the private-well publication also has an official publisher listing. The reuse basis is federal agency authorship under 17 USC 105, not `.gov` hosting alone. EPA's archived disclaimers explicitly warn that individual works/third-party content can differ; all five EPA pages, images and notices were reviewed, with no third-party copyright/photo credits or contractor attribution identified. No standalone image license is asserted.
+- **CDC:** the work-specific CDC Stacks record explicitly labels this particular sheet **Public Domain**, identifies CDC as corporate author and supplies its date/download/checksum. The entire one-page original was reviewed for third-party exceptions; none identified. The MIOX registered product name remains contextual, not branding or endorsement. Attribution, free-availability, unchanged substantive content and non-endorsement notices apply as recorded in the manifest and `THIRD_PARTY_NOTICES.md`.
+
+Six new raw HTTP response-body snapshots under `content/rights/` preserve FEMA, CDC, EPA and federal copyright policies plus the CDC work-specific provenance record and EPA well-publication listing. Each snapshot has request/final URL, UTC time, size and hash in the batch audit and relevant manifest records. These U.S. reuse determinations do not certify foreign rights or qualified legal review. Agency and third-party marks are not Gravestone branding, and no endorsement is implied.
+
+### Transport and source defects retained honestly
+
+- Ready.gov redirected the CERT request to `www.ready.gov`; both literal URLs are recorded. EPA PDFs downloaded directly with Python urllib.
+- CDC Stacks and some policy endpoints returned **403 to urllib**. A real browser could retrieve the CDC sheet, its provenance page and FEMA/CDC policies. Browser Fetch response bodies were base64-transported without changing bytes; final response URLs, sizes and hashes are recorded. This is an actual PDF download, not reconstructed text or a browser printout. The source archive's SHA-512 was independently checked during verification.
+- The CDC water sheet has **unrelated embedded National Health Statistics Reports/pulse-rate metadata**. Its visible title/footer, Stacks description and archive checksum identify the actual one-page work. The binary metadata is not repaired. Its existing OCR/text layer has spacing, symbols, table-order and numeric-recognition errors; the derivative preserves them exactly and is **UNVERIFIED**.
+- EPA's September 2017 sheet contains an inconsistent altitude unit pairing on page 1. The publisher original and exact derivative are retained without numerical correction. Historical editions and differences between sources have not been reconciled or certified as current instructions.
+- CERT is a course participant manual requiring training/practice and local protocols, not a standalone first-aid/CPR certification. Whole-manual context, nonmedical units, diagrams, exercises, warnings and empty physical pages remain intact.
+
+### Coverage added, not certified complete
+
+Actual-document associations only: `water-filtration` → CDC page 1; `finding-water` → EPA emergency page 2 and the post-flood well document pages 1–3; `drinkable-water` → both EPA originals and the CDC sheet; `sanitation` → CERT pages 134–135 (printed 4-11–4-12) alongside existing CDC sheets. New editorial topics `first-aid` and `shelter` associate CERT medical pages 99–117 / 124–136 (printed 3-1–3-19 / 4-1–4-13) and sheltering pages 32–33 / 35 (printed 1-19–1-20 / 1-22), respectively. These page associations are catalog metadata, not generated safety summaries. All pre-existing topic IDs and titles are preserved.
+
+**Still missing:** equipment-specific power manuals, solar/PV/battery installation, comprehensive source testing and field-water locating, wilderness shelter construction, complete municipal sewage/waste management and a current comprehensive first-aid/clinical reference. The existing CPSC generator-hazards source remains the only admitted topic-specific power reference. No topic is complete.
+
+**Excluded:** Honda EU22i manual requires written reproduction permission; none obtained. Prior NREL contractor/photo-rights exclusion remains unchanged. USGS Circular 1332 has indexed iStock photo credits; no document-wide reuse basis established. OSHA3286 browser PDF fetch returned 403 (consistent with prior blocked retrieval). CDC hurricane manual direct/alternate requests were blocked and not admitted. Red Cross/ACS copyrighted manuals remain excluded absent a suitable license. See `docs/SOURCE_CANDIDATES.md` and the batch audit.
+
+### Reproduction and local evidence
+
+Pinned ingestion environment verified: **pypdf 6.21.4, fonttools 4.68.0, pypdfium2 5.14.0**. Pillow 12.0.0 was added only to `/tmp/gravestone-ingest` for review-image creation; no app/build dependency changed. Every physical page is represented as `page.extract_text() or ''`, joined with U+000C form feed, UTF-8 encoded, without OCR, correction or normalization. Byte identity is not transcription accuracy.
+
+Local scripts, successful download metadata, baseline hashes, selected-page PNGs and review/verification evidence are in `/home/jayjayman4000/gravestone-test-evidence/library-expansion/`. No private notebook data was read or copied. No app/test/build files, existing originals, release state or USB media were changed by this worker; no build, commit or push was performed.
+
+Verification executed successfully:
+
+- `python3 -B -m unittest discover -s tests -p 'test_content.py' -v` — **1 test, OK**.
+- `python3 -B -m unittest discover -s tests -v` — **99 tests, OK (skipped=3)** against the live shared checkout. Installed-model artifact verification, real model inference and opt-in official Census downloading were skipped. This is not ISO/USB/physical-hardware acceptance; the test's temporary build staging is not an image build.
+- `/tmp/gravestone-ingest/bin/python -B /home/jayjayman4000/gravestone-test-evidence/library-expansion/verify.py` — **PASS**: all 11 original/derivative manifest hashes, all 11 independent pypdf/PDFium page counts, all rights-evidence hashes, map/archive hashes, exact regeneration of all four new derivatives, all **274 new pages rendered**, six new snapshot hashes, and the CDC archive's published SHA-512. New derivatives total **400,988 bytes**. All **25 pre-existing content files**, seven original source records, map record and existing topic IDs/titles remain unchanged.
+- Six real `app.retrieval.command_search` keyword-only smoke queries found the expected newly installed source and physical page, and every returned excerpt was checked as an exact substring of its derivative page. The model URL was deliberately rejected before connection; no shared inference service was used. This demonstrates discoverability, not safety or relevance certification.
+- **Legacy delimiter caveat:** the untouched starter `fema-are-you-ready.txt` uses `\\n\\f\\n` between pages, not the new batch's exact `\\f` delimiter. It regenerates exactly using that legacy delimiter, retains all 36 physical pages and matches its existing manifest hash. This expansion did not normalize or rewrite it.
+
+Durable local results: `verification.json`, `unittest-full.log`, `retrieval-smoke.json`, `review-evidence.json` and the reviewed PNGs in the evidence directory above. Only the owned content/provenance/doc files were edited by this worker; concurrent app/tests/scripts changes belong to other workers.
+
+## Historical acquisition — 2026-10-30
 
 This is an **editorial/provenance record**, not safety guidance. No survival instructions or safety summaries were authored, paraphrased, or completed with AI. Open the complete publisher PDFs; machine-extracted text is an **unverified search aid**.
 

@@ -4,6 +4,10 @@ Requested coverage, not installed safety guidance. Editorial topic labels derive
 
 No listed topic is certified complete. The starter FEMA/CDC material overlaps some topics but is not a comprehensive manual for them. Each addition needs direct-source originals, rights checks, provenance, and subject review. No missing guidance will be filled with AI-written instructions.
 
+## Historical request status — before the 2026-10-31 expansion
+
+These bullets preserve the first batch's status. See the current expansion below and `content/coverage.json` for newly admitted water, sanitation, first-aid and shelter associations.
+
 - **Vehicle repair and maintenance** — source acquisition pending.
 - **Linux and ethical cybersecurity tools** — source acquisition pending.
 - **Possible AI-assisted cybersecurity tool; handwritten wording needs confirmation** — source acquisition pending.
@@ -23,7 +27,20 @@ No listed topic is certified complete. The starter FEMA/CDC material overlaps so
 - **Finding water** — source acquisition pending.
 - **Filtering water** — source acquisition pending.
 
-## Installed practical batch
+## Additional installed expansion — 2026-10-31
+
+The latest expansion installs **four more complete publisher PDFs / 274 physical pages / 8,016,554 original bytes**, bringing the actual checkout library to **11 PDFs / 365 pages**. The seven previous originals and derivatives remain unchanged. These additions are not yet a rebuilt image or an updated flashed USB.
+
+- **First aid and disaster medical operations** — new editorial topic `first-aid`, partially source-backed by the complete FEMA August 2019 CERT participant manual, physical pages 99–117 and 124–136. Training/practice and local protocols are dependencies; not a comprehensive current clinical or CPR reference.
+- **Emergency sheltering** — new editorial topic `shelter`, limited CERT sheltering references at physical pages 32–33 and 35. Wilderness shelter construction and comprehensive shelter management remain unfilled.
+- **Staying sanitary** — extended by CERT public-health/sanitation references at physical pages 134–135. Comprehensive municipal sewage and waste-management engineering remain gaps.
+- **Filtering water** — now partially source-backed by the actual CDC 2009 backcountry treatment comparison sheet, page 1. Its unverified existing OCR has symbol/table/numeric defects; original PDF remains authoritative. No equipment design or certification supplied.
+- **Finding water / what water is suitable to drink** — now partially extended by EPA emergency-source discussion (September 2017, page 2) and the complete post-flood private-well inspection/testing publication (updated October 2024, pages 1–3), plus the CDC sheet. Not a geographic water-finding guide, chemical laboratory service or guarantee of potability.
+- **Equipment power** — no additional manufacturer/solar manual admitted. The existing CPSC hazard sheet remains limited power coverage. Honda EU22i reproduction requires written permission; prior NREL contractor/image uncertainty remains unresolved, and OSHA PDF retrieval was blocked.
+
+The new topics above are editorial labels for this expansion, **not additions attributed to the handwritten image**. All existing topic IDs/titles and uncertain handwriting are preserved. Page associations come from the admitted documents, not neighboring landing-page material. `content/coverage.json` records the current partial scopes; the earlier topic bullets describe the historical first batch. No topic is certified complete and no AI-authored survival procedures were added.
+
+## Historical installed practical batch — 2026-10-30
 
 Five complete externally authored publisher PDFs were actually installed on 2026-10-30, not just linked as future requests: USDA's *Kitchen Companion*, CDC's *Use Safe Water During an Emergency*, *Wash Your Hands*, *Preventing Diarrhea After A Disaster*, and CPSC's *Portable Generator Hazards*. The library now contains seven PDF documents including the two preserved starter documents. These counts exclude the map dataset and rights snapshots.
 

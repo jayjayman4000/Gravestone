@@ -319,6 +319,284 @@
         "/Trapped": "/False"
       },
       "extraction_caveat": "This publisher PDF includes an existing OCR layer. Mechanical extraction contains visible OCR/spelling/reading-order defects (for example missing letters); nothing has been silently repaired."
+    },
+    {
+      "title": "CERT Basic Training Participant Manual",
+      "publisher": "Federal Emergency Management Agency (FEMA), National CERT Program Office",
+      "edition": "August 2019 / 2019 Update, printed throughout the complete participant manual.",
+      "rights": "FEMA-authored National CERT Program Office manual, identified by the actual introduction, agency cover marks and PDF Author metadata. FEMA Reuse and Copyright policy permits copying and distribution except credited/licensed material. Complete extracted-text credit search and selected cover, medical, sanitation and illustration page renders found no third-party copyright/photo credits or contractor authorship notice. Physical PDF page 169 includes a sample manufacturer label with the Underwriters Laboratories registered certification mark; retained only as a contextual illustration within the intact manual, not extracted, rebranded or relicensed. No rights in certification/agency marks asserted; no FEMA, DHS, UL or U.S. Government endorsement implied. U.S. reuse basis; foreign rights not determined.",
+      "rights_url": "https://www.fema.gov/about/website-information",
+      "rights_evidence": [
+        {
+          "url": "https://www.fema.gov/about/website-information",
+          "final_url": "https://www.fema.gov/about/website-information",
+          "retrieved_at": "2026-10-31T04:59:20.922731+00:00",
+          "bytes": 154445,
+          "sha256": "4375b3720805b50f622cfa9e61c45cdf3488953944a190261c18118adf74e268",
+          "file": "rights/fema-rights-2026-10-31.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified browser Fetch HTTP response body; no linked assets fetched"
+        },
+        {
+          "url": "https://www.usa.gov/government-copyright",
+          "final_url": "https://www.usa.gov/government-copyright",
+          "retrieved_at": "2026-10-31T05:00:48.895996+00:00",
+          "bytes": 41977,
+          "sha256": "8a5551486ed3f14fb9f92b31995bef25b25d50e63c4347735fb4cbe4d47eec60",
+          "file": "rights/federal-rights-2026-10-31.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        }
+      ],
+      "topics": [
+        "first-aid",
+        "shelter",
+        "sanitation"
+      ],
+      "dependencies": [
+        "Designed for the CERT Basic Training course, with instructor-led practice, local organization and follow-up training; the PDF alone is not training or certification.",
+        "References CPR, first-aid courses, linked agency resources and local protocols not installed by this acquisition.",
+        "Entire manual including nonmedical units retained; no medical/electrical/safety review or edition-currency certification performed."
+      ],
+      "id": "fema-cert-2019",
+      "url": "https://ready.gov/sites/default/files/2019.CERT_.Basic_.PM_FINAL_508c.pdf",
+      "final_url": "https://www.ready.gov/sites/default/files/2019.CERT_.Basic_.PM_FINAL_508c.pdf",
+      "publisher_url": "https://ready.gov/sites/default/files/2019.CERT_.Basic_.PM_FINAL_508c.pdf",
+      "retrieved_at": "2026-10-31T04:58:07.361399+00:00",
+      "bytes": 5509166,
+      "sha256": "ca297bbc329c322ccbcb252fae7a1c89fd95f93dbf72b78b165b53cafa664026",
+      "pages": 268,
+      "file": "originals/fema-cert-2019.pdf",
+      "text_file": "search/fema-cert-2019.txt",
+      "text_sha256": "16e163cf73b5104222b5f28cd8cde4facc827c6490a8f269592cb88257b14e88",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult the complete original PDF for all figures, warnings, tables and context. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string; all physical pages including empty pages joined by U+000C form feeds; UTF-8. No OCR, correction, normalization or rewriting.",
+      "review_status": "Agency-authorship/reuse-policy and document-credit review, with selected-page visual inspection only; not qualified safety/medical/electrical or edition-currency review.",
+      "acquisition_batch": "practical-expansion-2026-10-31",
+      "pdf_metadata": {
+        "/Author": "FEMA",
+        "/CGContractCustomer": "",
+        "/CGContractName": "",
+        "/CGContractNumber": "",
+        "/CGContractPrime": "",
+        "/CGContractSub": "",
+        "/Company": "",
+        "/ContentTypeId": "0x010100798FE5F7B7910C4D8144887B4C3EC5DA",
+        "/CreationDate": "D:20190701135117-04'00'",
+        "/Creator": "Acrobat PDFMaker 19 for Word",
+        "/ModDate": "D:20190925150336-04'00'",
+        "/ObsidianCreated": "Alicia Jones",
+        "/ObsidianModified": "William Moore",
+        "/Producer": "Adobe PDF Library 19.12.66",
+        "/SourceModified": "D:20190629115640",
+        "/Subject": "CERT Basic Training Participant Manual",
+        "/Title": "CERT Basic Training Participant Manual",
+        "/_dlc_DocIdItemGuid": "1ef9cd1b-0fd0-4db0-b775-383cd7cb1aa4",
+        "/a1e27986701e47dda991f489fc6385df": "",
+        "/f6bb934ddfce41b0bcf5b2ac9ca7be15": "",
+        "/ob7115503d3248d88d0a9bb6d77c332e": ""
+      },
+      "acquisition_note": "Complete unmodified publisher HTTP response. Request and final URLs are preserved exactly. Downloaded with Python urllib."
+    },
+    {
+      "title": "Emergency Disinfection of Drinking Water",
+      "publisher": "U.S. Environmental Protection Agency (EPA), Office of Water",
+      "edition": "EPA 816-F-15-003; September 2017 (printed on both pages).",
+      "rights": "U.S. federal agency-authored Office of Water fact sheet, identified by printed EPA publication number/office and USEPA OW Author metadata, not .gov hosting alone. U.S. government-work reuse basis under 17 USC 105, with attribution and intact source notices. EPA disclaimer policy cautions that individual documents and third-party material may differ; both pages, photos and notices reviewed and no third-party copyright/photo credit or contractor authorship notice identified. No standalone photo license asserted. Government marks retained only in the complete source; no endorsement implied. Foreign rights not determined.",
+      "rights_url": "https://www.usa.gov/government-copyright",
+      "rights_evidence": [
+        {
+          "url": "https://www.usa.gov/government-copyright",
+          "final_url": "https://www.usa.gov/government-copyright",
+          "retrieved_at": "2026-10-31T05:00:48.895996+00:00",
+          "bytes": 41977,
+          "sha256": "8a5551486ed3f14fb9f92b31995bef25b25d50e63c4347735fb4cbe4d47eec60",
+          "file": "rights/federal-rights-2026-10-31.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        },
+        {
+          "url": "https://www.epa.gov/web-policies-and-procedures/epa-disclaimers",
+          "final_url": "https://www.epa.gov/web-policies-and-procedures/epa-disclaimers",
+          "retrieved_at": "2026-10-31T04:58:06.482826+00:00",
+          "bytes": 62565,
+          "sha256": "52bf30d69908d44eeb12d9328621288b4e7da45497f27734f6b1297ef7c4c90e",
+          "file": "rights/epa-rights-2026-10-31.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        }
+      ],
+      "topics": [
+        "drinkable-water",
+        "finding-water"
+      ],
+      "dependencies": [
+        "Source links to FEMA water-storage guidance, EPA well advice, WHO and product labels; linked resources and equipment labels are not automatically installed."
+      ],
+      "source_caveat": "Printed page 1 has an inconsistent altitude unit pairing. Original and extraction remain uncorrected. Source editions and numerical statements have not been harmonized or validated; this is not a certified treatment protocol.",
+      "id": "epa-emergency-disinfection",
+      "url": "https://www.epa.gov/sites/default/files/2017-09/documents/emergency_disinfection_of_drinking_water_sept2017.pdf",
+      "final_url": "https://www.epa.gov/sites/default/files/2017-09/documents/emergency_disinfection_of_drinking_water_sept2017.pdf",
+      "publisher_url": "https://www.epa.gov/sites/default/files/2017-09/documents/emergency_disinfection_of_drinking_water_sept2017.pdf",
+      "retrieved_at": "2026-10-31T04:58:06.801246+00:00",
+      "bytes": 754723,
+      "sha256": "f404083d00decedc267bf4265eda776bb250ccfe18c1f7b19152aa006ff727c5",
+      "pages": 2,
+      "file": "originals/epa-emergency-disinfection.pdf",
+      "text_file": "search/epa-emergency-disinfection.txt",
+      "text_sha256": "47edfa928c35d8f01c314bd88a28458903419edb2603b7f6e3c2e604c753caaf",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult the complete original PDF for all figures, warnings, tables and context. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string; all physical pages including empty pages joined by U+000C form feeds; UTF-8. No OCR, correction, normalization or rewriting.",
+      "review_status": "Agency-authorship/reuse-policy and document-credit review, with selected-page visual inspection only; not qualified safety/medical/electrical or edition-currency review.",
+      "acquisition_batch": "practical-expansion-2026-10-31",
+      "pdf_metadata": {
+        "/Author": "USEPA, OW",
+        "/CreationDate": "D:20170906152937-04'00'",
+        "/Creator": "Microsoft® Word 2016",
+        "/Keywords": "drinking water, epa, emergency disinfection, water",
+        "/ModDate": "D:20170906153257-04'00'",
+        "/Producer": "Microsoft® Word 2016",
+        "/Subject": "Emergency Disinfection of Drinking Water",
+        "/Title": "Emergency Disinfection of Drinking Water"
+      },
+      "acquisition_note": "Complete unmodified publisher HTTP response. Request and final URLs are preserved exactly. Downloaded with Python urllib."
+    },
+    {
+      "title": "What to Do After the Flood",
+      "publisher": "U.S. Environmental Protection Agency (EPA), Office of Water",
+      "edition": "EPA 816-F-05-021; August 2005, updated October 2024 (printed final page).",
+      "rights": "U.S. federal agency-authored Office of Water publication, identified by printed EPA office/publication number, official publisher listing and US EPA OW Private Wells Author metadata. U.S. government-work reuse basis under 17 USC 105 with attribution. EPA disclaimer policy distinguishes document-specific exceptions; all three pages, drawings and notices reviewed and no third-party copyright/image credit or contractor authorship notice identified. No separate illustration license asserted. Source agency marks/notices remain in the intact original; no endorsement implied. Foreign rights not determined.",
+      "rights_url": "https://www.usa.gov/government-copyright",
+      "rights_evidence": [
+        {
+          "url": "https://www.usa.gov/government-copyright",
+          "final_url": "https://www.usa.gov/government-copyright",
+          "retrieved_at": "2026-10-31T05:00:48.895996+00:00",
+          "bytes": 41977,
+          "sha256": "8a5551486ed3f14fb9f92b31995bef25b25d50e63c4347735fb4cbe4d47eec60",
+          "file": "rights/federal-rights-2026-10-31.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        },
+        {
+          "url": "https://www.epa.gov/web-policies-and-procedures/epa-disclaimers",
+          "final_url": "https://www.epa.gov/web-policies-and-procedures/epa-disclaimers",
+          "retrieved_at": "2026-10-31T04:58:06.482826+00:00",
+          "bytes": 62565,
+          "sha256": "52bf30d69908d44eeb12d9328621288b4e7da45497f27734f6b1297ef7c4c90e",
+          "file": "rights/epa-rights-2026-10-31.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        },
+        {
+          "url": "https://www.epa.gov/privatewells/what-do-your-private-well-after-flood",
+          "final_url": "https://www.epa.gov/privatewells/what-do-your-private-well-after-flood",
+          "retrieved_at": "2026-10-31T04:58:06.619804+00:00",
+          "bytes": 53982,
+          "sha256": "8232599b64331aff567b0b7edac2b3bdec324acb286523efb9b7df062a337bd0",
+          "file": "rights/epa-well-landing-2026-10-31.html",
+          "kind": "government-authorship-and-publication-provenance",
+          "snapshot_method": "Unmodified HTTP response body; no linked assets fetched."
+        }
+      ],
+      "source_landing_url": "https://www.epa.gov/privatewells/what-do-your-private-well-after-flood",
+      "topics": [
+        "drinkable-water",
+        "finding-water"
+      ],
+      "dependencies": [
+        "Publisher directs readers to local/state health departments, certified laboratories, well/pump contractors and qualified electricians. Laboratory services, local advisories and equipment-specific manuals are not installed.",
+        "This is post-flood private-well assessment, not a general field-water locating guide or a guarantee of potability."
+      ],
+      "id": "epa-wells-after-flood",
+      "url": "https://www.epa.gov/sites/default/files/2015-05/documents/epa816f05021.pdf",
+      "final_url": "https://www.epa.gov/sites/default/files/2015-05/documents/epa816f05021.pdf",
+      "publisher_url": "https://www.epa.gov/sites/default/files/2015-05/documents/epa816f05021.pdf",
+      "retrieved_at": "2026-10-31T04:58:20.262496+00:00",
+      "bytes": 743298,
+      "sha256": "ebf9465e7a23d1a546217bcfc33eaf034895b4836bb36965338ac1c05dff3fcc",
+      "pages": 3,
+      "file": "originals/epa-wells-after-flood.pdf",
+      "text_file": "search/epa-wells-after-flood.txt",
+      "text_sha256": "38d4b2b6573947a03e3fca1cb83b7cdffc6c40339e0d7e08242dbf0b80c56da8",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult the complete original PDF for all figures, warnings, tables and context. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string; all physical pages including empty pages joined by U+000C form feeds; UTF-8. No OCR, correction, normalization or rewriting.",
+      "review_status": "Agency-authorship/reuse-policy and document-credit review, with selected-page visual inspection only; not qualified safety/medical/electrical or edition-currency review.",
+      "acquisition_batch": "practical-expansion-2026-10-31",
+      "pdf_metadata": {
+        "/Author": "US EPA, OW, Private Wells",
+        "/CreationDate": "D:20050831115818Z",
+        "/Creator": "Adobe InDesign CS (3.0)",
+        "/Keywords": "warnings,precautions,flooding,contamination,ground water,floods,private wells,cleaning wells,pumps,well disenfection",
+        "/ModDate": "D:20241003141828-04'00'",
+        "/Subject": "This document contains steps you can take to inspect and disenfect your well following a flood.",
+        "/Title": "What to Do After the Flood"
+      },
+      "acquisition_note": "Complete unmodified publisher HTTP response. Request and final URLs are preserved exactly. Downloaded with Python urllib."
+    },
+    {
+      "title": "Drinking Water Treatment Methods for Backcountry and Travel Use",
+      "publisher": "Centers for Disease Control and Prevention (CDC)",
+      "edition": "Last Updated February 20, 2009, printed footer and CDC Stacks publication record.",
+      "rights": "CDC agency fact sheet identified by the visible agency URL/title and the work-specific official CDC Stacks record, which names CDC as corporate author and explicitly labels this work Public Domain. Full original page reviewed: no third-party copyright/photo credits identified; MIOX registered product name remains in source context, not used as branding or endorsement. CDC Use of Agency Materials attribution, unchanged-content, free-availability and non-endorsement requirements apply. Source: CDC. Available without charge from CDC. No endorsement by CDC, ATSDR, HHS, the U.S. Government or any named manufacturer is implied. U.S. reuse basis; foreign rights not determined.",
+      "rights_url": "https://www.cdc.gov/other/agencymaterials.html",
+      "rights_evidence": [
+        {
+          "url": "https://www.cdc.gov/other/agencymaterials.html",
+          "final_url": "https://www.cdc.gov/other/agencymaterials.html",
+          "retrieved_at": "2026-10-31T04:59:23.050562+00:00",
+          "bytes": 84017,
+          "sha256": "5204c374cc86f838e898026cba3d224a86731e12fbcd72f61533d99d272a7066",
+          "file": "rights/cdc-rights-2026-10-31.html",
+          "kind": "publisher-reuse-policy",
+          "snapshot_method": "Unmodified browser Fetch HTTP response body; no linked assets fetched"
+        },
+        {
+          "url": "https://stacks.cdc.gov/view/cdc/12378",
+          "final_url": "https://stacks.cdc.gov/view/cdc/12378",
+          "retrieved_at": "2026-10-31T04:59:04.668323+00:00",
+          "bytes": 59976,
+          "sha256": "523bdf8964c53c048ea514af04abf41aa6637bdaad9215b7e73b4834acee8ccb",
+          "file": "rights/cdc-backcountry-provenance-2026-10-31.html",
+          "kind": "government-authorship-and-publication-provenance",
+          "snapshot_method": "Browser Fetch HTTP response body; base64 transport, no transformation"
+        }
+      ],
+      "source_landing_url": "https://stacks.cdc.gov/view/cdc/12378",
+      "topics": [
+        "water-filtration",
+        "drinkable-water",
+        "sanitation"
+      ],
+      "dependencies": [
+        "Manufacturer instructions, filter certification references and linked webpages are not installed. Historical 2009 edition is not represented as current clinical or engineering review."
+      ],
+      "extraction_caveat": "Publisher PDF contains a defective pre-existing text/OCR layer, with spacing, symbols, table reading-order and numeric recognition errors. Retained exactly, no repairs. Its unrelated embedded National Health Statistics Reports/pulse-rate metadata title is inconsistent with the visible one-page water-treatment fact sheet and CDC Stacks record. Catalog title/date follow the visible source, not that stale metadata. Original binary metadata remains unchanged.",
+      "id": "cdc-backcountry-treatment",
+      "url": "https://stacks.cdc.gov/view/cdc/12378/cdc_12378_DS1.pdf",
+      "final_url": "https://stacks.cdc.gov/view/cdc/12378/cdc_12378_DS1.pdf",
+      "publisher_url": "https://stacks.cdc.gov/view/cdc/12378/cdc_12378_DS1.pdf",
+      "retrieved_at": "2026-10-31T04:59:04.567629+00:00",
+      "bytes": 1009367,
+      "sha256": "9dab801f23f42be770e5c8599c499b53866cc855f6eb8330377ffe5328b8ebaa",
+      "pages": 1,
+      "file": "originals/cdc-backcountry-treatment.pdf",
+      "text_file": "search/cdc-backcountry-treatment.txt",
+      "text_sha256": "fe3cf6bc45a39c9afa2b6f281b983d65597b34b1156a0b5a4985b2dd8987d376",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult the complete original PDF for all figures, warnings, tables and context. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string; all physical pages including empty pages joined by U+000C form feeds; UTF-8. No OCR, correction, normalization or rewriting.",
+      "review_status": "Agency-authorship/reuse-policy and document-credit review, with selected-page visual inspection only; not qualified safety/medical/electrical or edition-currency review.",
+      "acquisition_batch": "practical-expansion-2026-10-31",
+      "pdf_metadata": {
+        "/Keywords": "NHANES pulse reference,U.S. population\r\n",
+        "/Creator": "XyEnterprise XPP 8.3C.1  SP #1",
+        "/Title": "National Health Statistics Reports Number 41, August 24, 2011",
+        "/Author": "National Center for Health Statistics",
+        "/Subject": "Resting Pulse Rate Reference Data for Children, Adolescents, and Adults: United States, 1999-2008\r\n\r\n\r\n\r\n\r\n",
+        "/CreationDate": "D:20130714095450Z",
+        "/ModDate": "D:20130714095450Z"
+      },
+      "acquisition_note": "Complete unmodified publisher HTTP response. Request and final URLs are preserved exactly. Browser Fetch HTTP response body; base64 transport, no transformation"
     }
   ],
   "map": {

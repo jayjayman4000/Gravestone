@@ -16,11 +16,12 @@ A portable, offline survival-reference computer: knowledge that remains usable w
 ## This prototype
 
 - Search-first civilian kiosk with six topic tiles and four palette presets; original PDF library, model-assisted keywords, fallback literal search through an explicitly unverified extraction index, and local notebook.
-- Seven original FEMA/CDC/USDA/CPSC publisher PDFs, retained intact with SHA-256 records. The app-owned single-page PDF.js reader keeps physical-page navigation, zoom and extracted-text Copy consistent.
+- Eleven original FEMA/CDC/USDA/CPSC/EPA publisher PDFs in the checkout, retained intact with SHA-256 records. The app-owned single-page PDF.js reader keeps physical-page navigation, zoom and extracted-text Copy consistent. Search text remains an unverified derivative; training requirements and edition limitations remain with each source.
 - Natural Earth worldwide country outlines at 1:110 million scale, plus opt-in U.S. county road/water pack preparation: **no detailed regional packs preinstalled, route calculation, or potable-water claim**.
 - Debian Live build recipe and automated build/boot checks; see workflow results for actual verification, not merely this feature list.
-- Source-built CPU-only llama.cpp and the pinned Qwen3-0.6B model are included by the 0.3.0 image recipe; the Git checkout alone contains neither binary nor weights. Build and real-inference evidence are required before release.
+- Source-built CPU-only llama.cpp and the pinned Qwen3-0.6B model are included by the 0.4.0 image recipe; the Git checkout alone contains neither binary nor weights. Build and real-inference evidence are required before release.
 - **No comprehensive survival library or imported personal accounts.** Requested handwritten topics are an acquisition backlog, not installed instructions.
+- [Notebook/map backup and recovery](docs/BACKUP_RECOVERY.md) is a preparation CLI, not a bootable clone or browser-profile backup. Archives are unencrypted; restore refuses existing targets. [VM reboot acceptance](docs/PERSISTENCE_TEST.md) and the [physical-device checklist](docs/DEVICE_ACCEPTANCE.md) keep software evidence distinct from physical-stick reliability.
 
 ## Run on an existing computer
 
@@ -40,7 +41,7 @@ python3 -m unittest discover -s tests -v
 
 Read [boot/build and flashing notes](docs/BOOT.md), [application details](docs/APP.md), [source policy](docs/SOURCE_POLICY.md), and [requirements](docs/REQUIREMENTS.md).
 
-Current engineering test image: [v0.3.0-alpha.1](https://github.com/jayjayman4000/Gravestone/releases/tag/v0.3.0-alpha.1). Read its exact checksum, completed checks, and remaining limits before flashing. Follow the [USB test checklist](docs/USB_TEST.md) and use Rufus **DD Image mode**.
+Published engineering test images: [releases](https://github.com/jayjayman4000/Gravestone/releases). Read the chosen image's exact checksum, completed checks, and remaining limits before flashing. Follow the [USB test checklist](docs/USB_TEST.md) and use Rufus **DD Image mode**.
 
 Use only release images with published checksums. Flashing destroys the selected drive's existing contents. Physical hardware compatibility, firmware restrictions, USB persistence, and image verification require separate testing. No promise of booting every computer or surviving EMP, damaged storage, or power loss.
 

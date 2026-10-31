@@ -1,38 +1,39 @@
-# Gravestone 0.3.0 — civilian kiosk and controlled-reader USB test
+# Gravestone 0.4.0 — persistence, retrieval and recovery USB test
 
-Engineering prototype: limited original FEMA/CDC/USDA/CPSC content, worldwide country outlines, an opt-in U.S. county map-pack manager, and a CPU-only local model for keyword assistance. This is an interaction/boot test, not emergency-readiness certification. The model never authors the survival guidance shown in results.
+Engineering prototype: limited original FEMA/CDC/USDA/CPSC/EPA content, worldwide country outlines, an opt-in U.S. county map-pack manager, and a CPU-only local model for keyword assistance. This is an interaction/boot test, not emergency-readiness certification. The model never authors the survival guidance shown in results.
 
 ## Release verification
 
 Only use the matching **published prerelease** after its build and boot checks pass. A GitHub Actions artifact can exist even when a test fails; artifact existence alone is not approval to flash it. Read the release's exact build run, source commit, checksum, measured image size, and remaining test limits.
 
-The 0.3.0 build requires:
+The 0.4.0 build requires:
 
 - Application/configuration/source-integrity tests.
 - Pinned model, runtime-source, license and installed-binary integrity checks.
 - Actual source-built bookworm llama.cpp inference and production retrieval, not an HTTP mock. Evidence: `real-inference.json` and `AI_BUILD_PROVENANCE.json`.
 - Real Debian bookworm amd64 hybrid ISO construction, with the 14,000,000,000-byte ceiling enforced.
 - Offline QEMU direct-kernel, BIOS optical, UEFI optical, BIOS USB-as-disk and UEFI USB-as-disk backend boot checks, with no internal disk attached.
+- Exact notebook API checks over two clean VM reboots with a disposable regular-file persistence disk. This does not qualify a physical USB.
 
 These checks are distinct from the physical machine test below. They do not prove universal hardware compatibility or notebook persistence across shutdown.
 
 ## Download and verify
 
-Download `gravestone-0.3.0-amd64.iso` and `gravestone-0.3.0-amd64.iso.sha256` from the matching release, not the GitHub Source code ZIP. Compare the checksum with the independently published full checksum in that release.
+Download `gravestone-0.4.0-amd64.iso` and `gravestone-0.4.0-amd64.iso.sha256` from the matching release, not the GitHub Source code ZIP. Compare the checksum with the independently published full checksum in that release.
 
 In Windows PowerShell, in the download directory:
 
 ```powershell
-$expected = ((Get-Content .\gravestone-0.3.0-amd64.iso.sha256 -Raw).Trim() -split '\s+')[0]
+$expected = ((Get-Content .\gravestone-0.4.0-amd64.iso.sha256 -Raw).Trim() -split '\s+')[0]
 if ($expected -notmatch '^[0-9a-fA-F]{64}$') { throw 'Invalid checksum file' }
-$actual = (Get-FileHash .\gravestone-0.3.0-amd64.iso -Algorithm SHA256).Hash
+$actual = (Get-FileHash .\gravestone-0.4.0-amd64.iso -Algorithm SHA256).Hash
 if ($actual -ne $expected) { throw 'CHECKSUM MISMATCH: do not flash' }
 "Checksum matches: $actual"
 ```
 
 A matching hash checks bytes, not publisher guidance accuracy or software safety.
 
-For this candidate, obtain the exact size, checksum, source commit and successful build link from its published release and `RELEASE_PROVENANCE.json`. Earlier 0.2.0 measurements in `docs/VALIDATION.md` do not validate the 0.3.0 image. Separate controlled-reader Firefox ESR kiosk acceptance passed 24/24 assertions; physical USB/AI retesting and two-reboot persistence remain unverified until performed on this image.
+For this candidate, obtain the exact size, checksum, source commit and successful build link from its published release and `RELEASE_PROVENANCE.json`. Earlier image measurements in `docs/VALIDATION.md` do not validate a newer image. Separate controlled-reader Firefox ESR kiosk acceptance passed 24/24 assertions. The existing 0.3.0 image also passed exact notebook API checks over two clean VM reboots; newer images require their own workflow evidence. Physical USB/AI retesting and physical two-reboot persistence remain unverified until performed on the intended image/device.
 
 ## Flash from Windows
 
@@ -60,7 +61,7 @@ For the desktop plus AI, plan 4 GiB total RAM and 2 GiB available for AI. These 
 - [ ] Full-screen **Gravestone** appears without a login or terminal command.
 - [ ] Text, mouse, keyboard, scrolling and screen resolution are usable.
 - [ ] Type a question such as `Find safe drinking water guidance`; results show publisher, page and unverified-preview warning, not a generated answer.
-- [ ] After model startup, a successful search explicitly reports local-model keyword assistance. If unavailable/slow, verify the honest keyword fallback still returns source matches. Record which mode was actually observed.
+- [ ] After model startup, distinguish an available model from accepted new keywords: keyword-only is correct when no additions survive validation. If unavailable/slow, verify the honest keyword fallback still returns source matches. Record which mode was actually observed.
 - [ ] Open a result with **Read original in full**. Verify the actual PDF renders and the large **Back to library** button remains visible and clickable, without using a keyboard shortcut.
 - [ ] Close the reader and verify the original question/results and scroll position remain usable.
 - [ ] Enter a disposable **unsaved** notebook draft, open/close a PDF, and confirm the draft is preserved. Opening a document must not silently save or discard it.

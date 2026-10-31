@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "corpus_id": "original-seven-02b8f00",
+  "source_commit": "02b8f00ef2fea78a0702169ff986282efc7cd4d2",
+  "label_scope": "Editorial retrieval judgments from inspected physical-page machine derivatives; not exhaustive relevance or safety validation. Questions are search prompts, not instructions.",
+  "documents": [
+    {
+      "id": "fema-are-you-ready",
+      "file": "originals/fema-are-you-ready.pdf",
+      "text_file": "search/fema-are-you-ready.txt",
+      "pages": 36,
+      "sha256": "3873f8ae7528389adacab72259c37b9ae3c507bd3ae23783122e06586560040c",
+      "text_sha256": "dbfc32f68985d3d8beb3a16632f931fa055bae0af69ab2ab8b49590fe5d4b750"
+    },
+    {
+      "id": "cdc-make-water-safe",
+      "file": "originals/cdc-make-water-safe.pdf",
+      "text_file": "search/cdc-make-water-safe.txt",
+      "pages": 1,
+      "sha256": "c39b55b4d8f3dd40ecd2b13175f7661b52dfc6e73e4a24ef189de64fb9d513b1",
+      "text_sha256": "620291ffa38797ed5511ff26f2b36b53ada7563a50ea5ba02a4fac1b8adad1e5"
+    },
+    {
+      "id": "usda-kitchen-companion-2015",
+      "file": "originals/usda-kitchen-companion-2015.pdf",
+      "text_file": "search/usda-kitchen-companion-2015.txt",
+      "pages": 50,
+      "sha256": "dc32aebc29ffd72ca6eb13949949e1638aa38289fa99e1cda822b47cdf9d4279",
+      "text_sha256": "41cc3d4f46aeb24995ad9ee3d6e357d529d36d5d6f37e4d5338f9ff67e109278"
+    },
+    {
+      "id": "cdc-use-safe-water",
+      "file": "originals/cdc-use-safe-water.pdf",
+      "text_file": "search/cdc-use-safe-water.txt",
+      "pages": 1,
+      "sha256": "f7bda1f9e7827ee74278d408001e9cdf4529924fa70144e0696ee0fd4ee39bad",
+      "text_sha256": "d64406905bb9fccac087500ab0f8402f4b933da919b7e0ca70afb47106d1900a"
+    },
+    {
+      "id": "cdc-wash-hands",
+      "file": "originals/cdc-wash-hands.pdf",
+      "text_file": "search/cdc-wash-hands.txt",
+      "pages": 1,
+      "sha256": "afd3dbf6a5ac9e3e40c6d9ed4d3e00d0e6493a468db7c02c4f2aadbe9d394a03",
+      "text_sha256": "d7a76ca9b9cc930815d1fc2bd724785bae17eb60809ffca3c31925631ba9a745"
+    },
+    {
+      "id": "cdc-prevent-diarrhea-after-disaster",
+      "file": "originals/cdc-prevent-diarrhea-after-disaster.pdf",
+      "text_file": "search/cdc-prevent-diarrhea-after-disaster.txt",
+      "pages": 1,
+      "sha256": "a83519f0de21e14665a55f79ca6540a842f9a4569e80bb2753293cf0b5eb1a93",
+      "text_sha256": "bc666bb15c077868007038887054d82388b70ceb823182dc6ffad49edb8d11d0"
+    },
+    {
+      "id": "cpsc-portable-generator-hazards",
+      "file": "originals/cpsc-portable-generator-hazards.pdf",
+      "text_file": "search/cpsc-portable-generator-hazards.txt",
+      "pages": 1,
+      "sha256": "e0d63358b2c45b5b6250cb43173113e406b71d49a4bd557e60130dae8ec2ad36",
+      "text_sha256": "8fff280d020a63ceaac80f4b0897a44e02ed1943e8eeabb358b279bc4973d729"
+    }
+  ],
+  "cases": [
+    {
+      "id": "water-safe-drinking",
+      "query": "safe drinking water",
+      "relevant": [
+        {
+          "id": "cdc-make-water-safe",
+          "page": 1,
+          "evidence": "Use bottled water for drinking"
+        },
+        {
+          "id": "cdc-use-safe-water",
+          "page": 1,
+          "evidence": "Make sure your water is safe"
+        },
+        {
+          "id": "cdc-prevent-diarrhea-after-disaster",
+          "page": 1,
+          "evidence": "Drink and use safe water."
+        }
+      ]
+    },
+    {
+      "id": "water-boiling",
+      "query": "How do I boil water during an emergency?",
+      "relevant": [
+        {
+          "id": "cdc-make-water-safe",
+          "page": 1,
+          "evidence": "Boil your water for 1 minute."
+        },
+        {
+          "id": "cdc-use-safe-water",
+          "page": 1,
+          "evidence": "Boil water for 1 minute"
+        },
+        {
+          "id": "cdc-prevent-diarrhea-after-disaster",
+          "page": 1,
+          "evidence": "If boiling, bring your water to a complete boil"
+        }
+      ]
+    },
+    {
+      "id": "water-bleach",
+      "query": "household bleach water",
+      "relevant": [
+        {
+          "id": "cdc-make-water-safe",
+          "page": 1,
+          "evidence": "household bleach to 1 gallon water."
+        },
+        {
+          "id": "cdc-prevent-diarrhea-after-disaster",
+          "page": 1,
+          "evidence": "liquid chlorine bleach."
+        }
+      ]
+    },
+    {
+      "id": "water-infant",
+      "query": "How do I prepare infant formula when tap water is unsafe?",
+      "relevant": [
+        {
+          "id": "cdc-use-safe-water",
+          "page": 1,
+          "evidence": "When powdered infant formula is the only option"
+        }
+      ]
+    },
+    {
+      "id": "hands-washing",
+      "query": "How should I wash hands with soap?",
+      "relevant": [
+        {
+          "id": "cdc-wash-hands",
+          "page": 1,
+          "evidence": "Wash Your Hands"
+        },
+        {
+          "id": "cdc-prevent-diarrhea-after-disaster",
+          "page": 1,
+          "evidence": "Wash your hands often with soap"
+        }
+      ]
+    },
+    {
+      "id": "hands-sanitizer",
+      "query": "What alcohol hand sanitizer can I use?",
+      "relevant": [
+        {
+          "id": "cdc-wash-hands",
+          "page": 1,
+          "evidence": "sanitizer that contains at least 60% alcohol."
+        },
+        {
+          "id": "cdc-prevent-diarrhea-after-disaster",
+          "page": 1,
+          "evidence": "sanitizer that contains at least 60% alcohol."
+        }
+      ]
+    },
+    {
+      "id": "illness-diarrhea",
+      "query": "diarrhea after a disaster",
+      "relevant": [
+        {
+          "id": "cdc-prevent-diarrhea-after-disaster",
+          "page": 1,
+          "evidence": "Preventing Diarrhea After A Disaster"
+        }
+      ]
+    },
+    {
+      "id": "generator-co",
+      "query": "portable generator carbon monoxide",
+      "relevant": [
+        {
+          "id": "cpsc-portable-generator-hazards",
+          "page": 1,
+          "evidence": "Carbon Monoxide Hazards"
+        }
+      ]
+    },
+    {
+      "id": "generator-indoors",
+      "query": "Can I use a generator indoors?",
+      "relevant": [
+        {
+          "id": "cpsc-portable-generator-hazards",
+          "page": 1,
+          "evidence": "Using a generator indoors CAN KILL YOU IN MINUTES."
+        }
+      ]
+    },
+    {
+      "id": "food-outage",
+      "query": "How do I keep food safe during power outages?",
+      "relevant": [
+        {
+          "id": "usda-kitchen-companion-2015",
+          "page": 43,
+          "evidence": "Power Outages"
+        }
+      ]
+    },
+    {
+      "id": "food-fridge",
+      "query": "refrigerator freezer appliance thermometer",
+      "relevant": [
+        {
+          "id": "usda-kitchen-companion-2015",
+          "page": 14,
+          "evidence": "use a separate appliance thermometer"
+        },
+        {
+          "id": "usda-kitchen-companion-2015",
+          "page": 43,
+          "evidence": "Keep an appliance thermometer"
+        }
+      ]
+    },
+    {
+      "id": "food-thawing",
+      "query": "How do I thaw meat in cold water?",
+      "relevant": [
+        {
+          "id": "usda-kitchen-companion-2015",
+          "page": 18,
+          "evidence": "In Cold Water:"
+        }
+      ]
+    },
+    {
+      "id": "food-temperature",
+      "query": "safe minimum internal temperature chart",
+      "relevant": [
+        {
+          "id": "usda-kitchen-companion-2015",
+          "page": 21,
+          "evidence": "Temperature Chart"
+        }
+      ]
+    },
+    {
+      "id": "food-flood",
+      "query": "flood water damaged cans food",
+      "relevant": [
+        {
+          "id": "usda-kitchen-companion-2015",
+          "page": 44,
+          "evidence": "Inspect canned food and discard any"
+        }
+      ]
+    },
+    {
+      "id": "plan-evacuation",
+      "query": "evacuation shelter plan",
+      "relevant": [
+        {
+          "id": "fema-are-you-ready",
+          "page": 19,
+          "evidence": "Make an Evacuation"
+        }
+      ]
+    },
+    {
+      "id": "plan-contact",
+      "query": "family emergency communication plan",
+      "relevant": [
+        {
+          "id": "fema-are-you-ready",
+          "page": 18,
+          "evidence": "Create a Family Emergency Communication Plan"
+        }
+      ]
+    }
+  ]
+}

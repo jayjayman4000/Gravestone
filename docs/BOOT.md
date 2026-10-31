@@ -14,7 +14,7 @@ Source/configuration tests do **not** establish that an ISO boots. A successful
 remote build plus all five VM checks below is required before calling an
 artifact boot-tested. Those checks validate kernel/live filesystem/backend boot,
 not a visible Firefox session, physical hardware, USB boot, or persistence.
-Manual graphical and two-reboot persistence checks remain required. No workflow
+Manual graphical and physical-device persistence checks remain required. The workflow also exercises the actual notebook API across two clean disposable-VM reboots on newly built images; this is distinct from physical-stick durability. No workflow
 publishes a release automatically. A failed-run artifact is diagnostic material,
 not a release candidate.
 
@@ -36,15 +36,15 @@ gh workflow run build-live.yml --ref main
 gh run list --workflow build-live.yml --limit 5
 # Replace RUN_ID with the id returned by the listing.
 gh run watch RUN_ID --exit-status
-gh run download RUN_ID --name gravestone-0.3.0-amd64 --dir dist
+gh run download RUN_ID --name gravestone-0.4.0-amd64 --dir dist
 gh run download RUN_ID --name gravestone-build-logs --dir build-logs
-(cd dist && sha256sum -c gravestone-0.3.0-amd64.iso.sha256)
+(cd dist && sha256sum -c gravestone-0.4.0-amd64.iso.sha256)
 ```
 
 Outputs:
 
-- `dist/gravestone-0.3.0-amd64.iso`
-- `dist/gravestone-0.3.0-amd64.iso.sha256`
+- `dist/gravestone-0.4.0-amd64.iso`
+- `dist/gravestone-0.4.0-amd64.iso.sha256`
 - `dist/filesystem.packages` (installed Debian package/version manifest)
 - Build, boot-catalog, extraction, serial VM and disk-space logs in the log
   artifact. ISO artifacts are retained seven days; logs fourteen days.
@@ -90,7 +90,7 @@ lb config noauto --validate
 Install `qemu-system-x86`, `ovmf`, and `xorriso` on the test host, then run:
 
 ```sh
-scripts/smoke-iso.sh dist/gravestone-0.3.0-amd64.iso logs
+scripts/smoke-iso.sh dist/gravestone-0.4.0-amd64.iso logs
 ```
 
 All VMs use TCG, two vCPUs, 2 GiB RAM, no network adapter and no user/internal
@@ -114,6 +114,8 @@ disk. Each boot is bounded by `timeout 240`.
 
 4. **Unmodified BIOS USB-as-disk check:** SeaBIOS boots the same ISO attached as removable USB mass storage, with no CD-ROM attached; the backend-ready marker is required.
 5. **Unmodified UEFI USB-as-disk check:** OVMF boots the same ISO attached as removable USB mass storage, with no CD-ROM attached; the backend-ready marker is required. Both USB checks exercise the DD-image layout, not Rufus ISO-mode extraction. Use DD mode for physical flashing.
+
+After these five gates, a separate unprivileged resource-bounded Docker container boots the exact built ISO with a newly created regular-file ext4 persistence disk. The container is disconnected from networking before execution, and the VM has no NIC. It saves notes through the API, powers off cleanly, verifies the exact previous text after two subsequent boots, and runs read-only filesystem checks. Only JSON/serial/fsck logs are uploaded, not the scratch disk. The test uses a VM-only debug shell; production boot arguments are unchanged. See [persistence acceptance](PERSISTENCE_TEST.md).
 
 The backend-only VMs retain a 2 GiB allocation; they do not establish AI service functionality. Model inference is separately exercised on the packaged binary in the Debian builder; complete offline graphical/AI integration and hardware retesting remain required.
 

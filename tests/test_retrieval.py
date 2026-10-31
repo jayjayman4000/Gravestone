@@ -13,9 +13,10 @@ import inspect
 
 
 @contextmanager
-def model_server(completion='{"terms":["filtration"]}', *, delay=0, status=200, location=None, raw=None):
+def model_server(completion='{"terms":["filtration"]}', *, delay=0.0, status=200, location=None, raw=None):
     """A real HTTP fixture, explicitly not actual model inference."""
     requests = []
+    stop = threading.Event()
 
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
@@ -23,27 +24,88 @@ def model_server(completion='{"terms":["filtration"]}', *, delay=0, status=200, 
 
         def do_POST(self):
             requests.append((self.path, json.loads(self.rfile.read(int(self.headers['Content-Length'])))))
-            time.sleep(delay)
+            if stop.wait(delay):
+                return
             body = raw if raw is not None else json.dumps({'choices': [{'message': {'content': completion}}]}).encode()
-            self.send_response(status)
-            if location:
-                self.send_header('Location', location)
-            self.send_header('Content-Length', str(len(body)))
-            self.end_headers()
             try:
+                self.send_response(status)
+                if location:
+                    self.send_header('Location', location)
+                self.send_header('Content-Length', str(len(body)))
+                self.end_headers()
                 self.wfile.write(body)
             except (BrokenPipeError, ConnectionResetError):
                 pass
 
     server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
-    thread = threading.Thread(target=lambda: server.serve_forever(poll_interval=0.01), daemon=True)
+    server.daemon_threads = False
+    thread = threading.Thread(target=lambda: server.serve_forever(poll_interval=0.01))
     thread.start()
     try:
         yield f'http://127.0.0.1:{server.server_port}', requests
     finally:
+        stop.set()
         server.shutdown()
         server.server_close()
-        thread.join()
+        thread.join(timeout=2)
+        if thread.is_alive():
+            raise AssertionError('HTTP fixture did not stop')
+
+
+@contextmanager
+def dripping_model_server(stage, *, connection_close=False):
+    """Loopback HTTP timing fixture, NOT actual model inference.
+
+    Each 10 ms drip is below the client's 120 ms inactivity budget, but the
+    complete response takes over 700 ms. Stop/join all fixture threads even
+    when an assertion fails or the client shuts down mid-header/body.
+    """
+    stop = threading.Event()
+    requests = []
+
+    class Handler(BaseHTTPRequestHandler):
+        protocol_version = 'HTTP/1.1'
+
+        def log_message(self, *args):
+            pass
+
+        def do_POST(self):
+            requests.append(json.loads(self.rfile.read(int(self.headers['Content-Length']))))
+            body = json.dumps({'choices': [{'message': {'content': '{"terms":["filtration"]}'}}]}).encode()
+            try:
+                self.wfile.write(b'HTTP/1.1 200 OK\r\n')
+                if stage == 'headers':
+                    for _ in range(80):
+                        self.wfile.write(b'X-Fixture: drip\r\n')
+                        self.wfile.flush()
+                        if stop.wait(0.01):
+                            return
+                self.wfile.write(b'Content-Length: ' + str(len(body)).encode() + b'\r\n')
+                if connection_close:
+                    self.wfile.write(b'Connection: close\r\n')
+                self.wfile.write(b'\r\n')
+                chunks = [body[i:i + 1] for i in range(len(body))] if stage == 'body' else [body]
+                for chunk in chunks:
+                    self.wfile.write(chunk)
+                    self.wfile.flush()
+                    if stage == 'body' and stop.wait(0.01):
+                        return
+            except (BrokenPipeError, ConnectionResetError):
+                pass  # Expected when the deadline interrupts the client socket.
+
+    server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+    server.daemon_threads = False  # server_close must join every owned handler.
+    thread = threading.Thread(target=lambda: server.serve_forever(poll_interval=0.01))
+    thread.start()
+    try:
+        yield f'http://127.0.0.1:{server.server_port}', requests
+    finally:
+        stop.set()
+        server.shutdown()
+        server.server_close()
+        thread.join(timeout=2)
+        if thread.is_alive():
+            raise AssertionError('HTTP timing fixture did not stop')
 
 
 class RetrievalTests(unittest.TestCase):
@@ -109,6 +171,17 @@ class RetrievalTests(unittest.TestCase):
         self.assertIn('no advice', payload['messages'][0]['content'].lower())
         self.assertNotIn('choices', result)
 
+    def test_model_roundtrip_without_new_accepted_terms_is_keyword_only(self):
+        self.document('Water fixture.')
+        for terms in ([], ['water', 'safe', 'drink boiled water', 42]):
+            with self.subTest(terms=terms), model_server(json.dumps({'terms': terms})) as (url, requests):
+                result = self.search('water', model_url=url)
+            self.assertEqual(result['model_status'], 'available')
+            self.assertEqual(result['mode'], 'keyword-only')
+            self.assertEqual(result['expansion_terms'], [])
+            self.assertIn('no accepted new keywords', result['message'])
+            self.assertEqual(len(requests), 1)
+
     def test_transport_failures_fall_back_plainly_without_raw_completion(self):
         self.document('Water fixture.')
         cases = [({'completion': 'RAW invented advice'}, 'invalid-response'),
@@ -129,6 +202,77 @@ class RetrievalTests(unittest.TestCase):
                 self.assertTrue(result['results'])
                 self.assertEqual(len(requests), 1)
                 self.assertNotIn('RAW invented', json.dumps(result))
+
+    def test_total_deadline_interrupts_dripped_headers_and_body(self):
+        source = 'Water fixture. Untouched original page.'
+        self.document(source)
+        for stage, connection_close in (('headers', False), ('body', False), ('body', True)):
+            with self.subTest(stage=stage, connection_close=connection_close):
+                with dripping_model_server(stage, connection_close=connection_close) as (url, requests):
+                    start = time.monotonic()
+                    result = self.search('water', model_url=url, timeout=0.12)
+                    elapsed = time.monotonic() - start
+                self.assertEqual(result['model_status'], 'timeout', f'elapsed={elapsed:.3f}s')
+                self.assertLess(elapsed, 0.6, 'deadline must interrupt read, not just reject a late response')
+                self.assertEqual(result['mode'], 'keyword-only')
+                self.assertEqual(result['terms'], ['water'])
+                self.assertEqual(result['expansion_terms'], [])
+                self.assertEqual(len(requests), 1)
+                self.assertEqual(result['results'][0]['excerpt'], source)
+                self.assertNotIn('answer', result)
+                self.assertNotIn('choices', result)
+                self.assertNotIn('filtration', json.dumps(result))
+
+    def test_deadline_resources_close_on_success_and_failure(self):
+        # Instrument real sockets/timers without replacing their I/O behavior.
+        from app import retrieval
+        original_connection = retrieval.http.client.HTTPConnection
+        original_timer = threading.Timer
+        sockets, timers = [], []
+
+        class TrackingConnection(original_connection):
+            def connect(self):
+                super().connect()
+                sockets.append(self.sock)
+
+        def track_timer(*args, **kwargs):
+            timer = original_timer(*args, **kwargs)
+            timers.append(timer)
+            return timer
+
+        self.document('Water fixture.')
+        cases = [({}, 'available'), ({'status': 503}, 'unavailable'),
+                 ({'raw': b'{broken'}, 'invalid-response'),
+                 ({'raw': b'x' * 32769}, 'invalid-response'),
+                 ({'delay': 0.2}, 'timeout')]
+        with patch('app.retrieval.http.client.HTTPConnection', TrackingConnection), \
+                patch('app.retrieval.threading.Timer', track_timer):
+            for options, status in cases:
+                with self.subTest(status=status, options=str(options)[:40]):
+                    with model_server(**options) as (url, _):
+                        result = self.search('water', model_url=url, timeout=0.12)
+                        self.assertEqual(result['model_status'], status)
+                        self.assertTrue(all(not timer.is_alive() for timer in timers))
+                        self.assertTrue(all(sock.fileno() == -1 for sock in sockets))
+            with dripping_model_server('body', connection_close=True) as (url, _):
+                result = self.search('water', model_url=url, timeout=0.12)
+                self.assertEqual(result['model_status'], 'timeout')
+                self.assertTrue(all(not timer.is_alive() for timer in timers))
+                self.assertTrue(all(sock.fileno() == -1 for sock in sockets))
+        self.assertEqual(len(timers), len(cases) + 1)
+        self.assertEqual(len(sockets), len(cases) + 1)
+
+    def test_concurrent_deadlines_do_not_interrupt_another_search(self):
+        from concurrent.futures import ThreadPoolExecutor
+        self.document('Water fixture.')
+        baseline_threads = set(threading.enumerate())
+        with dripping_model_server('headers') as (slow_url, _), \
+                model_server(delay=0.25) as (normal_url, _), ThreadPoolExecutor(max_workers=2) as pool:
+            slow = pool.submit(self.search, 'water', model_url=slow_url, timeout=0.12)
+            normal = pool.submit(self.search, 'water', model_url=normal_url, timeout=1)
+            self.assertEqual(slow.result(timeout=2)['model_status'], 'timeout')
+            self.assertEqual(normal.result(timeout=2)['model_status'], 'available')
+        self.assertEqual(set(threading.enumerate()) - baseline_threads, set())
 
     def test_ranking_prefers_original_phrase_and_ai_cannot_add_unanchored_pages(self):
         pages = ['Water ' + 'filler ' * 180 + 'filter.',
@@ -199,6 +343,32 @@ class RetrievalTests(unittest.TestCase):
         result = self.search('water filter maintenance')
         self.assertIn('Water near filter', result['results'][0]['excerpt'])
         self.assertIn(result['results'][0]['excerpt'], source)
+
+    def test_local_original_coverage_outweighs_scattered_whole_page_matches(self):
+        self.document('Safe home. ' + 'layout ' * 150 + 'Drinking water supplies.\f'
+                      'Water for drinking must be safe. Source passage.')
+        result = self.search('safe drinking water')
+        self.assertEqual(result['results'][0]['page'], 2)
+        self.assertIn('Water for drinking must be safe.', result['results'][0]['excerpt'])
+
+    def test_proximity_uses_later_occurrences_and_keeps_whole_cluster_in_preview(self):
+        source = ('Water topic. ' + 'layout ' * 120 + 'Drinking topic. '
+                  + 'layout ' * 120 + 'Safe topic. ' + 'layout ' * 120
+                  + 'Water for drinking must be safe. Exact later cluster.')
+        self.document(source)
+        result = self.search('safe drinking water')
+        hit = result['results'][0]
+        self.assertIn('Water for drinking must be safe.', hit['excerpt'])
+        self.assertIn(hit['excerpt'], source)
+        self.assertLessEqual(len(hit['excerpt']), 600)
+
+    def test_phrase_layout_whitespace_does_not_demote_equivalent_source(self):
+        self.document('Safe Minimum Internal  \nTemperature Chart\nSource table.\f'
+                      'See Safe Minimum Internal Temperature Chart in another section.')
+        result = self.search('safe minimum internal temperature chart')
+        self.assertEqual(result['results'][0]['page'], 1)
+        self.assertEqual(result['results'][0]['score'], result['results'][1]['score'])
+        self.assertIn('Internal  \nTemperature', result['results'][0]['excerpt'])
 
     def test_default_timeout_and_environment_configuration_for_cpu_model(self):
         from app.retrieval import command_search

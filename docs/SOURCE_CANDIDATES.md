@@ -29,6 +29,21 @@ The public base image should prefer identifiable, authoritative source publisher
 - Admission status: **not bundled**. Do not scrape subscription pages, bypass access controls, or treat a subscription/ownership as permission for a cloneable public library.
 - An individually authorized offline file or explicit publisher permission can be evaluated separately. Manufacturer-authorized manuals and clearly redistributable technical references should be researched by actual vehicle/equipment scope; no single generic manual covers all vehicles.
 
+## 2026-10-31 admission decisions
+
+**Actually admitted, not candidates:** FEMA's complete August 2019 *CERT Basic Training Participant Manual* (268 pages), EPA Office of Water's *Emergency Disinfection of Drinking Water* (September 2017, 2 pages), EPA's *What to Do After the Flood* (updated October 2024, 3 pages), and CDC's *Drinking Water Treatment Methods for Backcountry and Travel Use* (February 20, 2009, 1 page). See `content/manifest.json`, the batch rights audit and `SOURCE_ACQUISITION.md` for original files, exact derivatives, agency-authorship/reuse evidence and limitations. The CERT medical material is part of the whole training manual, not a separately extracted or AI-authored first-aid guide.
+
+Still excluded/unresolved:
+
+- **Manufacturer power manual:** Honda EU22i, https://cf.hondappsv.com/files/OM/OM000567HME/00X36-Z44-G010_EU22iT_HME_en.pdf. The publisher PDF's indexed opening notice says no part may be reproduced without written permission. No permission obtained, no manual or derivative bundled. This is not a model recommendation or a claim to cover a user's equipment.
+- **Solar:** NREL *Own Your Power!* remains excluded for the prior contractor/image-rights uncertainty. This batch does not override that decision.
+- **USGS water quality:** Circular 1332, https://pubs.usgs.gov/circ/circ1332/includes/circ1332.pdf, has indexed iStock photo credits. Government hosting is insufficient to resolve those third-party images; not admitted.
+- **OSHA generator sheet:** https://www.osha.gov/sites/default/files/publications/OSHA3286.pdf. A fresh browser Fetch returned 403; earlier direct/browser failures remain documented. Not admitted; no replacement content fabricated. Existing CPSC generator-hazard coverage remains limited.
+- **CDC hurricane messaging manual:** direct normal/download-query requests and direct Stacks alternate requests returned 403. Not admitted within this bounded batch; the four acquired PDFs supply actual new sources instead of a future-only roadmap.
+- **Red Cross / ACS:** no suitable document-specific license established; no copyrighted first-aid manual copied. The WHO/ICRC workbook remains a candidate with its separate audience/license review requirements, not installed guidance.
+
+No source is certified medically/electrically current or comprehensive; equipment-specific power, solar installation, wilderness shelter construction and a current comprehensive first-aid reference remain gaps.
+
 ## UI implications
 
 - Empty First Aid, Repair, or other topic categories must identify the actual installed inventory, not pretend a candidate or requested topic is present.

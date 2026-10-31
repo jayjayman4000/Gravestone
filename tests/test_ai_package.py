@@ -209,8 +209,15 @@ class RealInferenceTests(unittest.TestCase):
                     retrieval_started = time.monotonic()
                     retrieval = command_search(ROOT / 'content', 'safe drinking water', model_url=url)
                     retrieval_elapsed = time.monotonic() - retrieval_started
-                    self.assertEqual(retrieval['mode'], 'ai-assisted', retrieval)
-                    self.assertEqual(retrieval['model_status'], 'available')
+                    # A real round-trip is required, but accepted new terms are
+                    # not guaranteed. Do not mislabel a duplicate-only completion
+                    # as useful AI assistance or weaken the availability check.
+                    self.assertEqual(retrieval['model_status'], 'available', retrieval)
+                    self.assertIsInstance(retrieval['expansion_terms'], list)
+                    self.assertEqual(retrieval['mode'],
+                                     'ai-assisted' if retrieval['expansion_terms'] else 'keyword-only', retrieval)
+                    self.assertEqual(retrieval['terms'],
+                                     ['safe', 'drinking', 'water'] + retrieval['expansion_terms'])
                     self.assertTrue(retrieval['results'], retrieval)
                     manifest = json.loads((ROOT / 'content/manifest.json').read_text())
                     by_file = {doc['file']: doc for doc in manifest['documents']}

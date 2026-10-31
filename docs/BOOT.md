@@ -180,6 +180,12 @@ Boot the USB through your firmware's one-time boot menu. Select its BIOS or
 64-bit UEFI entry, with Secure Boot off. Without an explicitly provisioned
 persistence volume, edits and notes are **RAM-only and lost at shutdown**.
 
+## Rufus extracted GPT/UEFI persistence candidate
+
+The published [0.4.1 alpha candidate](https://github.com/jayjayman4000/Gravestone/releases/tag/v0.4.1-alpha.1) corrects the EFI discovery failure and passes the actual shipped-loader GPT/MBR FAT fixtures plus full extracted-image GPT/UEFI same-USB root-union notebook acceptance across three clean VM boots. Use the exact checksum and [0.4.1 USB checklist](USB_TEST.md). The test constructs a 4 GiB partition; it is not actual Rufus execution or physical compatibility proof. Its default root-union scope is broader than `/home` only.
+
+With a nonzero Rufus persistence slider, do not expect the ISO/DD prompt. For the physical candidate test use GPT / UEFI (non-CSM), FAT32 and 4 GB persistence. Back up the entire selected stick first: flashing erases it. Keep the zero-slider DD/manual `/home` alternative below separate.
+
 ## Optional `/home` persistence
 
 The released DD-image procedure below is separate from Rufus's persistence slider. With a nonzero slider Rufus does not offer the same DD choice, and its inspected Debian persistence configuration uses `/ union`, not `/home union`. The reported 0.4.0 extracted-layout GRUB failure and the additional verification required for that workflow are recorded in [Rufus persistence diagnosis](RUFUS_PERSISTENCE.md). Do not treat the existing `/home` VM test as validation of that alternative.

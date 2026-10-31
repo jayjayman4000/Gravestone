@@ -1,4 +1,12 @@
-# Rufus persistence: current boot failure and acceptance boundary
+# Rufus persistence: boot correction and acceptance boundary
+
+## 0.4.1 built-image result
+
+The exact 0.4.1 ISO built from `f02eddaca433b840189d88867eec1f40ab40643d` passed [workflow run 41207842357](https://github.com/jayjayman4000/Gravestone/actions/runs/41207842357). Downloaded ISO SHA-256: `e405bb00ff1cea3f0a1f56818f42332d1994dd2629b24a99adad146cc292b18f`; size: **1,206,779,904 bytes**. Parent evidence validation passed all 12 build/evidence groups and the read-only embedded-payload audit passed 299 checks.
+
+Both helper-generated and actual shipped loaders passed GPT/FAT32 and MBR/FAT32 discovery. The whole extracted image then passed **three OVMF firmware boots with same-USB GPT/FAT32 + 4 GiB ext4 `/ union` persistence**: exact notebook text carried across both clean reboots, boot IDs differed, the root overlay used the second partition of the same removable USB, all poweroffs exited cleanly, and all read-only filesystem checks passed. The existing optical/raw-DD boot and separate `/home` persistence protocols also passed.
+
+This establishes a constructed Rufus-like GPT/UEFI layout, **not actual execution of Rufus, physical USB reliability, visible kiosk interaction in this exact image, Secure Boot, or MBR/BIOS full-root persistence**. VM-only serial-debug arguments are absent from all 11 inspected shipped menu configurations. Actual 0.4.1 ISO member inspection found no symlinks. Use the exact 0.4.1 image/checksum and [candidate-specific USB checklist](USB_TEST.md); physical two-clean-reboot acceptance remains required. The sections below preserve the diagnosis and historical pre-build checkpoints.
 
 ## Reported physical failure
 
@@ -29,7 +37,7 @@ Each guest used 384 MiB RAM, one CPU, no NIC and a 40-second deadline. No host f
 
 The builder now tests the patched helper before expensive AI preparation and tests the actual shipped loader/template after image construction. The source suite at this checkpoint ran **113 tests: 110 passed, three existing optional integration checks skipped**. Independent review and the full-image/persistence acceptance remain separate gates. **These fixture results do not constitute a corrected release ISO, kernel/backend boot, graphical boot, or verified Rufus persistence.**
 
-## Hosted full-image acceptance gate (not yet passed)
+## Hosted full-image acceptance gate (historical pre-build checkpoint)
 
 The next image is named `gravestone-0.4.1-amd64.iso`; that name alone does not mean it has been built or approved. The workflow adds `scripts/test-rufus-persistence.py` after the unchanged optical/raw-USB and separate `/home` persistence checks. It uses a preparation-only tools image, then an offline capability-dropped container with 2,500 MiB RAM and one CPU. Source and the checksum-pinned ISO are read-only.
 
@@ -43,7 +51,7 @@ The first independent harness review reproduced a blocker that writable fixtures
 
 ## Keep the test claims separate
 
-The released image passed raw/DD USB-as-disk firmware/backend tests and a separate direct-kernel notebook persistence test. Neither proves the Rufus extracted/persistent layout:
+The earlier 0.4.0 image passed raw/DD USB-as-disk firmware/backend tests and a separate direct-kernel notebook persistence test. Neither by itself proved the Rufus extracted/persistent layout:
 
 1. **Raw/DD image:** original hybrid ISO attached as USB mass storage; no extraction or Rufus-created persistent partition.
 2. **Existing persistence test:** original ISO supplies the live system; a separate emulated removable USB filesystem contains `/home union`. It exercises exact notebook bytes through two clean reboot cycles but bypasses firmware via direct-kernel boot.
@@ -53,7 +61,7 @@ The released image passed raw/DD USB-as-disk firmware/backend tests and a separa
 
 Do not relax `live-media=removable` or `persistence-media=removable-usb` to make a fixture pass: ordinary internal disks must remain outside automatic live-medium/persistence selection. Secure Boot remains unsupported.
 
-## Safe next steps
+## Historical pre-build next steps (superseded by the 0.4.1 result above)
 
 - Preserve the current USB and any notes. No physical device formatting, repartitioning or remote image writing is authorized by this diagnosis.
 - Reproduce the failure using the current release's exact EFI executable and disposable regular-file fixtures, then test the minimal loader correction on otherwise identical fixtures.

@@ -41,7 +41,7 @@ python3 -m unittest discover -s tests -v
 
 Read [boot/build and flashing notes](docs/BOOT.md), [application details](docs/APP.md), [source policy](docs/SOURCE_POLICY.md), and [requirements](docs/REQUIREMENTS.md).
 
-Published engineering test images: [releases](https://github.com/jayjayman4000/Gravestone/releases). Read the chosen image's exact checksum, completed checks, and remaining limits before flashing. Follow the [USB test checklist](docs/USB_TEST.md) and use Rufus **DD Image mode**.
+Published engineering test images: [releases](https://github.com/jayjayman4000/Gravestone/releases). Read the chosen image's exact checksum, completed checks, and remaining limits before flashing. Follow the [candidate-specific USB test checklist](docs/USB_TEST.md): 0.4.1 adds a corrected extracted-loader path and constructed GPT/UEFI same-USB root-persistence acceptance. A nonzero Rufus persistence slider bypasses the DD prompt; keep that path separate from the zero-slider DD alternative. Physical stick acceptance is still required.
 
 Use only release images with published checksums. Flashing destroys the selected drive's existing contents. Physical hardware compatibility, firmware restrictions, USB persistence, and image verification require separate testing. No promise of booting every computer or surviving EMP, damaged storage, or power loss.
 

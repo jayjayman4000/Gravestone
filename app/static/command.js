@@ -33,8 +33,11 @@
       if (current !== version) return;
       state.textContent = data.mode === 'ai-assisted' ? 'Keyword assistance' : 'Keyword search';
       status.textContent = data.results.length ? data.results.length + ' source excerpts for “' + query + '”' : 'No matching installed source for “' + query + '”. Try another term or browse Source Documents.';
-      if (!data.results.length) return;
-      for (const hit of data.results) {
+      if (data.message) results.append(element('p', data.message, 'coverage-note'));
+      if (data.warning && (data.results.length || data.related_results?.length)) {
+        results.append(element('p', data.warning, 'coverage-note'));
+      }
+      const renderHit = hit => {
         // Provenance comes from the manifest; the physical page belongs to this hit.
         const source = {...hit, ...documentsByFile.get(hit.file), page: hit.page};
         const card = element('article', undefined, 'search-hit');
@@ -42,9 +45,21 @@
         open.className = 'source-open';
         open.setAttribute('aria-label', hit.title + ' — ' + (hit.page ? 'open PDF page ' + hit.page : 'open original'));
         card.append(open,
-          element('p', (hit.publisher || source.publisher || 'Publisher not supplied') + ' · ' + (hit.page ? 'PDF page ' + hit.page : 'Page not indexed'), 'source-meta'),
-          element('pre', hit.excerpt, 'snippet'));
-        results.append(card);
+          element('p', (hit.publisher || source.publisher || 'Publisher not supplied') + ' · ' + (hit.page ? 'PDF page ' + hit.page : 'Page not indexed'), 'source-meta'));
+        if (source.edition) card.append(element('p', source.edition, 'source-meta'));
+        if (hit.missing_terms?.length) {
+          card.append(element('p', 'Partial keyword match · Missing query words: ' + hit.missing_terms.join(', '), 'coverage-note'));
+        }
+        card.append(element('pre', hit.excerpt, 'snippet'));
+        return card;
+      };
+      for (const hit of data.results) results.append(renderHit(hit));
+      if (data.related_results?.length) {
+        const related = element('details');
+        related.append(element('summary', 'Partial keyword matches · may be unrelated (' + data.related_results.length + ')'),
+          element('p', 'These passages do not meet the query-word threshold. They are not evidence that this topic is covered.', 'coverage-note'));
+        for (const hit of data.related_results) related.append(renderHit(hit));
+        results.append(related);
       }
     } catch (error) {
       if (current !== version) return;

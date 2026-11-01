@@ -12,7 +12,7 @@ from urllib.parse import urlsplit
 from . import PREVIEW_WARNING, read_manifest, read_text, open_file
 
 TEXT_LIMIT = 16 * 1024 * 1024
-STOPWORDS = frozenset('a an and are as at be by can could do does for from how i in is it me my of on or please should tell that the their them there these they this to us was we what when where which who why will with would you your find help'.split())
+STOPWORDS = frozenset('a an and are as at be by can could do does for from how i in is it me my of on or please should tell that the their them there these they this to us was we what when where which who why will with would you your find help guidance'.split())
 
 
 def _query_terms(query):
@@ -163,14 +163,48 @@ def _best_passage(source, original_terms):
     return best[1:]
 
 
+def _page_roles(doc, page_count):
+    """Read optional editorial physical-page ranges; invalid metadata is neutral.
+
+    These are inspected publisher-structure labels, never inferred from keywords
+    or page positions. Mixed pages with safety warnings/emergency caveats must be
+    main or safety, not frontmatter/reference/endmatter. Missing labels are neutral.
+    """
+    ranges = doc.get('page_roles')
+    note = doc.get('page_roles_note')
+    if (not isinstance(ranges, list) or not ranges or len(ranges) > page_count
+            or not isinstance(note, str) or not note.strip() or len(note) > 4096
+            or type(doc.get('pages')) is not int or doc['pages'] != page_count):
+        return {}
+    roles = {}
+    previous_end = 0
+    for item in ranges:
+        if not isinstance(item, dict):
+            return {}
+        start, end, role = (item.get(key) for key in ('start', 'end', 'role'))
+        if (type(start) is not int or type(end) is not int
+                or not previous_end < start <= end <= page_count
+                or role not in ('main', 'safety', 'frontmatter', 'reference', 'endmatter')):
+            return {}  # No partial application of a malformed/overlapping overlay.
+        roles.update((page, role) for page in range(start, end + 1))
+        previous_end = end
+    return roles
+
+
 def command_search(content_dir, query, *, model_url='http://127.0.0.1:8767', timeout: float = 20):
     """Return mechanically sliced search previews, not substantive generated text."""
     if not isinstance(query, str) or len(query) > 2048 or not _query_terms(query):
         return {'query': query if isinstance(query, str) else '', 'mode': 'keyword-only',
                 'model_status': 'not-called', 'terms': [], 'expansion_terms': [],
-                'results': [], 'warning': PREVIEW_WARNING,
+                'results': [], 'related_results': [],
+                'coverage': {'status': 'invalid-query', 'required_terms': []},
+                'warning': PREVIEW_WARNING,
                 'message': 'Enter a topic with meaningful search words (maximum 2048 characters). No model was called.'}
     original_terms = _query_terms(query)
+    # Short topics need every subject/action word: "engine repair" must never
+    # become a repair-only hit. Longer questions may retain a strongly anchored
+    # passage with one absent qualifier, disclosed explicitly rather than lost.
+    minimum_local_terms = len(original_terms) - (len(original_terms) >= 4)
     if model_url == 'http://127.0.0.1:8767':
         model_url = os.environ.get('GRAVESTONE_MODEL_URL', model_url)
     additions, status = _model_terms(query, model_url, timeout)
@@ -182,8 +216,11 @@ def command_search(content_dir, query, *, model_url='http://127.0.0.1:8767', tim
     else:
         message = 'Keyword-only search; local model not available or response unusable. '
     response = {'query': query, 'mode': 'ai-assisted' if additions else 'keyword-only', 'model_status': status,
-                'terms': terms, 'expansion_terms': additions, 'results': [], 'warning': PREVIEW_WARNING,
-                'message': message + 'Partial keyword matches may be unrelated; matches are not answers. Read the original in full context.'}
+                'terms': terms, 'expansion_terms': additions, 'results': [], 'related_results': [],
+                'coverage': {'status': 'no-local-coverage', 'required_terms': original_terms,
+                             'minimum_local_terms': minimum_local_terms},
+                'warning': PREVIEW_WARNING,
+                'message': message + 'Primary results require all query words together for short topics, or all but one for queries of four or more words. Missing query words are listed; keyword overlap is not proof of topic coverage or relevance. Partial keyword matches below that threshold are separate and may be unrelated. Matches are not answers. Read the original in full context.'}
     try:
         documents = read_manifest(content_dir)['documents']
     except (OSError, ValueError):
@@ -199,7 +236,9 @@ def command_search(content_dir, query, *, model_url='http://127.0.0.1:8767', tim
             text = read_text(content_dir, doc.get('text_file'), TEXT_LIMIT)
         except (OSError, ValueError):
             continue
-        for page, source in enumerate(text.split('\f'), 1):
+        pages = text.split('\f')
+        page_roles = _page_roles(doc, len(pages))
+        for page, source in enumerate(pages, 1):
             matches = [(term, re.search(r'(?<!\w)' + re.escape(term) + r'(?!\w)', source, re.I))
                        for term in terms]
             matches = [(term, match) for term, match in matches if match]
@@ -214,12 +253,56 @@ def command_search(content_dir, query, *, model_url='http://127.0.0.1:8767', tim
                      + min(4, len(matches) - len(original_matches)))
             if phrase and len(original_terms) > 1:
                 score += 200
-            response['results'].append({'id': doc['id'], 'title': doc['title'],
+            # A match anywhere on a page is insufficient: distinct query
+            # subjects must be present together in the actual displayed slice.
+            # Keep broad retrieval available without presenting partials as
+            # primary evidence for an unsupported multiword intent.
+            bucket = 'results' if local_coverage >= minimum_local_terms else 'related_results'
+            end = min(len(source), start + 600)
+            # Artificial slice edges must not turn a suffix/prefix of a longer
+            # source word into a whole query word. Trim inward, never rewrite.
+            while start > 0 and re.fullmatch(r'\w{2}', source[start - 1:start + 1]):
+                start += 1
+            while end < len(source) and re.fullmatch(r'\w{2}', source[end - 1:end + 1]):
+                end -= 1
+            excerpt = source[start:end]
+            local_terms = [term for term in original_terms
+                           if re.search(r'(?<!\w)' + re.escape(term) + r'(?!\w)', excerpt, re.I)]
+            response[bucket].append({'id': doc['id'], 'title': doc['title'],
                 'publisher': doc.get('publisher', ''), 'file': doc['file'], 'page': page,
-                'excerpt': source[start:start + 600], 'score': score,
-                'matched_terms': [term for term, _ in matches]})
-    response['results'].sort(key=lambda hit: -hit['score'])
-    response['results'] = response['results'][:10]
-    if not response['results']:
-        response['message'] += ' Library gap: no matching original-source pages found in the available local library. Coverage is incomplete; no advice is generated.'
+                'excerpt': excerpt, 'score': score,
+                'matched_terms': [term for term, _ in matches],
+                'local_matched_terms': local_terms,
+                'missing_terms': [term for term in original_terms if term not in local_terms]})
+            if page in page_roles:
+                # Metadata stays outside the untouched publisher excerpt. Surface
+                # the scope/currency caveat even when introductory pages rank later.
+                hit = response[bucket][-1]
+                hit['page_role'] = page_roles[page]
+                hit['page_role_note'] = 'Editorial manifest metadata: ' + doc['page_roles_note']
+                if isinstance(doc.get('source_caveat'), str):
+                    hit['source_caveat'] = doc['source_caveat']
+    for bucket in ('results', 'related_results'):
+        # Structure is only a tiebreak at equal original-query local coverage;
+        # never prefer an incomplete procedure over a fully anchored warning.
+        # Main, safety and unannotated pages are equally eligible. Existing
+        # phrase/proximity scoring and stable manifest order break remaining ties.
+        response[bucket].sort(key=lambda hit: (
+            -len(hit['local_matched_terms']),
+            hit.get('page_role') in ('frontmatter', 'reference', 'endmatter'),
+            -hit['score']))
+        response[bucket] = response[bucket][:10]
+    if any('page_role' in hit for bucket in ('results', 'related_results')
+           for hit in response[bucket]):
+        response['message'] += (' Editorial page-role metadata orders equally covered '
+                                'previews before phrase/proximity scoring; scope, contents '
+                                'and references may rank later; roles do not exclude pages '
+                                '(normal result limits still apply). Read the '
+                                'complete original scope, warnings and caveats; structural '
+                                'labels are not publisher text or safety review.')
+    if response['results']:
+        response['coverage']['status'] = ('local-query-match' if any(
+            not hit['missing_terms'] for hit in response['results']) else 'partial-query-match')
+    else:
+        response['message'] += ' Library gap: no original-source preview meets the minimum local query-word coverage in the available local library. Coverage is incomplete; no advice is generated.'
     return response

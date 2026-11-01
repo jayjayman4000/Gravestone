@@ -11,6 +11,7 @@
   <script defer src="/static/themes.js"></script>
   <script defer src="/static/app.js"></script>
   <script defer src="/static/reader.js"></script>
+  <script defer src="/static/overview.js"></script>
   <script defer src="/static/map.js"></script>
   <script defer src="/static/maps.js"></script>
   <script defer src="/static/command.js"></script>
@@ -101,6 +102,7 @@
 </dialog>
 <dialog id="reader" aria-labelledby="reader-title">
   <header class="reader-header"><button type="button" id="reader-back" class="primary">Back to library / results</button><h2 id="reader-title">Original document</h2><details id="reader-details"><summary>Source details &amp; reading notes</summary><p class="small">Search excerpts are machine-extracted and may omit context or misread layout. Read the original pages, including figures, tables, and cautions. Installed coverage and edition currency are limited.</p><div id="reader-source" class="small"></div></details><p id="reader-status" class="small" role="status" aria-live="polite"></p><a id="reader-download" class="small" hidden>Download original PDF (no new tab)</a></header>
+  <details id="reader-overview" class="reader-overview"><summary>Optional AI overview</summary><p class="small">AI-generated · unverified · this source only. Read the unchanged original for context. Runs locally only when requested.</p><label for="overview-query">Focus on a topic (optional)</label><input id="overview-query" maxlength="200" type="text" autocomplete="off"><button id="overview-generate" type="button" disabled>Generate AI overview</button><button id="overview-cancel" type="button" hidden>Cancel overview</button><p id="overview-status" role="status" aria-live="polite"></p><div id="overview-results"></div></details>
   <div id="reader-body"></div>
 </dialog>
 <noscript>JavaScript is required for archive search, maps, and the notebook. Original files remain in the content/originals folder on this drive.</noscript>

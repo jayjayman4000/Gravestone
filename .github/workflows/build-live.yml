@@ -45,7 +45,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          scripts/smoke-iso.sh dist/gravestone-0.4.1-amd64.iso logs 2>&1 | tee logs/smoke.log
+          scripts/smoke-iso.sh dist/gravestone-0.4.2-amd64.iso logs 2>&1 | tee logs/smoke.log
       - name: Verify notebook across two clean reboots
         shell: bash
         run: |
@@ -59,12 +59,12 @@ jobs:
             docker rm -f "$container" >/dev/null 2>&1 || true
           }
           trap cleanup EXIT
-          (cd dist && sha256sum -c gravestone-0.4.1-amd64.iso.sha256)
-          pin=$(sha256sum dist/gravestone-0.4.1-amd64.iso | cut -d ' ' -f 1)
+          (cd dist && sha256sum -c gravestone-0.4.2-amd64.iso.sha256)
+          pin=$(sha256sum dist/gravestone-0.4.2-amd64.iso | cut -d ' ' -f 1)
           docker run -d --name "$container" --memory 2500m --cpus 1 --shm-size 256m \
             --network bridge \
             --mount type=bind,source="$GITHUB_WORKSPACE",target=/src,readonly \
-            --mount type=bind,source="$GITHUB_WORKSPACE/dist/gravestone-0.4.1-amd64.iso",target=/input/release.iso,readonly \
+            --mount type=bind,source="$GITHUB_WORKSPACE/dist/gravestone-0.4.2-amd64.iso",target=/input/release.iso,readonly \
             -e GRAVESTONE_TEST_ISO_SHA256="$pin" debian:bookworm sleep infinity
           docker exec "$container" sh -ec 'apt-get update -qq; DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends qemu-system-x86 xorriso e2fsprogs python3 > /tmp/install.log 2>&1'
           docker network disconnect bridge "$container"
@@ -85,12 +85,12 @@ jobs:
           }
           trap cleanup EXIT
           docker build --tag "$image" -f scripts/rufus-test.Dockerfile scripts
-          (cd dist && sha256sum -c gravestone-0.4.1-amd64.iso.sha256)
-          pin=$(sha256sum dist/gravestone-0.4.1-amd64.iso | cut -d ' ' -f 1)
+          (cd dist && sha256sum -c gravestone-0.4.2-amd64.iso.sha256)
+          pin=$(sha256sum dist/gravestone-0.4.2-amd64.iso | cut -d ' ' -f 1)
           docker run -d --name "$container" --memory 2500m --memory-swap 2500m --cpus 1 \
             --shm-size 256m --network none --cap-drop ALL --security-opt no-new-privileges \
             --mount type=bind,source="$GITHUB_WORKSPACE",target=/src,readonly \
-            --mount type=bind,source="$GITHUB_WORKSPACE/dist/gravestone-0.4.1-amd64.iso",target=/input/release.iso,readonly \
+            --mount type=bind,source="$GITHUB_WORKSPACE/dist/gravestone-0.4.2-amd64.iso",target=/input/release.iso,readonly \
             -e GRAVESTONE_TEST_ISO_SHA256="$pin" "$image" sleep infinity
           docker exec "$container" python3 /src/scripts/test-rufus-persistence.py 2>&1 | tee logs/rufus-persistence-run.log
       - name: Record final disk use
@@ -102,7 +102,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: gravestone-0.4.1-amd64
+          name: gravestone-0.4.2-amd64
           path: dist/
           if-no-files-found: warn
           compression-level: 0

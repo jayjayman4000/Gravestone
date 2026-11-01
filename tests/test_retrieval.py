@@ -284,11 +284,103 @@ class RetrievalTests(unittest.TestCase):
         self.assertEqual(result['results'][0]['page'], 2)
         self.assertIn('water filter EXACT', result['results'][0]['excerpt'])
         self.assertNotIn(3, [hit['page'] for hit in result['results']])
-        self.assertEqual(len(result['results']), 2)
-        for hit in result['results']:
+        self.assertEqual(len(result['results']), 1)
+        self.assertEqual([hit['page'] for hit in result['related_results']], [1])
+        self.assertEqual(result['related_results'][0]['missing_terms'], ['filter'])
+        for hit in result['results'] + result['related_results']:
+            self.assertNotEqual(hit['page'], 3)
             self.assertIn(hit['excerpt'], pages[hit['page'] - 1])
             self.assertLessEqual(len(hit['excerpt']), 600)
         self.assertIn('Partial', result['message'])
+
+    def test_incomplete_query_coverage_is_related_only_not_a_primary_result(self):
+        # Test-only text, not an invented installed repair reference. The same
+        # rule must work for arbitrary domains, not a publisher/word blacklist.
+        self.document('Fixture insurance repair wording.\f'
+                      'Vehicle fixture. ' + 'layout ' * 150 + 'Repair fixture.')
+        for query in ('engine repair', 'vehicle repair', 'quantum repair'):
+            with self.subTest(query=query):
+                result = self.search(query)
+                self.assertEqual(result['results'], [])
+                self.assertTrue(result['related_results'])
+                self.assertEqual(result['coverage']['status'], 'no-local-coverage')
+                self.assertEqual(result['coverage']['required_terms'], query.split())
+                self.assertIn('Library gap', result['message'])
+                self.assertIn('not proof', result['message'])
+
+    def test_preview_cut_cannot_create_query_word_from_a_longer_word(self):
+        source = 'xengine' + ' ' * 94 + 'repair'
+        self.document(source)
+        result = self.search('engine repair')
+        self.assertEqual(result['results'], [])
+        hit = result['related_results'][0]
+        self.assertEqual(hit['local_matched_terms'], ['repair'])
+        self.assertEqual(hit['missing_terms'], ['engine'])
+        self.assertNotRegex(hit['excerpt'], r'(?<!\w)engine(?!\w)')
+        self.assertIn(hit['excerpt'], source)
+
+    def test_preview_end_cannot_create_query_word_from_a_longer_word(self):
+        source = 'repair' + ' ' * 588 + 'engineered'
+        self.document(source)
+        result = self.search('engine repair')
+        self.assertEqual(result['results'], [])
+        hit = result['related_results'][0]
+        self.assertEqual(hit['local_matched_terms'], ['repair'])
+        self.assertEqual(hit['missing_terms'], ['engine'])
+        self.assertNotRegex(hit['excerpt'], r'(?<!\w)engine(?!\w)')
+        self.assertIn(hit['excerpt'], source)
+
+    def test_long_query_can_miss_one_word_without_hiding_the_qualifier(self):
+        self.document('Prepare infant formula using tap water. Test-only fixture.')
+        result = self.search('prepare infant formula tap water unsafe')
+        self.assertTrue(result['results'])
+        self.assertEqual(result['results'][0]['missing_terms'], ['unsafe'])
+        self.assertEqual(result['coverage']['status'], 'partial-query-match')
+        self.assertIn('Missing query words', result['message'])
+        self.assertIn('not proof', result['message'])
+        self.assertNotIn('Library gap', result['message'])
+
+    def test_local_coverage_threshold_is_domain_independent_and_bounded(self):
+        self.document('Alpha beta gamma delta. Test-only fixture.')
+        cases = [
+            ('alpha', True),
+            ('alpha missing', False),
+            ('alpha beta missing', False),
+            ('alpha beta gamma missing', True),
+            ('alpha beta missing absent', False),
+            ('alpha beta gamma delta missing', True),
+            ('alpha beta gamma missing absent', False),
+        ]
+        for query, primary in cases:
+            with self.subTest(query=query):
+                result = self.search(query)
+                self.assertEqual(bool(result['results']), primary)
+                for hit in result['results']:
+                    self.assertLessEqual(len(hit['missing_terms']), 1)
+                    if len(result['coverage']['required_terms']) <= 3:
+                        self.assertEqual(hit['missing_terms'], [])
+                for hit in result['related_results']:
+                    self.assertLess(len(hit['local_matched_terms']),
+                                    result['coverage']['minimum_local_terms'])
+
+    def test_search_scaffolding_is_not_a_required_source_word(self):
+        source = 'Safe drinking water fixture.'
+        self.document(source)
+        result = self.search('Find safe drinking water guidance')
+        self.assertTrue(result['results'])
+        self.assertEqual(result['coverage']['required_terms'], ['safe', 'drinking', 'water'])
+        self.assertEqual(result['coverage']['status'], 'local-query-match')
+        self.assertEqual(result['results'][0]['excerpt'], source)
+
+    def test_hit_coverage_is_measured_in_preview_not_elsewhere_on_page(self):
+        self.document('Vehicle fixture. ' + 'layout ' * 150 + 'Repair fixture.')
+        result = self.search('vehicle repair')
+        hit = result['related_results'][0]
+        self.assertEqual(hit['matched_terms'], ['vehicle', 'repair'])
+        self.assertEqual(hit['local_matched_terms'], ['repair'])
+        self.assertEqual(hit['missing_terms'], ['vehicle'])
+        self.assertNotIn('installed', result['coverage'])
+        self.assertNotIn('not-installed', json.dumps(result))
 
     def test_unsafe_or_unavailable_sources_report_library_gap(self):
         doc = self.document('Water fixture.')
@@ -323,6 +415,8 @@ class RetrievalTests(unittest.TestCase):
                     self.assertEqual(result['model_status'], 'not-called')
                     self.assertIn('Enter', result['message'])
                     self.assertEqual(result['terms'], [])
+                    self.assertEqual(result['related_results'], [])
+                    self.assertEqual(result['coverage'], {'status': 'invalid-query', 'required_terms': []})
             self.assertEqual(requests, [])
 
     def test_document_page_grouping_deduplicates_manifest_entries_and_caps_results(self):
@@ -341,8 +435,12 @@ class RetrievalTests(unittest.TestCase):
         source = 'Water introduction. ' + 'filler ' * 200 + 'Water near filter fixture.'
         self.document(source)
         result = self.search('water filter maintenance')
-        self.assertIn('Water near filter', result['results'][0]['excerpt'])
-        self.assertIn(result['results'][0]['excerpt'], source)
+        self.assertEqual(result['results'], [])
+        hit = result['related_results'][0]
+        self.assertIn('Water near filter', hit['excerpt'])
+        self.assertIn(hit['excerpt'], source)
+        self.assertEqual(hit['missing_terms'], ['maintenance'])
+        self.assertEqual(result['coverage']['status'], 'no-local-coverage')
 
     def test_local_original_coverage_outweighs_scattered_whole_page_matches(self):
         self.document('Safe home. ' + 'layout ' * 150 + 'Drinking water supplies.\f'

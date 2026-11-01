@@ -4,6 +4,10 @@ Requested coverage, not installed safety guidance. Editorial topic labels derive
 
 No listed topic is certified complete. The starter FEMA/CDC material overlaps some topics but is not a comprehensive manual for them. Each addition needs direct-source originals, rights checks, provenance, and subject review. No missing guidance will be filled with AI-written instructions.
 
+## Latest historical repair addition — 2026-10-31
+
+**Vehicle repair and maintenance** is now **partially source-backed** by the intact War Department TM 9-1803A (24 February 1944), a practical illustrated engine/clutch overhaul manual for Willys MB and Ford GPW. Physical pages 10–73 cover its limited repair scope. The checkout now contains **12 PDFs / 449 physical pages**, not a new ISO. This historical, model-specific source does not supply modern vehicle, electronics, brake or comprehensive repair coverage. Obsolete practices and unverified OCR are preserved; no mechanical safety certification or AI-written procedures. See `content/coverage.json` and `docs/SOURCE_ACQUISITION.md` for exact scope, dependencies and work-specific GPO rights/fixity evidence.
+
 ## Historical request status — before the 2026-10-31 expansion
 
 These bullets preserve the first batch's status. See the current expansion below and `content/coverage.json` for newly admitted water, sanitation, first-aid and shelter associations.

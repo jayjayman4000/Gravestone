@@ -120,13 +120,21 @@ class BuildConfigTests(unittest.TestCase):
             self.assertIn(token, workflow_text)
         self.assertNotIn("gh release create", workflow_text)
         build = (ROOT / "scripts/build-live.sh").read_text()
-        for token in ("lb config", "lb build", "gravestone-0.4.1-amd64.iso", "14000000000", "sha256sum"):
+        for token in ("lb config", "lb build", "gravestone-0.4.2-amd64.iso", "14000000000", "sha256sum"):
             self.assertIn(token, build)
         smoke = (ROOT / "scripts/smoke-iso.sh").read_text()
         for token in ("qemu-system-x86_64", "240", "-accel tcg", "-m 2048", "-smp 2", "-kernel", "-initrd", "-cdrom", "gravestone.smoke=1", "GRAVESTONE_BOOT_OK", "-nic none"):
             self.assertIn(token, smoke)
         self.assertIn("BIOS", smoke)
         self.assertIn("UEFI", smoke)
+
+    def test_real_overview_gate_runs_before_image_build(self):
+        build = (ROOT / "scripts/build-live.sh").read_text()
+        for token in ('GRAVESTONE_OVERVIEW_REAL_ROOT="$app_root"',
+                      'GRAVESTONE_OVERVIEW_EVIDENCE="$out/overview-inference"',
+                      'python3 -m unittest discover -s tests -p test_overview_real.py -v'):
+            self.assertIn(token, build)
+        self.assertLess(build.index('-p test_overview_real.py'), build.index('\nlb build'))
 
 
 if __name__ == "__main__":

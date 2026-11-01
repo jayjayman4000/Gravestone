@@ -97,7 +97,15 @@ The bundled selection catalog and user-selected regional geometry are **U.S. Cen
 
 The 0.2.0 image build includes Qwen's official `Qwen3-0.6B-Q8_0.gguf` model under Apache-2.0 and a source-built llama.cpp `b12001` runtime under MIT. Their original license texts, the upstream model card, immutable revisions, download URLs, byte sizes and SHA-256 pins are retained under `ai/`; see `ai/package.json` and `ai/README.md`. The image also carries the complete pinned llama.cpp source archive and runtime build provenance, including bundled third-party notices. Model weights/binaries are installed during image construction, not committed to the repository.
 
-The model only proposes search keywords; publisher originals remain authoritative. Neither Qwen nor llama.cpp authors are represented as endorsing Gravestone or its emergency suitability. Their licenses do not relicense publisher documents or Debian packages.
+Search uses the model only to propose keywords. The working-checkout reader also includes a separate opt-in experimental overview from disclosed, bounded extracted page fragments; it is not a full-document summary or verified advice. Failed evidence/schema checks produce no generated fallback. Publisher originals remain authoritative and unchanged. Neither Qwen nor llama.cpp authors are represented as endorsing Gravestone or its emergency suitability. Their licenses do not relicense publisher documents or Debian packages.
+
+## Historical War Department engine maintenance manual
+
+Source: **U.S. War Department**, *TM 9-1803A, Ordnance Maintenance: Engine and Engine Accessories for 1/4-Ton 4x4 Truck (Willys-Overland MB and Ford GPW)*, 24 February 1944. Official archival distribution: U.S. Government Publishing Office, in collaboration with University of North Texas Libraries.
+
+Original: https://www.govinfo.gov/content/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/pdf/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8.pdf
+
+The work-specific GPO record explicitly states: “This document is a work of the United States Government and is not subject to copyright pursuant to 17 USC 105.” Exact source and raw rights/fixity records are retained under `content/originals/` and `content/rights/` with hashes and retrieval metadata. This U.S. reuse basis does not assert foreign rights, ownership of agency/manufacturer marks, endorsement or mechanical applicability. The whole historical original, figures and notices remain unchanged; obsolete practices and existing OCR defects are not silently repaired. This is not modern all-vehicle repair guidance or a qualified safety review. Gravestone's MIT license does not relicense third-party documents or marks.
 
 ## Debian live system
 

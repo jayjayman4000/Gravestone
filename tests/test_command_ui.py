@@ -90,6 +90,141 @@ assert.doesNotMatch(fs.readFileSync(root+'/app/static/command.js','utf8'),/inner
 assert.equal(walk(nodes['command-results']).filter(n=>n.className==='warning').length,0,'Do not repeat warning boxes on every card');
 """)
 
+    def test_source_edition_from_manifest_is_visible_once_per_card_when_present(self):
+        self.run_js(r"""
+const edition='Fixture edition · historical test publication';
+doc.edition=edition;
+doc.source_caveat='Long fixture caveat that belongs in source details, not each card.';
+commandHandler=async()=>({...response,
+ results:[{...hit,edition:'Untrusted hit edition'}],
+ related_results:[{...hit,title:'Related edition fixture',page:4}]});
+await submit('fixture edition');
+const cards=walk(nodes['command-results']).filter(n=>n.className==='search-hit');
+assert.equal(cards.length,2);
+for (const card of cards) {
+ const editionLines=card.children.filter(n=>n.className==='source-meta'&&n.textContent===edition);
+ assert.equal(editionLines.length,1,'Show one edition metadata line from the manifest per source card');
+ assert.ok(card.children.indexOf(editionLines[0])<card.children.findIndex(n=>n.className==='snippet'));
+ assert.ok(text(card).includes(hit.excerpt),'Never rewrite publisher excerpts');
+ assert.ok(!text(card).includes(doc.source_caveat),'Do not repeat the full source caveat');
+ assert.ok(!text(card).includes('Untrusted hit edition'),'Manifest edition takes precedence');
+}
+assert.ok(text(cards[0]).includes(hit.title),'Preserve the publisher title');
+delete doc.edition;
+commandHandler=async()=>({...response});
+await submit('fixture without edition');
+const card=walk(nodes['command-results']).find(n=>n.className==='search-hit');
+assert.equal(card.children.filter(n=>n.className==='source-meta').length,1,'No empty edition line without an edition');
+assert.ok(!text(card).includes(edition));
+""")
+
+    def test_one_shared_extraction_notice_precedes_primary_or_related_only_results(self):
+        self.run_js(r"""
+for (const relatedOnly of [false, true]) {
+ const hits=[hit,{...hit,page:4}];
+ commandHandler=async()=>({...response,
+  results:relatedOnly?[]:hits,related_results:relatedOnly?hits:[]});
+ await submit('fixture search');
+ const output=nodes['command-results'];
+ const notices=walk(output).filter(n=>n.textContent===response.warning);
+ assert.equal(notices.length,1,'Show the exact machine-extraction warning once per response');
+ const notice=notices[0];
+ assert.equal(notice.tagName,'p','Use a shared small notice, not a warning box');
+ assert.equal(notice.className,'coverage-note');
+ assert.equal(notice.parentElement,output,'Notice must stay outside cards and collapsed related matches');
+ assert.notEqual(notice.hidden,true);
+ assert.ok(output.children.indexOf(notice)<output.children.findIndex(n=>n.className==='search-hit'||n.tagName==='details'),
+  'Disclose unverified extraction before any result or related-match disclosure');
+ assert.equal(walk(output).filter(n=>n.className==='search-hit').length,2);
+ assert.equal(walk(output).filter(n=>n.className==='warning').length,0);
+}
+commandHandler=async()=>({...response,results:[],related_results:[]});
+await submit('empty fixture');
+assert.ok(!text(nodes['command-results']).includes(response.warning),'No extraction notice without excerpts');
+""")
+
+    def test_primary_partial_match_discloses_missing_query_words(self):
+        self.run_js(r"""
+commandHandler=async()=>({...response,
+ coverage:{status:'local-coverage',required_terms:['infant','formula','unsafe','water']},
+ message:'Keyword overlap is not proof of topic coverage or relevance.',
+ results:[{...hit,matched_terms:['infant','formula','water'],missing_terms:['unsafe']}]});
+await submit('infant formula unsafe water');
+const output=text(nodes['command-results']);
+assert.match(output,/Missing query words: unsafe/);
+assert.match(output,/Partial keyword match/);
+assert.match(output,/Keyword overlap is not proof/);
+assert.ok(output.includes(hit.excerpt),'Raw excerpt is unchanged');
+""")
+
+    def test_related_matches_stay_collapsed_separate_and_labeled_when_no_primary(self):
+        self.run_js(r"""
+commandHandler=async()=>({...response,results:[],
+ coverage:{status:'no-local-coverage',required_terms:['engine','repair']},
+ related_results:[{...hit,title:'Related only',missing_terms:['engine']}],
+ message:'No local coverage for this query. Partial keywords may be unrelated.'});
+await submit('engine repair');
+assert.match(nodes['command-status'].textContent,/No matching installed source/);
+const details=walk(nodes['command-results']).find(n=>n.tagName==='details');
+assert.ok(details,'Related matches need a separate disclosure');
+assert.notEqual(details.open,true,'Do not promote unrelated matches into primary results');
+assert.match(text(details),/Partial keyword matches.*may be unrelated/);
+assert.match(text(details),/Missing query words: engine/);
+assert.ok(text(details).includes(hit.excerpt));
+assert.equal(walk(nodes['command-results']).filter(n=>n.className==='search-hit').length,1);
+""")
+
+    def test_primary_and_related_buckets_render_together_without_promoting_related(self):
+        self.run_js(r"""
+const primary={...hit,title:'Primary fixture',page:2};
+const relatedHit={...hit,title:'Related fixture',page:4,missing_terms:['fixture']};
+commandHandler=async()=>({...response,results:[primary],related_results:[relatedHit]});
+await submit('fixture search');
+const output=nodes['command-results'];
+const primaryCards=output.children.filter(n=>n.className==='search-hit');
+assert.equal(primaryCards.length,1,'Only primary matches belong at the top level');
+assert.ok(text(primaryCards[0]).includes(primary.title));
+assert.ok(text(primaryCards[0]).includes(primary.excerpt));
+const disclosures=output.children.filter(n=>n.tagName==='details');
+assert.equal(disclosures.length,1);
+const related=disclosures[0];
+assert.notEqual(related.open,true,'Related matches stay collapsed even alongside primary matches');
+assert.match(text(related.children[0]),/Partial keyword matches.*may be unrelated \(1\)/);
+assert.match(text(related),/not evidence that this topic is covered/);
+const relatedCards=walk(related).filter(n=>n.className==='search-hit');
+assert.equal(relatedCards.length,1);
+assert.ok(text(relatedCards[0]).includes(relatedHit.title));
+assert.ok(text(relatedCards[0]).includes(relatedHit.excerpt));
+assert.match(text(relatedCards[0]),/Missing query words: fixture/);
+assert.equal(walk(output).filter(n=>n.className==='search-hit').length,2);
+assert.equal(walk(output).filter(n=>n.textContent===response.warning).length,1);
+assert.ok(output.children.findIndex(n=>n.textContent===response.warning)<output.children.indexOf(primaryCards[0]));
+assert.ok(output.children.indexOf(primaryCards[0])<output.children.indexOf(related));
+assert.match(nodes['command-status'].textContent,/^1 source excerpts/,'Do not count related matches as primary');
+""")
+
+    def test_missing_negation_is_disclosed_exactly_in_both_result_buckets(self):
+        self.run_js(r"""
+// Deliberately artificial fixture labels, not safety-source instructions.
+const primary={...hit,title:'Primary fixture',excerpt:'Fixture label blue.',matched_terms:['fixture','blue'],missing_terms:['not']};
+const relatedHit={...primary,title:'Related fixture',page:4,missing_terms:['not','violet']};
+commandHandler=async()=>({...response,results:[primary],related_results:[relatedHit]});
+await submit('fixture not blue violet');
+const output=nodes['command-results'];
+const primaryCard=output.children.find(n=>n.className==='search-hit');
+const related=output.children.find(n=>n.tagName==='details');
+const relatedCard=walk(related).find(n=>n.className==='search-hit');
+for (const [card,expected] of [[primaryCard,'Partial keyword match · Missing query words: not'],
+ [relatedCard,'Partial keyword match · Missing query words: not, violet']]) {
+ const disclosure=card.children.find(n=>n.textContent===expected);
+ assert.ok(disclosure,'Preserve backend missing terms, including negation, verbatim and in order');
+ const excerpt=card.children.find(n=>n.className==='snippet');
+ assert.equal(excerpt.textContent,primary.excerpt);
+ assert.ok(card.children.indexOf(disclosure)<card.children.indexOf(excerpt));
+}
+assert.notEqual(related.open,true);
+""")
+
     def test_response_modes_missing_sources_and_errors_do_not_invent_answers(self):
         self.run_js(r"""
 commandHandler=async()=>({...response,mode:'ai-assisted',model_status:'available'});

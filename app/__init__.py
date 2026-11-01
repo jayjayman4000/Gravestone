@@ -246,6 +246,9 @@ class Handler(BaseHTTPRequestHandler):
 
 
     def do_POST(self):
+        if self.path == '/api/overview':
+            from .overview import handle_post
+            return handle_post(self)
         if urlsplit(self.path).path in ('/api/maps/download', '/api/maps/import', '/api/maps/remove'):
             host = self.headers.get('Host', '')
             if (not self.valid_host() or self.headers.get('Origin') != 'http://' + host

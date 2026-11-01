@@ -1,0 +1,149 @@
+<mods xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd" ID="P0b002ee1d75396b5">
+    <name type="corporate">
+         <namePart>United States Government Publishing Office</namePart>
+         <role>
+              <roleTerm authority="marcrelator" type="text">publisher</roleTerm>
+              <roleTerm authority="marcrelator" type="code">pbl</roleTerm>
+        </role>
+         <role>
+              <roleTerm authority="marcrelator" type="text">distributor</roleTerm>
+              <roleTerm authority="marcrelator" type="code">dst</roleTerm>
+        </role>
+    </name>
+    <name type="corporate">
+         <namePart>United States</namePart>
+         <namePart>War Department</namePart>
+         <role>
+              <roleTerm authority="marcrelator" type="text">author</roleTerm>
+              <roleTerm authority="marcrelator" type="code">aut</roleTerm>
+        </role>
+         <description>Government Organization</description>
+    </name>
+    <typeOfResource>text</typeOfResource>
+    <genre authority="marcgt">government publication</genre>
+    <language>
+         <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+    </language>
+    <extension>
+         <collectionCode>GOVPUB</collectionCode>
+         <category>Executive Agency Publications</category>
+         <branch>executive</branch>
+         <dateIngested>2025-09-15</dateIngested>
+    </extension>
+    <originInfo>
+         <publisher>War Department</publisher>
+         <dateIssued encoding="w3cdtf">1944-01-01</dateIssued>
+         <issuance>monographic</issuance>
+    </originInfo>
+    <physicalDescription>
+         <note type="source content type">converted</note>
+         <digitalOrigin>reformatted digital</digitalOrigin>
+         <extent>84 digital object pages</extent>
+    </physicalDescription>
+    <classification authority="sudocs">W 1.35:9-1803A</classification>
+    <identifier type="uri">https://www.govinfo.gov/app/details/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8</identifier>
+    <identifier type="local">P0b002ee1d75396b5</identifier>
+    <relatedItem type="series">
+         <titleInfo>
+              <title>Technical manual ; TM 9-1803A</title>
+        </titleInfo>
+    </relatedItem>
+    <identifier type="ILS system id">001452714</identifier>
+    <identifier type="oclc">(OCoLC)1515901465</identifier>
+    <recordInfo>
+         <recordContentSource authority="marcorg">DGPO</recordContentSource>
+         <recordCreationDate encoding="w3cdtf">2025-09-15</recordCreationDate>
+         <recordChangeDate encoding="w3cdtf">2026-06-26</recordChangeDate>
+         <recordIdentifier source="DGPO">GOVPUB-W-450a1aabcc48d92a6585299c93126bb8</recordIdentifier>
+         <recordOrigin>machine generated</recordOrigin>
+         <languageOfCataloging>
+              <languageTerm type="code" authority="iso639-2b">eng</languageTerm>
+        </languageOfCataloging>
+    </recordInfo>
+    <accessCondition type="GPO scope determination">fdlp</accessCondition>
+    <extension>
+         <docClass>W</docClass>
+         <accessId>GOVPUB-W-450a1aabcc48d92a6585299c93126bb8</accessId>
+         <uniqueId>450a1aabcc48d92a6585299c93126bb8</uniqueId>
+         <ACCode>GOVPUB</ACCode>
+         <fedPubName>Military Technical Manuals</fedPubName>
+         <field name="GPO Partnership">This content is made publicly available through a collaboration between the U.S. Government Publishing Office and the University of North Texas Libraries.</field>
+         <field name="Rights Statement">This document is a work of the United States Government and is not subject to copyright pursuant to 17 USC 105.</field>
+         <image>thumbnails/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8.jpg</image>
+         <dateIssued notSpecified="day-month">1944</dateIssued>
+         <digitizedContent>
+              <code>PILOTPROJECT2UNT</code>
+              <date>20250508</date>
+        </digitizedContent>
+    </extension>
+    <location>
+         <url displayLabel="Content Detail" access="object in context">https://www.govinfo.gov/app/details/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8</url>
+         <url displayLabel="HTML rendition" access="raw object">https://www.govinfo.gov/content/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/html/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8.htm</url>
+         <url displayLabel="PDF rendition" access="raw object">https://www.govinfo.gov/content/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/pdf/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8.pdf</url>
+    </location>
+    <titleInfo>
+         <title>Ordnance Maintenance, Engine and Engine Accessories for 1/4-Ton 4x4 Truck (Willys-Overland Model Mb and Ford Model Gpw)</title>
+    </titleInfo>
+    <subject>
+         <topic>Ford automobile</topic>
+         <topic>Willys-Overland automobile</topic>
+    </subject>
+    <name type="corporate">
+         <namePart>United States</namePart>
+         <namePart>War Department.</namePart>
+         <role>
+              <roleTerm authority="marcrelator" type="text">creator</roleTerm>
+        </role>
+    </name>
+    <originInfo>
+         <place>
+              <placeTerm authority="marccountry" type="code">dcu</placeTerm>
+        </place>
+         <publisher>[publisher not identified</publisher>
+         <dateIssued>1944.</dateIssued>
+         <issuance>monographic</issuance>
+    </originInfo>
+    <physicalDescription>
+         <extent>1 online resource (77 page).</extent>
+    </physicalDescription>
+    <classification authority="sudocs">W 1.35:9-1803A</classification>
+    <typeOfResource>text</typeOfResource>
+    <language>
+         <languageTerm authority="iso639-2b" type="code">eng</languageTerm>
+    </language>
+    <note>In scope of the U.S. Government Publishing Office Cataloging and Indexing Program (C&amp;I) and Federal Depository Library Program (FDLP); no FDLP item number available.</note>
+    <subject authority="lcsh">
+         <topic>Ford automobile</topic>
+    </subject>
+    <subject authority="lcsh">
+         <topic>Willys-Overland automobile</topic>
+    </subject>
+    <relatedItem displayLabel="Print version:" type="otherFormat">
+         <titleInfo>
+              <title>Ordnance maintenance, engine and engine accessories for 1/4-ton 4x4 truck (Willys-Overland Model MB and Ford Model GPW)</title>
+        </titleInfo>
+         <identifier type="local">(OCoLC)41701497</identifier>
+    </relatedItem>
+    <relatedItem type="series">
+         <titleInfo>
+              <title>Technical manual ; TM 9-1803A</title>
+        </titleInfo>
+         <name type="corporate">
+              <namePart>United States.</namePart>
+              <namePart>War Department.</namePart>
+              <namePart></namePart>
+        </name>
+    </relatedItem>
+    <titleInfo type="alternative">
+         <title>Ordnance maintenance, engine and engine accessories for 1/4-ton 4x4 truck (Willys-Overland Model MB and Ford Model GPW)</title>
+    </titleInfo>
+    <titleInfo type="alternative">
+         <title>Engine and engine accessories for 1/4-ton 4x4 truck</title>
+    </titleInfo>
+    <extension>
+         <searchTitle>
+              <title>Ordnance maintenance, engine and engine accessories for 1/4-ton 4x4 truck (Willys-Overland Model MB and Ford Model GPW)</title>
+              <title>Engine and engine accessories for 1/4-ton 4x4 truck</title>
+        </searchTitle>
+    </extension>
+</mods>

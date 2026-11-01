@@ -35,6 +35,7 @@ function updateReaderControls() {
   $('reader-zoom-out').disabled = !state.loaded || state.zoom <= 50;
   $('reader-zoom-in').disabled = !state.loaded || state.zoom >= 300;
   $('reader-copy').disabled = !state.ready || !state.textCompatible;
+  window.readerOverview?.availability(state.ready && state.textCompatible);
   $('reader-zoom').textContent = state.zoom + '%';
 }
 async function renderReaderPage() {
@@ -172,6 +173,11 @@ async function openReader(doc, opener) {
   readerState?.viewer?.destroy();
   const state = {doc, textURL, copyVersion: 0, renderVersion: 0, page: readerInteger(doc.page, 1), pages: null, zoom: 100, ready: false, loaded: false};
   readerState = state;
+  window.readerOverview?.reset(doc, () => state.displayedPage || state.page, page => {
+    if (readerState !== state || !state.loaded) return;
+    state.page = Math.max(1, Math.min(state.pages, page));
+    return renderReaderPage();
+  });
   clearReaderCopy();
   updateReaderControls();
   const version = ++readerVersion;
@@ -235,6 +241,7 @@ async function openReader(doc, opener) {
 $('reader-back').addEventListener('click', () => $('reader').close());
 $('reader').addEventListener('close', () => {
   ++readerVersion;
+  window.readerOverview?.clear();
   clearReaderCopy();
   readerState?.viewer?.destroy();
   readerState = null;

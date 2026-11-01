@@ -28,6 +28,25 @@ class Shell(HTMLParser):
 
 
 class ConsoleLayoutTests(unittest.TestCase):
+    def test_overview_has_bounded_scrolling_without_consuming_pdf_viewport(self):
+        # Companion browser regression populates maximum-size synthetic bullets
+        # and measures actual mobile/landscape geometry; this pins the CSS seam.
+        css = (ROOT / 'app/static/style.css').read_text()
+        self.assertRegex(css, r'\.reader-overview\s*\{[^}]*max-height:\s*30dvh')
+        self.assertRegex(css, r'\.reader-overview\s*\{[^}]*overflow:\s*auto')
+        self.assertRegex(css, r'\.reader-overview\s*\{[^}]*flex:\s*0 1 auto')
+
+    def test_dashboard_has_no_fixed_desktop_width_cap(self):
+        # Structural contract; actual computed geometry is checked in browser QA.
+        css = (ROOT / 'app/static/style.css').read_text()
+        self.assertIn('--page-gutter: clamp(16px, 2vw, 48px)', css)
+        self.assertIn('main { width: 100%;', css)
+        self.assertIn('.topbar { width: 100%; max-width: none;', css)
+        self.assertNotIn('width: min(1320px, 100%)', css)
+        self.assertIn('padding: 2rem var(--page-gutter)', css)
+        self.assertIn('font-size: 18px', css)
+        self.assertIn('flex: 0 0 190px; white-space: nowrap;', css)
+
     def test_search_first_home_has_six_topics_and_secondary_map(self):
         html = (ROOT / 'app/static/index.html').read_text()
         shell = Shell()

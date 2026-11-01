@@ -21,12 +21,16 @@ GRAVESTONE_AI_SERVER="$app_root/ai/runtime/llama-server" \
 GRAVESTONE_AI_MODEL="$app_root/models/Qwen3-0.6B-Q8_0.gguf" \
 GRAVESTONE_AI_EVIDENCE="$out/real-inference.json" \
     python3 -m unittest discover -s tests -p test_ai_package.py -v
+# Exercise substantive source overviews against the exact packaged model too.
+GRAVESTONE_OVERVIEW_REAL_ROOT="$app_root" \
+GRAVESTONE_OVERVIEW_EVIDENCE="$out/overview-inference" \
+    python3 -m unittest discover -s tests -p test_overview_real.py -v
 cp -- "$app_root/ai/BUILD_PROVENANCE.json" "$out/AI_BUILD_PROVENANCE.json"
 cd "$build"
 # auto/config is the single source of lb config options.
 lb config
 lb build
-name=gravestone-0.4.1-amd64.iso
+name=gravestone-0.4.2-amd64.iso
 shopt -s nullglob
 images=(*.hybrid.iso *.iso)
 # .hybrid.iso also matches *.iso; deduplicate before selecting.

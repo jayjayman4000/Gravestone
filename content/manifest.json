@@ -597,6 +597,103 @@
         "/ModDate": "D:20130714095450Z"
       },
       "acquisition_note": "Complete unmodified publisher HTTP response. Request and final URLs are preserved exactly. Browser Fetch HTTP response body; base64 transport, no transformation"
+    },
+    {
+      "id": "war-department-tm9-1803a-1944",
+      "title": "Ordnance Maintenance: Engine and Engine Accessories for 1/4-Ton 4x4 Truck (Willys-Overland MB and Ford GPW)",
+      "publisher": "U.S. War Department; official archival distributor U.S. Government Publishing Office (GPO)",
+      "edition": "TM 9-1803A, 24 February 1944 (visible title/imprint); historical edition, later printing possible.",
+      "url": "https://www.govinfo.gov/content/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/pdf/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8.pdf",
+      "final_url": "https://www.govinfo.gov/content/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/pdf/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8.pdf",
+      "publisher_url": "https://www.govinfo.gov/content/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/pdf/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8.pdf",
+      "source_landing_url": "https://www.govinfo.gov/app/details/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8",
+      "retrieved_at": "2026-10-31T19:54:48.663402+00:00",
+      "file": "originals/war-department-tm9-1803a-1944.pdf",
+      "bytes": 8888550,
+      "sha256": "91a303b1defb65bdc7df003d307aa902b8cb5ff2afeaa2a15f19830fdc5ae669",
+      "pages": 84,
+      "text_file": "search/war-department-tm9-1803a-1944.txt",
+      "text_sha256": "591dc4b25d12ac6a36454a47aef3945c6c0bac720b170e85fe243de1e4e46257",
+      "rights": "GPO work-specific MODS and Content Details explicitly declare this document a U.S. Government work not subject to copyright pursuant to 17 USC 105. Federal War Department authorship also visible in original. Complete original retained with illustrations, credits and notices. No rights in trademarks/marks or foreign-rights determination asserted; no War Department, GPO, UNT or U.S. Government endorsement implied.",
+      "rights_url": "https://www.govinfo.gov/metadata/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/mods.xml",
+      "rights_evidence": [
+        {
+          "file": "rights/war-department-tm9-1803a-1944-govinfo-mods.xml",
+          "kind": "work-specific-government-rights",
+          "url": "https://www.govinfo.gov/metadata/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/mods.xml",
+          "final_url": "https://www.govinfo.gov/metadata/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/mods.xml",
+          "retrieved_at": "2026-10-31T19:55:07.169853+00:00",
+          "sha256": "1e5d3cfae47319bbd0471bbfc12fadedaae587a43d90af949520d6f69e9045af",
+          "bytes": 7548,
+          "snapshot_method": "Unmodified publisher HTTP response body."
+        },
+        {
+          "file": "rights/war-department-tm9-1803a-1944-govinfo-premis.xml",
+          "kind": "publisher-fixity-provenance",
+          "url": "https://www.govinfo.gov/metadata/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/premis.xml",
+          "final_url": "https://www.govinfo.gov/metadata/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/premis.xml",
+          "retrieved_at": "2026-10-31T19:55:07.195864+00:00",
+          "sha256": "1d5d2cfe3425abd93ce8df607843fdcbfd7eb23086b576c8875a4a66faf0b2bb",
+          "bytes": 1045057,
+          "snapshot_method": "Unmodified publisher HTTP response body."
+        },
+        {
+          "file": "rights/war-department-tm9-1803a-1944-govinfo-details.html",
+          "kind": "work-specific-publication-record",
+          "url": "https://www.govinfo.gov/app/details/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8",
+          "final_url": "https://www.govinfo.gov/app/details/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8",
+          "retrieved_at": "2026-10-31T19:54:39.936710+00:00",
+          "sha256": "832f4001546f519945b4d255f20f96a69a689e66fc32f9ddd42a8e750efc72c3",
+          "bytes": 41507,
+          "snapshot_method": "Unmodified publisher HTTP response body."
+        },
+        {
+          "file": "rights/war-department-tm9-1803a-1944-copyright-105.html",
+          "kind": "federal-copyright-law",
+          "url": "https://www.copyright.gov/title17/92chap1.html",
+          "final_url": "https://www.copyright.gov/title17/92chap1.html",
+          "retrieved_at": "2026-10-31T19:54:40.130892+00:00",
+          "sha256": "97999d678e2877c8142da81a0dce819b210e9f92aa5a405d130bf2f2e50c7d75",
+          "bytes": 675161,
+          "snapshot_method": "Unmodified publisher HTTP response body."
+        }
+      ],
+      "topics": [
+        "vehicle-repair"
+      ],
+      "source_caveat": "Historical vehicle-specific gasoline-engine overhaul reference for Willys MB/Ford GPW; not modern all-vehicle repair. Written for trained ordnance-maintenance personnel. Obsolete practices, materials and OCR errors remain unchanged. No qualified mechanical safety review. Never transfer its dimensions or torques to a different engine.",
+      "dependencies": [
+        "Separate electrical equipment, carburetor, hydraulic brake, fuel pump, chassis and operator manuals referenced by the source are not bundled.",
+        "Specialist training, tools and equipment are assumed; not comprehensive repair coverage or current specifications."
+      ],
+      "extraction_status": "UNVERIFIED machine-extracted search aid, not checked transcription, current engineering guidance or a safety summary. Consult complete original figures, warnings, tables and conditions.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string, every physical page joined by U+000C, UTF-8. No OCR, correction, normalization or rewriting.",
+      "review_status": "Work-specific rights/provenance and selected full-page visual inspection only; no qualified mechanical safety review.",
+      "acquisition_note": "Complete original official PDF; size and SHA-256 match the GPO PREMIS PDF-object fixity record. 84 physical/digital pages versus 77 printed pages are distinct pagination concepts. GPO PDF signature trust not separately validated.",
+      "acquisition_batch": "historical-engine-repair-2026-10-31",
+      "page_roles": [
+        {
+          "start": 1,
+          "end": 9,
+          "role": "frontmatter"
+        },
+        {
+          "start": 10,
+          "end": 73,
+          "role": "main"
+        },
+        {
+          "start": 74,
+          "end": 79,
+          "role": "reference"
+        },
+        {
+          "start": 80,
+          "end": 84,
+          "role": "endmatter"
+        }
+      ],
+      "page_roles_note": "Editorial physical-page structure annotation, not publisher text or safety review. Publisher contents physical 5 (printed 3), scope 6 (printed 4), procedural chapters 10–73 (printed 8–71), references/index 74–79 (printed 72–77), notes/blank/rear cover 80–84. Introductory scope includes audience and separate-manual dependencies; it remains required context. Never label warnings or emergency caveats as non-substantive front/end matter."
     }
   ],
   "map": {

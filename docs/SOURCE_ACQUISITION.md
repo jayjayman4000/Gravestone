@@ -1,6 +1,19 @@
 # Practical source acquisition
 
-## Expansion actually admitted — 2026-10-31
+## Historical engine-repair addition — current checkout
+
+Batch `historical-engine-repair-2026-10-31` admits the complete U.S. War Department **TM 9-1803A**, *Ordnance Maintenance: Engine and Engine Accessories for 1/4-Ton 4x4 Truck (Willys-Overland MB and Ford GPW)*, dated **24 February 1944**. It adds **84 physical PDF pages / 8,888,550 original bytes**, bringing the checkout to **12 PDFs / 449 physical pages**. The eleven earlier originals and derivatives remain byte-identical. This is not a rebuilt ISO or an update to an already flashed USB.
+
+- Original: `content/originals/war-department-tm9-1803a-1944.pdf`; SHA-256 `91a303b1defb65bdc7df003d307aa902b8cb5ff2afeaa2a15f19830fdc5ae669`.
+- Official PDF: https://www.govinfo.gov/content/pkg/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8/pdf/GOVPUB-W-450a1aabcc48d92a6585299c93126bb8.pdf
+- GPO's work-specific MODS/Content Details explicitly declare this work not subject to copyright under 17 USC 105. Preserved raw MODS, PREMIS, Content Details and statute snapshots have their own recorded hashes/URLs/times. PDF size and SHA-256 match GPO's PREMIS PDF-object fixity record. This is not a hosting-only rights inference; no government/manufacturer endorsement or ownership of marks is asserted.
+- Actual scope: historical engine removal, disassembly, inspection, repair, assembly, installation and clutch service (physical pages 10–73; printed 8–71). A full-size check of physical page 27 confirms illustrated water-pump disassembly material, not insurance text or diesel theory. Existing source warnings, figures, references, blanks and OCR defects remain unchanged.
+- **Limits:** specific 1940s gasoline-engine models, not modern all-vehicle repair. Written for trained maintenance personnel; obsolete materials/practices and specialist-tool assumptions remain. Separate electrical, carburetor, hydraulic-brake, fuel-pump and chassis manuals are not bundled. No qualified mechanical safety review; never transfer dimensions/torques to another engine. GPO's 84 digital pages and 77 printed pages are distinct pagination concepts, not an asserted loss of pages.
+- Search derivative: `content/search/war-department-tm9-1803a-1944.txt`, exact existing OCR extraction using pypdf 6.21.4/fonttools 4.68.0, all 84 physical-page segments retained including blank physical page 83. **UNVERIFIED**, not a checked transcription or new AI-authored procedure.
+
+`content/rights/historical-engine-repair-2026-10-31.json` records admission; `content/coverage.json` marks vehicle repair only partially source-backed. Staging, all-page render inventory, selected full-size images, extraction regeneration and parent admission evidence are in `~/gravestone-test-evidence/practical-repair-followup/`. The USMC diesel-theory candidate remains staged; the GM/Terex-derived mechanic manual remains quarantined for unresolved rights.
+
+## Earlier four-document expansion — 2026-10-31
 
 Batch `practical-expansion-2026-10-31` adds **four complete publisher PDFs, 274 physical pages, 8,016,554 original-file bytes**. The seven pre-existing PDFs and their derivatives remain untouched. The catalog now has **11 PDFs / 365 physical pages**; map data and rights snapshots are not documents. These are checkout additions, not a rebuilt or shipped ISO.
 

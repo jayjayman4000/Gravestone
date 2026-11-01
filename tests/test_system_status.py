@@ -27,6 +27,52 @@ class SystemStatusTests(unittest.TestCase):
             self.assertEqual(result['battery']['percent'], 73)
             self.assertEqual(result['battery']['status'], 'Discharging')
 
+    def test_sysfs_fixture_is_reread_for_charge_unplug_full_and_removal(self):
+        """Temporary sysfs-shaped files, not a claim about physical hardware."""
+        from app.system_status import system_status
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            power = root / 'power'
+            device = power / 'BAT0'
+            device.mkdir(parents=True)
+            (device / 'type').write_text('Battery\n')
+            for capacity, status in [(73, 'Charging'), (72, 'Discharging'),
+                                     (100, 'Full'), (100, 'Not charging'), (0, 'Unknown')]:
+                with self.subTest(capacity=capacity, status=status):
+                    (device / 'capacity').write_text(f'{capacity}\n')
+                    (device / 'status').write_text(f'{status}\n')
+                    result = system_status(root, power_root=power)
+                    self.assertTrue(result['battery']['available'])
+                    self.assertEqual(result['battery']['percent'], capacity)
+                    self.assertEqual(result['battery']['status'], status)
+                    self.assertTrue(result['storage']['available'])
+            (device / 'capacity').unlink()
+            missing = system_status(root, power_root=power)
+            self.assertFalse(missing['battery']['available'])
+            self.assertIsNone(missing['battery']['percent'])
+            (device / 'capacity').write_text('71\n')
+            (device / 'status').write_text('Discharging\n')
+            recovered = system_status(root, power_root=power)
+            self.assertEqual(recovered['battery']['percent'], 71)
+            self.assertEqual(recovered['battery']['status'], 'Discharging')
+
+    def test_invalid_capacity_or_missing_data_volume_are_unavailable(self):
+        from app.system_status import system_status
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            device = root / 'power/BAT0'
+            device.mkdir(parents=True)
+            (device / 'type').write_text('Battery\n')
+            (device / 'status').write_text('Charging\n')
+            for capacity in ['-1', '101', 'not a number']:
+                with self.subTest(capacity=capacity):
+                    (device / 'capacity').write_text(capacity)
+                    result = system_status(root / 'missing', power_root=root / 'power')
+                    self.assertFalse(result['battery']['available'])
+                    self.assertIsNone(result['battery']['percent'])
+                    self.assertFalse(result['storage']['available'])
+                    self.assertIsNone(result['storage']['free_bytes'])
+
     def test_api_system_reports_actual_data_volume(self):
         from app import make_server
         with tempfile.TemporaryDirectory() as directory:

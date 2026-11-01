@@ -1,0 +1,149 @@
+name: Verify existing Gravestone 0.4.2 ISO
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: gravestone-verify-0.4.2-${{ github.ref }}
+  cancel-in-progress: false
+env:
+  IMAGE_SOURCE_COMMIT: a3ff211f9670a1cff0f966e103e834460519424f
+  IMAGE_RUN_ID: '41258126216'
+  IMAGE_ISO_SHA256: 707d0a271af4f0a418c0ef2016459b0b2cae33e15850cba6d46d5a91e36ab34b
+  IMAGE_ARTIFACT: gravestone-0.4.2-amd64
+jobs:
+  verify-existing-image:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Prepare output and record provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist logs
+          df -h | tee logs/disk-before.log
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+          env = os.environ
+          run_base = f"{env['GITHUB_SERVER_URL']}/{env['GITHUB_REPOSITORY']}/actions/runs"
+          provenance = {
+              'image_source_commit': env['IMAGE_SOURCE_COMMIT'],
+              'image_run_id': env['IMAGE_RUN_ID'],
+              'image_run_url': f"{run_base}/{env['IMAGE_RUN_ID']}",
+              'image_artifact': env['IMAGE_ARTIFACT'],
+              'image_sha256': env['IMAGE_ISO_SHA256'],
+              'verification_harness_commit': subprocess.check_output(
+                  ['git', 'rev-parse', 'HEAD'], text=True).strip(),
+              'verification_run_url': f"{run_base}/{env['GITHUB_RUN_ID']}",
+              'verification_run_attempt': env['GITHUB_RUN_ATTEMPT'],
+              'image_rebuilt': False,
+          }
+          Path('logs/verification-provenance.json').write_text(
+              json.dumps(provenance, indent=2) + '\n')
+          PY
+      - name: Reject changes to image payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          git cat-file -e "${IMAGE_SOURCE_COMMIT}^{commit}"
+          if ! git diff --quiet "$IMAGE_SOURCE_COMMIT" HEAD -- app/ ai/ content/ live/; then
+            printf 'Image payload differs from pinned image source; refusing to verify stale bytes.\n' >&2
+            git diff --stat "$IMAGE_SOURCE_COMMIT" HEAD -- app/ ai/ content/ live/
+            exit 1
+          fi
+      - name: Test source and recipe
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s tests -v 2>&1 | tee logs/source-tests.log
+      - name: Download pinned image artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download "$IMAGE_RUN_ID" --repo "$GITHUB_REPOSITORY" \
+            --name "$IMAGE_ARTIFACT" --dir dist
+      - name: Check pinned ISO and checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Demand the exact pinned sidecar, not merely a self-consistent replacement.
+          printf '%s  %s\n' "$IMAGE_ISO_SHA256" gravestone-0.4.2-amd64.iso \
+            | cmp - dist/gravestone-0.4.2-amd64.iso.sha256
+          (cd dist && sha256sum -c gravestone-0.4.2-amd64.iso.sha256) 2>&1 | tee logs/checksum.log
+          cp dist/gravestone-0.4.2-amd64.iso.sha256 logs/
+      - name: Install VM test dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends qemu-system-x86 ovmf xorriso
+      - name: Boot extracted kernel and whole BIOS and UEFI ISO
+        shell: bash
+        run: |
+          set -o pipefail
+          scripts/smoke-iso.sh dist/gravestone-0.4.2-amd64.iso logs 2>&1 | tee logs/smoke.log
+      - name: Verify notebook across two clean reboots
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p logs/persistence
+          container="gravestone-persistence-${GITHUB_RUN_ID}"
+          cleanup() {
+            for file in result.json boot-{1,2,3}-{command.json,serial.log,qemu.log,fsck.log}; do
+              docker cp "$container:/evidence/$file" logs/persistence/ 2>/dev/null || true
+            done
+            docker rm -f "$container" >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT
+          (cd dist && sha256sum -c gravestone-0.4.2-amd64.iso.sha256)
+          pin=$(sha256sum dist/gravestone-0.4.2-amd64.iso | cut -d ' ' -f 1)
+          docker run -d --name "$container" --memory 2500m --cpus 1 --shm-size 256m \
+            --network bridge \
+            --mount type=bind,source="$GITHUB_WORKSPACE",target=/src,readonly \
+            --mount type=bind,source="$GITHUB_WORKSPACE/dist/gravestone-0.4.2-amd64.iso",target=/input/release.iso,readonly \
+            -e GRAVESTONE_TEST_ISO_SHA256="$pin" debian:bookworm sleep infinity
+          docker exec "$container" sh -ec 'apt-get update -qq; DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends qemu-system-x86 xorriso e2fsprogs python3 > /tmp/install.log 2>&1'
+          docker network disconnect bridge "$container"
+          docker exec "$container" python3 /src/scripts/test-persistence.py 2>&1 | tee logs/persistence-run.log
+      - name: Verify extracted UEFI and same-USB root persistence
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p logs/rufus-persistence
+          container="gravestone-rufus-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          image="gravestone-rufus-test:${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          cleanup() {
+            for file in result.json extract.log fixture.log boot-{1,2,3}-{command.json,serial.log,qemu.log,fsck.log}; do
+              docker cp "$container:/evidence/$file" logs/rufus-persistence/ 2>/dev/null || true
+            done
+            docker rm -f "$container" >/dev/null 2>&1 || true
+            docker image rm "$image" >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT
+          docker build --tag "$image" -f scripts/rufus-test.Dockerfile scripts
+          (cd dist && sha256sum -c gravestone-0.4.2-amd64.iso.sha256)
+          pin=$(sha256sum dist/gravestone-0.4.2-amd64.iso | cut -d ' ' -f 1)
+          docker run -d --name "$container" --memory 2500m --memory-swap 2500m --cpus 1 \
+            --shm-size 256m --network none --cap-drop ALL --security-opt no-new-privileges \
+            --mount type=bind,source="$GITHUB_WORKSPACE",target=/src,readonly \
+            --mount type=bind,source="$GITHUB_WORKSPACE/dist/gravestone-0.4.2-amd64.iso",target=/input/release.iso,readonly \
+            -e GRAVESTONE_TEST_ISO_SHA256="$pin" "$image" sleep infinity
+          docker exec "$container" python3 /src/scripts/test-rufus-persistence.py 2>&1 | tee logs/rufus-persistence-run.log
+      - name: Record final disk use
+        if: always()
+        run: |
+          mkdir -p logs
+          df -h > logs/disk-after.log
+      - name: Upload verification evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gravestone-0.4.2-verification-logs
+          path: logs/
+          if-no-files-found: warn
+          retention-days: 14

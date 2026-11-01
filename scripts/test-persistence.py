@@ -109,6 +109,7 @@ def run():
             with (root / f'boot-{phase}-qemu.log').open('wb') as errors:
                 proc = subprocess.Popen(command, stdout=errors, stderr=errors)
                 conn = socket.socket(socket.AF_UNIX)
+                serial_eof = False
                 try:
                     deadline = time.monotonic() + 300
                     while not serial.exists():
@@ -119,8 +120,12 @@ def run():
                     conn.settimeout(1)
                     sent = False
                     while time.monotonic() < deadline:
+                        # Process exit does not consume bytes queued on its socket.
+                        # Keep the original boot deadline while draining to EOF.
+                        conn.settimeout(min(1, max(.001, deadline - time.monotonic())))
                         try:
                             data = conn.recv(65536)
+                            serial_eof = not data
                         except socket.timeout:
                             data = b''
                         transcript.extend(data)
@@ -131,8 +136,10 @@ def run():
                             shell = f"python3 -c \"import base64;exec(base64.b64decode('{payload}'))\"; systemctl poweroff\n"
                             conn.sendall(shell.encode())
                             sent = True
-                        if proc.poll() is not None:
-                            break
+                        if serial_eof:
+                            if proc.poll() is not None:
+                                break
+                            time.sleep(min(.01, max(0, deadline - time.monotonic())))
                     if proc.poll() is None:
                         raise TimeoutError(f'boot {phase}: no clean poweroff within 300 seconds')
                     text = transcript.decode(errors='replace')
@@ -146,6 +153,14 @@ def run():
                     result['boots'].append(record)
                     (root / 'result.json').write_text(json.dumps(result, indent=2))
                     print(f'Boot {phase}: exact notebook API assertions and clean poweroff PASS', flush=True)
+                except Exception:
+                    # Capture the observed exit BEFORE any timeout cleanup kills it.
+                    result['failed_boot'] = {
+                        'phase': phase, 'qemu_exit': proc.poll(),
+                        'serial_bytes': len(transcript), 'serial_eof': serial_eof,
+                        'serial_tail': transcript[-2048:].decode(errors='replace'),
+                    }
+                    raise
                 finally:
                     conn.close()
                     if proc.poll() is None:

@@ -12,8 +12,13 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
+      - name: Install source-test PDF parser
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends python3-pypdf2
+          /usr/bin/python3 -c 'import PyPDF2; print(PyPDF2.__version__)'
       - name: Test source and recipe
-        run: python3 -m unittest discover -s tests -v
+        run: /usr/bin/python3 -m unittest discover -s tests -v
       - name: Prepare output and record disk space
         run: |
           mkdir -p dist logs

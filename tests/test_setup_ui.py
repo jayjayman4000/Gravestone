@@ -38,6 +38,12 @@ class SetupUITests(unittest.TestCase):
         css = (ROOT / 'app/static/style.css').read_text()
         self.assertRegex(css, r'#setup-rights\s*\{[^}]*width:\s*auto')
 
+    def test_build_runner_installs_parser_before_source_tests(self):
+        workflow = (ROOT / '.github/workflows/build-live.yml').read_text()
+        install = workflow.index('sudo apt-get install -y --no-install-recommends python3-pypdf2')
+        tests = workflow.index('/usr/bin/python3 -m unittest discover -s tests -v')
+        self.assertLess(install, tests)
+
     def test_live_parser_dependency_packaged(self):
         packages = (ROOT / 'live/config/package-lists/kiosk.list.chroot').read_text().splitlines()
         self.assertIn('python3-pypdf2', packages)

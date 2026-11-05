@@ -28,6 +28,25 @@ class Shell(HTMLParser):
 
 
 class ConsoleLayoutTests(unittest.TestCase):
+    def test_primary_navigation_keeps_maps_separate_from_utilities(self):
+        shell = Shell()
+        shell.feed((ROOT / 'app/static/index.html').read_text())
+        nodes = shell.nodes
+        self.assertIn('primary-navigation', nodes, 'Maps needs an explicit primary peer group')
+        primary = nodes['primary-navigation']
+        utilities = nodes['utility-navigation']
+        self.assertEqual(primary['tag'], 'nav')
+        self.assertEqual(primary['attrs']['aria-label'], 'Primary navigation')
+        primary_ids = [key for key, node in nodes.items() if primary in node['ancestors']]
+        self.assertEqual(primary_ids, ['nav-home', 'nav-library', 'nav-notebook', 'nav-map'])
+        self.assertEqual(nodes['nav-home']['attrs']['href'], '#main')
+        utility_ids = [key for key, node in nodes.items() if utilities in node['ancestors']]
+        self.assertEqual(utility_ids, ['nav-display-menu', 'nav-online-setup', 'nav-start-here'])
+        self.assertNotIn(utilities, nodes['nav-map']['ancestors'])
+        css = (ROOT / 'app/static/style.css').read_text()
+        self.assertRegex(css, r'\.primary-navigation\s*\{[^}]*grid-template-columns:\s*repeat\(4,\s*max-content\)')
+        self.assertRegex(css, r'\.primary-navigation\s*\{[^}]*grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)')
+
     def test_overview_has_bounded_scrolling_without_consuming_pdf_viewport(self):
         # Companion browser regression populates maximum-size synthetic bullets
         # and measures actual mobile/landscape geometry; this pins the CSS seam.

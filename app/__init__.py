@@ -168,8 +168,7 @@ class Handler(BaseHTTPRequestHandler):
             from .personal import serve_personal
             return serve_personal(self)
         if path == '/api/setup':
-            from .personal import GUIDES
-            return self.send_json(200, {'guides': GUIDES, 'automatic_downloads': False})
+            return self.send_json(200, {'automatic_downloads': False, 'import_kind': 'local-personal-pdf'})
         if path == '/api/system':
             from .system_status import system_status
             return self.send_json(200, system_status(self.app.data_dir))

@@ -8,6 +8,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ThemeTests(unittest.TestCase):
+    def test_home_display_colors_is_prominent_and_explicit(self):
+        html = (ROOT / 'app/static/index.html').read_text()
+        self.assertRegex(html, r'id="nav-display-menu"[^>]*class="primary"[^>]*>Display colors</button>')
+        self.assertLess(html.index('id="nav-display-menu"'), html.index('id="nav-online-setup"'))
+        self.assertIn('id="display-menu-title">Display colors</h2>', html)
+
     @unittest.skipUnless(shutil.which('node'), 'Node required')
     def test_palettes_persist_and_storage_failure_does_not_block_ui(self):
         path = ROOT / 'app/static/themes.js'

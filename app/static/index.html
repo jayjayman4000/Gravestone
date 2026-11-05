@@ -23,13 +23,19 @@
 <header class="topbar">
   <div class="identity"><a class="brand" href="#main" id="nav-command" aria-label="GRAVESTONE — Offline Civil Survival Archive">GRAVESTONE<span class="brand-sub"> — Offline Civil Survival Archive</span></a></div>
   <div class="system-summary" aria-label="Device information"><span>Battery <strong id="system-battery">Unavailable</strong></span><span>Storage <strong id="system-storage">Unavailable</strong></span></div>
-  <nav aria-label="Main navigation">
-    <button type="button" id="nav-online-setup" aria-haspopup="dialog" aria-controls="online-setup">Online setup / Import PDFs</button>
-    <button type="button" id="nav-library" aria-haspopup="dialog" aria-controls="library">Source Documents</button>
-    <button type="button" id="nav-notebook" aria-haspopup="dialog" aria-controls="notebook">Notebook</button>
-    <button type="button" id="nav-map" aria-haspopup="dialog" aria-controls="map-view">Maps</button>
-    <button type="button" id="nav-display-menu" aria-haspopup="dialog" aria-controls="display-menu">Display</button>
-  </nav>
+  <div class="navigation-groups">
+    <nav id="primary-navigation" class="primary-navigation" aria-label="Primary navigation">
+      <a id="nav-home" class="button" href="#main" aria-current="page">Home</a>
+      <button type="button" id="nav-library" aria-haspopup="dialog" aria-controls="library">Source Documents</button>
+      <button type="button" id="nav-notebook" aria-haspopup="dialog" aria-controls="notebook">Notebook</button>
+      <button type="button" id="nav-map" aria-haspopup="dialog" aria-controls="map-view">Maps</button>
+    </nav>
+    <div id="utility-navigation" class="utility-navigation" role="group" aria-label="Archive utilities">
+      <button type="button" id="nav-display-menu" class="primary" aria-haspopup="dialog" aria-controls="display-menu">Display colors</button>
+      <button type="button" id="nav-online-setup" aria-haspopup="dialog" aria-controls="online-setup">Import personal content</button>
+      <button type="button" id="nav-start-here" class="start-button" aria-haspopup="dialog" aria-controls="start-here">Start here <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
   <span id="runtime-status" hidden></span>
 </header>
 <main id="main" tabindex="-1">
@@ -39,7 +45,7 @@
       <label class="visually-hidden" for="command-query">Search the installed archive</label>
       <div class="search-bar"><input id="command-query" type="search" maxlength="200" placeholder="Search manuals, repairs, medicine, weapons, maps... (e.g. clean water, treat gunshot, no spark)" aria-describedby="command-help" autocomplete="off"><button type="submit" class="primary">Search Archive</button><button type="button" id="command-cancel" hidden>Cancel</button></div>
     </form>
-    <div class="search-help"><p id="command-help">Search installed source text. Some topics are not installed.</p><button type="button" id="nav-start-here" class="start-button" aria-haspopup="dialog" aria-controls="start-here">Emergency guide / Start here <span aria-hidden="true">→</span></button></div>
+    <div class="search-help"><p id="command-help">Search installed source text. Some topics are not installed.</p></div>
   </section>
   <div class="archive-columns">
     <section class="results-panel" aria-labelledby="results-title">
@@ -62,19 +68,12 @@
 </main>
 <footer>Offline Archive • All materials stored locally on this drive.</footer>
 <dialog id="online-setup" class="workspace-dialog" aria-labelledby="setup-title">
-  <header class="drawer-header"><h2 id="setup-title">Optional online setup</h2><button type="button" id="setup-skip" class="primary">Skip / Continue offline</button></header>
+  <header class="drawer-header"><h2 id="setup-title">Import personal content</h2><button type="button" id="setup-skip" class="primary">Close / Home</button></header>
   <div class="drawer-body">
-    <p>Nothing downloads automatically. Skip at any time; reopen using Online setup / Import PDFs. Installed sources remain available offline.</p>
-    <h3>1. Prepare regional maps (optional)</h3>
-    <p>Use the existing map manager to select road/water layers. Only its explicit download action connects to Census.</p>
-    <button type="button" id="setup-maps">Open Map tools</button>
-    <h3>2. Acquire your own guides (optional)</h3>
-    <p>Use a separate, ordinary web browser (outside this kiosk), on this computer or another device, to visit the official publisher pages below. Read and accept applicable terms there, then download personally and transfer the PDF to this computer. Copy a page address below; this archive stays open here, with Home available. Gravestone cannot configure Wi-Fi or accept publisher terms for you.</p>
-    <div id="setup-guides">Publisher page addresses load when setup opens.</div>
-    <p>Personal acquisition/storage may be permitted subject to publisher terms and your circumstances. This is not a blanket lawful workaround, a legal guarantee, or relicensing. No redistribution permission is inferred; the public software supplies links, not these manuals.</p>
-    <h3>3. Import a personally acquired PDF</h3>
+    <p>Prepare your own equipment manuals and other authorized PDFs on an ordinary computer before flashing. Use official publishers, check the exact equipment model and applicable terms, and keep the original files and a separate private backup. Transfer the files to this archive when ready.</p>
+    <p>This screen imports local PDFs only; it does not prepare or flash a bootable drive. Nothing downloads automatically. Installed documents remain available offline. Gravestone cannot configure Wi-Fi or accept publisher terms for you.</p>
+    <h3>Import a personally acquired PDF</h3>
     <form id="setup-import">
-      <label for="setup-source">Publisher page used (provenance, not verification)</label><select id="setup-source"><option value="other">Other authorized personal PDF</option></select>
       <label for="setup-title-input">Your document title</label><input id="setup-title-input" type="text" maxlength="200" required>
       <label for="setup-file">Choose a local PDF (maximum 32 MiB)</label><input id="setup-file" type="file" accept="application/pdf,.pdf" required>
       <label for="setup-rights"><input id="setup-rights" type="checkbox" required> I acquired this PDF and am authorized to store/use it personally under applicable terms. I understand this does not authorize redistribution.</label>
@@ -84,6 +83,9 @@
     <p>Personal imports are not encrypted. Anyone with system access can read them. Originals, provenance hashes and unverified search text stay in the configured private data directory, not the public collection. Image-only PDFs need external OCR for search. No USB reboot persistence is promised.</p>
     <p><strong>The notebook/maps backup tool does not include personal PDFs.</strong> Keep your original downloads and a separate private backup of the personal directory.</p>
     <button id="setup-library" type="button">Read personal imports in Source Documents</button>
+    <h3>Regional maps (optional)</h3>
+    <p>Map tools manage regional layers separately. Only an explicit download action connects to Census.</p>
+    <button type="button" id="setup-maps">Open Map tools</button>
   </div>
 </dialog>
 <dialog id="library" class="workspace-dialog" aria-labelledby="library-title">
@@ -124,7 +126,7 @@
   <div class="drawer-body start-content"><h3>Find and read an original source</h3><ol><li>Search for the subject you need, or choose a topic on Home.</li><li>Choose a source excerpt to open its PDF page. Read the surrounding pages, figures, and publisher cautions.</li><li>Use the reader’s Back button to return to your results. Source Documents lists every installed original.</li></ol><p>This page explains archive navigation, not emergency treatment or survival procedures. There is no live assistance or emergency-service connection.</p><h3>Installed source originals</h3><div id="start-source-links" class="start-source-links">Loading source originals…</div><button type="button" id="start-open-library">Browse all Source Documents</button></div>
 </dialog>
 <dialog id="display-menu" class="compact-dialog" aria-labelledby="display-menu-title">
-  <header class="drawer-header"><h2 id="display-menu-title">Display</h2><button type="button" id="display-menu-back">Close</button></header>
+  <header class="drawer-header"><h2 id="display-menu-title">Display colors</h2><button type="button" id="display-menu-back">Close</button></header>
   <div class="drawer-body"><p>Choose a reading palette.</p><div class="palette-options" role="group" aria-label="Color palette"><button type="button" id="theme-amber" aria-pressed="true">Amber on black <span>Default</span></button><button type="button" id="theme-red" aria-pressed="false">Red on black</button><button type="button" id="theme-green" aria-pressed="false">Green on black</button><button type="button" id="theme-contrast" aria-pressed="false">Black on white <span>High contrast</span></button></div><p class="small">This changes archive interface colors, not screen brightness. Original PDF pages keep their publisher colors.</p></div>
 </dialog>
 <dialog id="reader" aria-labelledby="reader-title">

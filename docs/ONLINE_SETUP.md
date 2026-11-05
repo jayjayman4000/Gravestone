@@ -1,43 +1,40 @@
-# Optional online preparation and personal PDFs
+# Personal preparation and offline import
 
-Gravestone's **Online setup** button is optional and can be reopened. Bundled guides, local maps and notes remain usable without completing setup. Opening setup performs only a local catalog request: it does not download manuals, contact publishers or enable networking.
+Prepare personal material on your normal internet-connected computer **before flashing**. The generic Gravestone appliance does not ship a creator-specific radio/vehicle catalog or configure networking.
 
-## Prepare on an internet-connected computer
+## Prepare on your normal computer
 
-The live image remains offline by default: this feature does **not** configure Wi-Fi, enable DHCP or add a general-purpose browser inside the kiosk. The simplest preparation route is to run Gravestone on your connected Linux computer and use your ordinary browser alongside it:
+Follow [Host preparation](HOST_PREPARATION.md): run `python3 -m host_prepare` from the checkout (Windows: `py -3 -m host_prepare`) and open its printed loopback URL. No third-party Python packages are required for that preparation tool.
 
-```sh
-# From the source checkout; Debian/Ubuntu parser dependency:
-sudo apt-get install python3-pypdf2
-python3 -m app --data-dir "$HOME/.local/share/gravestone" --host 127.0.0.1 --port 8766
-```
+Use the blank [equipment template](../MY_EQUIPMENT.md) or wizard to record exact models, legitimate publisher pages, filenames, consumables/spares, last-checked dates and unknowns. Visit publishers in your ordinary browser and acquire only material you are permitted to use. The wizard does not fetch documents or accept publisher terms for you.
 
-Open `http://127.0.0.1:8766`, choose **Online setup**, then:
+The downloaded preparation ZIP contains a private inventory and byte-preserved PDF originals with hashes. It is **not a one-click Gravestone installer or a bootable image**. Keep it outside Git and public build inputs. Downloading the pack does not provision persistent storage or flash a USB. Keep a separate copy before reflashing: writing an image can erase existing data.
 
-1. Choose a listed radio manual and copy its official publisher-page address to your normal browser. The catalog includes Baofeng UV-5R and Icom IC-2300H and IC-718 basic/advanced manuals. Read and accept applicable terms yourself. Download the actual PDF through the publisher's normal process. No credentials, consent bypass or automatic restricted-source downloader is included.
-2. In setup, choose the downloaded PDF, enter its title and select its source (or Other PDF). Acknowledge that you are permitted to store and use it personally under applicable terms. This acknowledgment does not grant permission or change the license.
-3. Choose **Import personal PDF**. Wait for the confirmation that the imported record was read back from the library. If import is not confirmed, inspect Source Documents before retrying; a duplicate is rejected without replacing the first copy.
-4. Open **Source Documents**. Personal imports are labeled separately and their original PDF bytes are preserved. The controlled reader and literal/command search use local copies. Search is mechanical extraction, not an AI-written guide; compare original pages. Scanned image-only pages are not OCR'd and will not be searchable.
-5. Use the map-preparation button to open the existing map tools. Review available provider/area/zoom/storage choices and start the specific download deliberately. This does not add arbitrary map formats, unlimited coverage, or new rights to map data. See [Maps](MAPS.md).
+## Import while offline
 
-A manual not listed in the catalog can still be imported with **Other PDF** if you are permitted to acquire/store/use it. Gravestone does not independently verify that the selected source describes your uploaded file.
+1. Extract your preparation ZIP on the connected computer. Transfer permitted original PDFs using a separate medium accessible to the live session. Gravestone does not automatically mount the computer's internal disks.
+2. In Gravestone, choose **Import personal content**. Select a local PDF and enter its title. Acknowledge applicable personal-use permissions; this does not grant permission or change its license.
+3. Choose **Import personal PDF** and wait for read-back confirmation. Duplicates are rejected without replacement; check Source Documents before retrying an uncertain import.
+4. Open **Source Documents** to read the unchanged original. Literal and command searches use machine-extracted page text, not generated instructions. Scanned image-only pages are not OCR'd.
+5. Keep inventory Markdown/JSON as ordinary private reference files. The appliance does not bulk-import the preparation ZIP or index its inventory. Maps use their separate existing import/preparation tools; see [Maps](MAPS.md).
+
+## Display colors
+
+Home's **Display colors** button opens four persistent choices: amber on black (default), red on black, green on black and black on white. Palette persistence depends on browser storage and, across live-USB reboots, a correctly configured persistent environment.
 
 ## Limits and storage
 
-- PDFs only: up to 32 MiB and 1,000 pages. Encrypted, malformed, over-budget or slow-to-parse files are rejected. Parsing is CPU/memory/time bounded in a separate process; this is not a complete hostile-document sandbox.
-- Extraction has a conservative 2 MiB UTF-8 text budget and bounded JSON output. No OCR or automatic translation/summarization is provided.
-- Imports go to `<data-dir>/personal/<sha256>/`, not the checkout, public manifest, Git or distributed ISO. Each import retains `original.pdf`, `search.txt` and `metadata.json`. Do not copy private files into `content/` to prepare a public build.
-- Normal startup requires no parser for bundled sources. Import requires `pypdf` or `PyPDF2`; the live-image recipe installs Debian's `python3-pypdf2`.
-- Experimental AI overviews remain public-collection-only; private PDFs participate in document/command search, not that experimental overview path.
-- No encryption is provided. Other users with filesystem access can read these files. Kiosk/autologin is not an access-control boundary.
-- Existing notebook/map backup **does not include imported PDFs**. Retain the original downloads and make a separate private copy of the `personal/` directory with the app stopped. Review permissions before sharing any populated USB, data directory or backup.
+- PDF import: maximum 32 MiB and 1,000 pages; conservative 2 MiB UTF-8 extraction budget. Encrypted, malformed, slow or over-budget files are rejected. A bounded parser process is not a complete hostile-document sandbox.
+- Imported originals, extraction and metadata live under `<data-dir>/personal/<sha256>/`, outside the public manifest and checkout.
+- Bundled-source reading needs no PDF parser package. Personal import needs `pypdf` or `PyPDF2`; the live recipe installs Debian's `python3-pypdf2`.
+- Private PDFs participate in source/command search, not experimental public-collection AI overviews.
+- Storage is **not encrypted**. Kiosk/autologin is not access control. Keep passwords, recovery codes, identity documents and sensitive medical information separately protected.
+- Notebook/map backup **excludes imported PDFs**. Retain originals and separate private backups. Do not share populated media without reviewing its contents.
 
-An application restart retains files in an ordinary persistent data directory. On a live USB without a provisioned and verified persistence volume, personal imports and maps are RAM-only and disappear at shutdown. The setup feature does not provision persistence, flash disks, or migrate your connected computer's private library to a USB. Use the existing [boot/persistence instructions](BOOT.md) and verify the target storage before relying on offline copies. To transfer a personal directory you are permitted to transfer, stop Gravestone on both systems and privately copy `personal/` into the target's configured data directory; transfer is owner-managed, not an automatic setup feature.
+Application-restart durability is not USB-reboot persistence. Without verified persistent storage, a live session's imports and maps can disappear at shutdown. See [boot/persistence instructions](BOOT.md). No preparation tool here provisions persistence, flashes disks or automatically migrates a host library to USB.
 
-## Copyright boundary
+## Rights and verification boundaries
 
-The public project distributes code, reviewed reusable bundled sources, and official links—not the restricted radio manuals. Each owner uses the publisher's acquisition process themselves. This avoids **our** redistribution but is not a blanket copyright workaround. Copyright, publisher terms, geography, access restrictions and permissions still apply to downloads, extraction, storage, backups and transfers. No DRM/access-control circumvention is provided. See [source policy](SOURCE_POLICY.md).
+Links to legitimate publisher pages do not grant PDF redistribution rights. Personal download, extraction, storage, transfer and backup remain subject to applicable rights and publisher terms. No access-control circumvention is provided. See [source policy](SOURCE_POLICY.md).
 
-## Verification boundary
-
-Local tests exercise import, read-back, source-preserving search/reader paths, corruption/path protections and application restart. Chromium testing is not Firefox ESR/live-image/physical USB acceptance. A source test pass alone does not mean a new ISO exists or that personal imports survive a USB reboot.
+Local tests and desktop Firefox checks cover palette selection/reload, PDF import/read/search and application restart. These do not establish physical USB or new-image reboot acceptance. A passing application suite is not evidence that a new ISO has been built.

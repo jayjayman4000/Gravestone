@@ -13,13 +13,6 @@ from datetime import datetime, timezone
 from . import open_root, open_file, read_text
 from .maps import _publish_directory, _clear_directory
 
-GUIDES = [
-    {'id': 'uv5r', 'title': 'Baofeng UV-5R', 'url': 'https://www.baofengradio.com/pages/download'},
-    {'id': 'ic2300h', 'title': 'Icom IC-2300H', 'url': 'https://www.icomjapan.com/support/manual/1470/'},
-    {'id': 'ic718-basic', 'title': 'Icom IC-718 basic manual', 'url': 'https://www.icomjapan.com/support/manual/4288/'},
-    {'id': 'ic718-advanced', 'title': 'Icom IC-718 advanced manual', 'url': 'https://www.icomjapan.com/support/manual/4287/'},
-]
-
 MAX_PDF = 32 * 1024 * 1024
 MAX_TEXT = 16 * 1024 * 1024
 MAX_PAGES = 1000
@@ -78,9 +71,10 @@ class PersonalLibrary:
             raise ValueError('PDF must be 1 byte to 32 MiB')
         if not isinstance(title, str) or not title.strip() or len(title) > 200 or any(ord(c) < 32 for c in title):
             raise ValueError('Title must be 1–200 printable characters')
-        source = next((g for g in GUIDES if g['id'] == source_id), None)
-        if source_id != 'other' and source is None:
-            raise ValueError('Select a listed publisher or Other PDF')
+        # Keep the legacy header bounded without accepting URLs or inventing provenance.
+        # Existing private metadata remains readable; new imports are generic.
+        if source_id != 'other':
+            raise ValueError('Expected a generic local personal PDF')
         with self.lock:
             directory = open_root(self.root, create=True)
             temporary = staging = None
@@ -93,7 +87,7 @@ class PersonalLibrary:
                        'text_file': 'personal/' + digest + '/search.txt', 'pages': pages,
                        'sha256': digest, 'text_sha256': hashlib.sha256(text.encode()).hexdigest(),
                        'original_bytes': len(raw), 'retrieved_at': datetime.now(timezone.utc).isoformat(),
-                       'source_id': source_id, 'url': source['url'] if source else '', 'rights': 'Owner acknowledged authorized personal storage/use and applicable publisher terms. No redistribution permission inferred.',
+                       'source_id': source_id, 'url': '', 'rights': 'Owner acknowledged authorized personal storage/use and applicable publisher terms. No redistribution permission inferred.',
                        'extraction_status': 'Unverified machine extraction (' + parser + '); image-only pages are not searchable. Compare original pages.'}
                 candidate = '.import-' + secrets.token_hex(16)
                 os.mkdir(candidate, 0o700, dir_fd=directory)

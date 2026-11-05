@@ -137,8 +137,6 @@ class PersonalTests(unittest.TestCase):
         self.stop()
         with patch('socket.socket.connect', side_effect=AssertionError('Unexpected outbound network')):
             self.start()
-            from app.personal import GUIDES
-            self.assertEqual(len(GUIDES), 4)
             self.assertEqual(self.server.personal.documents(), [])
 
     def test_staging_collision_does_not_remove_existing_directory(self):
@@ -151,16 +149,29 @@ class PersonalTests(unittest.TestCase):
                 PersonalLibrary(self.data).install(pdf_bytes(), 'collision')
         self.assertTrue(target.is_dir(), 'Existing staging belongs to another operation')
 
-    def test_setup_catalog_links_only_and_provenance(self):
+    def test_setup_is_generic_and_new_imports_have_no_catalog_provenance(self):
         status, raw = self.request('/api/setup')
         self.assertEqual(status, 200, raw)
-        catalog = json.loads(raw)
-        self.assertEqual(len(catalog['guides']), 4)
-        self.assertTrue(all(g['url'].startswith('https://') and not g['url'].endswith('.pdf') for g in catalog['guides']))
-        self.assertEqual(self.request('/api/personal/import', pdf_bytes(), {'X-Source-Id': 'ic718-basic'})[0], 201)
-        doc = json.loads(self.request('/api/library')[1])['documents'][0]
-        self.assertEqual(doc['url'], 'https://www.icomjapan.com/support/manual/4288/')
-        self.assertEqual(doc['source_id'], 'ic718-basic')
+        self.assertEqual(json.loads(raw), {'automatic_downloads': False, 'import_kind': 'local-personal-pdf'})
+        for source in ['uv5r', 'ic2300h', 'ic718-basic', 'ic718-advanced', 'unknown']:
+            self.assertEqual(self.request('/api/personal/import', pdf_bytes(), {'X-Source-Id': source})[0], 400)
+        status, raw = self.request('/api/personal/import', pdf_bytes(), {'X-Source-Id': 'other'})
+        self.assertEqual(status, 201, raw)
+        doc = json.loads(raw)
+        self.assertEqual(doc['url'], '')
+        self.assertEqual(doc['source_id'], 'other')
+
+    def test_existing_catalog_metadata_stays_readable_after_restart(self):
+        status, raw = self.request('/api/personal/import', pdf_bytes())
+        self.assertEqual(status, 201, raw)
+        doc = json.loads(raw)
+        # An older private import retains its owner's recorded provenance unchanged.
+        doc.update(source_id='ic718-basic', url='https://example.invalid/legacy-owner-provenance')
+        metadata = self.data / 'personal' / doc['sha256'] / 'metadata.json'
+        metadata.write_text(json.dumps(doc))
+        self.stop(); self.start()
+        self.assertEqual(json.loads(self.request('/api/library')[1])['documents'], [doc])
+        self.assertEqual(self.request('/' + doc['file']), (200, pdf_bytes()))
 
     def test_command_search_includes_personal_source(self):
         self.assertEqual(self.request('/api/personal/import', pdf_bytes())[0], 201)

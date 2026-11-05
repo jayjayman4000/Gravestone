@@ -27,6 +27,18 @@ class SetupUITests(unittest.TestCase):
         self.assertIn('setup-file', parsed.tags)
         self.assertIn('/static/setup.js', html)
 
+    def test_import_is_generic_local_preparation(self):
+        html = (ROOT / "app/static/index.html").read_text()
+        self.assertIn('>Import personal content</button>', html)
+        self.assertIn('id="setup-title">Import personal content</h2>', html)
+        self.assertNotIn("setup-guides", html)
+        self.assertNotIn("setup-source", html)
+        self.assertNotIn("Online setup", html)
+        script = (ROOT / "app/static/setup.js").read_text()
+        self.assertNotIn("catalog.guides", script)
+        self.assertNotIn("/api/setup", script)
+        self.assertIn("ordinary computer", html)
+
     def test_personal_reader_urls_are_allowlisted(self):
         source = (ROOT / 'app/static/app.js').read_text().split('const documentsByFile')[0]
         path = 'personal/' + 'a' * 64 + '/original.pdf'

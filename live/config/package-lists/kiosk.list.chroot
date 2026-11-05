@@ -9,6 +9,7 @@ lightdm
 lightdm-gtk-greeter
 firefox-esr
 python3
+python3-pypdf2
 curl
 ca-certificates
 dbus-x11

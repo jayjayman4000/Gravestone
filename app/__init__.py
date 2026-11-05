@@ -1,4 +1,4 @@
-"""Gravestone: a dependency-free, loopback-only offline dashboard."""
+"""Gravestone: a loopback-only offline dashboard; personal PDFs need pypdf/PyPDF2."""
 import json
 import os
 import stat
@@ -81,6 +81,8 @@ class DashboardServer(ThreadingHTTPServer):
         self.note_lock = threading.Lock()
         from .maps import MapManager
         self.maps = MapManager(data_dir)
+        from .personal import PersonalLibrary
+        self.personal = PersonalLibrary(data_dir)
         super().__init__(address, Handler)
 
 
@@ -138,7 +140,7 @@ class Handler(BaseHTTPRequestHandler):
             stream.seek(0)
             if media_type == 'application/pdf' and not is_pdf:
                 media_type = 'application/octet-stream'
-            self.reader_pdf = root == self.app.content_dir and is_pdf
+            self.reader_pdf = root in (self.app.content_dir, self.app.data_dir) and is_pdf
             self.send_response(200)
             self.send_header('Content-Type', media_type)
             self.send_header('Content-Length', str(os.fstat(stream.fileno()).st_size))
@@ -151,6 +153,9 @@ class Handler(BaseHTTPRequestHandler):
         if not self.valid_host():
             return self.send_json(403, {'error': 'Loopback Host required'})
         path = urlsplit(self.path).path
+        if path.startswith('/personal/'):
+            from .personal import serve_personal
+            return serve_personal(self)
         if path.startswith('/content/'):
             return self.serve_file(self.app.content_dir, unquote(path[len('/content/'):]))
         self.send_json(404, {'error': 'Not found'})
@@ -159,6 +164,12 @@ class Handler(BaseHTTPRequestHandler):
         if not self.valid_host():
             return self.send_json(403, {'error': 'Loopback Host required'})
         path = urlsplit(self.path).path
+        if path.startswith('/personal/'):
+            from .personal import serve_personal
+            return serve_personal(self)
+        if path == '/api/setup':
+            from .personal import GUIDES
+            return self.send_json(200, {'guides': GUIDES, 'automatic_downloads': False})
         if path == '/api/system':
             from .system_status import system_status
             return self.send_json(200, system_status(self.app.data_dir))
@@ -195,6 +206,7 @@ class Handler(BaseHTTPRequestHandler):
         elif self.path == '/api/library':
             try:
                 manifest = read_manifest(self.app.content_dir)
+                manifest['documents'].extend(self.app.personal.documents())
             except (OSError, ValueError):
                 return self.send_json(503, {'error': 'Library manifest unavailable or invalid'})
             self.send_json(200, manifest)
@@ -206,7 +218,8 @@ class Handler(BaseHTTPRequestHandler):
                 # Lazy import avoids a circular dependency on safe content readers.
                 from .retrieval import command_search
                 result = command_search(self.app.content_dir, query,
-                                        model_url=os.environ.get('GRAVESTONE_MODEL_URL', 'http://127.0.0.1:8767'))
+                                        model_url=os.environ.get('GRAVESTONE_MODEL_URL', 'http://127.0.0.1:8767'),
+                                        personal=self.app.personal)
             except (OSError, ValueError, ImportError):
                 return self.send_json(503, {'error': 'Command search unavailable; check the installed library'})
             self.send_json(200, result)
@@ -216,6 +229,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json(400, {'error': 'Search query exceeds 200 characters'})
             try:
                 manifest = read_manifest(self.app.content_dir)
+                manifest['documents'].extend(self.app.personal.documents())
             except (OSError, ValueError):
                 return self.send_json(503, {'error': 'Library manifest unavailable or invalid'})
             results = []
@@ -225,7 +239,7 @@ class Handler(BaseHTTPRequestHandler):
                     if not document.get('text_file'):
                         continue
                     try:
-                        text = read_text(self.app.content_dir, document['text_file'], 16 * 1024 * 1024)
+                        text = read_text(self.app.data_dir if document.get('personal') else self.app.content_dir, document['text_file'], 16 * 1024 * 1024)
                     except (OSError, ValueError):
                         continue
                     for page, source in enumerate(text.split('\f'), 1):
@@ -246,6 +260,9 @@ class Handler(BaseHTTPRequestHandler):
 
 
     def do_POST(self):
+        if self.path == '/api/personal/import':
+            from .personal import handle_import
+            return handle_import(self)
         if self.path == '/api/overview':
             from .overview import handle_post
             return handle_post(self)

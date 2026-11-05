@@ -16,6 +16,7 @@
   <script defer src="/static/maps.js"></script>
   <script defer src="/static/command.js"></script>
   <script defer src="/static/console.js"></script>
+  <script defer src="/static/setup.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to search</a>
@@ -23,6 +24,7 @@
   <div class="identity"><a class="brand" href="#main" id="nav-command" aria-label="GRAVESTONE — Offline Civil Survival Archive">GRAVESTONE<span class="brand-sub"> — Offline Civil Survival Archive</span></a></div>
   <div class="system-summary" aria-label="Device information"><span>Battery <strong id="system-battery">Unavailable</strong></span><span>Storage <strong id="system-storage">Unavailable</strong></span></div>
   <nav aria-label="Main navigation">
+    <button type="button" id="nav-online-setup" aria-haspopup="dialog" aria-controls="online-setup">Online setup / Import PDFs</button>
     <button type="button" id="nav-library" aria-haspopup="dialog" aria-controls="library">Source Documents</button>
     <button type="button" id="nav-notebook" aria-haspopup="dialog" aria-controls="notebook">Notebook</button>
     <button type="button" id="nav-map" aria-haspopup="dialog" aria-controls="map-view">Maps</button>
@@ -59,6 +61,31 @@
   </div>
 </main>
 <footer>Offline Archive • All materials stored locally on this drive.</footer>
+<dialog id="online-setup" class="workspace-dialog" aria-labelledby="setup-title">
+  <header class="drawer-header"><h2 id="setup-title">Optional online setup</h2><button type="button" id="setup-skip" class="primary">Skip / Continue offline</button></header>
+  <div class="drawer-body">
+    <p>Nothing downloads automatically. Skip at any time; reopen using Online setup / Import PDFs. Installed sources remain available offline.</p>
+    <h3>1. Prepare regional maps (optional)</h3>
+    <p>Use the existing map manager to select road/water layers. Only its explicit download action connects to Census.</p>
+    <button type="button" id="setup-maps">Open Map tools</button>
+    <h3>2. Acquire your own guides (optional)</h3>
+    <p>Use a separate, ordinary web browser (outside this kiosk), on this computer or another device, to visit the official publisher pages below. Read and accept applicable terms there, then download personally and transfer the PDF to this computer. Copy a page address below; this archive stays open here, with Home available. Gravestone cannot configure Wi-Fi or accept publisher terms for you.</p>
+    <div id="setup-guides">Publisher page addresses load when setup opens.</div>
+    <p>Personal acquisition/storage may be permitted subject to publisher terms and your circumstances. This is not a blanket lawful workaround, a legal guarantee, or relicensing. No redistribution permission is inferred; the public software supplies links, not these manuals.</p>
+    <h3>3. Import a personally acquired PDF</h3>
+    <form id="setup-import">
+      <label for="setup-source">Publisher page used (provenance, not verification)</label><select id="setup-source"><option value="other">Other authorized personal PDF</option></select>
+      <label for="setup-title-input">Your document title</label><input id="setup-title-input" type="text" maxlength="200" required>
+      <label for="setup-file">Choose a local PDF (maximum 32 MiB)</label><input id="setup-file" type="file" accept="application/pdf,.pdf" required>
+      <label for="setup-rights"><input id="setup-rights" type="checkbox" required> I acquired this PDF and am authorized to store/use it personally under applicable terms. I understand this does not authorize redistribution.</label>
+      <button id="setup-submit" type="submit">Import personal PDF</button>
+    </form>
+    <p id="setup-status" role="status" aria-live="polite"></p>
+    <p>Personal imports are not encrypted. Anyone with system access can read them. Originals, provenance hashes and unverified search text stay in the configured private data directory, not the public collection. Image-only PDFs need external OCR for search. No USB reboot persistence is promised.</p>
+    <p><strong>The notebook/maps backup tool does not include personal PDFs.</strong> Keep your original downloads and a separate private backup of the personal directory.</p>
+    <button id="setup-library" type="button">Read personal imports in Source Documents</button>
+  </div>
+</dialog>
 <dialog id="library" class="workspace-dialog" aria-labelledby="library-title">
   <header class="drawer-header"><div><h2 id="library-title">Source Documents</h2><span class="small"><span id="document-count">—</span> locally stored originals</span></div><button type="button" id="library-back" class="primary">Close / Home</button></header>
   <div class="drawer-body">

@@ -25,7 +25,9 @@ A portable, offline survival-reference computer: knowledge that remains usable w
 
 ## Run on an existing computer
 
-Requires Python 3.9+ and a modern browser; no Python packages or internet access needed for the app.
+Requires Python 3.9+ and a modern browser; core bundled-source browsing needs no Python packages or internet access. Optional personal-PDF import requires `pypdf` or Debian's `python3-pypdf2`.
+
+[Online setup](docs/ONLINE_SETUP.md) provides official manual-page addresses, authorized personal-PDF import for offline reading/search, and access to map preparation. Restricted owner-acquired files stay outside Git and distributed images; publisher terms still apply. Setup does not configure networking in the offline-by-default live image.
 
 ```sh
 python3 -m app --data-dir ~/.local/share/gravestone --host 127.0.0.1 --port 8766

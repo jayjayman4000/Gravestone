@@ -191,7 +191,7 @@ def _page_roles(doc, page_count):
     return roles
 
 
-def command_search(content_dir, query, *, model_url='http://127.0.0.1:8767', timeout: float = 20):
+def command_search(content_dir, query, *, model_url='http://127.0.0.1:8767', timeout: float = 20, personal=None):
     """Return mechanically sliced search previews, not substantive generated text."""
     if not isinstance(query, str) or len(query) > 2048 or not _query_terms(query):
         return {'query': query if isinstance(query, str) else '', 'mode': 'keyword-only',
@@ -225,15 +225,18 @@ def command_search(content_dir, query, *, model_url='http://127.0.0.1:8767', tim
         documents = read_manifest(content_dir)['documents']
     except (OSError, ValueError):
         documents = []
+    if personal is not None:
+        documents.extend(personal.documents())
     seen_files = set()
     for doc in documents:
         if doc['file'] in seen_files:
             continue
         seen_files.add(doc['file'])
+        root = personal.root.parent if personal is not None and doc.get('personal') else content_dir
         try:
-            with open_file(content_dir, doc['file']):
+            with open_file(root, doc['file']):
                 pass
-            text = read_text(content_dir, doc.get('text_file'), TEXT_LIMIT)
+            text = read_text(root, doc.get('text_file'), TEXT_LIMIT)
         except (OSError, ValueError):
             continue
         pages = text.split('\f')

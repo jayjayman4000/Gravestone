@@ -70,7 +70,7 @@
       ],
       "acquisition_note": "Official U.S. Government Publishing Office (GovInfo) preserved 50-page PDF rendition, harvested from USDA FSIS according to archived MODS. Direct FSIS HTTP/HTTPS requests returned 403. Stored bytes match the GPO download, not a claimed byte comparison with the inaccessible current FSIS endpoint. GPO records its rendition as born digital; PDF modification metadata is 2026-06-26, not the publication edition.",
       "dependencies": [
-        "Publisher refers to A Consumer’s Guide to Food Safety: Severe Storms and Hurricanes for additional container-salvage procedures; that separate document is not installed.",
+        "Publisher refers to A Consumer\u2019s Guide to Food Safety: Severe Storms and Hurricanes for additional container-salvage procedures; that separate document is not installed.",
         "Publisher web links, hotline availability, regulatory references and edition currency have not been validated as current."
       ],
       "url": "https://www.govinfo.gov/content/pkg/GOVPUB-A110-PURL-gpo234150/pdf/GOVPUB-A110-PURL-gpo234150.pdf",
@@ -452,10 +452,10 @@
       "pdf_metadata": {
         "/Author": "USEPA, OW",
         "/CreationDate": "D:20170906152937-04'00'",
-        "/Creator": "Microsoft® Word 2016",
+        "/Creator": "Microsoft\u00ae Word 2016",
         "/Keywords": "drinking water, epa, emergency disinfection, water",
         "/ModDate": "D:20170906153257-04'00'",
-        "/Producer": "Microsoft® Word 2016",
+        "/Producer": "Microsoft\u00ae Word 2016",
         "/Subject": "Emergency Disinfection of Drinking Water",
         "/Title": "Emergency Disinfection of Drinking Water"
       },
@@ -693,7 +693,49 @@
           "role": "endmatter"
         }
       ],
-      "page_roles_note": "Editorial physical-page structure annotation, not publisher text or safety review. Publisher contents physical 5 (printed 3), scope 6 (printed 4), procedural chapters 10–73 (printed 8–71), references/index 74–79 (printed 72–77), notes/blank/rear cover 80–84. Introductory scope includes audience and separate-manual dependencies; it remains required context. Never label warnings or emergency caveats as non-substantive front/end matter."
+      "page_roles_note": "Editorial physical-page structure annotation, not publisher text or safety review. Publisher contents physical 5 (printed 3), scope 6 (printed 4), procedural chapters 10\u201373 (printed 8\u201371), references/index 74\u201379 (printed 72\u201377), notes/blank/rear cover 80\u201384. Introductory scope includes audience and separate-manual dependencies; it remains required context. Never label warnings or emergency caveats as non-substantive front/end matter."
+    },
+    {
+      "id": "fema-power-outage-2018",
+      "title": "Be Prepared for a Power Outage",
+      "publisher": "Federal Emergency Management Agency (FEMA)",
+      "edition": "FEMA V-1008 / May 2018; Catalog No. 17233-9",
+      "url": "https://cc-ema.org/_files/ugd/2428e8_b8a5d26daaff432da6cc2ee9342dd347.pdf",
+      "final_url": "https://www.cc-ema.org/_files/ugd/2428e8_b8a5d26daaff432da6cc2ee9342dd347.pdf",
+      "publisher_url": "https://www.ready.gov/power-outages",
+      "source_landing_url": "https://www.cc-ema.org",
+      "file": "originals/fema-power-outage-2018.pdf",
+      "sha256": "c3a2311b20687b8598d6170c2f4216fdc250aeaa8b4bdd9e0a3959e760d1c3e5",
+      "bytes": 239328,
+      "retrieved_at": "2026-11-05T04:35:04.780130+00:00",
+      "pages": 2,
+      "text_file": "search/fema-power-outage-2018.txt",
+      "text_sha256": "67806902f0a91dc1f9171a1a5714ec60545dd28fe283a28fc2a85a2250620885",
+      "topics": [
+        "preparedness",
+        "power-outages"
+      ],
+      "rights": "FEMA Ready Campaign publication. Ready.gov publications reprint terms permit reproducing publications with content, photos, graphics and figures unchanged and without implying government endorsement. Original PDF retained unchanged; no third-party credit or restriction observed on its two rendered pages. No FEMA or U.S. Government endorsement implied.",
+      "rights_url": "https://www.ready.gov/publications",
+      "rights_evidence": [
+        {
+          "file": "rights/ready-publications-reprint-policy.md",
+          "url": "https://www.ready.gov/publications",
+          "sha256": "9b3fa8cf8e63159159cdf7d4047a5996fb9849205f8e8252db7abeb858e4f56e",
+          "bytes": 14284,
+          "kind": "publisher-reprint-policy",
+          "snapshot_method": "web_extract clean-page text; not raw HTML; no independently exposed HTTP final URL",
+          "retrieved_at": "2026-11-05T04:36:09.915890+00:00"
+        }
+      ],
+      "acquisition_note": "FEMA original as mirrored by Clinton County Emergency Management Agency, Ohio. Official Ready.gov PDF requests returned 403 in urllib, curl and browser. This is the May 2018 edition; not claimed byte-identical to the current December 2023 official edition. Both physical pages rendered and inspected for title, layout and credits.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string, physical pages joined with U+000C; UTF-8 without correction or OCR.",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; consult complete original PDF for instructions, warnings, figures and context.",
+      "review_status": "Provenance, rendered-page and reuse review only; not qualified safety or currency certification.",
+      "source_caveat": "May 2018 edition, acquired from a county EMA mirror; not the current official edition. External Ready.gov and FEMA app references require network/service availability.",
+      "dependencies": [
+        "Ready.gov website and FEMA app are not archived by this PDF."
+      ]
     }
   ],
   "map": {

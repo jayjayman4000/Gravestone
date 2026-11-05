@@ -9,11 +9,13 @@ function element(tag, text, className) {
 }
 function contentURL(path) {
   if (typeof path !== 'string' || !path || /^[a-z][a-z0-9+.-]*:/i.test(path) || path.includes('\\') || /[%?#\x00-\x1f\x7f]/.test(path)) return null;
+  if (path.startsWith('personal/')) return /^personal\/[a-f0-9]{64}\/(original\.pdf|search\.txt)$/.test(path) ? '/' + path : null;
   const parts = path.split('/');
   if (parts.some(part => !part || part === '.' || part === '..')) return null;
   return '/content/' + parts.map(encodeURIComponent).join('/');
 }
 function originalURL(path) {
+  if (typeof path === 'string' && /^personal\/[a-f0-9]{64}\/original\.pdf$/.test(path)) return contentURL(path);
   return typeof path === 'string' && path.startsWith('originals/') && /\.pdf$/i.test(path) ? contentURL(path) : null;
 }
 const documentsByFile = new Map();
@@ -169,7 +171,7 @@ async function openReader(doc, opener) {
   doc = {...doc, ...manifest, page: doc.page};
   const pages = readerInteger(doc.pages, null);
   const textPath = manifest && manifest.text_file;
-  const textURL = typeof textPath === 'string' && textPath.startsWith('search/') && /\.txt$/i.test(textPath) ? contentURL(textPath) : null;
+  const textURL = typeof textPath === 'string' && (textPath.startsWith('search/') || /^personal\/[a-f0-9]{64}\/search\.txt$/.test(textPath)) && /\.txt$/i.test(textPath) ? contentURL(textPath) : null;
   readerState?.viewer?.destroy();
   const state = {doc, textURL, copyVersion: 0, renderVersion: 0, page: readerInteger(doc.page, 1), pages: null, zoom: 100, ready: false, loaded: false};
   readerState = state;
@@ -290,7 +292,7 @@ async function loadLibrary() {
       documentsByFile.set(doc.file, doc);
       const card = element('article', undefined, 'document');
       card.append(element('span', doc.publisher || 'Publisher not supplied', 'eyebrow'),
-                  element('h3', doc.title), element('p', 'Locally stored original document', 'muted'),
+                  element('h3', doc.title), element('p', doc.personal ? 'Personal · private local import (not part of the public collection)' : 'Locally stored original document', 'muted'),
                   localLink(doc, 'Open original'));
       const details = element('details');
       details.append(element('summary', 'Provenance & file details'));

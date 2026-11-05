@@ -10,6 +10,8 @@ Original: https://www.ready.gov/sites/default/files/2021-11/are-you-ready-guide.
 
 Retained unchanged as a U.S. federal government publication. This does not assert ownership of government marks or third-party material, or imply federal endorsement. Source and rights metadata are in `content/manifest.json`; general federal copyright guidance is archived in `content/rights/`. Reuse outside the United States and any future third-party assets need separate review.
 
+Additional source: FEMA, *Be Prepared for a Power Outage*, FEMA V-1008 / May 2018, Catalog No. 17233-9. The complete two-page PDF is retained unchanged from Clinton County Emergency Management Agency's mirror: https://www.cc-ema.org/_files/ugd/2428e8_b8a5d26daaff432da6cc2ee9342dd347.pdf. Official Ready.gov PDF retrieval returned 403; no claim of identity with the newer official edition is made. Ready Campaign reprint terms at https://www.ready.gov/publications allow reproduction with content/photos/graphics/figures unchanged and without implied FEMA/U.S. Government endorsement. The full extracted policy snapshot is retained in `content/rights/ready-publications-reprint-policy.md`; snapshot format and hash are recorded in the manifest. Both rendered pages were inspected; no separate third-party credit/restriction was observed. This is an older edition, not certified current safety guidance. Marks remain within the original only. The text derivative is unverified machine extraction, not an AI-written guide.
+
 ## CDC
 
 Source: Centers for Disease Control and Prevention (CDC), *Make Water Safe During an Emergency (Print-only)*.

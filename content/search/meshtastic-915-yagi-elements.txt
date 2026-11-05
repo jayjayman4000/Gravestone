@@ -1,0 +1,105 @@
+Supplemental Instructions 
+for 
+915 MHz Meshtastic Yagi Antenna Build 
+ 
+While the basic instruction set for this build is complete as far as it goes, it does not really 
+go far enough.  This is due to the fact that the instruction set was developed and written 
+as applicable to the assembly of the antenna from the kits that were provided to the 
+GCARC Club members involved in the original build event.  Those kits included pre-cut 
+and finished element rods for the antenna.  Thus, that instruction set did not reference 
+cutting and finishing the element rods in any manner whatsoever, and in fact, the 
+instructions never actually identified the specific lengths of the elements.  While that data 
+can be gleaned from a careful read of the YagiCad ® screen capture provided, which 
+shows the element lengths and positions, it was decided to develop and provide these 
+specific element preparation instructions. 
+Based on the lengths of the individual element rods, a total of three of the twelve-inch 
+brass rod stock recommended for this build will be needed if constructing a single 
+antenna.  If constructing multiple antennas (or preparing kits for such a build), it is possible 
+to use less than three full rods for a single antenna, resulting in less waste rod stock.  We 
+will discuss this concept more in depth later on. 
+Table 1 - Element lengths and positions 
+Element ID Element Name Element Location Element Length Qty 
+REF Reflector 0.00” 6.28125” (6-9/32”) 1 
+DE* Driven Element 2.59375” (2-19/32”) 3.03125” (3-1/32”) 2 DE* Driven Element 2.59375” (2-19/32”) 3.03125” (3-1/32”) 
+D1 Director #1 3.5625” (3-9/16”) 5.65625” (5-21/32”) 1 
+D2 Director #2 5.875” (5-7/8”) 5.59375” (5-19/32”) 1 
+D3 Director #3 8.65625” (8-21/32”) 5.53125” (5-17/32”) 1 
+*DE is duplicated due to the split nature of the driven element.  Two identical element rods are used, located at the 
+same relative distance from the reflector element, one on either side of the boom and with an insulator between them. 
+Table 1 shows the element lengths and positions on the boom.  The boom element 
+locations are pre-indicated during the 3-D print of the boom, so these locations are 
+provided purely for reference purposes – you will not need to use these numbers. 
+The preparation of the element rods requires the use of a strong cutting pliers, preferably 
+end-cutting pliers.  In addition, a means must be available to square off the end of the 
+element rod where the rod was cut.  This is best done with a Dremel ® tool with a cut-off 
+wheel in its tool collet.  While it can also be done with a good file, that is a very tedious 
+and dirty job.  An ultrafine-point Sharpie® marker will be needed for marking the rod stock 
+during measurement, and an accurate means of measuring to the nearest thirty-second of an inch is needed.  I recommend a steel rule such as the Mr. Pen Steel Rulers offered 
+by Amazon ( https://www.amazon.com/gp/product/B07ZS4JSQP) for a very reasonable 
+price.  These rulers have the advantage of clear and accurate markings with no offset of 
+the “zero” position.  This means that you can simply line up one end of the rod stock with 
+the end of the ruler and go from there. 
+Once all of the required equipment is at hand, start by marking out the element lengths 
+on the rod stock as follows: 
+ on the first rod, measure and mark 6-9/32 ” from one end of the rod, and then 
+measure and mark 5-17/32 ” from the opposite end of the rod, and set that rod 
+aside; 
+ on the second rod, measure and mark 5-21/32 ” from one end of the rod, and then 
+measure and mark 5-19/32 ” from the opposite end of the rod, and set that rod 
+aside; and 
+ on the third rod, measure and mark 3-1/32 ” from one end of the rod, and then 
+measure and mark 3-1/32” from the opposite end of the rod, and set that rod aside. 
+The next step is to rough-cut the element rods, based upon the marks that were just 
+made.  If the above instructions were followed properly, each rough-cut rod will end up 
+having one square finished end after the rough cuts are made. 
+Using the end-cutting pliers, cut each piece of rod stock about a thirty-second of an inch 
+away from the measured mark towards the center of the rod.  This means that you will 
+be making the first cut between the two marks on the rod stock, and then the second cut 
+will be made between the remaining measured mark and the cut end of the rod stock.  
+Once all three pieces of rod stock have been cut near each of the measured marks, the 
+yield will be six element rods which will each have one finished end, one rough end, and 
+each will be about a thirty-second of an inch longer than its measured and marked length. 
+Finish each element rod by grinding or filing off the rough-cut end, bringing the cut to a 
+clean square finish and the element rod to its specified finished length.  Lay the rod 
+against the ruler periodically as you grind or file it to ensure compliance with the length 
+requirement for the element rod on which you are working at that time. 
+Finally, dress of any flash that may be “mushrooming” the cut end of the rod to give a nice 
+clean and round element rod end that will fit properly into the hole on the boom.  This will 
+complete the preparation of the element rods from three twelve-inch lengths of brass rod 
+stock, for a single antenna construction project. 
+If you are in the position of needing to prepare element rods for multiple antennas to be 
+built, for example, if you are preparing kits for future use in building the antenna in 
+quantity, some reduction in rod stock waste can be achieved.  In this case, you would be 
+laying out and cutting the element rods for three antennas using only eight lengths of rod 
+stock instead of nine lengths as would be used in the single-antenna process. Begin by measuring and marking three sets of reflector and director (or parasitic) element 
+rods in the same manner as was described in the single-antenna procedure.  That means 
+that you will be measuring and marking out the element lengths on the rod stock as 
+follows: 
+ on the first rod, measure and mark 6-9/32 ” from one end of the rod, and then 
+measure and mark 5-17/32 ” from the opposite end of the rod, and set that rod 
+aside; and 
+ on the second rod, measure and mark 5-21/32 ” from one end of the rod, and then 
+measure and mark 5-19/32 ” from the opposite end of the rod, and set that rod 
+aside. 
+Repeat that measure and mark sequence to get three sets of rods, which yields four 
+elements each for three antennas.  Rough-cut and then finish these element rods as 
+described previously. 
+Next, measure and mark two lengths of rod stock at four-inch intervals, effectively marking 
+the rod stock in thirds.  Cut these rod segments at each of the marks, which will give you 
+six four-inch rods segments. Four of those rod segments will be finished at one end, while 
+the remaining two rod segments – the ones cut from the centers of the rod stock lengths 
+– will be rough-cut on both ends.  Using the Dremel® tool or the file, dress and finish one 
+end of each of the two rods that have both ends cut. 
+Continue by measuring and marking, working from the finished end of the rod 
+segments, 3-1/32” from the finished end of each of the six four-inch rod segments.  Then, 
+rough-cut those rod segments at about 1/32” past the mark towards the cut end of the rod 
+segment.  Finally, using the tool of your choice, grind or file the rod segments to their 
+finished element rod length of 3-1/32” as was done with the parasitic elements earlier. 
+This completes the element rod preparation procedure when multiple antennas are being 
+prepped, or when kits are being assembled.  Note that a standard drinking straw makes 
+a great storage tube for the finished element rods.  Fold over and staple one end of the 
+drinking straw, slide the element rods into the straw, and then fold over and staple the 
+second end of the straw closed.  This keeps the element rods together and prevents them 
+from poking their way out of a plastic bag that may be used to contain all of the parts that 
+comprise an antenna kit. 
+ 

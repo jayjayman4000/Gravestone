@@ -1,0 +1,5337 @@
+ 
+BIOSAND FILTER MANUAL 
+ 
+DESIGN, CONSTRUCTION, INSTALLATION, 
+OPERATION AND MAINTENANCE 
+_______________________________________ 
+ 
+A CAWST TRAINING MANUAL 
+September 2009 Edition 
+ 
+ 
+  
+ 
+ 
+ 
+12, 2916 – 5th Avenue, Calgary, Alberta, T2A 6K4, Canada 
+phone: + 1 403.243.3285 ▪ fax : + 1 403.243.6199 
+email: cawst@cawst.org ▪ website: www.cawst.org 
+ 
+CAWST is a Canadian non-profit organization focused on the principle that clean water 
+changes lives. Safe water and basic sanitation are fundamentals necessary to empower the 
+world’s poorest people and break the cycle of poverty. CAWST believes that the place to start 
+is to teach people the skills they need to have safe water in their homes. CAWST transfers 
+knowledge and skills to organizations and individuals in developing countries through 
+education, training and consulting services. This ever expanding network can motivate 
+individual households to take action to meet their own water and sanitation needs. 
+One of CAWST’s core strategies is to make knowledge about water common knowledge. This 
+is achieved, in part, by developing and freely distributing education materials with the intent of 
+increasing its availability to those who need it most.  
+This document is open content and licensed under the Creative Commons Attribution Works 
+3.0 Unported License. To view a copy of this license, visit 
+http://creativecommons.org/licenses/by/3.0/ or send a letter to Creative Commons, 171 
+Second Street, Suite 300, San Francisco, California 94105, USA. 
+You are free to: 
+ Share - to copy, distribute and transmit this document 
+ Remix - to adapt this document 
+Under the following conditions: 
+ Attribution. You must give credit to CAWST as the original source of this document (but 
+not in any way that suggests that CAWST endorses you or your use of this document). 
+CAWST and its directors, employees, contractors, and volunteers do not assume any 
+responsibility for and make no warranty with respect to the results that may be obtained from 
+the use of the information provided. 
+Under ideal circumstances, the biosand filter can produce high quality drinking water. 
+However, this cannot always be assured or guaranteed due to variations in the construction, 
+installation, operation and maintenance of the filter. CAWST shall not be liable to anyone 
+whatsoever for any damage resulting from reliance on any information provided in this 
+document or attachments thereto. This also applies to the consumption of water from the 
+biosand filter. It should also be noted that the biosand filter cannot be upon to remove certain 
+or all forms of water contamination.  
+Cover photo: Tommy Ngai (pictured: Ganesh Harijan, Nepal)   
+ 
+ Biosand Filter Manual 
+ 
+ 
+ i
+Table of Contents 
+ 
+Acronyms .......................................................................................................................... ii 
+Abbreviations .................................................................................................................... ii 
+Measurement Conversions ............................................................................................... ii 
+Glossary....................................................................................................................... .....iii 
+1 The Multi-Barrier Approach for HWTS ........................................................................... 1 
+2 Biosand Filter Overview ................................................................................................. 2 
+2.1 What is the Biosand Filter? ..................................................................................... 2 
+2.2 History of the Biosand Filter .................................................................................... 2 
+2.3 Biosand Filter Components..................................................................................... 2 
+2.4 How Does the Biosand Filter Work? ....................................................................... 3 
+2.5 How Well Does the Biosand Filter Work? ............................................................... 5 
+3 Biosand Filter Operation ................................................................................................ 6 
+3.1 Water Source .......................................................................................................... 6 
+3.2 The Biolayer ............................................................................................................ 6 
+3.3 Filter Loading Rate.................................................................................................. 7 
+3.4 Pause Period........................................................................................................... 7 
+3.5 Standing Water Layer ............................................................................................. 7 
+3.6 Maintenance............................................................................................................ 8 
+3.7 Disinfection.............................................................................................................. 8 
+3.8 Safe Water Storage................................................................................................. 8 
+4 Version 10.0 Concrete Biosand Filter .......................................................................... 10 
+5 Construction, Installation, Operation and Maintenance Instructions ............................ 11 
+5.1 Construction Safety............................................................................................... 12 
+Stage A – Obtain Tools and Materials ........................................................................ 14 
+Stage B – Locate the Sand and Gravel....................................................................... 17 
+Stage C – Prepare the Sand and Gravel .................................................................... 19 
+Stage D – Construct the Filter Box.............................................................................. 25 
+Stage E – Construct the Diffuser................................................................................. 32 
+Stage F – Construct the Lid ........................................................................................ 43 
+Stage G – Installation.................................................................................................. 46 
+Stage H – Operation, Maintenance and Follow-Up..................................................... 53 
+6 References................................................................................................................... 58 
+ 
+Appendix 1: Concrete Biosand Filter Version 10.0 Mold Design 
+Appendix 2: Sieve Set Construction 
+Appendix 3: Sand Sieve Analysis 
+Appendix 4: Manufacturing and Installation Monitoring Forms 
+Appendix 5: Follow Up Visit Monitoring Forms 
+Appendix 6: Costing and Pricing Forms Biosand Filter Manual 
+ 
+ 
+ ii
+Acronyms 
+CAWST Centre for Affordable Water and Sanitation Technology 
+ES  effective size 
+HWT  household water treatment 
+ID  inner diameter 
+NTU  nephelometric turbidity units 
+OD  outer diameter 
+QY  quantity 
+SODIS  solar disinfection 
+UC  uniformity coefficient 
+UV  ultraviolet 
+Abbreviations 
+cm  centimetre   
+ft  foot    
+kg  kilogram    
+L  litre     
+m  metre 
+min  minute 
+mm  millimetre 
+lb  pound   
+‘  foot 
+“  inch 
+Measurement Conversions 
+Length or Distance    
+1 foot = 0.30 metres  1 inch = 2.54 cm  1 mm = 0.1 cm 
+1 metre = 3.28 feet  1 cm = 0.39 inches  1 cm = 10 mm 
+ 
+Volume    Area 
+1 gallon = 3.78 litres  1 m 2 = 10.76 ft2 
+1 litre = 0.26 gallons  1 ft 2 = 0.09 m2 
+ 
+Flow Rate 
+1 litre/minute = 60 seconds/litre Biosand Filter Manual 
+ 
+ 
+ iii
+Glossary 
+ 
+Adsorption When a contaminant attaches itself to the surface of a solid.  
+ 
+Bacteria Single-celled microorganisms, typically a few micrometres in 
+length. 
+ 
+Biolayer The biological layer formed at the sand-water interface of slow 
+sand filters. It is colonized by microorganisms including bacteria, 
+protozoa, algae, and diatoms. Also called the schmutzdecke. 
+ 
+Cement A powder (made of limestone and clay) that is mixed with water, 
+sand and gravel to make concrete. 
+ 
+Concrete A strong construction material made of cement, sand and gravel. 
+ 
+Contamination  Pollution of water due to human or natural causes. 
+ 
+Disinfection Any process that removes, deactivates or kills pathogens found in 
+water. It is last step of the household water treatment process, 
+after sedimentation and filtration. 
+ 
+Dissolved solids Small particles which are dissolved in water. They cannot be 
+removed by sedimentation or filtration. 
+ 
+Effective size The size opening read from the grain-size distribution graph that 
+will just pass 10% of the sand. 
+ 
+Filtration The process of allowing water to pass through layers of a porous 
+material such as sand, gravel or cloth to remove suspended solids 
+and pathogens. It is the second step of the household water 
+treatment process, done after sedimentation and before 
+disinfection. 
+ 
+Flow rate The time it takes to fill a specified container of water, often a 1 litre 
+container. Flow rate is measured when the biosand filter is filled 
+with water. 
+ 
+Galvanized steel  A thin sheet of steel that is coated with zinc to prevent it from 
+rusting.  
+ 
+Hydraulic head The driving force which causes water to move from one place to 
+another due to its pressure and elevation. Head is usually 
+measured as a water surface elevation, expressed in units of 
+length. 
+ 
+Hygiene Practices, such as hand washing, that help ensure cleanliness and 
+good health. Biosand Filter Manual 
+ 
+ 
+ iv
+ 
+Implementation The process of carrying out a plan. The implementation phase 
+happens after the plan has been created.  
+ 
+Nutrient Any substance used by microorganisms to live and grow. The 
+term is generally applied to nitrogen and phosphorus in 
+contaminated water, but can be used to describe other chemicals. 
+ 
+Pathogen Any living organism that causes disease. Pathogens commonly 
+found in water include bacteria, viruses, protozoa and helminths. 
+ 
+Pore The small spaces between the sand grains that allow water to 
+pass through. 
+ 
+Predation Where a predator (a microorganism that is hunting) feeds on its 
+prey (the microorganism that is attacked). 
+ 
+Sanitation Maintaining clean, hygienic conditions that help prevent disease 
+through services such as garbage collection, wastewater disposal, 
+and using latrines. 
+ 
+Sedimentation The process used to settle out suspended solids in water under 
+the influence of gravity.  
+ 
+Siphon A tube bent to form two legs of unequal length by which a liquid 
+can be transferred to a lower level over an intermediate elevation 
+by the pressure of the atmosphere in forcing the liquid up the 
+shorter branch of the tube immersed in it while the excess of 
+weight of the liquid in the longer branch when once filled causes a 
+continuous flow 
+ 
+Suspended solids Small solid particles which float in water, causing turbidity. They 
+can be removed by sedimentation or filtration.  
+ 
+Turbidity Caused by suspended solids, such as sand, silt and clay, floating in 
+water. Turbidity is the amount of light that is reflected off these 
+suspended solids which make the water look cloudy or dirty. Turbidity 
+is measured in nephelometric turbidity units (NTU). 
+ 
+Uniformity coefficient Size opening read from the grain-size distribution graph 
+that will pass 60% of the sand (d60 value) divided by the 
+size opening that will pass 10% of the sand (d10 value). It 
+is a measure of how well or poorly sorted the sand is. 
+ 
+Water quality The chemical, physical, and microbiological characteristics of 
+water. The quality of water to be used depends on the purpose for 
+which it is intended. 
+ Biosand Filter Manual 
+ 
+ 
+   1
+1 The Multi-Barrier Approach for HWTS 
+Using the multi-barrier approach is the best way to reduce the risk of drinking unsafe 
+water. Each step in the process, from source protection, to water treatment and safe 
+storage, provides an incremental health risk reduction. The household water treatment 
+process includes: sedimentation, filtration and disinfection.  
+ 
+More often than not, people focus on a particular technology that is directed towards one 
+step rather than considering the water treatment process as a whole. While individual 
+technologies, like the biosand filter, can incrementally improve drinking water quality, the 
+entire process is essential in providing the best water quality possible. 
+ 
+ 
+                                                          Household Water Treatment 
+ 
+ 
+ 
+ 
+ 
+ 
+ Sedimentation to remove larger particles and often > 50% of pathogens  
+ Filtration to remove smaller particles and often > 90% of pathogens 
+ Disinfection to remove, deactivate or kill any remaining pathogens 
+ 
+The household water treatment process is primarily focused on removing pathogens 
+from drinking water – the biggest water quality issue around the world. While improving 
+the microbiological quality, there are some technologies that may also be able to remove 
+certain chemicals as a secondary benefit, such as arsenic and iron. 
+ 
+Although all five components of the multi-barrier approach greatly help to improve the 
+quality of drinking water, this manual focuses primarily on filtration, which should be used 
+in combination with the other components to ensure healthy, uncontaminated water. 
+SODIS, or solar disinfection, can be used as part 
+of the multi-barrier approach 
+Using chlorine to disinfect water 
+ 
+Sedimentation 
+ 
+Filtration 
+ 
+Disinfection 
+ 
+Safe Storage Source 
+Protection 
+Biosand Filter Manual 
+ 
+ 2
+2 Biosand Filter Overview 
+2.1 What is the Biosand Filter? 
+The biosand filter (BSF) is an adaptation of the traditional slow sand filter, which has 
+been used for community water treatment for almost 200 hundred years. The biosand 
+filter is smaller and adapted for intermittent use, making it suitable for households. The 
+filter container can be made of concrete or plastic and is filled with layers of specially 
+selected and prepared sand and gravel.  
+2.2 History of the Biosand Filter 
+Dr. David Manz developed the household biosand filter in the 1990s at the University of 
+Calgary, Canada. Dr Manz has trained many organizations on the design, construction, 
+installation, operation and maintenance of the biosand filter. He also co-founded CAWST 
+in 2001 to provide the professional services needed for the humanitarian distribution of 
+the filter in developing countries. As of June 2009, CAWST estimates that over 200,000 
+biosand filters have been implemented in more than 70 countries around the world. 
+2.3 Biosand Filter Components 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     
+1. Lid – Tightly fitting lid prevents 
+contamination and unwanted pests. 
+4. Outlet Tube – Required to conduct water 
+from the base to the outside of the filter.  
+  
+2. Diffuser –  Prevents disturbing the 
+filtration sand layer and protects the 
+biolayer when water is poured into the 
+filter.
+5. Filter Body – Holds the sand and gravel 
+layers. 
+3. Filtration Sand Layer – Removes 
+pathogens and suspended solids. 
+  
+6. Separating Gravel Layer – Supports the 
+filtration sand and prevents it from going into 
+the drainage layer and outlet tube. 
+7. Drainage Gravel Layer – Supports the 
+separating gravel layer and helps water to 
+flow into the outlet tube. Biosand Filter Manual 
+ 
+ 3
+2.4 How Does the Biosand Filter Work? 
+The biosand filter has five distinct zones: 1) inlet reservoir zone, 2) standing water zone, 
+3) biological zone, 4) non-biological zone, and 5) gravel zone. 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+  
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Pathogens and suspended solids are removed through a combination of biological and 
+physical processes that take place in the biolayer and within the sand layer. These 
+processes include: mechanical trapping, predation, adsorption, and natural death. 
+ 
+ Mechanical trapping. Suspended solids and pathogens are physically trapped in 
+the spaces between the sand grains. 
+ Predation. Pathogens are consumed by other microorganisms in the biolayer. 
+ Adsorption. Pathogens become attached to each other, suspended solids in the 
+water, and the sand grains. 
+ Natural death. Pathogens finish their life cycle or die because there is not enough 
+food or oxygen for them to survive. 
+Contaminated water is poured into the reservoir on an intermittent basis. The water 
+slowly passes through the diffuser and percolates down through the biolayer, sand and 
+gravel. Treated water naturally flows from the outlet tube. 
+2. Standing Water Zone – This water keeps the 
+sand wet while letting oxygen pass to the 
+biolayer. 
+3. Biological Zone – Develops at the top 5-10 cm  
+(2-4”) of the sand surface. The filtration sand 
+removes pathogens, suspended particles and 
+other contaminants. 
+ 
+As in slow sand filters, a biological layer of 
+microorganisms (also known as the biolayer or 
+schmutzedecke) develops at the top 1-2 cm    
+(0.4-0.8”) of the sand surface. 
+4. Non-Biological Zone – Contains virtually no     
+living microorganisms due to the lack of nutrients 
+and oxygen.  
+5. Gravel Zone – Holds the sand in place and    
+protects the outlet tube from clogging.   
+1. Inlet Reservoir Zone - Where water is poured 
+into the filter. 
+Biosand Filter Manual 
+ 
+ 4
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+During the Run 
+ 
+The high water level pushes the water through the diffuser 
+and filter (also called the hydraulic head). The water level in 
+the reservoir goes down as it flows evenly through the sand. 
+The flow rate will slow down over time because there is less 
+pressure to force the water through the filter.  
+ 
+The inlet water contains dissolved oxygen, nutrients and 
+contaminants. It provides the oxygen required by the 
+microorganisms in the biolayer. 
+ 
+Larger suspended particles and pathogens are trapped in 
+the top of the sand and they partially plug the pore spaces 
+between the sand grains. This also causes the flow rate to 
+slow down. 
+Pause Period 
+ 
+The water finally stops flowing. The standing water layer 
+will be at the same height as the end of the outlet tube. 
+Some oxygen from the air diffuses through the standing 
+water to the biolayer.  
+ 
+The pause period allows time for microorganisms in the 
+biolayer to consume the pathogens and nutrients in the 
+water. The flow rate through the filter is restored as they are 
+consumed. If the pause period is too long, the biolayer will 
+eventually consume all of the pathogens and nutrients and 
+eventually die off. This will reduce the removal efficiency of 
+the filter when it is used again. The pause period should be 
+a minimum of 1 hour after the water has stopped flowing up 
+to a maximum of 48 hours.  
+ 
+Pathogens in the non-biological zone die off due to the lack 
+of nutrients and oxygen.  Biosand Filter Manual 
+ 
+ 5
+2.5 How Well Does the Biosand Filter Work?  
+Water naturally contains many living things. Some are harmless and others can make 
+people sick. Living things that cause disease are also known as pathogens. They are 
+sometimes called other names, such as microorganisms, microbes or bugs, depending on 
+the local language and country. There are four different categories of pathogens that are 
+shown in Table 1: bacteria, viruses, protozoa and helminths. 
+ 
+The physical characteristics of drinking water are usually things that we can measure with 
+our senses: turbidity, colour, taste, smell and temperature. Turbid water looks cloudy, 
+dirty or muddy. Turbidity is caused by sand, silt and clay that are floating in the water. 
+Drinking turbid water will not make people sick by itself. However, viruses, parasites and 
+some bacteria can sometimes attach themselves to the suspended solids in water. This 
+means that turbid water usually has more pathogens so drinking it increases the 
+chances of becoming sick.  
+ 
+The following Table 1 shows the biosand filter treatment efficiency in removing pathogens 
+and turbidity. 
+Table 1: Biosand Filter Treatment Efficiency 
+ Bacteria Viruses Protozoa Helminths Turbidity Iron 
+Laboratory Up to 96.5%1,2 70 to  >99%3 >99.9%4 Up to 100%5 95% <1 NTU1 Not available 
+Field 87.9 to 98.5%6,7 Not available Not available Up to 100%5 85%7 90-95% 8 
+1 Buzunis (1995) 
+2 Baumgartner (2006) 
+3 Stauber et al. (2006) 
+4 Palmateer et al. (1997) 
+5 Not researched. However, helminths are too large to pass between the sand, up to 100% removal efficiency is assumed 
+6 Earwaker (2006) 
+7 Duke & Baker (2005) 
+8 Ngai et al. (2004)  
+ 
+Health impact studies estimate a 30-47% reduction in diarrhea among all age groups, 
+including children under the age of five, an especially vulnerable population (Sobsey, 
+2007; Stauber, 2007). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biosand Filter Manual 
+ 
+ 6
+3 Biosand Filter Operation 
+The following sections describe how to properly use the biosand filter to ensure the 
+highest level of treatment efficiency. 
+3.1 Water Source 
+The biosand filter can be used with any water source such as rainwater, deep 
+groundwater, shallow groundwater, rivers, lakes or other surface water. The source 
+should be the cleanest available since the filter is not able to remove 100% of the 
+pathogens and turbidity. If the source water is very contaminated, the filtered water may 
+still have some contaminants.  
+ 
+Over time, the biolayer becomes adapted to a certain amount of contamination from the 
+source water. If source water with a different level and type of contamination is used, the 
+biolayer may not be able to consume all of the pathogens. It may take the biolayer 
+several days to adapt to the new source water, level of contamination, and nutrients. It is 
+recommended to consistently use the same source water to ensure the highest 
+treatment efficiency. 
+ 
+The turbidity of the source water is also a key factor in the operation of the filter. Higher 
+turbidity levels will plug the filtration sand layer more quickly. As such, maintenance will 
+be required more often to ensure a convenient flow rate for the user.  It is 
+recommended to use a sedimentation method if the source water turbidity is 
+greater than 50 NTU. A simple test to measure the turbidity is to use a 2 litre clear 
+plastic bottle filled with the source water. Place this on top of large print such as the 
+CAWST logo on this manual.  If you can see this logo looking down through the top of 
+the bottle, the water probably has a turbidity of less than 50 NTU. 
+3.2 The Biolayer 
+The biolayer is the key component of the filter that removes pathogens. Without it, 
+the filter removes about 30-70% of the pathogens through mechanical trapping and 
+adsorption. The ideal biolayer will increase the treatment efficiency up to 99% removal of 
+pathogens.  
+ 
+It may take up to 30 days for the biolayer to fully form. During that time, both the removal 
+efficiency and the oxygen demand will increase as the biolayer grows. The biolayer is 
+NOT visible – it is NOT a green slimy coating on top of the sand. The filtration sand may 
+turn a darker colour, but this is due to the suspended solids that have become trapped. 
+ 
+The water from the filter can be used during the first few weeks while the biolayer 
+is being established, but disinfection, as always, is recommended during this 
+time.  
+ 
+Figure 1 illustrates how the biolayer works. The process may vary as some filters require 
+a shorter or longer period of time to establish the biolayer depending on the amount and 
+source of water being used.  
+                                                                   Biosand Filter Manual 
+ 
+ 7
+Figure 1: How the Biolayer Works 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.3 Filter Loading Rate 
+The biosand filter has been designed to allow for a filter loading rate (flow rate per 
+square metre of sand surface area) which has proven to be effective in laboratory and 
+field tests. There is a recommended filter loading rate for each biosand filter design. For 
+the concrete Version 10 biosand filter, it has been determined to be not more than 400 
+litres/hour/square metre.   
+3.4 Pause Period 
+The biosand filter is most effective and efficient when operated intermittently and 
+consistently. The pause period should be a minimum of 1 hour after the water has 
+stopped flowing up to a maximum of 48 hours.  
+ 
+The pause period is important because it allows time for the microorganisms in the 
+biolayer to consume the pathogens in the water. As the pathogens are consumed, the 
+flow rate through the filter may be restored. If the pause period is extended for too long, 
+the microorganisms will eventually consume all of the nutrients and pathogens and then 
+eventually die off. This will reduce the removal efficiency of the filter when it is used 
+again. 
+3.5 Standing Water Layer 
+Correct installation and operation of the biosand filter requires a standing water 
+depth of approximately 5 cm (2”) above the sand during the pause period. The 
+standing water depth can be 4-6 cm, but ideally it should be at 5 cm (2”).  
+ 
+A water depth of greater than 5 cm (2”) results in lower oxygen diffusion and 
+consequently a thinner biolayer. A high water level can be caused by a blocked outlet 
+tube, an insufficient amount of sand installed in the filter or the sand settling in the first 
+few weeks of use.  
+ 
+A water depth less than 5 cm (2”) may evaporate quickly in hot climates and cause the 
+biolayer to dry out. A low water level may be caused by too much sand being put into the 
+filter during installation. 
+Treatment 
+Efficiency 
+(%) 
+99  
+The treatment efficiency 
+declines somewhat after 
+maintenance, but returns to 
+its previous level as the 
+biolayer is re-established.  
+The treatment efficiency will 
+vary as the biolayer 
+develops. 
+30 days Biosand Filter Manual 
+ 
+ 8
+3.6 Maintenance 
+The spaces between the sand grains will become plugged with suspended solids over 
+time. As a result, the flow rate will slow down. A slower flow rate is not an issue in 
+terms of water quality. In fact, the slower the flow rate, the better the water quality. 
+However, it may become slow enough that it is inconvenient for the user and they may 
+choose to not use the filter at all. 
+ 
+When the flow becomes much slower than the recommended rate, the user will need to 
+do basic maintenance (called the “swirl and dump”) to restore it. As well, users will need 
+to clean the outlet tube, safe storage container, diffuser, lid, and outside surfaces of the 
+filter on a regular basis. 
+ 
+Instructions on how to do maintenance are provided in Stage H of this manual. 
+3.7 Disinfection 
+Although the water may look clear after filtration, it is still necessary to disinfect it 
+to ensure the best water quality possible. The biosand filter removes most, but not all 
+of the bacteria and viruses. The most common methods used around the world to 
+disinfect drinking water are:  
+ 
+ Chlorine disinfection 
+ Solar disinfection (SODIS) 
+ Solar pasteurization 
+ Ultraviolet (UV) disinfection 
+ Boiling 
+ 
+When water has high levels of turbidity, pathogens “hide” behind the suspended solids and 
+are difficult to kill using chemical, SODIS and UV disinfection. The biosand filter reduces the 
+turbidity and is a necessary step to improve the effectiveness of these disinfection methods. 
+3.8 Safe Water Storage 
+People do a lot of work to collect, transport and treat their drinking water. Now that the 
+water is safe to drink, it should be handled and stored properly to keep it safe. If it’s not 
+stored safely, the treated water quality could become worse than the source water and may 
+cause people to get sick. Recontamination of safe drinking water is a common issue 
+around the world and has been documented in several cases. 
+ 
+Safe storage means keeping treated water away from sources of contamination, and 
+using a clean and covered container. It also means drinking water from the container in a 
+way so that people don’t make each other sick. The container should prevent hands, cups 
+and dippers from touching the water, so that the water isn’t recontaminated. 
+ 
+There are many designs for water containers around the world. A safe water storage 
+container should have the following qualities:  
+ Biosand Filter Manual 
+ 
+ 9
+ Strong and tightly fitting lid or cover 
+ Tap or narrow opening at the outlet 
+ Stable base so it doesn’t tip over 
+ Durable and strong 
+ Should not be transparent (see-through) 
+ Easy to clean 
+ 
+Other safe water handling practices include: 
+ 
+ Using a container to collect and store untreated water and using it only for untreated 
+water 
+ Using a different container to store treated water - never use this container for 
+untreated water 
+ Frequently cleaning out the storage container with soap or chlorine 
+ Storing treated water off the ground in a shady place in the home 
+ Storing treated water away from small children and animals 
+ Pouring treated water from the container instead of scooping the water out of it 
+ Drinking treated water as soon as possible, preferably the same day 
+ 
+Sometimes it is difficult for rural and poor households to find or buy a good storage 
+container. The most important things are to make sure that it is covered and only 
+used for treated water. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biosand Filter Manual 
+ 
+ 10
+4 Version 10.0 Concrete Biosand Filter 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+265 mm (10.4”) 
+940 mm 
+(37”) 
+158 mm 
+(6.25”) 
+50 mm 
+50 mm 
+66 mm 
+(2.6”) 
+222 mm (8.7”) 
+305 mm (12”) 
+88mm 
+(3.5”) 50 mm 
+20 mm 
+(0.8”) 
+88 mm 
+(3.5”) 
+543 mm 
+(21.4”) 
+108 mm 
+(4.3”) 
+304 mm (12”) 
+Design Specifications 
+ 
+Filter loading rate = 400 litres/hour/m
+2
+ 
+ 
+Flow rate = 0.4 litres/minute 
+ 
+Reservoir volume = 12 litres 
+ 
+Sand pore volume = 12 litres 
+ 
+Standing water depth = 5 cm 
+ Biosand Filter Manual 
+ 
+   11
+5 Construction, Installation, Operation and Maintenance Instructions 
+ 
+The following chart is an overview of the stages that are required to construct, install, 
+operate and maintain the Version 10.0 concrete biosand filter. In the case where other 
+filter bodies are used, Stages D, E and F can be changed will the other Stages remain 
+the same. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Stage A - Obtain Tools and Materials 
+Stage B - Locate the Sand and Gravel 
+Stage C - Prepare the Sand and Gravel 
+Stage D - Construct the Filter Body 
+Stage E - Construct the Diffuser 
+Stage F- Construct the Lid
+Stage G - Installation 
+Stage H - Operation, Maintenance & Follow Up Biosand Filter Manual 
+ 
+ 12
+5.1 Construction Safety 
+It is important to work safely and avoid the potential for injury while constructing a 
+biosand filter. You will be using sharp tools, lifting heavy pieces, and handling potentially 
+dangerous materials. When properly managed, the risks involved in these tasks can be 
+reduced to avoid injuries.  
+ 
+The work place should have a first aid kit available at all times. At the very least, it 
+should be stocked with bandages, gauze and disinfectants. Medical assistance contact 
+numbers should be posted in a visible location. 
+ 
+Cement 
+Cement can hurt you if it comes into contact with your skin, eyes, or is inhaled. Cement 
+usually contains a metal called hexavalent chromium. This metal causes allergic 
+dermatitis, or inflammation of the skin.  
+ 
+When you empty a bag of cement, the dust can irritate your skin. The dust reacts with 
+body sweat or damp clothing to form a corrosive solution. Cement dust can also get in 
+your eyes, causing redness, burns, or blindness. Inhaling cement dust irritates your nose 
+and throat. It can also cause choking and troubles with breathing. Cement is also 
+hazardous when it’s wet - in mortar or concrete. If it gets inside your boots or gloves, or 
+soaks through your clothes, it can cause burns and skin ulcers. The burns caused by 
+cement may be slow and you may not feel anything until several hours later. That’s why 
+it is important to wash cement off your skin right away. 
+ 
+What to wear: 
+ 
+ Wear eye protection for mixing, pouring, and other work with dry cement 
+ Wear a face mask to prevent cement dust inhalation 
+ Wear gloves 
+ Wear long sleeves and full-length pants 
+ Pull sleeves over gloves 
+ Tuck pants into boots when working with wet mortar or concrete 
+ 
+What to do: 
+ 
+ Work upwind from cement dust 
+ Remove rings and watches because cement dust can collect underneath and burn 
+your skin 
+ Remove any clothing contaminated by cement 
+ When your skin comes in contact with cement, wash with cold running water as soon 
+as possible. Flush out any open sores or cuts. Get medical attention if your skin still 
+feels like it’s burning. 
+ After working with cement, always wash your hands before eating, smoking, or using 
+the toilet 
+ If your eyes are exposed to cement, rinse with cold clean water for at least 15 
+minutes. Get medical attention if necessary.  
+ Biosand Filter Manual 
+ 
+ 13
+Chlorine 
+Chlorine on your skin may cause irritation unless it is rinsed off immediately and flushed 
+with large amounts of water. Any contaminated clothing should be removed and washed 
+before being reused. Chlorine that gets in your eyes may cause inflammation of your 
+throat, nose and lungs. If your eyes are exposed to chlorine, rinse with clean water 
+for at least 15 minutes while lifting the upper and lower lids occasionally. It is also 
+recommended to get medical attention.  
+ 
+Tools 
+While all of the hand tools used to construct the filter are small, they still have the 
+potential to cause injury. Safely storing and using the tools correctly is the best way to 
+prevent injuries. Use caution with sharp tools (e.g. saws, tin snips and knives) to prevent 
+cuts. Sharp edges of sheet metal can also cause cuts. Be aware of smashing and 
+crushing injuries to hands when using hammers and wrenches. 
+ Biosand Filter Manual 
+ 
+ 14
+Stage A – Obtain Tools and Materials 
+A good set of tools is needed to easily and properly construct and install a concrete 
+biosand filter.  All you need are hand tools, which will provide you with many years of 
+useful life if they are properly maintained and handled. 
+ 
+You will also need to identify a proper workspace that provides adequate shelter 
+and storage for your tools, filters, sand and gravel. The filtration sand should be 
+covered or under a roof to keep it dry and from becoming contaminated. You 
+may consider storing your tools and materials in a locked area to prevent 
+looting.  
+ 
+The following tools and materials are needed to construct one concrete filter box: 
+Tools: Materials: 
+  Steel mold (Appendix 1) 
+  Utility knife 
+  Heat source if using polyethlylene 
+tubing (e.g. propane or kerosene 
+torch, wood fire, electric burner) 
+  Wire brush, sandpaper, or steel wool 
+to clean mold 
+  Level 
+  Wooden shims of various sizes 
+  Two 9/16” wrenches 
+  Containers for measuring sand, gravel 
+and cement 
+  1.5 m (5’) metal rod (such as rebar) or 
+piece of wood 
+  Rubber or wooden mallet 
+  Trowel 
+  Shovels 
+  One 1-1/2” wrench 
+  Hammer 
+  4 blocks of wood (about 5 cm square) 
+  Brush 
+  6 mm (¼”) ID and 9 mm (3/8”) OD 
+plastic tubing (polyethylene or vinyl) 
+  Tape (e.g. duct tape) 
+  Oil (edible product) 
+  Brush or rag to apply oil 
+  12 litres of cement 
+  24 litres of 1 mm (0.04”) sand 
+  12 litres of 12 mm (½”) gravel 
+  12 litres of 6 mm (¼”) gravel 
+  Water - approximately 7-10 litres 
+  Soap 
+  Face mask (optional) 
+  Gloves (optional) 
+ Biosand Filter Manual 
+ 
+ 15
+The following tools and materials are needed for preparing the gravel and sand: 
+Tools: Materials: 
+  12 mm (½") sieve  
+  6 mm (¼”) sieve 
+  1 mm (0.04”) sieve  
+  0.7 mm (0.03”) sieve 
+  Shovels 
+  Wheelbarrow (if available) 
+  Several large containers approximately 
+40 cm (15”) deep 
+  Small clear container with lid 
+ 
+  Covers (e.g. tarps or plastic sheets), 
+roof or building to keep the sand from 
+getting wet and contaminated 
+  Clean water 
+  12 mm (½”) gravel 
+  6 mm (¼”) gravel 
+  0.7 mm (0.03”) sand 
+ 
+ 
+See Appendix 2 for instructions on how to construct the sieves. 
+ 
+The following tools and materials are needed for building the metal diffuser box 
+and lid: 
+Tools: Materials: 
+  Long straight edge or ruler (at least 
+120 cm (48”)) 
+  Tape measure 
+  Square or right angle 
+  Marker 
+  Metal cutters suitable for 28 gauge 
+galvanized steel 
+  Drill with 3 mm (1/8”) drill bit 
+  Hammer 
+  Folding tool (e.g. bending brake) for 
+bending 28 gauge sheet metal 
+  Anvil or steel plate set in a vice to 
+hammer sheet metal against 
+  1 sheet of galvanized flat sheet metal 
+(2438 mm x 1219 mm (4’ x 8’), 28 
+gauge thick (0.46 mm or 0.018”)) 
+ 
+ 
+ 
+ 
+ 
+ 
+Note: A single sheet makes 4 diffuser boxes (with some waste).  For costing 
+purposes; 3 sheets can make 15 boxes. No other materials are needed to 
+construct the lid and diffuser box.  Biosand Filter Manual 
+ 
+ 16
+The following tools and materials are needed for installing one filter: 
+ 
+Tools: Materials: 
+  Tape measure 
+  A stick [approximately 100 cm (40”) 
+long, 2.5 cm x 5 cm (1” x 2”) is 
+preferred] 
+  Diffuser 
+  Storage container 
+  Watch 
+  Measuring container with 1 litre mark 
+  1 m (3’) of hose that just fits over the 
+outlet tube 
+  Hose clamp (if available) 
+  Funnel (can be made from the top of a 
+pop or water bottle) 
+ 
+  Approximately 3 litres of washed 12 
+mm (½”) gravel (drainage layer) 
+  Approximately 3¼ litres of washed 6 
+mm (¼”) gravel (separating layer) 
+  Approximately 25 litres of washed 0.7 
+mm (0.03”) sand 
+  40-80 litres (10-20 gallons) of water 
+  Chlorine Biosand Filter Manual 
+ 
+   17
+Stage B – Locate the Sand and Gravel 
+Selecting and preparing the filtration sand and gravel is crucial for the treatment 
+efficiency of the biosand filter. While not complicated, the steps in preparing the filtration 
+sand must be followed exactly as presented. Poor selection and preparation of the 
+filtration sand could lead to poor performance and a considerable amount of work to 
+rectify the problem. 
+Recommended Source 
+Crushed rock is the best type of filtration sand since it has less chance of being 
+contaminated with pathogens or organic material. This sand also has less uniform 
+sizing of the grains. A mixture of grain sizes is required for the proper functioning of the 
+filter. 
+ 
+Gravel pits or quarries are the best place to obtain crushed rock, and are common in 
+most parts of the world. You can also ask local construction, road work, or brick 
+manufacturing companies to find our where they get their source of crushed rock.  
+ 
+At first, quarry rock may not seem proper for sieving due to the large amounts of dust. 
+You can select the rock load and the crusher properly to ensure that large chunks of rock 
+and dust are minimal. Often, you can even sieve the load at the quarry site and only pay 
+for what you take. This greatly reduces waste and the cost.  
+ 
+Crushed rock may be difficult to locate, more expensive, and require 
+transportation to your production site. However, it is critical in providing the best 
+water quality and is worth the extra time, effort and cost.   
+ 
+ 
+ 
+ 
+ 
+ 
+Other Sources 
+If crushed rock is absolutely not available, the next choice is sand from high on the 
+banks of a river (that has not been in the water), followed by sand found in the riverbed 
+itself. The last choice is beach sand. 
+ 
+River sand is usually contaminated with pathogens (from human and animal 
+excreta) and contains organic material (e.g. leaves, sticks). Putting contaminated 
+sand in the biosand filter may actually result in worse water quality than the original 
+source water used. This happens because the organic matter is a food source for 
+pathogens and helps them to grow and multiply in the filter until all of the food is 
+consumed. 
+ 
+River sand needs to be disinfected and the organic material removed if it is going to be 
+used as filtration sand. You can disinfect the sand by using chlorine or placing it in the 
+sun. Disinfection will kill the pathogens; however it will not remove all of the organic 
+material. This can only be done by heating the sand to very high temperatures to burn 
+Tip: CAWST is aware of crushed rock sources in many countries. If you have 
+difficulties finding a local source, please contact CAWST and we may be able to 
+connect you with a source already being used by other project implementers.   
+ 
+cawst@cawst.org Biosand Filter Manual 
+ 
+ 18
+River sand is not recommended for 
+use as filtration sand. However, river 
+sand can be used to construct 
+concrete filter boxes. 
+off the organic material. This process is very costly, time consuming and not practical in 
+most situations. For these reasons, it is better to spend your time and money to find a 
+source of crushed rock that provides the best water quality. 
+ 
+Beach sand usually contains salt, organic material and other contaminants that 
+will dissolve into the filtered water. You will need to flush the beach sand with fresh 
+water to remove the salt. As well, you will need to disinfect the sand to kill the pathogens 
+and then remove the organic material using a similar process as described previously for 
+the river sand.   
+ 
+Table 2: Properties to Look for when Selecting the Filtration Sand 
+Should: Should NOT: 
+ When you pick up a handful of the 
+sand, you should be able to feel the 
+coarseness of the grains. 
+ You should be able to clearly see 
+the individual grains, and the grains 
+should be of different sizes and 
+shapes. 
+ When you squeeze a handful of dry 
+sand, and then you open your hand, 
+the sand should all pour smoothly 
+out of your hand. 
+ Sand with a lot of gravel, up to 12 
+mm (½”) in diameter, should be 
+used. Using gravel larger than 12 
+mm (½”) is waste and will not be 
+used in filter construction or as 
+drainage gravel. 
+ It should not contain any organic 
+material (e.g. leaves, grass, sticks, 
+loam, dirt). 
+ It should not contain possible 
+microbiological contamination. Avoid 
+areas that have been used frequently 
+by people or animals. 
+ It should not be very fine sand or sand 
+that is mostly silt and clay. 
+ When you squeeze a handful of dry 
+sand, it should not ball up in your hand 
+or stick to your hand. If it does, it 
+probably contains a lot of dirt or clay. 
+ 
+ 
+ 
+ 
+ 
+Biosand Filter Manual 
+ 
+   19
+Stage C – Prepare the Sand and Gravel 
+ 
+SIEVE THE SAND AND GRAVEL  
+ 
+Tools: Materials: 
+  12 mm (½") sieve  
+  6 mm (¼”) sieve 
+  1 mm (0.04”) sieve  
+  0.7 mm (0.03”) sieve 
+  Shovels 
+  Wheelbarrow (if available) 
+  Covers (e.g. tarps or plastic sheets), 
+roof or building to keep the sand from 
+getting wet and contaminated 
+  Face mask (optional) 
+  Gloves (optional) 
+ 
+ 
+ 
+ 
+Steps: 
+ 
+1. The sand must be passed through the 12 mm (½”) sieve, the 6 mm (¼“) sieve, the 1 
+mm (0.04”) sieve, and the 0.7 mm (0.03”) sieve, in that order.  
+2. Discard the material that does not pass through the 12 mm (½”) sieve.  
+3. Store the material that is captured by the 6 mm (¼”) sieve – this is used for your 
+drainage gravel layer. 
+4. Store the material that is captured by the 1 mm (0.04”) sieve – this is used for your 
+separating gravel layer.  
+5. Store the material that is captured by the 0.7 mm (0.03”) sieve – A portion of this 
+material is used to make the concrete filter box while the other portion is sieved 
+further to make the filtration sand.  
+6. The material that passes through the 0.7 mm (0.03”) sieve is the filtration sand that 
+goes into your filter. If constructing concrete filters, this sand should NOT be mixed 
+with cement because it is too fine and will not produce good quality concrete.  
+Tips:  
+ When sieving, look under the sieve and watch the falling material. If very little 
+or no material is falling out, then you can stop sieving that batch of sand or 
+gravel.  
+ Any debris (e.g. wood, plastic, grass) found in the sand or gravel while sieving 
+should be removed. 
+ Don’t place too much sand or gravel on the sieves. Excess weight will cause 
+the sieve to rip or break. Biosand Filter Manual 
+ 
+ 20
+Tidy and separate piles will keep the sand and gravel from mixing together 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tips:  
+ Sieving sand is a lot easier if the sand is dry. Wet or damp sand often 
+plugs the screens making it difficult to sieve. If possible, leave the sand to dry 
+in the sun beforehand. Then, store it under tarps or under a roof or in a 
+building to protect it from moisture. During the dry season, you can prepare a 
+large amount of sand and stockpile it under cover to prevent the sand from 
+becoming wet.  
+ Wet sieving is a process which occurs when the sand is wet and can not, 
+under any circumstances, be dried in the sun. It uses clean water to force the 
+sand through the sieves. 
+ While sieving, ensure that you keep your piles tidy and separate so that they 
+do not mix with each other or with unsieved sand. Poor sand quality due to 
+stray rocks and mixing sieved sand sizes will reduce the treatment efficiency 
+of the filter. If this happens, you will have to sieve the sand again. Biosand Filter Manual 
+ 
+ 21
+Filtration Sand and Gravel Sizes 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Sieve 1 - 12 mm (½“) 
+Sieve 2 - 6 mm (¼“) 
+Sieve 3 - 1 mm (0.04”) 
+Sieve 4 - 0.7 mm (0.03“) 
+Discard rock > 12 mm (½“) 
+Drainage Gravel 
+6 mm (¼”) - 12 mm (½“) 
+Separating Gravel 
+6 mm (¼”) - 1 mm (0.04”) 
+Concrete Sand 
+1 mm (0.04”) 
+Filtration Sand 
+≤ 07m m( 00 3”)
+Filtration Sand 
+≤ 0.7 mm (0.03”) 
+ 
+Concrete Sand 
+1 mm (0.04”) 
+Separating Gravel 
+6 mm (¼”) 
+Drainage Gravel 
+12 mm (½”) Biosand Filter Manual 
+ 
+ 22
+The separating and drainage gravel must be washed until the water in the container is clear 
+WASH THE GRAVEL 
+ 
+Tools: Materials: 
+  Several large containers approximately 
+40 cm (15”) deep 
+ 
+  Clean water 
+  12 mm (½”) gravel 
+  6 mm (¼”) gravel 
+ 
+Steps: 
+1. Place about 2-3 litres (0.5-1 gallon) of 12 mm (½”) gravel in a container. 
+2. Put twice as much water in the container. 
+3. Using your hand, swirl the gravel around until the water becomes quite dirty. 
+4. Pour the dirty water out of the container. 
+5. Repeat the process until the water in your container is clear. 
+6. Wash the rest of the 12 mm (½”) gravel, using the same method (a little at a time). 
+7. Repeat steps 1 to 6 for the 6 mm (¼”) gravel. 
+8. Place all of the gravel on a cover or concrete surface in the sun to dry. This step is 
+especially important if the gravel or the wash water might be microbiologically 
+contaminated. 
+9. Store the gravel under cover to keep it dry. You can also package it in bags or 
+containers ready for use in the installation process (see Stage G Installation). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Biosand Filter Manual 
+ 
+ 23
+Unlike the gravel, the water in your container should not run clear. It will take practice to know how many 
+times you will need to wash the sand. 
+WASH THE FILTRATION SAND 
+ 
+Tools: Materials: 
+  Small clear container with lid 
+  Several large containers approximately 
+40 cm (15”) deep 
+  Clean water 
+  0.7 mm (0.03”) sand 
+ 
+ 
+1. Put a small amount of the 0.7 mm (0.03”) sand in the container (approximately 10 cm 
+(4”) deep). 
+2. Put double the amount of water in the container. 
+3. Using your hand, swirl the sand around the container 10 times very quickly, making 
+sure your fingers touch the bottom of the container and get all of the sand moving. 
+4. Quickly decant the dirty water. 
+5. Repeat steps 1 to 4 as many times as determined in the flow rate testing section. 
+ 
+ 
+ 
+ 
+6. Wash the rest of the sand using the same method (steps 1 to 5). 
+7. Place all of the sand and gravel on a tarp or concrete surface in the sun to dry. This 
+step is especially important if the sand, gravel, or the wash water might be 
+biologically contaminated. 
+8. Store the sand under cover once it is dry. You can also package it in bags or 
+containers to make it ready for transport and installation (see Stage G Installation). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tip: Do NOT wash the sand until the water in your container is clean. This residual 
+water should still be somewhat dirty. It takes time and practice to be able to know how 
+much to wash the sand.  Biosand Filter Manual 
+ 
+ 24
+JAR TEST 
+ The first time you wash the sand, it is necessary to experiment with the washing 
+procedure in order to determine the proper number of washes. 
+ Wash the sand as described in steps 1 to 5 above. As you wash, count the number 
+of times that you decant your container. 
+ Initially, it is a trial and error process – but that is why its important to count how 
+many times you wash the sand, so that once you get the correct flow rate, you can 
+repeat the same process. To estimate if the sand has been washed adequately, put 
+some sand into a clear container with an equal amount of clear water. Put the lid on 
+and swirl it. Looking from the side of the container, 3-4 seconds after you stop 
+swirling, you should be able to see the surface of the sand. 
+ Your sand and gravel sources may vary so the number of times that you wash the 
+sand will have to be adjusted periodically, but after some time you should develop 
+the ability to know when the sand has been adequately washed, just by looking at 
+the wash water in your container. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        
+Not washed enough                         About right                  Washed too much 
+ 
+FLOW RATE TEST 
+ For the final test of the sand, install a biosand filter on site using your filtration sand 
+and gravel, and test the flow rate. The flow rate should be 0.4 L/minute when the 
+filter is installed.  
+ If the flow rate is much greater than 0.4 L/minute, the sand has been washed too 
+much. You must decrease the number of times that you wash the sand. A flow rate 
+that is too fast is not acceptable – the filter will not be effective. 
+ If the flow rate is much less than 0.4 L/minute, the sand hasn’t been washed enough. 
+You must increase the number of times that you wash the sand. The filter will still 
+function if the flow rate is too slow, but it may plug more often, requiring more 
+frequent maintenance. If the flow rate is just slightly less than 0.4 L/minute, it can be 
+left as is – as long as the flow rate isn’t so slow that it is inconvenient for the user.  
+ Biosand Filter Manual 
+ 
+ 25
+Stage D – Construct the Filter Box 
+ 
+PLASTIC OUTLET TUBE 
+Tools: Materials: 
+  Utility knife 
+  Heat source if using polyethlylene 
+tubing (e.g. propane or kerosene 
+torch, wood fire, electric burner) 
+  6 mm (¼”) ID and 9 mm (3/8”) OD 
+plastic tubing (polyethylene or vinyl) 
+ 
+Steps: 
+ 
+1. If the plastic tubing comes in a roll, straighten out the first section using a mild heat 
+source as shown below. 
+2. Measure and cut off about 105 cm (41”) length of plastic tubing. 
+3. If using polyethylene tubing, use a heat source to shape the tubing to approximate 
+the dimensions shown above. A wooden jig may be useful.   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Oftentimes, the vinyl is softer and will not need to 
+be heated 
+Note: Do NOT use plastic tubing with less than 6 mm (¼”) inner diameter (ID). 
+The inside area of the tubing with an ID of less than 6 mm (¼”) will not be sufficient 
+to get a good flow rate. A low flow rate may also be due to the pipe crimping or a 
+blockage in the pipe by the drainage gravel. 
+ 
+Do NOT use plastic tubing with an outer diameter (OD) of more than 9 mm (3/8”). 
+The walls of the concrete filter body are not very thick and the tube may stick out of 
+the concrete if the OD is too large. 
+ 
+If the polyethylene tubing is stiff, it may need to 
+be heated in order to bend it Biosand Filter Manual 
+ 
+ 26
+PREPARE THE MOLD 
+Tools: Materials: 
+  Wire brush, sandpaper, or steel wool 
+to clean mold 
+  Level 
+  Wooden shims of various sizes 
+  Two 9/16” wrenches 
+  Tape (e.g. duct tape) 
+  Oil (edible product) 
+  Brush or rag to apply oil 
+ 
+Steps: 
+ 
+1. Clean the steel mold with the wire brush, sandpaper or steel wool to remove any 
+attached concrete. Leave excess concrete on all joints as it will act as a seal. 
+2. Using oil, lightly cover all surfaces that will be in contact with the concrete. Do NOT 
+oil the top of the interior mold since this is where you are going to tape the outlet 
+tube. 
+3. Assemble the mold upside down by placing the 2 exterior parts of the mold on the 
+interior mold. There should be a mark on the interior mold to indicate on which side 
+the nose panel goes. 
+4. Insert and loosely hand tighten all bolts, ensuring that the upper edge of the mold is 
+as square as possible. 
+5. Tighten all bolts with a wrench. 
+6. Tape the plastic tubing half way across the interior mold. Oil the top of the interior 
+mold being careful that the tape still sticks. 
+7. Place the nose plate on the nose of the mold, with the plastic tubing sticking through 
+the hole. 
+ 
+8. Tighten the set screw to hold the nose plate in place. 
+ 
+9. Secure the plastic tubing through the nose plate by taping it in place. Be careful to 
+not pull the plastic tubing too tight or else you might cause a bend in the tube which 
+will restrict the water flow. Place tape over the tube opening to protect it from getting 
+plugged with concrete. 
+ 
+10. Use a level and wooden shims to make the mold level. 
+ 
+ 
+ 
+The nose plate should be secured tightly, with the 
+plastic tubing sticking out through the hole 
+Tape the plastic tubing half way across the interior mold 
+to prevent it from moving and filling with concrete 
+Biosand Filter Manual 
+ 
+ 27
+POUR THE FILTER 
+Tools: Materials: 
+  Containers for measuring sand, gravel 
+and cement 
+  1.5 m (5’) metal rod (such as rebar) or 
+piece of wood 
+  Rubber or wooden mallet 
+  Trowel 
+  Wooden shims of various sizes 
+  Shovel 
+  12 litres (3.2 gallons) of cement 
+  24 litres (6.4 gallons) of 1 mm (0.04”) 
+sand 
+  12 litres (3.2 gallons) of 12 mm (½”) 
+gravel 
+  12 litres (3.2 gallons) of 6 mm (¼”) 
+gravel 
+  7-10 litres (2-3 gallons) of water 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Steps: 
+ 
+1. Move the steel mold to the location where you want the filter to be poured. 
+Remember that it will stay in this location for 6-24 hours while the concrete sets. 
+2. Measure 12 litres (3.2 gallons) of cement, 24 litres (6.4 gallons) of 1 mm (0.04”) 
+sand, 12 litres (3.2 gallons) of 12 mm (½”) gravel, and 12 litres (3.2 gallons) of 6 mm 
+(¼”) gravel. Careful measuring ensures correct proportions.  
+ 
+ 
+3. Place the materials in layers on top of each other on a clean, flat surface, beginning 
+with the gravel, then the sand, and finally the cement. 
+Note: The following concrete mix ratio has been tested and proven to work.  
+ 
+1 part cement : 2 parts sand : 1 part 12 mm gravel : 1 part 6 mm gravel 
+ 
+For any batch size, the most important thing is to keep the proportions of the 
+ingredients the same. You can double or triple the batch size simply by doubling or 
+tripling the number of containers of each ingredient you add to the mix. 
+Note: Be specific about the type of cement you use. You do NOT want to use 
+pre-mixed cement with sand and gravel. Depending on the country, the following 
+are different names of cement which are all the same product: Portland Cement, 
+White Ordinary Portland Cement, General Use Cement, General Use Hydraulic 
+Cement, Type 1 Cement, Type 10 Cement. 
+ 
+The cement should be fresh and not exposed to moisture. If there are lumps in the 
+cement, it has probably been wet and should not be used. You can NOT break up 
+the lumps and reuse the cement.  Biosand Filter Manual 
+ 
+ 28
+4. Mix dry ingredients together using a shovel. Make a shallow hole in the centre of the 
+dry mix using your shovel. Pour about 4 litres (1 gallon) of water into the hole and 
+mix it thoroughly with the dry ingredients. Mix thoroughly by pulling dry material from 
+the edges into the water.  
+5. When you have finished mixing, repeat Step 5 and continue to add water (about 7-10 
+litres (2-3 gallons) in total depending on the dampness of the sand) until the mix 
+reaches the proper consistency - fairly stiff and dry.  
+ 
+6. Test the mix. You can tell if the concrete has too little or too much water by using the 
+blade of your shovel to make ridges in the concrete. If the mix is too dry, you won't 
+be able to make distinct ridges; if the mix has too much water, the ridges won't hold 
+their shape and you may notice water seeping out around the edges of the pile. In a 
+proper mix, the ridges will hold most of their shape. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+7. Place the concrete into the mold using a shovel or container. 
+8. As each layer of concrete is added to the mold, work it with the metal rod to ensure 
+the concrete completely fills the area without any voids. At the current level of the 
+concrete, hit the outside of the mold on all sides, including the nose, with the mallet 
+in an upward pattern. The vibration allows air pockets to escape the concrete. 
+The consistency of the concrete should be fairly stiff 
+and dry. The filter is prone to cracks or leaks if too 
+much water is added. 
+Tip: You can always add more water to the concrete mix, but you cannot take it 
+away. The less water used, the stronger the dried concrete will be. The filter body is 
+prone to cracks or leaks if too much water is added. 
+Tip: To determine if the nose if full of concrete, hit it with the mallet. Water will seep 
+out when the nose is full of concrete. Be sure to hit the nose several times with the 
+mallet to make sure that there are no air bubbles that may cause cracks or breaks. 
+Mix the dry ingredients together using a shovel. Make 
+a shallow hole in the centre and pour water into the 
+hole. Mix thoroughly and continue to add water until it 
+reaches the proper consistency. Biosand Filter Manual 
+ 
+ 29
+9. As you fill the last of the mold, check the nose plate and plastic tubing to ensure that 
+they have not moved. 
+10. Jab your trowel at least 10 cm (4”) into the concrete, all around the inner mold, to 
+ensure that the final layer mixes with the previous layer. This will also allow for the 
+concrete to settle down the sides more. 
+11. Pile a shovel full of concrete on the top and allow it to settle for 30-45 minutes.  
+12. Repeat Step 8 to help prevent cracking around the base of the filter. Smooth away 
+the excess concrete and then use a trowel to make a flat surface. This will be the 
+bottom of the filter. 
+13. In hot climates, you may need to cover the concrete with a wet cloth and a plastic 
+sheet to keep the concrete from drying too quickly. Keep the cloth wet as it dries 
+throughout the day. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Steo 7 - Fill the mold full of concrete Step 8 - Use a metal rod to help the air 
+escape 
+Step 8 - Vibrate the mold with a rubber 
+mallet to help the air escape Biosand Filter Manual 
+ 
+ 30
+REMOVE FILTER FROM MOLD 
+Tools:  Materials: 
+  Two 9/16” wrenches 
+  One 1-1/2” wrench 
+  Hammer 
+  4 blocks of wood (about 5 cm square) 
+  Brush 
+  Soap 
+ 
+Steps: 
+ 
+1. Wait until the concrete has set. This may take anywhere from 6 to 24 hours 
+depending on the consistency of the concrete mix that you used and the local 
+climate. 
+2. Loosen the set screw and remove the nose plate. 
+3. Turn the mold completely upside down (180°), using a tire or a sack of grain to 
+support its weight as you go. 
+4. Remove the bolts on top of the mold. Do not loosen any of the side bolts yet. 
+5. Hit the top of the mold with a mallet (or use a block of wood and a hammer), to 
+loosen the bond with the concrete. 
+6. Position the extractor on top of the mold. Each leg of the extractor should sit in the 
+corresponding slot on the inner mold.  
+7. Tighten the centre bolt (by turning the bolt clockwise) until the bolt is well threaded 
+into the nut on the mold. 
+8. Tighten the nut (which sits above the square tubing) by turning it clockwise. Turn the 
+nut down until it contacts the square tubing and then continue turning, which pulls 
+upward on the interior mold until it releases. 
+9. Continue turning the centre nut until the interior mold is entirely released. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Note: If the mold starts to bend, stop what you’re doing immediately. 
+Check that the nuts and blots on the inner mold have been removed. If the inner mold 
+is still stuck, undo all nuts and bolts, remove the exterior panels and break the 
+concrete off of the interior mold. Do not damage the mold for just one filter. 
+Step 8 – Tightening the nut on the extractor to remove the interior mold Biosand Filter Manual 
+ 
+ 31
+10. Place wooden blocks between the exterior mold and the interior mold. 
+11. Loosen the centre nut on the extractor assembly until the interior mold rests on the 
+wooden spacers. 
+12. Remove the extractor. 
+13. Carefully remove the interior mold and place it in a safe location.  
+14. Reach inside the filter and remove the tape that covers the outlet tube. Also, remove 
+the tape at the other end of the outlet tube. 
+15. Remove the remaining bolts and the 3-sided panel. 
+16. Remove the front (nose) panel. 
+ 
+ 
+ 
+ 
+17. Clean and oil the mold. 
+18. Check the two ends of the outlet tubing to ensure they are not plugged by concrete. 
+Remove any visible debris until you can clearly see or feel the outlet at the bottom of 
+the filter. Be careful if reaching inside the filter since the concrete has not cured yet 
+and can potentially crack or break. 
+19. Fill the filter with water. The flow rate should be approximately 1 litre/minute. 
+Determine water level within the filter once the water stops coming out of the tube. 
+20. Measure the outlet tube. It should be about 1.5-2.5 cm (1/2-1”) in length. If it’s too 
+long, then cut the outlet tube to be the right length.  
+ 
+ 
+ 
+ 
+ 
+21. Check for cracks and flaws in the filter.  
+22. Plug the outlet and completely fill the filter with water. Keep it full for five to seven 
+days while the concrete cures. Do not move or disturb the filter during that time.  
+23. After the concrete has cured, put a small amount of soap in the water that was sitting 
+in the filter, and scrub the inside of the filter out with a brush. Rinse with clean water.  
+24. Store the filter until it is ready to be transported and installed. Ensure stored filters 
+are covered or tipped over after the concrete has cured to prevent them from getting 
+dirty and becoming a breeding ground for insect vectors.  
+25. Optional – The outside of the filters can be painted to improve its attractiveness for 
+the users. It usually takes one coat of primer and one coat of water-based paint. 
+ 
+Note: The water level in the filter is determined by the end of the outlet tube.  
+Due to a siphoning effect, the water will stop flowing when the standing water is at the 
+same level as the end of the outlet tube. 
+Tip: You may need to tip the filter back and place a wooden shim under the front 
+edge, and then use a hammer and small pry bars to detach the front panel. Biosand Filter Manual 
+ 
+ 32
+Stage E – Construct the Diffuser 
+The purpose of the diffuser is to prevent any disturbance of the sand surface and 
+biolayer when water is added to the top of the filter. It is essential for the correct 
+operation of the filter so that pathogens do not penetrate far into the sand bed. 
+There are several types of diffusers that can be built – each with its own advantages and 
+limitations. The one that you choose to build will depend on your skill level, the tools and 
+materials that are available, and the preference of the user. 
+ 
+Design Specifications: 
+ 3 mm (1/8”) diameter holes in a 2.5 cm x 2.5 cm (1” x 1”) grid pattern. Larger holes 
+will result in disturbance of the surface of the sand. Smaller holes will restrict the flow 
+through the filter, possibly causing the flow rate to drop   
+ There should not be a gap between the edge of the diffuser and the concrete filter.  A 
+gap allows water to travel along the walls of the filter, rather than being distributed 
+evenly through the holes of the diffuser plate. 
+ A tight fit will also prevent a diffuser made of light material from floating. 
+Tips:  
+ Many materials have been used for the diffusers – sheet metal, plastic, and 
+concrete. Galvanized sheet metal is recommended since it is more durable 
+and lasts longer. If poorly galvanized sheet metal is used, it will rust quickly 
+and eventually need to be replaced. Avoid using any material that will rot or 
+cause the growth of mold or algae in the presence of water (e.g. wood). 
+ The metal diffuser box design is recommended since it does not let water to 
+travel down the walls of the filter. This type of diffuser is needed for the 
+arsenic version of the filter or to retrofit previous versions of the filter to the 
+Version 10 design. If you choose to construct the metal diffuser box, it is  also 
+recommended that you also construct the lid with galvanized sheet metal. 
+This lid will fit nicely over the entire filter, including the metal flaps of the 
+diffuser box that will hang off the top edge of the filter.  Biosand Filter Manual 
+ 
+ 33
+OPTION 1 - METAL BOX DIFFUSER AND LID  
+Tools: Materials: 
+  Long straight edge or ruler (120 
+cm/48” or longer) 
+  Tape measure 
+  Square or right angle 
+  Marker 
+  Metal cutters suitable for 28 gauge 
+galvanized sheet metal 
+  Drill with 3 mm (1/8”) drill bit 
+  Hammer 
+  Folding tool (e.g. bending brake) 
+  Anvil or steel plate set in a vice to 
+hammer sheet metal against 
+  1 sheet of galvanized sheet metal 
+2438 mm x 1219 mm (4’ x 8’), 28 
+gauge thick (0.46 mm or 0.018”) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Steps: 
+ 
+1. Lay out the sheet metal and mark lines for cutting the outline of each piece according 
+to the dimensions shown on Figure 1. 
+2. Cut out the side walls, bottoms, lids and corner pieces. 
+3. Measure and mark cut lines (solid line) and fold lines (dashed) for each piece 
+according to dimensions provided in: 
+i. Figures 2 & 3: Filter lid 
+ii. Figure 4 & 5: Side walls and corner pieces 
+iii. Figure 6 & 7: Bottom piece 
+4. Cut along solid lines and fold along dashed lines as shown in the folding sequence 
+provided in each Figure. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Note: Caution! Be careful of sharp edges and wear hand protection if needed. 
+Diffuser Box 
+ Filter Lid Biosand Filter Manual 
+ 
+   34
+ 
+330 mm (13”)
+Lid #4 
+400 mm (15¾ ”) 
+Lid #1 
+Lid #2 
+Lid #3 
+Bottom #1
+Bottom #2
+Bottom #3
+Bottom #4
+Side Wall #1 
+330 mm (13”) 
+1073 mm (42¼”) 
+Figure 1  
+Layout for cutting sheet metal 
+for 4 diffuser boxes 
+400 mm (15 ¾”) 330 mm (13”)
+2438 mm (96”)  
+1219 mm (48”) 
+Corner pieces - 
+4 per diffuser box 
+ Cut ‘L’ shape 
+100x100x20mm 
+(4”x4”x0.8”) then 
+round off corner 
+Side Wall #4 
+215 mm 
+(8½”) 
+Side Wall #2 
+Side Wall #3 
+400 mm (15 ¾”) 
+ 
+34 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+B
+A
+A 
+B 
+C 
+C
+400 mm (15 ¾”) 
+a 
+c 
+A
+A
+B B
+a c 
+C
+C
+20 mm (¾”) 
+25 mm (1”) 
+20 mm (¾”) 
+25 mm (1”) 310 mm (12¼”) 
+273 mm (10¾”)  
+Folding Sequence for Lid: 
+ 
+1. Fold four A flanges down 
+along bend line a - a. 
+2. Fold flaps B 900 inward so 
+they lie alongside (parallel 
+to) flange A. 
+ 
+3. Fold flange C upwards 
+along c – c and press to 
+lock flaps B in place. 
+ 
+Lid 
+Cut along solid lines; 
+Fold along dashed lines 
+20 mm (¾”) 
+20 mm (¾”) 
+310 mm (12 ¼”) 
+Figure 2 
+Filter Lid 
+400 mm (15¾ “) 
+ 
+35 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 3 
+Folding Detail for Filter Lid 
+A B C 
+C 
+A
+B A
+C 
+36  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ Folding Sequence for Side Walls                Corner Pieces   
+1. Fold flanges A to 900 along bend line a- a. These flanges will be on the outside of                                                
+the box and attach to the Bottom Piece. 
+2. Fold flange B (tabs B1 and B2) down 900 along b-b  
+3. Fold B2 (outer tab of flange B) to 900. This B flange will form a lip around                                                              
+the outside of the box. This lip will sit on the top of the walls of the filter to                                                                
+suspend the box in the filter.  Tab B2 will be on the underside of the lip of the box. 
+4. Fold C2 (outer tab of flange C) to 900.  This flange will be on the outside of the box. 
+5. Fold flange D to 900. This flange will be on the outside of the box. 
+6. Fold the box into a square and then fold the locking seam, first folding the outer tab                                                   
+C2 tightly over flange D, then folding along line c-c 
+7. Lay in 2 corner pieces and then finish folding one flange B pressing it to lock the 
+corner pieces in place. Work around the rim inserting corners, folding the remaining 
+B flanges.   
+B2 
+c- -c 
+Side Walls 
+Cut along solid lines; 
+Fold along dashed lines 
+12 mm 
+(½”) 20 mm (¾”) 
+A A A A 
+25 mm 
+(1”) 
+1073 mm (42¼”) 
+Figure 4 
+Side Walls and Corner Pieces 
+-b 
+B1 B1 
+C2 
+C1 
+B1 
+B2 B2 
+B1 
+D 
+254 mm (10”) 
+158 mm 
+(6¼”) 
+215 mm 
+(8½”) 
+-a 
+20 mm 
+(¾”)
+25 mm 
+(1”) 
+12 mm 
+(½”) 
+a- 
+b- 
+B2 
+20 
+mm  
+100 mm 
+100 x 100 x 20 mm 
+(4” x 4” x 0.8”) 
+Corner pieces fit 
+between B1 and 
+B2 to form the lip 
+at the top. 
+37  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 5 
+Folding Detail for Side Wall Piece 
+Side Wall 
+D
+C
+C
+Side Wall  
+Side Wall 
+Side Wall
+D
+C
+C
+38  
+ 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Folding Sequence for Bottom Piece 
+ 
+1. Punch or drill holes in the Bottom Piece 
+• holes to be 3 mm ( 1/8”) in diameter 
+• space holes 2.5 cm (1”) apart  
+• make 80 to100 holes 
+2. Fold E2 (outer tab of flange E) to 90 0 
+3. Set the box (bold outline below) on the base 
+and fold flanges E2 tightly over flanges A on the 
+bottom sides of the box. 
+4. Fold up flange E against the outside of the box. 
+ 
+See also Figure 7 – Folding Detail for Bottom Piece 
+Figure 6 
+Bottom Piece 
+A 
+E2 
+Bottom piece 
+Side Wall piece 
+in vertical 
+Bottom piece 
+330 mm (13”)
+12 mm (½”) 
+25 mm (1”) 
+E1 
+E2 
+39  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Side Wall Piece
+Bottom Piece
+A
+E2
+E1
+Figure 7 
+Folding Detail for Bottom Piece 
+Side Wall Piece
+A 
+E2 
+E1
+Bottom Piece 
+40 Biosand Filter Manual 
+ 
+  41
+This is an example of a bad diffuser. It has too many holes - 
+only 100 holes are needed.   
+Drawing a grid will help with the nail-hole placement 
+OPTION 2 - SIMPLE METAL DIFFUSER 
+Tools: Materials: 
+  Tape measure 
+  Tin snips 
+  Leather gloves 
+  Hammer 
+  Marker  
+  3 mm (1/8”) diameter nails 
+  30 gauge galvanized sheet metal (or 
+nearest available size) 
+ 
+Steps: 
+ 
+1. Measure the inside reservoir of the filter at the height of the ledge where the diffuser 
+will sit. If the filter is not perfectly square, you may need to measure the width in both 
+directions. 
+2. Cut a piece of sheet metal that is 10 cm (4”) wider than the reservoir (in both 
+directions). 
+3. Measure and mark a line 5 cm (2”) from the edge of each side. 
+4. Measure and mark a 2.5 cm x 2.5 cm (1” x 1”) grid on the sheet metal, inside the 
+square which is formed by the lines from Step 3. 
+5. At each intersection on the grid, pound a 3 mm (1/8”) diameter hole through the 
+sheet metal, using a hammer and a 3 mm (1/8”) diameter nail. 
+ 
+ 
+ 
+ 
+6. Add an extra row of holes around the circumference of the diffuser. This helps to 
+evenly distribute the water and prevent disturbing the sand near the filter wall. 
+7. Make a handle so that the diffuser can be easily pulled out, once in place. Handles 
+can be made from a piece of nylon string or wire tied through holes in the diffuser 
+plate, or a bent nail. 
+Tip: A jig can be constructed out of word with nail tips in a 2.5 cm x 2.5 cm (1”x1”) 
+grid, facing up out of the wood so that the sheet metal can be pounded onto the jig, 
+forming all of the holes in one step.  
+Biosand Filter Manual 
+ 42
+A corrugated plastic diffuser with well placed holes 
+OPTION 3 - CORRUGATED PLASTIC DIFFUSER 
+Tools: Materials: 
+  Tape measure 
+  Utility knife 
+  Hammer 
+  Marker  
+  3 mm (1/8”) diameter nails 
+  Corrugated plastic sheet (looks like 
+cardboard, but made from plastic) 
+  Nylon string or nail 
+ 
+Steps: 
+ 
+1. Measure the inside of the reservoir at the height of the ledge where the diffuser will 
+sit. If the filter is not perfectly square, you may need to measure the width in both 
+directions. 
+2. Cut a piece of plastic the same size as the reservoir. 
+ 
+ 
+ 
+ 
+3. Measure and mark a 2.5 cm x 2.5 cm (1” x 1”) grid on the plastic. 
+4. At each intersection on the grid, push a nail with a 3 mm (1/8”) diameter through the 
+plastic and then remove it (to create the holes). 
+5. Add an extra row of holes around the circumference of the diffuser. This helps to 
+evenly distribute the water and prevent disturbing the sand near the filter wall. 
+6. Make a handle so that the diffuser can be easily pulled out, once in place. Handles 
+can be made from a piece of nylon string or wire tied through holes in the diffuser 
+plate, or a bent nail. 
+Tip: Cutting plastic so that it fits snugly in the reservoir will prevent the diffuser from 
+floating when water is poured into the filter. A rock or other weight can also be placed on 
+the diffuser to stop it from floating. 
+Biosand Filter Manual 
+ 43
+An acrylic plastic diffuser with well placed holes 
+OPTION 4 - PLASTIC PLATE DIFFUSER 
+Tools: Materials: 
+  Tape measure 
+  Electric saw or acrylic cutting knife 
+  Electric drill 
+  Marker  
+  3 mm (1/8”) diameter nails 
+  Clear acrylic plastic or stiff polyethylene 
+plastic 
+  Nylon string or nail 
+ 
+Steps: 
+1. Measure the inside of the reservoir at the height of the ledge where the diffuser will 
+sit. If the filter is not perfectly square, you may need to measure the width in both 
+directions. 
+2. With a saw or using an acrylic cutting knife, cut a piece of plastic the same size as 
+the reservoir. 
+3. Measure and mark a 2.5 cm x 2.5 cm (1” x 1”) grid on the plastic. 
+4. At each intersection on the grid, drill a 3 mm (1/8”) diameter hole through the plastic. 
+5. Add an extra row of holes around the circumference of the diffuser. This helps to 
+evenly distribute the water and prevent disturbing the sand near the filter wall. 
+6. Make a handle so that the diffuser can be easily pulled out, once in place. Handles 
+can be made from a piece of nylon string or wire tied through holes in the diffuser 
+plate, or a bent nail. 
+ 
+ 
+ Biosand Filter Manual 
+ 44
+Stage F – Construct the Lid  
+The purpose of the lid is to prevent contamination of the water and the sand. It is 
+essential to the correct operation of the filter. There are several types of lids that can be 
+built. The one that you choose to build will depend on your skill level, the tools and 
+materials that are available, and the preference of the user. 
+ 
+Several materials have been used for the lids, including wood, solid-wood carvings, 
+plastic, ceramic tiles, and sheet metal. The appearance of the lid should be taken into 
+consideration since it shows at all times and will be inside the user’s home. 
+ 
+Design Specifications: 
+ 
+ Should completely cover the filter reservoir 
+ Made so that the lid cannot be easily knocked off the filter 
+ Easy to remove and put on the filter 
+ 
+OPTION – SIMPLE WOODEN LID 
+ 
+Tools: Materials: 
+  Hammer 
+  Tape measure 
+  Saw 
+  2.5 cm x 10 cm (1” x 4”) lumber (or 
+whatever is locally available) 
+  Nails or screws 
+ 
+Steps: 
+ 
+1. Measure the outside width of the concrete filter at the top. If the filter is not perfectly 
+square, you may need to measure the width in both directions. 
+2. Cut pieces of wood sufficient to cover the entire top of the filter. These pieces will 
+form the lid itself. 
+3. Place these pieces in the shape of the lid, with the underside facing up. 
+4. Measure the top inside of the filter reservoi r. If the filter is not perfectly square, you 
+may need to measure the width in both directions. 
+5. Mark the size and position of the opening on the pieces of your lid (from Step 3). Cut 
+two pieces of wood the length of the opening of the filter. 
+6. Place those two pieces of wood perpendicular to the other pieces, on top of the 
+others. 
+7. Centre those two pieces of wood so that in both directions, they line up with the 
+opening of the filter that you marked in Step 5. (Those two pieces will sit inside the 
+opening on the filter and will stop the lid from moving in either direction.) 
+8. Nail each of the two pieces onto all of the other pieces. 
+9. Flip your lid over and ensure that it fits on the filter. (The two pieces from Step 6 
+should just fit inside the filter, and the other pieces should cover the entire top edge 
+of the filter.) Biosand Filter Manual 
+ 45
+Top of a wooden lid Under side of a wooden lid 
+If no handle is placed in the lid, the top of the filter can be 
+used for storing other household items 
+10. Attach a handle. This handle is optional as the top of the filter can be used as 
+storage if the handle is not attached (see photo below). If no handle is attached, the 
+filter lid will still be easy to remove.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tip: Nails straight through the lid into the handle don’t hold the handle on very well.  
+Use at least two nails at different angles or a screw. 
+Biosand Filter Manual 
+ 46
+Transporting filters with a specially constructed 
+dolly   
+Transporting filters by horsepower 
+Carrying filters using wood supports Loading filters in the back of a truck 
+Stage G – Installation 
+The biosand filter must be installed correctly for it to work properly. Make a checklist and 
+use it to ensure that you have everything you’ll need before you head out to install a 
+filter. An example of an installation checklist is provided in Appendix 4. 
+ 
+TRANSPORT THE FILTER 
+Always consider the safety issues related to moving the filter. There can be injuries due 
+to strains of the back, arms, and knees. Be careful to not crush or pinch your fingers and 
+toes under or behind the filter. Keep in mind the size of the filter 30 cm x 30 cm x 90 cm 
+(12” x 12” x 36”) and its weight [95 kg (210 lbs) plus an additional 45 kg (100 lbs) of 
+sand]. It can be difficult and awkward to move this large object. 
+Some ways to move the filter include: 
+ Cart – animal or human powered 
+ Car, truck, or boat 
+ Carrying slings – wide, heavy canvas straps placed over the shoulder to lift a heavy 
+object 
+ Dolly – a frame or rack with small wheels, strong enough to carry the weight 
+ Rollers – metal or wooden, round pieces that can be used to move the filter short 
+distances. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Biosand Filter Manual 
+ 47
+Positioning the filter inside the household cooking area 
+POSITION THE FILTER 
+It is important to determine a good location for the filter. Locating the filter inside the 
+home is important not only for filter effectiveness, but also for the convenience of the 
+user. If the users can access the filter easily, they will be more likely to use and maintain 
+it. Once filled with sand, the filter should not be moved. 
+The filter should be placed: 
+ In a protected location away from sunlight, wind, rain, animals, and children 
+ Preferably inside the home on level ground 
+ Near the food preparation or kitchen area (depending on the space and layout of the 
+home) 
+ Where it will be used and maintained easily 
+ So that water can easily be poured in the top 
+ Where there’s adequate room for hauling and pouring pails of water into the filter, as 
+well as storing the filtered water 
+Tip: If the users are short, you may have to add a step so that they don’t have to lift 
+the container of source water above their shoulder height. 
+Biosand Filter Manual 
+ 48
+PLACE THE SAND 
+Tools: Materials: 
+  Tape measure 
+  A stick [approximately 100 cm (40”) 
+long, 2.5 cm x 5 cm (1” x 2”) is 
+preferred] 
+ 
+  Approximately 3 litres of washed 12 
+mm (½”) gravel (drainage layer) 
+  Approximately 3¼ litres of washed 6 
+mm (¼”) gravel (separating layer) 
+  Approximately 30 litres of washed 0.7 
+mm (0.03”) sand 
+  At least 2 containers of water 
+ 
+ 
+ 
+ 
+Steps: 
+1. Ensure that the outlet tube at the bottom inside of the filter is clear and unobstructed 
+(i.e. not covered by concrete or plugged by debris.) The flow rate through the tubing 
+without any sand in the filter should be about 1 litre/minute. After the flow has 
+stopped, the water level should be slightly below the diffuser. 
+ 
+ 
+ 
+ 
+2. Ensure that the inside of the filter has been cleaned out (including dirt, dust, and oil 
+from the mold). 
+3. Place a stick inside the filter so that it’s touching the bottom of the filter. 
+4. Draw a horizontal line on the stick where it meets the top edge of the filter. 
+5. Measure and mark a line 5 cm (2”) down from the first line. 
+6. Fill the filter half full of water. 
+ 
+ 
+ 
+ 
+7. Add approximately 5 cm (2”) of 12 mm (½”) gravel to the filter. This is the drainage 
+layer. 
+8. Level out the gravel, and use the stick to measure how much has been added. 
+Place the bottom of the stick on the gravel. When the 2nd line on the stick lines up 
+with the top edge of the filter, you have added enough gravel. 
+ 
+ 
+ 
+Note: The sand must always be added with water already in the filter to prevent 
+pockets of air from being trapped within the sand. 
+Note: Ensure that the gravel covers the drain hole near the bottom of the filter. 
+Note: This step should have been done when the filter was removed from the mold, 
+however, double check now before you get too far into the installation.  
+Tip: The exact quantity of gravel and sand can be determined once using the 
+following steps. Then you can pre-measure and package the sand and gravel in 
+separate bags before delivery. Biosand Filter Manual 
+ 49
+9. Measure and mark a third line 5 cm (2”) down from the second line.  
+10. Add approximately 5 cm (2”) of 6 mm (¼”) gravel to the filter. This is the separating 
+layer. 
+11. Level out the gravel and use the stick to measure how much has been added. Again, 
+place the bottom of the stick on the gravel. When the 3rd line on the stick lines up 
+with the top edge of the filter, you have added enough gravel. 
+12. Quickly pour approximately 30 litres of washed sand to the filter (ensuring that there 
+is always water above the surface of the sand).  
+ 
+ 
+ 
+ 
+ 
+13. Fill the filter with water and let it run until water stops pouring out of the outlet tube. 
+When this happens the water level is equalized. 
+14. Smooth out the sand and then measure the depth of the water above the sand bed. 
+15. If the water depth is less than 3 cm (1.2”): remove sand until the depth is 5 cm (2”) 
+(with the sand surface level and the water level equalized). 
+16. If the water depth is more than 5 cm (2”): add more sand and then repeat steps 
+13 to 17. Continue until the water depth is 5 cm (2”). 
+17. Swirl the top layer of sand and dump out the muddy water to prevent the sand from 
+plugging. 
+18. Smooth out the surface of the sand so that it’s as level as possible. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Note: It is important the sand is added in water. This prevents air pockets from 
+forming in the sand layer. A random distribution of different sand grain sizes is also 
+critical to the proper operation of the filter. Adding the sand quickly maintains the 
+random distribution by not allowing the different sizes of grains to settle into layers. 
+Filtration Sand Layer  
+Top of sand sits 5 cm (2”) below the standing 
+water layer  
+Separating Gravel Layer – 5 cm (2”) deep 
+Drainage Gravel Layer – 5 cm (2”) deep Biosand Filter Manual 
+ 50
+FLUSH THE FILTER 
+Tools: Materials: 
+  Diffuser 
+  Storage container 
+  40-80 litres (10-20 gallons) of water 
+ 
+Steps: 
+ 
+1. Place the diffuser inside the filter.  
+ 
+ 
+ 
+ 
+2. Place a storage container under the outlet tube. The water that it captures can be 
+reused. 
+3. Pour the cleanest available water into the filter (turbidity should be less than 50 
+NTU). 
+4. Observe the water coming out of the outlet tube. 
+5. Continue adding water to the filter until the water coming out is clear. This may take 
+40-80 litres (10-20 gallons) of water. 
+6. Note the water level after the flow has stopped. The water level should be slightly 
+below the diffuser. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Note: The diffuser should not touch the standing water layer during the pause 
+period. This greatly reduces the amount of oxygen in the standing water layer, 
+affecting the survival of the biolayer.
+Note: If the filtered water isn’t clear after 100 litres (25 gallons), then the gravel 
+was too dirty to start with. You will need to reinstall the filter with clean gravel. Biosand Filter Manual 
+ 51
+TEST FLOW RATE 
+Tools: Materials: 
+  Watch 
+  Measuring container with 1 litre mark 
+  Storage container 
+  12 litres (3 gallons) of water 
+ 
+Steps: 
+ 
+1. Fill the filter reservoir to the top with water. 
+2. Place the measuring container under the outlet tube to 
+collect the filtered water. 
+3. Measure the time it takes to fill the container to the 1 litre 
+mark. The flow rate should be at a maximum of 0.4 
+litre/minute (see table to the right to convert seconds per 
+litre into litres per minute). 
+4. If the flow rate is very slow (less than 0.3 L/minute, taking more than 3 minutes to fill 
+the measuring container to 1 litre):  
+ The filter will still work but it may plug faster requiring more frequent maintenance. 
+ If it takes too long to filter a pail of water, the user may become impatient and use 
+unfiltered water instead. 
+ The flow rate can be improved by “swirling” the top layer of the sand and then 
+scooping out the dirty water. 
+ If a few “swirl & dumps” do not improve the flow rate substantially, the sand is either 
+too fine or too dirty. In this case, the sand hasn’t been washed enough and needs to 
+be replaced. 
+5. If the flow rate is faster than 0.4 L/minute, the filter may not work efficiently. In this 
+case, the sand has been washed too much and needs to be replaced.  A less 
+preferable option is to run a considerable amount of water through the filter until 
+the flow rate decreases (due to the capture of finer solids and faster growth of the 
+biolayer). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Seconds 
+per Litre 
+Litres per 
+Minute 
+100 0.60 
+110 0.55 
+120 0.50 
+133 0.45 
+150 0.40 
+171 0.35 
+200 0.30 
+Note: The flow rate through the filter decreases as the height of the water in the 
+reservoir drops. As the water level reaches the diffuser, treated water may only drip 
+out of the outlet tube. It can take 40–90 minutes for the 12 litres in the reservoir to 
+completely pass through the filter. Biosand Filter Manual 
+ 52
+Disinfecting the outlet using a funnel and hose 
+DISINFECT THE OUTLET 
+Tools: Materials: 
+  1 m (3’) of hose that just fits over the 
+outlet tube 
+  Hose clamp (if available) 
+  Funnel (can be made from the top of a 
+pop or water bottle) 
+  Chlorine solution (e.g. 1 teaspoon 
+5.25% bleach to 1 litre of water 
+  12 litres (3 gallons) of water 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Steps: 
+ 
+1. Place the hose over the outlet tube. 
+2. Clamp the hose in place with the hose 
+clamp. 
+3. Place the funnel on the other end of the 
+hose. 
+4. Hold the funnel higher than the top of the 
+filter, and pour 1 litre of chlorine solution 
+into the funnel. 
+5. Hold in place for 2 minutes. 
+6. Remove the hose and drain the chlorine 
+solution. 
+7. Wipe the outside of the tube with a clean, 
+chlorine-soaked cloth. 
+8. Add 12 litres (3 gallons) of water to the top 
+of the filter and wait 30 minutes to flush 
+the chlorine out. Instruct the user not to 
+use this water for drinking or cooking. 
+9. Place the lid on the filter. 
+ 
+Do NOT pour 
+chlorine into the 
+filter! It will kill 
+the biolayer. 
+Note: This step is used when starting the 
+filter or during maintenance by a filter 
+technician. Disinfecting the outlet tube is not 
+normally done by the users. 
+Biosand Filter Manual 
+ 53
+Stage H – Operation, Maintenance and Follow-Up 
+ 
+ESTABLISHING THE BIOLAYER 
+The biolayer is the key component of the filter that removes pathogens. Without it, the 
+filter removes about 30-70% of the pathogens through mechanical trapping and 
+adsorption. The ideal biolayer will increase the treatment efficiency up to 99% removal of 
+pathogens.  
+ 
+It may take up to 30 days for the biolayer to fully form. During that time, both the removal 
+efficiency and the oxygen demand will increase as the biolayer grows. The biolayer is 
+NOT visible – it is NOT a green slimy coating on top of the sand. The filtration sand may 
+turn a darker colour, but this is due to the suspended solids that have become trapped. 
+ 
+The water from the filter can be used during the first few weeks while the biolayer 
+is being established, but disinfection, as always, is recommended during this 
+time.  
+ 
+DAILY USE 
+All household users, including children, need to be taught how and why the filter works 
+and about its correct operation and maintenance. Children are frequently the main users 
+of the filter. Proper use includes the following practices: 
+ Use the filter at least once every 1-2 days, preferably 2-4 times each day 
+ Use the same source of water every day to improve the treatment efficiency 
+ Use the best source of water (least contaminated) that is available – the better the 
+source water, the better the treated water will be 
+ The turbidity of the source water should be less than 50 NTU. If it is more turbid, then 
+sediment or strain the water before using the biosand filter. 
+ The diffuser must always be in place when pouring water into the filter – never pour 
+water directly onto the sand layer. Slowly pour the water into the filter. 
+ The lid should always be kept on the filter 
+ Use a separate container for collecting the source water 
+ Use a separate safe storage container that has the following qualities:  
+ Strong and tightly fitting lid or cover 
+ Tap or narrow opening at the outlet 
+ Stable base so it doesn’t tip over 
+ Durable and strong 
+ Should not be transparent (see-through) 
+ Easy to clean 
+ 
+ Store treated water off the ground in a shady place in the home 
+ Store treated water away from small children and animals 
+ Drinking treated water as soon as possible, preferably the same day Biosand Filter Manual 
+ 54
+ Water must always be allowed to flow freely from the filter. Do NOT plug the outlet or 
+connect a hose to it. Plugging the outlet tube could increase the water level in the 
+filter, which could kill the biolayer due to lack of oxygen. Putting a hose or other 
+device on the outlet can also siphon or drain the water in the filter, dropping the 
+water level below the sand layer and drying out the filter. 
+ Do NOT store food inside the filter. Some users want to store their food on the 
+diffuser because it is a cool location. The water in the top of the filter is 
+contaminated, so it will contaminate the food. Also, the food attracts insects to the 
+filter. 
+ The filtered water should always be disinfected to ensure the highest quality 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     
+ 
+ 
+ 
+ 
+ 
+ 
+Clean and tight fitting lid 
+Clean outlet tube with no attachments 
+Standing water is 5 cm deep 
+No cracks or leaks 
+Placed level inside home 
+Clean storage container with small opening 
+No chlorine inside 
+No food on diffuser
+Tip: The sound of water dripping from the outlet into the storage container can be 
+irritating. The closer you place the container to the outlet, the less noise there will be. A 
+container with a small opening also reduces dripping noise and prevents 
+recontamination of the filtered water. 
+ 
+ Biosand Filter Manual 
+ 55
+Chlorine works well to disinfect the treated water and clean surfaces, but 
+do NOT pour chlorine into the top of the filter.  
+MAINTENANCE 
+ 
+There is some key maintenance tasks that are required after a filter has been installed 
+and used regularly.  
+ 
+ The outlet tube will become contaminated during normal use via dirty hands, 
+animals, or insects. Clean the outlet tube regularly with soap and water or a chlorine 
+solution.  
+ Clean the inside of the treated water storage container when it looks dirty, when you 
+do regular maintenance or at least once a month. Do NOT pour chlorine into the 
+top of the filter – it will kill the biolayer. To clean the storage container: 
+ 
+ Wash your hands before cleaning the container 
+ Scrub the inside of the container with soap and treated water 
+ Empty the soapy water through the tap 
+ Rinse the container with a little treated water 
+ Add chlorine to water in the storage container – let it sit for 30 minutes – if 
+chlorine is not available, let the container air dry 
+ Empty the remaining water through the tap 
+ Clean the tap with a clean cloth and chlorine solution (such as bleach) 
+ 
+ The entire filter should be cleaned regularly (e.g. lid, diffuser, outside surfaces). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Biosand Filter Manual 
+ 56
+SWIRL & DUMP 
+The flow rate through the filter will slow down over time as the biolayer develops and 
+suspended solids are trapped in the upper layer of the sand. Users will know when the 
+“swirl & dump” is required because the flow rate will drop to an unacceptable level. The 
+filter is still effectively treating the water at this point; however the length of time that it 
+takes to get a container of filtered water may become too long and be inconvenient for 
+the user. Alternately, you can measure the flow rate and if it is less than 0.1 litre/minute, 
+then the “swirl & dump” maintenance is required. 
+Steps: 
+1. Remove the filter lid. 
+2. If there is no water above the diffuser, add about 4 litres (1 gallon) of water. 
+3. Remove the diffuser. 
+4. Using the palm of your hand, lightly touch the very top of the sand and move your 
+hand in a circular motion; be careful to not mix the top of the sand deeper into the 
+filter. 
+5. Scoop out the dirty water with a small container. 
+6. Dump the dirty water outside the house in soak pit or garden. 
+7. Make certain the sand is smooth and level. 
+8. Replace the diffuser. 
+9. Wash your hands with soap and water. 
+10. Set up the storage container to collect the filtered water. 
+11. Refill the filter. 
+12. Repeat the swirl & dump steps until the flow rate has been restored. 
+ 
+The biolayer has been disturbed by the swirl and dump, but it will develop again over 
+time. It is recommended to disinfect the filtered water during this time. Biosand Filter Manual 
+ 57
+FOLLOW UP VISITS 
+It is essential to conduct follow-up visits with the users to ensure proper use and 
+maintenance of the filters. There should be at least two follow up visits with a household:  
+one during the first two weeks of use and then another visit 1 to 6 months later. Some 
+implementers choose to do more follow up visits as their time and resources allow.  
+ 
+During follow up visits, ensure that the filter is being operated and maintained as 
+described in this manual. Example checklists and monitoring forms are available in 
+Appendix 5.  
+ 
+KEY OPERATING CONDITIONS 
+Water quality testing can be done to check that the biosand filter is working. Testing the 
+levels of microbiological, chemical and physical contamination in the source water and 
+filtered water allows you to calculate the percent removal rates. However in practice, 
+water quality testing can be complex, time consuming, difficult to interpret, and 
+expensive. 
+ 
+Alternatively, CAWST recommends checking selected key operating conditions to 
+ensure that the biosand filter is working effectively. If a biosand filter is not installed or 
+being operated properly, then you can assume that it is not working effectively and 
+producing high quality water on a consistent basis. 
+  
+The following eight operating conditions must be met for the Version 10 biosand filter to 
+work properly and consistently. Checks of the key operating conditions can be made at 
+any time by the users, the Community Health Promoter or the Filter Technician that is 
+active in the area. 
+ 
+1. Filter is used for at least one month since installation.  
+2. Filter is used at least once each day. 
+3. Source water is not too turbid (less than 50 NTU).  
+4. The concrete filter body is not leaking.  
+5. Diffuser is in place and in good condition. 
+6. Water level is 5 cm above the sand during the pause period.  
+7. Top of sand is level.  
+8. Flow rate is 0.4 litres per minute or slower (Note: The flow rate for Version 8 or 
+Version 9 is 0.6 litres per minute or slower). 
+ 
+CAWST recommends checking these eight operating conditions during follow up visits 
+and fixing any identified problems to ensure the best results. 
+ 
+ 
+ 
+ 
+ 
+ Biosand Filter Manual 
+ 58
+6 References 
+Buzunis, B. (1995). Intermittently Operated Slow Sand Filtration: A New Water 
+Treatment Process. Department of Civil Engineering, University of Calgary, Canada. 
+ 
+Baumgartner, J. (2006). The Effect of User Behavior on the Performance of Two 
+Household Water Filtration Systems.  Masters of Science thesis.  Department of 
+Population and International Health, Harvard School of Public Health. Boston, 
+Massachusetts, USA.     
+ 
+Duke, W. and D. Baker (2005). The Use and Performance of the Biosand Filter in the 
+Artibonite Valley of Haiti: A Field Study of 107 Households, University of Victoria, 
+Canada. 
+ 
+Earwaker, P. (2006). Evaluation of Household BioSand Filters in Ethiopia.  Master of 
+Science thesis in Water Management (Community Water Supply). Institute of Water and 
+Environment, Cranfield University, Silsoe, United Kingdom. 
+ 
+Elliott, M., Stauber, C., Koksal, F., DiGiano, F., and M. Sobsey (2008). Reductions of E. 
+coli, echovirus type 12 and bacteriophages in an intermittently operated 2 household-
+scale slow sand filter.Water Research, Volume 42, Issues 10-11, May 2008, Pages 
+2662-2670.  
+ 
+Ngai, T., Murcott, S. and R. Shrestha (2004). Kanchan Arsenic Filter (KAF) – Research 
+and Implementation of an Appropriate Drinking Water Solution for Rural Nepal.  
+ 
+Palmateer, G., Manz, D., Jurkovic, A., McInnis, R., Unger, S., Kwan, K. K. and B. Dudka 
+(1997). Toxicant and Parasite Challenge of Manz Intermittent Slow Sand Filter. 
+Environmental Toxicology, vol. 14, pp. 217- 225. 
+ 
+Stauber, C., Elliot, M., Koksal, F., Ortiz, G., Liang, K., DiGiano, F., and M. Sobsey 
+(2006). Characterization of the Biosand Filter for Microbial Reductions Under Controlled 
+Laboratory and Field Use Conditions. Water Science and Technology, Vol 54 No 3 pp 1-
+7.   
+ 
+Sobsey, M. (2007). UNC Health Impact Study in Cambodia. Presentation, Cambodia. 
+ 
+Stauber, C. (2007). The Microbiological and Health Impact of the Biosand Filter in the 
+Dominican Republic: A Randomized Controlled Trial in Bonao. PhD Dissertation, 
+Department of Environmental Sciences and Engineering, University of North Carolina, 
+Chapel Hill, USA. 
+ 
+ 
+ 
+ 
+ Biosand Filter Manual   
+ 
+Appendix 1: Concrete Biosand Filter Version 10.0 Mold Design Biosand Filter Manual   
+ Biosand Filter Manual  Appendix 1 
+ A1 -1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tips for Working with a Welder 
+• The first time you have a mold made, book one week of time to work directly with the 
+welder or check in periodically to make sure they understand the instructions – don’t 
+expect to simply drop off the drawings and come back later to pick up a finished 
+mold. 
+• Explain to your welder what the mold is for and what are the most critical parts of it – 
+if they don’t know what it does, they won’t know what’s necessary to make it work. 
+• Set up a contract with your welder that states you must have a working mold which 
+has been tested and produces a concrete filter before you will pay in full. 
+• Take the time to select sheet metal and angle iron that is straight and flat with as little 
+rust as possible on the sheet metal. 
+• The 3-sided piece of the exterior mold can be bent from one piece of sheet metal 
+instead of welding 3 pieces together, if the welding shop has the tools to do so.  Be 
+sure to adapt the measurements to fit the requirements of the mold. 
+• It may be useful to build jigs to keep the plates square while welding. 
+• If you are having trouble keeping the interior mold boxes square, consider welding 
+braces across all the openings (on the inside of the box). 
+• All measurements are in millimeters (imperial units in brackets) unless otherwise 
+stated. 
+• If you have questions, email us – that’s what we’re here for!  cawst@cawst.org  
+Biosand Filter Manual  Appendix 1 
+ A1 -2 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Part A: Cutting the Pieces  
+ 
+Quantity Description 
+1 sheet* 3 mm (1/8”) thick steel plate, often available in 1220 mm x 2440 mm (48” x 96”) sheets. Recommend using new steel plate that is not rusted. 
+1† 
+1 
+6 mm (¼”) thick steel plate – one piece 1016 mm x 160 mm (40” x 6.5”) 
+ – one piece 387 mm x 387 mm (15 ¼” x 15 ¼”) 
+3210 mm (127”) 38 mm (1 ½”) x 38 mm (1 ½”) x 3.2 mm  (1/8”) (wall thickness) angle iron 
+1435 mm (56 1/2”) 38 mm (1 ½”) x 38 mm (1 ½”) x 3.2 mm  (1/8”) (wall thickness) square tubing 
+610 mm (24”) 16 mm (5/8”) diameter steel rod (or four 5/8” diame ter bolts 152 mm (6”) long) 
+229 mm (9”) 25 mm (1”) diameter threaded rod (also known as all-thread or ready-rods) 
+2 25 mm (1”) nuts (these nuts must be able to thread onto the 1” threaded rod) 
+140 mm (5 ¼”) 13 mm (½”) diameter threaded rod 
+1 13 mm (½”) nut 
+28 10 mm (3/8”) diameter bolts – 19 mm (¾”) long 
+28 10  mm (3/8”) nuts 
+* Do not use steel that is less than 3 mm (1/8”) to construct the steel mold. The mold bends and warps easily if steel less 
+than 3 mm (1/8”) is used. Use 4 mm (0.17”) steel if 3 mm (1/8”) steel is unavailable. 
+† 6 mm (1/4”) steel is best for creating the diffuser ledge and a strong base, especially if you are using a diffuser plate and 
+not a diffuser basin. Use 5 mm (1/5”) steel, if 6 mm (1/4”) steel is unavailable. 
+Nose shape 
+is slightly 
+different than 
+shown in this 
+picture  
+Overview of the Steel Mold  Biosand Filter Manual  Appendix 1 
+ A1 -3 
+Step 1: Layout and cut 3 mm (1/8”) steel plate   
+ 
+All the 3.2 mm (1/8”) thick pieces can be cut from a single sheet, as shown 
+below. These pieces must be cut from uniformly flat steel  (without any concave 
+or convex areas).  At least one side of these metal sheets should be free of rust  
+(rust causes concrete to stick). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Outside side panels Outside front and back 
+panels 
+Interior mold side pieces, top 
+Side 
+nose 
+pieces 
+Extractor 
+support 
+Front 
+nose  
+piece 
+Nose 
+Cover 
+Plate 
+Bottom 
+Interior 
+piece 
+Note:  The image below does not include the width of the cut lines, which will vary 
+depending on the cutting apparatus used. Biosand Filter Manual  Appendix 1 
+ A1 -4 
+Step 1: Layout and cut 3 mm ( 1/8”) steel plate – continued  
+ 
+ 
+Interior side pieces, top (4 pieces)  OR , cut these plates from one sheet as 
+shown, but account for the width of the cuts  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+216 mm 
+(8 ½”)  
+240 mm 
+(9 ½”)  
+713 mm 
+  (28”) 
+12 mm 
+(1/2”)  
+216 mm  
+(8 ½”)  
+216 mm  
+(8 ½”) 
+ 
+Bottom Inside Plate (1 Piece) Extractor support (1 Piece) 
+240 mm 
+(9 ½”)  
+240 mm 
+(9 ½”)  
+216 mm 
+(8 ½”)  
+216 mm 
+(8 ½”)  
+12 mm 
+(½”) 
+12 mm 
+(½”)  
+240 mm 
+(9 ½”)  
+ 
+240 mm 
+(9 ½”)  
+ 
+216 mm 
+(8 ½”) 
+ 
+216 mm 
+(8 ½”) 
+ 
+713 mm (28”) 
+152 mm  
+(6”)  
+152 mm 
+(6”) Drill a 29 mm (1 1/8”) 
+diameter hole in the 
+center of the plate Biosand Filter Manual  Appendix 1 
+ A1 -5 
+Step 1: Layout and cut 3 mm ( 1/8”) steel plate – continued  
+ 
+  Exterior Back and Front panels (2 pieces)      Exterior Side panels (2 pieces)  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Nose Cover Plate (1 Piece) 
+216  mm (8 ½”)  
+121 mm 
+(4 ¾”)  
+108 mm (4 ¼’) 
+38 mm (1 ½”) 
+to hole center 
+Drill a 10 mm (3/8”) diameter hole. File 
+edges of the hole to allow 10 mm (3/8”) 
+outlet tube to be pushed through.  
+158 mm 
+(6 ¼”) 158 mm 
+(6 ¼”) 
+139 mm 
+(5 ½”) 
+940 mm 
+(37”) 
+387 mm  
+(15 ¼”)  
+940 mm 
+(37”) 
+305 mm 
+(12”)  
+Hole for nose 
+piece to be cut 
+in front panel 
+only: 
+See Step 10 for 
+dimensions 
+50 mm 
+(2”) 
+78 mm  
+(3”) 
+Side Nose Pieces (2 P ieces)  Front Nose Piece (1 Piece)  
+127 mm  
+(5”) 
+Note: this is not  
+a right-angle 
+triangle. Biosand Filter Manual  Appendix 1 
+ A1 -6 
+Step 2: Layout and cut 6.4 mm (¼”) steel plate 
+ 
+ 
+Interior side pieces, bottom (4 pieces) OR, cut these pieces from one plate as 
+shown below, but you must account for the 
+width of the cuts  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Base plate (1 piece)   Note: It is symmetrical.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+177 mm 
+(7”) 
+177 mm 
+(7”) 
+ 
+387 mm (15 ¼”)  
+Grey dashed line 
+shows where interior 
+mold will be welded 
+on. Mark it on the 
+base plate.  
+33 mm 
+(1¼”) 
+32 mm 
+(1¼”) 
+267 mm 
+(10 ½”)  
+ 267 mm 
+(10 ½”) 
+387 mm (15 ¼”)  
+246 mm  
+(9 ¾”)  
+252 mm 
+(10”) 
+ 
+158 mm 
+(6 ¼”)  
+3 mm 
+(1/8”)  
+ 
+252 mm 
+(10”) 
+252 mm 
+(10”) 
+ 
+246 mm 
+(9 ¾”) 
+ 
+246 mm 
+(9 ¾”)  
+ 3 mm  
+(1/8”)  
+ 
+ 3 mm 
+(1/8”)  
+252 mm 
+(10”) 
+ 
+252 mm 
+(10”) 
+ 
+246 mm 
+(9 ¾”) 
+246 mm 
+(9 ¾”) 
+158 mm 
+(6 ¼”)    Biosand Filter Manual  Appendix 1 
+ A1 -7 
+Step 3: Cut 38 x 38 (1 ½” x 1 ½”) angle iron pieces 
+ 
+Total angle iron needed: 3213 mm (126 ½”) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Two 940 mm (37”) long pieces 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Two 387 mm (15 ¼”) long pieces 
+ 
+ Two 305 mm (12”) long pieces 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Step 4: Drill holes in angle iron 
+ 
+Note:  Our recommended hole locations are shown below; however, the specific 
+positions of the holes are not critical. The most important thing is to ensure that the holes 
+on one piece of the mold match up with the holes on another piece of the mold after it is 
+welded. If you drill the holes on every piece separately, they won’t line up exactly and it 
+will be difficult to insert the bolts each time you assemble the mold. 
+Depending on the available tools, there are three different options: 
+1. Drill the holes in the angle iron now but wait t o drill the corresponding holes on the 
+plates until the mold has been assembled (the method described in this manual). 
+2. Drill pilot holes (less than 11 mm) on every pie ce (angle irons and plates) as you go, 
+but wait to finish drilling the holes to 11 mm ( 7/16 ”)  until the mold is assembled 
+3. Mark the holes now, but wait to drill all the ho les until the mold is clamped together at 
+a later stage (must be done with a handheld tool, not a drill press) 
+ 940 mm (37”) 
+38 mm  
+(1½”) 
+ 38 mm 
+(1½”) 
+3.2 mm 
+(1/8”) 
+ 
+305 mm (12”) 387 mm (15 ¼”)  Biosand Filter Manual  Appendix 1 
+ A1 -8 
+Step 4 - continued 
+ 
+Two 940 mm (37”) long pieces of angle iron, with five 11 mm (7/16 ”) diameter holes 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Two 387 mm (15 ¼”) long pieces of angle iron, with two 11 mm ( 7/16 ”) diameter holes 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Two 305 mm (12”) long pieces of angle iron, with two 11 mm ( 7/16 ”) diameter holes 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+For only one of the 305 mm (12”) pieces of angle iron, cut 38 mm (1 ½”) off each end of 
+the angle iron, but only on the side that has no holes, as shown below. 
+ 
+ 
+ 
+19 mm 
+(¾”)  
+387 mm (15 ¼”) 
+117 mm (4 5/8”) 117 mm (4 5/8”)  
+11 mm (7/16 ”) 
+diameter holes 
+76 mm (3”) 76 mm (3”) 
+ 
+305 mm (12”)  
+19 mm 
+(¾”)  
+ 
+11 mm ( 7/16 ”) 
+diameter holes 
+19 mm 
+(¾”)  
+229 mm (9”)  229 mm (9”) 222 mm (8 ¾”) 
+ 
+ 19  (¾”)      19  (¾”)  222 mm (8 ¾”) 
+940 mm (37”) 
+11 mm ( 7/16 ”) 
+diameter holes Biosand Filter Manual  Appendix 1 
+ A1 -9 
+ 
+Step 5: Cut 38 mm x 38 mm (1 ½” x 1 ½”) square tubing pieces 
+ 
+ 
+Total square tubing needed: 1435 mm (56 ½”) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+One (1) 387 mm (15 ¼”) long piece  Two (2) 175 mm (6 7/8”) long pieces  
+ 
+ 
+ 
+ 
+ 
+  
+   
+Five (5) 89 mm (3 ½”) long pieces  Four (4) 57 mm ( 2 ¼”) long pieces 
+             
+ 
+ 
+  
+ 
+ 
+Step 6: Mark and drill holes in square tubing  
+ 
+ 
+One (1) 387 mm (15 ¼”) long piece of square tubing, with 29 mm holes through two 
+opposite sides 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+387 mm (15 ¼”) 
+Center 
+of hole  
+19 mm 
+(¾”) 
+194 mm (7 5/8”)  
+ 
+29 mm (1 1/8”) 
+diameter hole 
+through tubing  
+38 mm 
+(1 ½”) 
+ 
+38 
+mm 
+(1 ½”)  
+3.2 mm ( 1/8”) 
+175 mm (6 7/8”)  
+57 mm  
+(2 ¼”) 
+Note:   These holes do 
+not need to match up 
+with other parts of the 
+mold (as in Step 4), and 
+can be drilled now.  
+89 mm 
+(3 ½”) 
+387 mm (15 ¼”)  Biosand Filter Manual  Appendix 1 
+ A1 -10  
+ 
+Step 6: Mark and drill holes in square tubing – continued 
+ 
+One (1) 89 mm (3 1/2”) long piece of square tubing, with two (2) - 13 mm (½”) holes 
+through two opposite sides (this piece will be used in Step 10). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Step 7: Cut 16 mm ( 5/8”) diameter steel rods 
+ 
+Cut four (4) 152 mm (6”) long rods as shown below: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+89 mm (3 ½”)  
+19 mm  
+(¾”) 
+44 mm (1 ¾”)  
+16 mm ( 5/8”) 
+152 mm (6”)  
+Drill 13 mm (½”) 
+holes through  
+opposite sides  Biosand Filter Manual  Appendix 1 
+ A1 -11  
+Part B: Welding 
+ 
+Step 8: Interior mold box 
+ 
+1. Welding the 3.2 mm ( 1/8”)  sheet steel:  Stand the 4 ‘top interior side pieces’ with the 
+narrow ends up. 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Fit the plates 
+corner to corner 
+with no gap.  
+Use the bottom inside plate 
+to ensure that the 4 top 
+interior side pieces are 
+square. Biosand Filter Manual  Appendix 1 
+ A1 -12  
+1 
+2 
+3 
+4 
+ Step 8: Interior mold box - continued 
+ 
+2. Tack weld the top interior side plates together.  
+3. Check that the box is still square. If not, fix it. 
+4. Tack all 4 sides of the bottom inside plate to t he top interior side plates. 
+5. Check that the box is still square. If not, fix it. 
+6. Weld the complete lengths joining the 4 top inte rior side plates, in the order shown: 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+7. Check that the box is still square. If not, fix it. 
+8. Weld the edges of the top plate to the edges of the four side plates all the way 
+around. 
+9. Welding the 6.4 mm (¼”)  sheet steel bottom interior side pieces: Stand the 4 ‘bottom 
+interior side pieces’ with the narrow ends up. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+10. Tack the bottom interior side plates together. 
+11. Check that the box is still square. If not, fix it. 
+Fit plates corner to 
+corner with no gap  
+Weld on outside, same as 
+was done as for the top 
+interior side pieces.   
+Note:  The following is the most important part of welding the mold. This part of the interior 
+mold box must be square so that the thickness of all the concrete filter walls will be 
+consistent. Take the time to make sure that these pieces are welded together squarely and 
+attached squarely to the rest of the interior mold. 
+Note:  Grind the welded edges to 
+a smooth round corner along the 
+full length. These form the inside 
+corners of the filter when it is cast 
+in concrete. 
+ Biosand Filter Manual  Appendix 1 
+ A1 -13  
+ 
+Step 8: Interior mold box - continued 
+ 
+12. Weld the complete lengths joining the 4 bottom interior side plates, in the order 
+shown in instruction 5 (above). 
+13. Check that the box is still square. If not, fix it. 
+14. Place the top interior box (built in instructions 1-8) inside of the bottom interior box 
+(instructions 9-12) as shown below. 
+ 
+ 
+Bottom interior box - 6.4 mm (¼”) 
+ 
+Top interior box - 3.2 mm ( 1/8”) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+15. Tack weld all 4 sides of the top interior box to the bottom interior box on the inside. 
+16. Finish welding the boxes together, all the way around on the inside. 
+ 
+ 
+ 
+Use a piece of wood or steel that is 6.4 mm 
+(¼”) thick - roughly the same as the bottom 
+interior side pieces - to position the two 
+plates corner to corner with no gap for 
+welding . 
+ 
+(Inside) 
+Weld here 
+Reach in and tack 
+weld the two 
+plates together  
+Note:  This weld must be made on the inside of the box to ensure that a sharp 
+lip is left on the outside of the box. That lip will form a ledge in the concrete to 
+support the diffuser plate. Biosand Filter Manual  Appendix 1 
+ A1 -14  
+ 
+Step 9: Interior mold base 
+ 
+Weld four pieces of 89 mm (3 ½”) square tubing and one 25 mm (1”) nut onto the base 
+plate, as shown below. (Leave the 89 mm (3 ½”) squa re tubing with a hole through it for 
+Step 10.) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Do not  drill the holes in the plate at this time.  They ar e drilled once the exterior box has 
+been constructed.  See Step 12. 
+  
+Weld the 25 mm (1”) 
+nut to center of 
+plate. 
+Weld four 89 mm 
+(3½”) pieces of square 
+tubing, one on each 
+corner of the plate. 
+Weld the nut and 
+tubing on the 
+opposite side from 
+the grey dashed 
+line that you 
+marked in Step 2. Biosand Filter Manual  Appendix 1 
+ A1 -15  
+Step 10: Exterior mold - front panel 
+ 
+Take the one 305 mm (12”) angle iron that has the e nds cut off. Weld a 57 mm (2¼”) 
+square tubing onto the centre of the angle iron. Le ave the other 305 mm (12”) angle iron 
+for Step 11. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+50 mm 
+(2”) 
+127 mm 
+(5”) 
+44 mm 
+(1¾”)  
+114 mm 
+(4½”) 
+210 mm 
+(8 ¼”) 
+ 
+ 47 mm 
+(1 7/8”) 48 mm (1 7/8”) 
+305 mm (12”) 
+Weld the 305 mm 
+(12”) angle iron that 
+you cut (above) to 
+the front panel as 
+shown  
+Cut a hole for the ‘nose’ in one of the 305 mm x 
+940 mm (12” x 37”) exterior panels as shown 
+below: 
+ 
+Then, weld angle iron onto 3 sides of the panel as 
+shown below. 
+ 
+ 38 mm 
+(1½”) 
+Weld a 940 mm (37”) 
+long angle iron onto 
+each side of the plate 
+as shown.  
+ 
+305 mm (12”) 
+229 mm (9”) 
+Note:  The joints between the nose pieces and the front panel DO NOT form right angles. 
+127 mm 
+(5”) 
+ 
+ 38 mm 
+(1½”) Biosand Filter Manual  Appendix 1 
+ A1 -16  
+Step 10: Exterior mold - front panel – continued 
+ 
+Weld the 13 mm nut over one of the holes on the rem aining 89 mm long piece of square 
+tubing. This nut is for the bolt that will hold the nose cover in place.   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Step 11: Exterior mold – back and side panels 
+ 
+Weld a 57 mm (2¼”) piece of square tubing onto the center of one of the 387 mm (15¼”) 
+angle irons. 
+ 
+ 
+       
+      
+Weld that angle iron to one of the 387 x 940 mm (15¼” x 37”) exterior side panels. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Weld the 89 mm (3½”) 
+square tubing (with the nut 
+welded over one hole) to 
+the front panel, centered 
+horizontally, 63 mm (1¾”) 
+from the bottom of the nose 
+opening. The 13 mm (½”) 
+nut should be facing the 
+nose.  
+Weld the front nose 
+piece to both side 
+nose pieces, 158 mm 
+(6¼”) sides, and to the 
+front panel (50 mm 
+end). All welding 
+should be done from 
+the inside.  
+Repeat the entire process for the other 387 mm (15¼ ”) 
+angle iron and the other 387 X 914 mm (15¼” x 37”) 
+exterior side panel. 
+387 mm (15¼”) 
+Weld angle iron across 
+the 387 mm (15¼”) end of 
+the panel 
+63 mm 
+(2½”)  
+139 mm 
+(5 ½”)  
+50 mm 
+(2”) 
+Weld the 13 mm (½“) 
+nut over one of the 
+holes on the remaining 
+89 mm (3½”) long piece 
+of square tubing. This 
+nut is for the bolt that 
+will hold the nose cover 
+in place. The 13 mm 
+(½”) nut should be 
+facing the nose. 
+ 
+158 mm (6¼”)  
+Front nose piece  
+Inside welds should be 
+continuous and ground 
+smooth – these corners will 
+show on the front of the filter. 
+940 mm (37”) 
+387 mm (15¼”) Biosand Filter Manual  Appendix 1 
+ A1 -17  
+Step 11: Exterior mold – back and side panels – continued 
+ 
+ 
+Weld a 57 mm (2¼”) piece of square tubing onto the center of the remaining 305 mm 
+(12”) angle iron.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Stand the exterior back and side panels as shown below. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Place the exterior back panel 38 mm (1½”) from the edge of the exterior side panels. 
+Make sure the panels are square – at 90°  angles to each other. 
+Weld angle iron across 
+the 305 mm (12”) end of 
+the panel. 
+  305 mm (12”) 
+Weld that angle iron to the remaining 305 x 914 mm 
+exterior panel as shown below. 
+305 mm (12”) 
+940 mm (37”) Biosand Filter Manual  Appendix 1 
+ A1 -18  
+ 
+Step 11: Exterior mold – back and side panels – continued 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Step 12: Mold Completion 
+ 
+Place the exterior mold panels on top of the base p late as shown below. Clamp all the 
+components together so that they will not move. Com plete the drilling of the bolt holes – 
+wherever there is a hole in the angle iron, drill through the corresponding plate. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tack weld the panels together and then check to make 
+sure it’s square. Once they are square, then stitch 
+weld the panels together from the outside. 
+Note :  It is not necessary to weld the entire 
+length of the joints. A stitch weld which runs the 
+length of the joint and has 25 mm (1”) welds 
+spaced 150 mm (6”) apart (centre-to-centre) is 
+sufficient. 
+38 mm (1 ½”) 
+Nose shape is 
+slightly different 
+than shown in this 
+picture. Biosand Filter Manual  Appendix 1 
+ A1 -19  
+Step 12: Mold Completion - continued  
+ 
+ 
+ 
+ 
+1. Bolt the 3-sided exterior panel to the 
+base plate. 
+ 
+2. Place interior mold box on top of base 
+plate. 
+ 
+3. Raise front panel one set of holes and 
+bolt to side panels. 
+ 
+4. Make sure that the interior mold box is 
+centred – equally distant from each side 
+of the exterior mold, 22 mm minimum. 
+ 
+5. Reach in and tack weld the interior mold 
+box in place. 
+ 
+6. Unbolt and remove all of the exterior 
+mold panels. 
+ 
+7. Weld the interior mold box to the base 
+plate all the way around. 
+ 
+8. On a non-working surface, mark the 
+interior mold to indicate which side is 
+front (facing the nose plate). 
+Note:  Grind smooth the 
+welds on the inner mold with 
+the grinding wheel in this 
+direction.  Do not  grind or sand 
+into the inner mold because 
+this will create a cavity that the 
+concrete will fill and prevent 
+removing the mold.  Wrong  
+Right Biosand Filter Manual  Appendix 1 
+ A1 -20  
+Step 13: Extractor 
+ 
+Take one 387 mm (15¼”) square tubing and two 175 mm long pieces of square tubing. 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Lining up the holes, weld the extractor support pie ce onto the square tubing. Weld the 
+152 mm x 16 mm (6” x 5/8”) diameter steel rods onto the opposite side. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+175 mm 
+(6 7/8”) 
+Weld the two 175 mm (6 7/8”) 
+square tubing pieces onto 
+the side of the 387 mm 
+(15¼”) square tubing, as 
+shown. 
+175 mm (6 7/8”) 175 mm (6 7/8”) 
+Weld the four 152 mm x 16 
+mm (6” x 5/8”) diameter steel 
+rods onto the square tubing, 
+as shown. 
+Note:  These rods must line up with the square 
+notches on each side of the base plate. Test to make 
+sure they line up before you weld. 
+175 mm 
+(6 7/8”) 
+ Biosand Filter Manual  Appendix 1 
+ A1 -21  
+Step 13: Extractor - continued 
+ 
+ 
+Weld a scrap piece of rod approximately 50 mm (2”) long to the end of the 25 mm (1”) 
+diameter threaded rod to form the extractor bolt. 
+ 
+ 
+ 
+Weld a scrap piece of rod approximately 63 mm (2½”) long to the end of the 13 mm (½”) 
+diameter threaded rod to form the bolt which holds the nose cover in place. 
+    
+ 
+ 
+ 
+ 
+ 
+Step 14: Finishing 
+ 
+• Welds on any surface that contacts concrete must be ground down to a smooth 
+finish. 
+• The dark “mill scale” on the surface of sheet metal is the smoothest finish, so it can 
+be left on surfaces that contact concrete unless there is weld material to be ground 
+off. 
+• DO NOT PAINT THE INSIDE OF THE MOLD  – (especially those surfaces that will 
+contact concrete) it will cause problems in removing the hardened filter from the 
+mold. 
+• PAINT THE OUTSIDE OF THE MOLD – use rust-proof paint to make your mold last 
+longer. 
+• The pieces of the mold will be custom-fit to match each other, so mark each piece of 
+the mold with an identifying mark (i.e. grind a notch into a non-working surface of 
+each piece) to distinguish it from other molds. 
+• The mold should be oiled (with edible, food grade oil such as vegetable oil) for 
+storage so that it doesn’t rust, and stored indoors. 
+25 mm (1”) threaded rod 
+13 mm (5/8”) threaded rod Biosand Filter Manual  
+ 
+Appendix 2: Sieve Set Construction Biosand Filter Manual   
+ Biosand Filter Manual   
+ A2 -1 
+ 
+Tools: Materials: 
+ Hammer 
+ Saw 
+ Tape measure 
+ Nails 
+ 1.3 cm (½”) staples (if available) 
+ 2.5 cm x 2.5 cm (1” x 1”) wood strapping 
+ 2.5 cm x 10 cm (1” x 4”) wood 
+ 12 mm (½”, 2 gauge) wire screen 
+ 6 mm (¼”, 4 gauge) wire screen 
+ 1 mm (0.04”) wire screen 
+ 0.7 mm (#24 mesh) wire screen 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Steps: 
+ 
+1. Construct a square frame for the sieve.  
+ 
+ 
+ 
+ 
+ 
+• The suggested size is approximately 40 cm x 56 cm (16” x 22”). Two people can 
+hold this size of a sieve. A smaller sieve can be constructed if only one person will 
+be holding it. Other sizes may be constructed depending on the material available 
+and the preference of the users. 
+• An organization in Brazil suspended their sieves 
+from ropes so that they don’t have to hold the 
+weight of the sand; they only have to shake the 
+sieve. 
+• The two longer sides can be made longer than 61 
+cm (24”) to form handles. 
+• Don’t make the sieve so large that it is too heavy  
+to hold when filled with sand, or that the weight of 
+the sand deforms the screen. 
+Note:  The mesh # indicates the number of openings per linear inch (2.5 cm),  
+therefore 4 gauge screen would have 4 openings per inch,  
+and 16 holes per square inch (6.25 cm 2).  
+ 
+Screens should be made from metal wire since it is more durable and will last 
+longer than nylon or fiberglass. These materials are weaker and will tear easily. 
+ 
+Tip:  Build the sieve to fit the screen!  
+ Biosand Filter Manual   
+ A2 -2 
+ 
+2. Cut a piece of screen that is larger than the fr ame, so 
+that there is 2.5 cm (1”) extra on all sides. 
+3. Centre the screen over the frame. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4. Nail staples through the screen and into the fra me on 
+all 4 sides. If staples aren’t available, pound a nail in 
+halfway, and then bend it over and pound it into the 
+frame. 
+5. Bend the excess screen back on itself so that th e bent 
+edge lines up with the outside of the frame, and the 
+excess overlaps the rest of the screen. Doing so avoids 
+sharp edges that could cut your hands while sieving. 
+6. Cut the 2.5 cm x 2.5 cm (1” x 1”) wood strapping  to the 
+same lengths as your frame to form a covering frame. 
+7. Nail the covering frame over top of where you’ve  nailed 
+the screen to the frame. 
+8. Repeat the process until you have three sieves, each 
+with a different screen size: 12 mm (½”), 6 mm (¼”) 
+and 0.7 mm (0.03”). 
+NOTE: 
+• A well-built sieve will last for a long time so it  is worth taking the time to build it well 
+and make it comfortable to use. 
+• Never use a sieve that has ANY holes in the screen  or where the screen is 
+separating from the frame. 
+• When the screen wears out, simply remove the wood strapping, pull off the old 
+screen and attach a new piece of screen to the existing frame. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tip: For the 0.7 mm (#24) mesh screen, it is necessary to add a piece of 12 mm (½”) 
+screen for support. Place 0.7 mm (#24) mesh on the frame first, followed by a piece of 
+12 mm (½”) screen the same size, so that when you flip the sieve over and use it, the 
+12 mm (½”) screen will be underneath the 0.7 mm (#24) mesh screen, supporting it.  
+ Biosand Filter Manual   
+ 
+  
+Appendix 3: Sand Sieve Analysis 
+ Biosand Filter Manual   
+ Biosand Filter Manual  Appendix 3 
+ A3-1
+Purpose 
+The biosand filter requires a certain range of sand grain sizes to effectively treat drinking 
+water. Conducting a sand sieve analysis provides the distribution of sand grain sizes for 
+a sample of sand. This information can be used to: 
+ 
+1. Determine if the prepared sand (sieved and washed) is within the Effective Size (ES) 
+and Uniformity Coefficient (UC) ranges recommended for the filtration sand in the 
+biosand filter. This procedure is described in the Method and Instructions to 
+Analyze Prepared Sand below. 
+ 
+2. Determine what useable sand will be produced from a sand source (e.g. a quarry) 
+and how much sand will be rejected as too fine or too coarse. The sand that is larger 
+than the top sieve (0.7 mm opening size) is too coarse for filtration sand and needs 
+to be removed (though this size may be used as aggregate in constructing the 
+concrete filter). If there is a large percentage of coarse sand, then the sand can be 
+sieved at the quarry site to remove this coarse material before transporting it to your 
+production site. This procedure is described in Instructions to Determine % 
+Rejected. 
+ 
+Sand smaller than the finest sieve (0.1 mm opening size), which is collected in the 
+catch pan at the bottom, is too fine for filtration sand and washing the sand in water 
+will be required to remove this very fine sand (also known as rock flour).  
+ 
+3. Estimate if a sand source would be a good supply to produce filtration sand (once 
+the sand had been prepared by sieving and washing). This is done by determining 
+the Effective Size and Uniformity Coefficient for the portion of the sand sample that 
+would be useable. This means performing the analysis method described below, but 
+only using the portion of sand that went through the largest sieve but did not go 
+through the smallest sieve.  Most of the very fine sand that goes through the #150 
+sieve will be removed by washing, and so should not be included in the sample for 
+this analysis. Note that the results from analyzing this portion of sand will only be 
+similar to the results after it is prepared by sieving and washing. This is because 
+washing the sand may remove more or less very fine sand than what was removed 
+through the #150 sieve. 
+ 
+Method 
+Sieve analysis is performed by shaking a sample of sand through a series of five 
+screens with a catch pan at the bottom. Each sieve size is smaller that the one before so 
+that, after 5 minutes of shaking the sieve set, the sand will either be retained on top of 
+the sieves or passed through the sieves. The sieve sizes used in these instructions were 
+specifically selected for analyzing sand for the biosand filter. This means that the sand 
+should have already been sieved through a #24 screen to remove the coarse sand 
+before taking the sample.  
+ 
+After measuring the amount of sand retained on each of the sieves, we calculate the 
+percent of sand that passed through each sieve.  A point is marked on a semi-log graph 
+for the Percent Passed Through the Sieve for each sieve size. A line is then drawn on 
+the graph connecting the five points. Using this line we can find the size that would allow 
+10% of the sand to pass through. This value is denoted as d10 and is called the 
+Effective Size (ES) of the sand. Further up this same line we can find the size that 60% Biosand Filter Manual  Appendix 3 
+ A3-2
+of the sand would pass through. This value is denoted as d60. By dividing the d60 value 
+by the d10 value we can determine the Uniformity Coefficient (UC = d60/d10) for that 
+sand sample. These two values, the Effective Size and Uniformity Coefficient, are then 
+compared to CAWST’s recommended ranges for filtration sand. The Instructions 
+describe this procedure in detail. 
+ 
+Using volume measurements rather than weight minimizes the equipment required while 
+still providing adequate results for purposes of analyzing sand for biosand filters.  Note 
+that this is not an approved standard procedure but rather a workable field method for 
+rapid assessment.  
+ 
+It is very important that the sand sample is totally dry before it is placed in the sieve set. 
+Wet or damp sand often plugs the screens making it difficult to sieve and the results will 
+be incorrect. Try to select the sand sample for sieve analysis so that it is representative 
+of the sand you will be using.   
+ 
+Materials Required  
+  Sand sample: at least 100 ml of very dry sand for analysis (the sand sample must be 
+representative of sand to be analyzed) 
+  Graduated cylinder: 100 ml size, with 1 ml markings, plastic is recommended  
+  Set of screens:  
+• #24 sieve (opening size = 0.71 mm)   
+• #40 sieve (opening size = 0.38 mm)  
+• #60 sieve (opening size = 0.25 mm)  
+• #80 sieve (opening size = 0.18 mm)  
+• #150 sieve (opening size = 0.10 mm)  
+• Catch pan (to catch all sand that passes #150 sieve)  
+• Sieve set lid (placed above the #24 sieve to contain the sand while shaking)  
+  Semi-log graph paper (provided in this Appendix) 
+  Pencil (If the graph paper is laminated, then you can use an erasable pen so that the 
+markings can be erased and the graph can be reused many times.) 
+  Ruler 
+  Calculator 
+ 
+Instructions to Analyze Prepared Sand 
+1. Stack the sand sieves with the coarsest (#24) on top followed by the #40, #60, #80, 
+#150 and finally the catch pan on the bottom.  
+2. Fill the graduated cylinder to the 90 ml mark with the dry prepared sand sample.  
+Use a piece of paper, rolled or folded, as a ‘funnel’ to make it easier to fill the 
+graduated cylinder.  
+3. Pour the entire 90 ml sample from the graduated cylinder onto the top sieve (#24) 
+and place the lid on top of the sieve.  
+4. Shake the entire sieve set, including the bottom catch pan and top lid, for at least 5 
+minutes. Shake both sideways and up and down to ensure the sand falls through the 
+various screens.  
+5. After 5 minutes, remove the top lid and pour the sand from the #24 sieve into the 
+graduated cylinder. Use a piece of paper as a funnel to help pour the sand into the Biosand Filter Manual  Appendix 3 
+ A3-3
+cylinder. Read the amount of sand in the graduated cylinder.  Do not pour out the 
+sand from the cylinder afterwards.  In the table on the semi-log graph paper 
+provided, record the value in the column; Cumulative Sand Retained On the Sieve  
+for the #24 sieve. Note: There should be very little or no sand on the #24 sieve since 
+your sample should have already been sieved through the #24 sieve size to remove 
+the coarse sand. 
+6. Remove the next #40 sieve and pour the sand from it into the cylinder (on top of the 
+sand from the #24 sieve), then read the total amount of sand in the cylinder. Record 
+the value in the column; Cumulative Sand Retained On the Sieve for the #40 
+sieve.  
+7. Repeat Step 6 for the #60 sieve, then the #80 sieve, the #150 mesh, and finally the 
+catch pan.  Once all of these sieves (and catch pan) have been poured into the 
+graduated cylinder, it should read approximately 90 ml. Some sand may have been 
+lost in the shaking and the total may not add up to 90 ml. Try to avoid any sand loss 
+by emptying the sieves thoroughly and lightly tapping the cylinder after each sieve to 
+help settling.  
+8. Calculate the Percent Retained On the Sieve and the Percent Passing Through 
+the Sieve for each sieve and record your results. 
+Example Sand Sieve Analysis 
+Sieve Size 
+Cumulative Sand Retained 
+On the Sieve – Read From 
+Graduated Cylinder (A) 
+Percent Retained  
+On the Seive 
+(C=A/B*100) 
+Percent Passing 
+Through the Sieve 
+(100-C) 
+#24 0 ml 0 % 100 % 
+#40 17.1 ml 18.0 % 82.0 % 
+#60 72.9 ml 76.7 % 23.3 % 
+#80 87.8 ml 92.4 % 7.6 % 
+#150 94.6 ml 99.6 % 0.4 % 
+Catch pan 95 ml (B) 100 % 0 % 
+ 
+9. Plot the Percent Passing Through the Sieve value for each sieve size on the graph 
+paper and then draw a line joining the 5 points as shown in the Example Worksheet. 
+(Line starts at #24 sieve size and ends at #150 sieve size)  
+10. Determine the Effective Size. This is defined as the size opening that will just pass 
+10% of the sand (d10 value). Read this value from the graph where the line crosses 
+the Passing Through the Sieve line at 10%.    
+Recommended ES range = 0.15 mm to 0.20 mm (likely to achieve 0.4 L/minute 
+flow rate in the biosand filter, also recommended for community slow sand 
+filters)  
+11. Determine the Uniformity Coefficient. This is defined as a ratio and calculated as 
+the size opening that will just pass 60% of the sand (d60 value) divided by the size 
+opening that will just pass 10% of the sand sample (the d10 value). The Uniformity 
+Coefficient is a measure of how well or poorly sorted the sand is. 
+ 
+Recommended UC range = 1.5 to 2.5 (likely to achieve 0.4 L/minute flow rate, 
+also recommended for community slow sand filters) 
+ Biosand Filter Manual  Appendix 3 
+ A3-4
+12. Determine the Percent Passing Through the #150 Sieve. This is the measure of 
+the very fine sand (also called rock flour) that can plug the filtration sand and cause 
+turbid water to come out of the biosand filter. CAWST recommends that the sand is 
+washed sufficiently so that not more than 4% of the sand will pass through the #150 
+sieve.  
+ 
+Recommended Value for Percent Passing Through the #150 Sieve = < 4%  
+ 
+Instructions to Determine % Rejected  
+To determine what percentage of a sand source will be too large to use as filtration sand:  
+ 
+1. Place only the #24 sieve on to the catch pan. Take a representative of a dry sand 
+sample. 
+2. Fill the graduated cylinder with 100 ml of the dry sand sample.  
+3. Pour the entire 100 ml sample from the graduated cylinder onto the top sieve (#24) 
+and place the lid on top of the sieve.  
+4. Shake the #24 sieve, including the bottom catch pan and top lid, for about 20 
+seconds. Shake both sideways and up and down to ensure the sand falls through the 
+screen.  
+5. Remove the top lid and pour the sand from the #24 sieve into the graduated cylinder. 
+Use a piece of paper as a funnel to help pour the sand into the cylinder. Read the 
+amount of sand in the graduated cylinder. This value is the % Rejected – Too 
+Coarse.  
+6. Empty the graduated cylinder and pour in the sand from the catch pan. Read the 
+amount of sand in the graduated cylinder. This is the portion of the sand that will 
+remain after sieving with the #24 screen. Note that this portion may have a 
+considerable amount of very fine sand in it. To determine the amount of very fine 
+sand, follow the previous instructions using all 5 sieves to determine the % passing 
+through #150 sieve – this is approximately the % Rejected – Too Fine and will need 
+to be removed by washing.  
+ 
+ 
+ 
+ 
+ 
+ Biosand Filter Manual  Appendix 3 
+ 
+Example Sand Sieve Analysis 
+ 
+ 
+ 
+ Biosand Filter Manual  Appendix 3 
+ 
+Sand Sieve Analysis 
+ 
+ Biosand Filter Manual   
+  
+Appendix 4: Manufacturing and Installation Monitoring Forms Biosand Filter Manual   
+  Biosand Filter Manual  Appendix 4 
+  A4-1 
+Biosand Filter 
+Manufacturing Checklist 
+ 
+Concrete Filter Box Construction 
+ The steel mold used was in good condition. 
+ The filter has been made with quality cement sand and gravel with a ratio of: 
+      1 part cement : 2 parts sand (1 mm) : 1 part gravel (6 mm) : 1 part gravel (12 mm) 
+ The body has been filled with water and cured for 5-7 days. 
+ There are no leaks or cracks in the concrete filte r box.  
+ The outlet tube is not plugged. 
+ The water level in the filter is below the diffuse r. 
+ The filter is marked with an identifying number or  code. 
+ 
+Diffuser and Lid 
+ There is a lid which covers the entire filter rese rvoir. 
+ The diffuser plate fits correctly without leaving gaps around the edge for water to 
+pass. 
+ The holes in the diffuser plate are 3 mm (1/8”) or  smaller. 
+ 
+Filtration Sand Quality Control 
+ The sand sieves are in good condition, with no lar ge holes or rips in the screen. 
+ The prepared sand is clean (containing no visible organic material). 
+ The prepared sand stored properly to prevent conta mination. 
+ 
+Record Keeping 
+ The date of construction, materials used and detai ls of units produced are recorded. 
+ Any cracked, broken or unusable filters are record ed. 
+ 
+Notes/Comments: Biosand Filter Manual  Appendix 4 
+  A4-2 
+Biosand Filter  
+Manufacturing Checklist – Reference Guide 
+Quality of Construction  
+1. The mold should be clean and free from defects. If there are any defect the mold should be 
+repaired. 
+2. The concrete mix ratios should be used for all filters. The mix is by volume, not by weight.  
+3. All filters should be filled with water after they have been demolded and left to cure for a 
+minimum of 5-7 days before they are checked and distributed. 
+4. With the filter full of water, check to see if there are any leaks. Any leaks found should be 
+repaired. If cracks are very large the filter should be rejected. 
+5. Fill the filters to the very top with water (without any sand in the filter) and measure the flow 
+rate. It should take less than 1 minute to fill a 1 litre container. If it takes longer than 1 minute, the 
+tube may be blocked with some concrete or other debris which needs to be cleared before the 
+filter is installed. 
+6. Wait until the water stops flowing out of the outlet tube. At that point, the water level inside the 
+filter should be below the concrete ledge where the diffuser sits. If above this level the outlet tube 
+may be blocked or the outlet tube may be too short 
+7. This number or code will allow the filter to be tracked from construction through to installation 
+and use in the home. 
+Diffuser and Lid 
+8. Tightly fitting lid prevents contamination of water and unwanted pests 
+9. Required to prevent the disturbance of the sand and to protect the biological layer when water 
+is poured in. 
+10. Holes in the diffuser plate should be 3 mm (1/8 ”) or smaller to prevent disturbance of the sand 
+and to protect the biological layer. 
+Filtration Sand Quality Control 
+The sand used inside the filter is really important because it’s what cleans the water. If the sand 
+being used is not suitable, a new source will need to be found. 
+11. The sieves that are used for preparing sand should have holes that are 0.7 mm or smaller. If 
+the screen has any holes, or if the wires of the screen have moved apart (leaving holes that are 
+bigger than 0.7 mm), the screen needs to be replaced. 
+12. Sand containing organic material (small pieces of leaves, roots or sticks) must not be used as 
+this will provide food for microorganisms to grow in the filter. Crushed rock is preferred because it 
+usually doesn’t contain any organic material. River sand can be used, but it should be cleaned 
+thoroughly so that all organic material is removed.  
+13. Once the sand is clean, it should be stored in a way that keeps it clean. It can be covered with 
+a tarp to prevent leaves and bird droppings from co ntaminating the sand.  Also, no animals 
+should be able to get into the clean sand. 
+Record Keeping 
+14. This information is important to ensure that the manufacturer is paying attention to quality 
+control. It also helps the project manager understand the materials required for each filter and to 
+ensuring all materials are accounted for. 
+15. This information allows the project manager to identify the percentage of filters being rejected 
+and understand if there are manufacturing problems.  Biosand Filter Manual  Appendix 4 
+  A4-3 
+Biosand Filter  
+Manufacturing Monitoring Form 
+ 
+Date  ________________________   Mold No. ________________________ 
+Your Name  ___________________   Filter No.  ________________________ 
+ 
+Concrete Body Construction 
+1. The mold used was in good condition….…………….…………….… True /box2 False /box2 
+2. The filter has been made with quality cement sand and gravel with a ratio of             
+1 cement : 2 sand : 1 gravel (6 mm) : 1 gravel (12 mm)………………. True /box2 False /box2 
+3. The body has been filled with water and cured for 5-7 days.……….. True /box2 False /box2 
+4. There are no leaks or cracks in the concrete filter bodies….……..… True /box2 False /box2 
+5. The outlet tube is not plugged with any debris….…………….……… True /box2 False /box2 
+6. The water level in the filter is below the diffuser plate……….…….… True /box2 False /box2 
+7. The filter is marked with an identifying number or code …….........… True /box2 False /box2 
+Diffuser and Lid 
+8. There is a lid which covers the entire opening of the filter….……….. True /box2 False /box2 
+9. The diffuser plate fits correctly without leaving gaps around the edge for water to pass 
+….…….………………………………………………………………………. True /box2 False /box2 
+10. The holes in the diffuser plate are 3 mm (1/8”) or smaller….……….True /box2 False /box2 
+Filtration Sand Quality Control 
+11. The sand sieves are in good condition, with all holes smaller than 1mm 
+…………………………………………………………………………..... True /box2 False /box2 
+12. The prepared sand is clean (containing no visible organic material) 
+............................................................................................................... True /box2 False /box2 
+13 The prepared sand stored properly to prevent contamination……... True /box2 False /box2 
+Record Keeping 
+14. The date of construction, materials used and details of units produced are recorded 
+………………...……………..……………………………………………. True /box2 False /box2 
+15. Any cracked, broken or unusable filters or materials are recorded.. True /box2 False /box2 
+ 
+ALL POINTS MARKED “FALSE” SHOULD BE RECTIFIED 
+ 
+Notes/Comments: Biosand Filter Manual  Appendix 4 
+  A4-4 
+Biosand Filter  
+Manufacturing Monitoring Form – Reference Guide 
+Quality of Construction  
+1. The mold should be clean and free from defects. If there are any defect the mold should be 
+repaired. 
+2. The concrete mix ratios should be used for all filters. The mix is by volume, not by weight.  
+3. All filters should be filled with water after they have been demolded and left to cure for a 
+minimum of 5-7 days before they are checked and distributed. 
+4. With the filter full of water, check to see if there are any leaks. Any leaks found should be 
+repaired. If cracks are very large the filter should be rejected. 
+5. Fill the filters to the very top with water (without any sand in the filter) and measure the flow 
+rate. It should take less than 1 minute to fill a 1 litre container. If it takes longer than 1 minute, the 
+tube may be blocked with some concrete or other debris which needs to be cleared before the 
+filter is installed. 
+6. Wait until the water stops flowing out of the outlet tube. At that point, the water level inside the 
+filter should be below the concrete ledge where the diffuser sits. If above this level the outlet tube 
+may be blocked or the outlet tube may be too short 
+7. This number or code will allow the filter to be tracked from construction through to installation 
+and use in the home. 
+Diffuser Plate and Lid 
+8. Tightly fitting lid prevents contamination of water and unwanted pests 
+9. Required to prevent the disturbance of the sand and to protect the biological layer when water 
+is poured in. 
+10. Holes in the diffuser plate should be 3 mm (1/8 ”) or smaller to prevent disturbance of the sand 
+and to protect the biological layer. 
+Sand Media Quality Control 
+The sand used inside the filter is really important because it’s what cleans the water. If the sand 
+being used is not suitable, a new source will need to be found. 
+11. The sieves that are used for preparing sand should have holes that are 0.7mm or smaller. If 
+the screen has any holes, or if the wires of the screen have moved apart (leaving holes that are 
+bigger than 0.7mm), the screen needs to be replaced. 
+12. Sand containing organic material (small pieces of leaves, roots or sticks) must not be used as 
+this will provide food for microorganisms to grow in the filter. Crushed rock is preferred because it 
+usually doesn’t contain any organic material. River sand can be used, but it should be cleaned 
+thoroughly so that all organic material is removed.  
+13. Once the sand is clean, it should be stored in a way that keeps it clean. It can be covered with 
+a tarp to prevent leaves and bird droppings from co ntaminating the sand.  Also, no animals 
+should be able to get into the clean sand. 
+Record Keeping 
+14. This information is important to ensure that the manufacturer is paying attention to quality 
+control. It also helps the project manager understand the materials required for each filter and to 
+ensuring all materials are accounted for. 
+15. This information allows the project manager to identify the percentage of filters being rejected 
+and understand if there are manufacturing problems.  Biosand Filter Manual          Appendix 4 
+  A4-5 
+ 
+Biosand Filter  
+Manufacturing Monitoring Form 
+ 
+Date 
+poured 
+Demold 
+Date 
+Filter 
+Number  
+Mold 
+Number  
+Number 
+of days 
+cured 
+Flow 
+Rate 
+ 
+Filter 
+free of 
+defects 
+(Y/N) 
+Water 
+level 
+below 
+diffuser 
+(Y/N) 
+Mold 
+free of 
+defects 
+(Y/N) 
+For use 
+(Y/N) Comments Initials 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+ Biosand Filter Manual          Appendix 4 
+ A4-6 Biosand Filter Manual  Appendix 4 
+  A4-7 
+Biosand Filter  
+Installation Checklist 
+ 
+Quality of Construction 
+ There are no leaks on the concrete filter body 
+ There lid is free from damage and covers the entire opening of the filter 
+ The diffuser plate is free of damage and fits correctly without leaving gaps around 
+the edge for water to pass  
+ 
+Proper Installation 
+ The filter is level 
+ The filter is in a suitable location away from wea ther and animals 
+ The sand and gravel was installed by adding them t o water in the filter 
+ The surface of the sand is flat and level 
+ The depth of the water above the sand is 5 cm 
+ The flow rate of the filter is less than 0.4 litre s/minute  
+ The user has been given a container for safe water  storage 
+ 
+Training Provided to User 
+ The use and maintenance of the filter has been exp lained to the user 
+ The swirl and dump maintenance procedure has been demonstrated to the user  
+ The user has received an instructional poster/broc hure/sticker 
+ 
+Collection of Payment 
+ Payment has been collected from the user and a rec eipt given 
+ 
+Record Keeping 
+ The names of recipients and date of delivery are r ecorded 
+ Payments made by users are recorded 
+ 
+Notes/comments: Biosand Filter Manual  Appendix 4 
+  A4-8 
+Biosand Filter  
+Installation Checklist – Reference Guide 
+ 
+Quality of Construction 
+1. If the filter is leaking, notify the manufacturer so they can fix it.  
+2. If the lid is damaged or does not fit, use another one and notify the manufacturer. 
+3. If the diffuser is damaged or does not fit, use another one and notify the manufacturer. 
+Proper Installation 
+4. If the filter is not level, make it level before proceeding further. 
+5. The filter should be inside the house or at least under a roof. If the filter needs to be moved, the 
+manufacturer will have to re-install it. 
+6. If sand is placed before the water this will trap air bubbles in the filter. The filter should be 
+reinstalled if this happens. 
+7. It is essential that the sand surface is leveled after installation. If the sand is not flat and level, 
+the biological layer will not grow evenly.  
+8. The water depth should be 5cm above the sand. If  it is more than 5cm, add more sand. If it is 
+less than 3cm, remove some sand. 
+9. With the filter completely full of water, the flow rate should be less than 0.6L/minute (which 
+means it should take 100 seconds to fill a 1 Litre bottle).  
+NOTE This is an absolute maximum and the target flo w rate is 0.4L/minute (which means is 
+should take 150 seconds to fill a 1 Litre bottle) 
+- If the flow rate is faster, the filter will not w ork properly. The filter should be reinstalled and 
+the manufacturer notified. 
+- If the flow rate is slower, the filter is still w orking fine. However, if you thinks the flow rate 
+is too slow and inconvenient, a swirl and dump maintenance should be done. The filter should be 
+reinstalled and the manufacturer notified. 
+10. Each user should receive a safe storage contain er to ensure the filtered water does not 
+become re contaminated. The storage container should prevent people’s hands, cups, or dippers 
+from touching the water and be easy to clean.  
+Training Provided to User 
+11. The user should receive a full explanation of the use and maintenance of the filter and should 
+be able to repeat back to the installer the information given. 
+12. The procedure should be demonstrated and where possible practiced by the user. 
+13. Any printed information available should be left with the user to help them remember the 
+important parts of their use and maintenance training. 
+Collection of Payment 
+14. A receipt should be given to the user for their payment to the filter. This prevents the loss of 
+any money and prevents future disputes. 
+Record Keeping 
+15. This allows each filter to be tracked and may help resolve any future problems with the filter. 
+16. This enables the tracking of all monies received and prevents money from being lost. Biosand Filter Manual  Appendix 4 
+  A4-9 
+Biosand Filter 
+Installation Monitoring Form 
+ 
+Date  ________________________   Location  __________________________ 
+Your Name  ___________________  Name of Household  _________________ 
+ 
+Quality of Construction 
+1. There are no leaks on the concrete filter body.………………………. True /box2 False /box2 
+2. There lid is free from damage and covers the entire opening of the filter 
+…………………………………………………………….………………. True /box2 False /box2 
+3. The diffuser plate is free of damage and fits correctly without leaving gaps around the 
+edge for water to pass .……………………………………...…………. True  /box2 False /box2 
+Proper Installation 
+4. The filter is level…………………………………………………………. True /box2 False /box2 
+5. The filter is in a suitable location away from weather and animals... True /box2 False /box2 
+6. The sand and gravel was installed by adding them to water in the filter 
+…………………………………………………………….………………. True /box2 False /box2 
+7. The surface of the sand is flat and level……………………….………. True /box2 False /box2 
+8. The depth of the water above the sand is 5 cm………………………. True /box2 False /box2 
+9. The flow rate of the filter is less than 0.4 litres/minute ……..… True /box2 False /box2 
+10. The user has been given a container for safe water storage……… True /box2 False /box2 
+Training Provided to User 
+11. The use and maintenance of the filter has been explained to the user 
+…………………………………………………………….………………. True /box2 False /box2 
+12. The swirl and dump maintenance procedure has been demonstrated to the user 
+……………………………………………………………………….……. True /box2 False /box2 
+13. The user has received an instructional poster/brochure/sticker..…. True /box2 False /box2 
+Collection of Payment 
+14. Payment has been collected from the user and a receipt given …. True /box2 False /box2 
+Record Keeping 
+15. The names of recipients and date of delivery are recorded….……. True /box2 False /box2 
+16. Payments made by users are recorded…………………………...…. True /box2 False /box2 
+ 
+ALL POINTS SHOULD BE MARKED “TRUE” BEFORE COMPLETING THE 
+INSTALLATION 
+ 
+Notes/Comments: Biosand Filter Manual  Appendix 4 
+  A4-10  
+Biosand Filter  
+Installation Monitoring Form – Reference Guide 
+Quality of Construction 
+1. If the filter is leaking, notify the manufacturer so they can fix it.  
+2. If the lid is damaged or does not fit, use another one and notify the manufacturer. 
+3. If the diffuser is damaged or does not fit, use another one and notify the manufacturer. 
+Proper Installation 
+4. If the filter is not level, make it level before proceeding further. 
+5. The filter should be inside the house or at least under a roof. If the filter needs to be 
+moved, the manufacturer will have to re-install it. 
+6. If sand is placed before the water this will trap air bubbles in the filter. The filter should 
+be reinstalled if this happens. 
+7. It is essential that the sand surface is leveled after installation. If the sand is not flat 
+and level, the biological layer will not grow evenly.  
+8. The water depth should be 5cm above the sand. If it is more than 5cm, add more 
+sand. If it is less than 3cm, remove some sand. 
+9. With the filter completely full of water, the flow rate should be less than 0.4 
+litres/minute. If the flow rate is faster, the filter will not work properly. The filter should be 
+reinstalled and the manufacturer notified. If the flow rate is slower, the filter is still 
+working fine. However, if you thinks the flow rate is too slow and inconvenient, a swirl 
+and dump maintenance should be done. The filter should be reinstalled and the 
+manufacturer notified. 
+10. Each user should receive a safe storage container to ensure the filtered water does 
+not become re contaminated. The storage container should prevent people’s hands, 
+cups, or dippers from touching the water and be easy to clean.  
+Training Provided to User 
+11. The user should receive a full explanation of the use and maintenance of the filter 
+and should be able to repeat back to the installer the information given. 
+12. The procedure should be demonstrated and where possible practiced by the user. 
+13. Any printed information available should be left with the user to help them remember 
+the important parts of their use and maintenance training. 
+Collection of Payment 
+14. A receipt should be given to the user for their payment to the filter. This prevents the 
+loss of any money and prevents future disputes. 
+Record Keeping 
+15. This allows each filter to be tracked and may help resolve any future problems with 
+the filter. 
+16. This enables the tracking of all monies received and prevents money from being lost. Biosand Filter Manual          Appendix 4 
+  A4-11  
+ 
+Biosand Filter  
+Installation Monitoring Form 
+ 
+Filter 
+Number 
+Date 
+Installed 
+Household 
+name Location Installed correctly Flow Rate Instructions given 
+Container 
+and printed 
+material 
+given 
+Payment Comments Initials 
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+ 
+ Biosand Filter Manual       Appendix 4 
+ A4-12 
+ Biosand Filter Manual   
+  
+Appendix 5: Follow Up Visit Monitoring Forms Biosand Filter Manual   
+  Biosand Filter Manual  Appendix 5 
+  A5-1 
+Biosand Filter 
+Follow Up Visit Checklist 
+ 
+Quality of Construction 
+ There are no leaks on the concrete filter body 
+ There is a lid which covers the entire opening of the filter  
+ There is the original diffuser plate without crack s or damage 
+ 
+Proper Installation 
+ The filter is in a suitable location away from wea ther and animals 
+ The surface of the sand flat and level 
+ The depth of the water above the sand is between 4  and 6 cm 
+ The flow rate of the filter is less than 0.4 litre s/minute 
+ The water does not have a bad taste or odour 
+ 
+Proper Use 
+ There is not a valve or tube attached to the outle t of the filter 
+ The outlet spout of the filter is clean 
+ The filter is being used every 1 or 2 days 
+ 
+Safe Water Storage 
+ The treated water storage container has a lid 
+ The storage container has a narrow opening/ tap to  get water out 
+ The storage container appears clean (free of dirt and algae) 
+ The user has different containers for collecting a nd storing water) 
+ 
+Record Keeping 
+ The name of the household visited, problems and co mments are recorded 
+ Any problems found which need further action are e ntered into the problem log Biosand Filter Manual  Appendix 5 
+  A5-2 
+Biosand Filter  
+Follow Up Visit Checklist – Reference Guide 
+ 
+Quality of Construction 
+1. If the filter is leaking, notify the manufacture r so they can fix it. 
+2. If the lid is missing or damaged, either the use r or the manufacturer can replace it. 
+3. If the diffuser is damaged, notify the manufactu rer so they can replace it. 
+Proper Installation 
+4. The filter should be inside the house or at leas t under a roof. If the filter needs to be moved, 
+the manufacturer will have to re-install it. 
+5. If the sand is not flat and level, the diffuser plate may not be working. If the sand looks like it 
+has been pushed away from the concrete walls, the w ater may be running around the edges 
+of diffuser plate and the diffuser plate may need to be replaced. 
+6. The water depth should be 5cm above the sand. If  it is less than 4cm or more than 6cm, 
+notify the manufacturer so that they can fix it. 
+7. With the filter completely full of water, the fl ow rate should be less than 0.4 litres/minute. f the 
+flow rate is faster, the filter will not work properly. Notify the manufacturer so they can fix it. If 
+the flow rate is slower, the filter is still working fine. However, if the user thinks the flow rate is 
+too slow and inconvenient, a swirl and dump maintenance can be done to increase the flow. 
+The user can do the maintenance themselves. If the user doesn’t remember how, notify the 
+person responsible for training users, so they can remind the user. 
+8. If the treated water has a bad taste or odour, t he filter may not be working well, so notify the 
+manufacturer. 
+Proper Use 
+9. Valves or tubes must be removed from the outlet or else the filter will not work properly. 
+10. The outlet should not have any dirt or algae on  it and should be cleaned regularly. If it is dirty 
+advise the user than regular cleaning is required. 
+11. The filter must be used every day or two for it  to work properly. If it is not being used 
+regularly, instruct the user on the need to use their filter every one or two days and notify the 
+person who is responsible for training users so the y can do a follow-up visit. 
+Safe Water Storage 
+12. The storage container should be closed to preve nt people’s hands, cups, or dippers from 
+touching the water. If an unsuitable storage container (such as a bucket with no lid) is being 
+used, notify the person responsible for training users. 
+13. There should be an easy way to get the water ou t of the container without dipping. If an 
+unsuitable storage container (such as a bucket with no lid) is being used, notify the person 
+responsible for training users. 
+14. The storage container should have no dirt or al gae in or on it. If it is not clean the user should 
+be advised on the need to keep the container clean. 
+15. The user must use different containers for coll ecting water and for storing water, so that they 
+do not contaminate their treated water. If they are not using different containers, advise them 
+that they should use separate containers and notify the person responsible for training users. 
+Record Keeping 
+16. These records will provide valuable information  for future visits and help with resolving any 
+problems. 
+17. This will allow the project manager to ensure a ll problems are resolved. Biosand Filter Manual  Appendix 5 
+  A5-3 
+Biosand Filter  
+Follow Up Visit Monitoring Form  
+ 
+Date  ________________________   Location  __________________________ 
+Your Name  ___________________ Name of Household  _________________ 
+ 
+Quality of Construction 
+1. There are no leaks on the concrete filter body 
+2. There is a lid which covers the entire opening of the filter  
+3. There is the original diffuser plate without cracks or damage 
+Proper Installation 
+4. The filter is in a suitable location away from weather and animals 
+5. The surface of the sand flat and level 
+6. The depth of the water above the sand is between 4 and 6 cm 
+7. The flow rate of the filter is less than 0.4 litres/minute  
+8. The water does not have a bad taste or odour 
+Proper Use 
+10. There is not a valve or tube attached to the outlet of the filter 
+11. The outlet spout of the filter is clean 
+12. The filter is being used every 1 or 2 days 
+Safe Water Storage 
+13. The treated water storage container has a lid 
+14. The storage container has a narrow opening/ tap to get water out 
+15. The storage container appears clean (free of dirt and algae) 
+16. The user has different containers for collecting and storing water) 
+Record Keeping 
+17. The name of the household visited, problems and comments are recorded 
+18. Any problems found which need further action are entered into the problem log 
+ 
+Notes/Comments:  
+ Biosand Filter Manual  Appendix 5 
+  A5-4 
+Biosand Filter  
+Follow Up Visit Monitoring Form – Reference Guide 
+ 
+Quality of Construction 
+1. If the filter is leaking, notify the manufacture r so they can fix it. 
+2. If the lid is missing or damaged, either the use r or the manufacturer can replace it. 
+3. If the diffuser is damaged, notify the manufactu rer so they can replace it. 
+Proper Installation 
+4. The filter should be inside the house or at leas t under a roof. If the filter needs to be moved, 
+the manufacturer will have to re-install it. 
+5. If the sand is not flat and level, the diffuser plate may not be working. If the sand looks like it 
+has been pushed away from the concrete walls, the w ater may be running around the edges 
+of diffuser plate and the diffuser plate may need to be replaced. 
+6. The water depth should be 5cm above the sand. If  it is less than 4cm or more than 6cm, 
+notify the manufacturer so that they can fix it. 
+7. With the filter completely full of water, the fl ow rate should be less than 0.4 litres/minute. If the 
+flow rate is faster, the filter will not work properly. The filter should be reinstalled and the 
+manufacturer notified. If the flow rate is slower, the filter is still working fine. However, if you 
+thinks the flow rate is too slow and inconvenient, a swirl and dump maintenance should be 
+done. The filter should be reinstalled and the manufacturer notified. 
+8. If the treated water has a bad taste or odour, t he filter may not be working well, so notify the 
+manufacturer. 
+Proper Use 
+9. Valves or tubes must be removed from the outlet or else the filter will not work properly. 
+10. The outlet should not have any dirt or algae on  it and should be cleaned regularly. If it is dirty 
+advise the user than regular cleaning is required. 
+11. The filter must be used every day or two for it  to work properly. If it is not being used 
+regularly, instruct the user on the need to use their filter every one or two days and notify the 
+person who is responsible for training users so the y can do a follow-up visit. 
+Safe Water Storage 
+12. The storage container should be closed to preve nt people’s hands, cups, or dippers from 
+touching the water. If an unsuitable storage container (such as a bucket with no lid) is being 
+used, notify the person responsible for training users. 
+13. There should be an easy way to get the water ou t of the container without dipping. If an 
+unsuitable storage container (such as a bucket with no lid) is being used, notify the person 
+responsible for training users. 
+14. The storage container should have no dirt or al gae in or on it. If it is not clean the user should 
+be advised on the need to keep the container clean. 
+15. The user must use different containers for coll ecting water and for storing water, so that they 
+do not contaminate their treated water. If they are not using different containers, advise them 
+that they should use separate containers and notify the person responsible for training users. 
+Record Keeping 
+16. These records will provide valuable information  for future visits and help with resolving any 
+problems. 
+17. This will allow the project manager to ensure all problems are resolved.  Biosand Filter Manual          Appendix 5 
+  A5-5 
+Biosand Filter  
+Installation Monitoring Form 
+ 
+Filter 
+Number 
+Househol 
+d name Location Compone nts okay Sand Level okay Flow Rate Turbidity Taste and odour Filter used every 1-2 days Clean Adequate and clean water container s Comment s / follow up required Initials 
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             Biosand Filter Manual       Appendix 5 
+ A5-6 
+ Biosand Filter Manual   
+  
+Appendix 6: Costing and Pricing Forms Biosand Filter Manual   
+  Biosand Filter Manual  Appendix 6 
+  A6-1 
+ 
+ 
+BIOSAND FILTER COSTING AND PRICING FORM 
+For Internal Use Only 
+Description of Material Quantity Used Price per Unit Cost of Quantity Used  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Travel Time to pick up materials 
+ 
+    
+Direct Materials Used  -  Total Cost    
+Direct Labour Costs Hours 
+Cost 
+per 
+Hour 
+Subtotal 
+ 
+Filter Fabrication 
+ 
+ 
+ 
+ 
+ 
+Filter Installation 
+ 
+ 
+    
+Direct Labour – Total Cost    
+Total Direct Costs  
+ 
+ 
+Overhead (            %)   
+ 
+Total Indirect Costs  
+ 
+Profit Margin (            %)   
+ 
+PRODUCT PRICE Before Delivery  
+ 
+ 
+Delivery to customer location  
+ 
+ 
+ 
+FINAL DELIVERED AND INSTALLED PRODUCT PRICE  
+ 
+ Biosand Filter Manual   
+  Biosand Filter Manual  Appendix 6 
+  A6-3 
+ 
+BIOSAND FILTER COSTING AND PRICING FORM 
+ 
+Materials Used  Quantity Purchased Cost of Purchases Quantity Used Cost Per Filter 
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+Total cost of materials used:   
+ 
+Labour Costs Cost Per Filter 
+  
+  
+  
+  
+  
+Total Labor Costs:   
+ 
+Transport Costs Cost Per Filter 
+  
+  
+  
+  
+  
+Total transport costs:   
+ 
+TOTALS  
+Total direct costs (materials, labor, transport)   
+Profit Margin    (     % of direct costs):   
+Overhead costs (     % of direct costs):   
+ 
+PRICE OF 
+FILTER:  
+ 
+ 
+ 
+ Biosand Filter Manual   
+  
+ 

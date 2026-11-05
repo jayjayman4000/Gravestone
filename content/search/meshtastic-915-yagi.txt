@@ -1,0 +1,156 @@
+Meshtastic 915 MHz Yagi Antenna Build Instructions 
+Thank you for participating in the GCARC 915 MHz Yagi antenna group build program.  
+While this is an extremely simple build, it could be confusing to anyone who does not fully 
+understand the process.  To help avoid any such confusion, we have put together this set 
+of build instructions.  Follow the step-by-step procedure below to achieve a proper build 
+of the antenna kit. 
+1. Verify that all of the required parts are on hand, as listed below: 
+a. antenna boom; 
+b. antenna handle; 
+c. antenna window bracket with an acorn nut installed; 
+d. suction cup with a mounting stud attached; 
+e. set of pre-cut brass rod elements (six pieces, packaged inside plastic tube); 
+f. RG-174 coaxial cable 18 ” long with male SMA connector on one end; 
+g. two (2) small (4 ”) zip ties; 
+h. four-inch length of 22AWG solid wire (various colors) ; 
+i. SMA thumb wrench ; 
+j. 10- 32 nylon fillister head machine screw; 
+k. 10- 32 nylon wing nut; 
+l. two (2) #10 stainless steel flat washers; and 
+m. two (2) #10 externally-toothed lock washers. 
+2. Verify that the required supplies and equipment are on hand, as listed below: 
+a. soldering station with rosin- core solder; 
+b. 99.9% isopropyl alcohol (IPA); 
+c. paper towel(s); 
+d. cyanoacrylate (CA) glue; 
+e. accelerator for CA glue; 
+f. razor knife; 
+g. Sharpie ® marker; 
+h. ruler or measuring tape; 
+i. push- pin or pointed tweezer;  
+j. needle- nose pliers; 
+k. wire cutter and stripper; 
+l. NanoVNA; and 
+m. 915 MHz Meshtastic Node. 
+3. If not already done, remove the brass rod elements from the packing tube, and 
+using a paper towel and some IPA, thoroughly clean each element rod of all film 
+and residue that may be on the element rods. 
+4. Lay out the element rods in order of decreasing length, setting the two shortest 
+(equal length) element rods aside. 
+5. Measure and mark the center of each of the long element rods. 6. Make another pair of marks on each element rod, making one exactly 7/16 ” on 
+each side of the center mark.  This will define an area 7/8 ” wide at the center of 
+each element rod. 
+7. Examine the boom carefully, noting the markings adjacent to each of the small 
+(1/16”) element holes in the boom.  These markings are as follows: 
+a. REF – the reflector element; 
+b. DE – the driven element (this is where the two shortest but equal-length 
+element rods will eventually be installed); 
+c. D1 – the first director element; 
+d. D2 – the second director element; and 
+e. D3 – the third director element. 
+8. Starting with the longest element rod at the REF hole and skipping the DE hole, 
+working from the longest to the shortest of the long element rods, insert a rod into 
+the REF hole (the longest element rod) and each of the D # holes (progressively 
+shorter element rods), centering the boom between the paired marks on the 
+element rods. 
+9. Verify that the element rods get shorter as you progress along the boom, starting 
+at the REF end of the boom, and also that the DE hole is empty. 
+10. Working quickly, one by one slide each element out of its hole in the boom just until 
+the center mark is visible, and apply a drop of CA glue to the element rod, and then 
+immediately center the boom again accurately between the paired marks on the 
+element rod, twisting the element rod as it is inserted. 
+11. After all four of the long element rods are glued and centered accurately, apply a 
+small spray of CA glue accelerant to each of the element rods at the boom.  This 
+will cause the CA glue to completely set almost immediately. 
+12. Set the boom and elements aside for later use. 
+13. Locate the four-inch length of 22AWG solid wire from the parts kit. 
+14. Using the wire stripper, remove 1/2" of insulation from each end of the wire.  SAVE 
+ONE OF THE PIECES OF INSULATION THAT YOU REMOVE – IT WILL BE 
+USED LATER! 
+15. Using the small end of the barrel of the Sharpie® marker as a spindle, form a single-
+turn loop in the center of the insulated portion of the wire, making a one-turn air-
+core inductor.  The loop should be 1/4” in diameter with the leads extending straight 
+out and opposite each other (in a straight line). 
+16. Apply a drop of CA glue to the inductor wire at the point where the wire crosses 
+itself as it forms the loop. 
+17. Apply a bit of the CA glue accelerant to the inductor to quick-set the glue there. 
+18. Set the inductor aside for later use. 
+19. Locate the RG-174 coaxial cable. 
+20. Using the razor knife and working carefully so as not to cut the shield wire strands, 
+remove 2-1/2” of outer jacket from the unfinished end of the cable. 
+21. Using the push pin, gently unbraid and comb out the shield wire strands, leaving 
+them all parallel to the center conductor. 22. Once the shield wire strands are all separated and straightened, gather them all 
+together and twist them tightly into a single bundle. 
+23. Using the wire stripper, carefully remove 1/2" of insulation from the coaxial cable 
+center conductor.  Work very carefully so as not to damage the center conductor 
+wire strands. 
+24. Twist the center conductor wire strands together tightly. 
+25. Using the solder station, tin the twisted center conductor wire. 
+26. Using the solder station, tin the last 1/2" of the twisted shield wire. 
+27. Using the needle-nose pliers, bend a hook the size of the element rod into the end 
+of each tinned segment of the coaxial cable wires. 
+28. Using the solder station, carefully solder the coaxial cable wire segments to the 
+two short driven-element rods, attaching each of them about 1/2” from one end of 
+each of the element rods, and allow the element rods to cool completely. 
+29. Locate the inductor that was set aside earlier. 
+30. Using the needle-nose pliers, bend a hook the size of the element rod into each 
+stripped end of the inductor wire. 
+31. Using the solder station, carefully solder one end of the inductor wire to one of the 
+driven-element rods, placing the inductor wire just outboard (towards the long end) 
+of the element rod, and allow the element rod to cool completely. 
+32. Locate the piece of wire insulation (from the inductor wire) that you set aside 
+earlier. 
+33. Cut off a small piece of this insulation, about 1/8” long. 
+34. Insert the 1/8” piece of insulation into the DE hole in the boom.  Use the end of the 
+push pin to push the insulation into the hole in the boom, pushing it about half-way 
+through the boom. 
+35. Passing the looped inductor wire through the opening in the boom nearest the DE 
+hole, insert one of the driven-element rods into the DE hole on each side of the 
+boom and then position them so that each element rod is the same distance into 
+the boom, and so that they meet in the middle with the insulation piece in 
+between the ends of the element rods. 
+36. Solder the loose end of the inductor wire to the adjacent element rod immediately 
+outboard of the coaxial cable wire attachment there, taking care not to let the 
+coaxial cable wire separate from the element rod as you solder the inductor wire. 
+37. One at a time, slide the driven element rods out of the boom and apply a drop of 
+CA glue to the end of the rod.  Immediately insert the element rod back into its hole 
+in the boom without disturbing the opposite element rod. 
+38. After both driven element rods have been glued, apply the CA glue accelerator 
+spray to the boom and driven element rods to quick-set the glue. 
+39. Dress the coaxial cable along the boom adjacent to the DE hole in the boom, and 
+secure it there with both of the 4 ” zip ties provided.  DO NOT RUN THE FULL 
+LENGTH OF THE CABLE ALONG THE BOOM – LET IT HANG FREELY AFTER 
+SECURING IT TO THE BOOM NEAR ITS ATTACHMENT TO THE DRIVEN 
+ELEMENT RODS.  The zip ties should pass through the opening in the boom, and should be pushed all the way towards and against the boom opening wall adjacent 
+to the DE hole.  The purpose of the zip ties is to support the coaxial cable and to 
+take its weight off of the solder joints. 
+40. Locate the suction cup and the window bracket. 
+41. Thread the mounting stud on the suction cup into the acorn nut that is installed into 
+the window bracket. 
+42. Locate the nylon machine screw, the nylon wing nut, the two #10 flat washers, and 
+the two #10 externally-toothed lock washers. 
+43. Place one of the externally-toothed lock washers onto the nylon machine screw, 
+and then place one of the flat washers onto the screw.  The lock washer should be 
+directly against the head of the screw. 
+44. Insert the boom into the yoke of the window bracket, being sure to position the 
+boom so that the element rods will be parallel to the axis of the nylon machine 
+screw once the screw is installed. 
+45. Insert the nylon machine screw through the ears of the window bracket yoke and 
+also through the hole in the end of the boom, which will be aligned with the yoke 
+ear holes. 
+46. Place the second flat washer onto the nylon machine screw and against the 
+second ear of the window bracket yoke. 
+47. Place the second lock washer onto the nylon machine screw and against the 
+second flat washer just installed. 
+48.  Thread the nylon wing nut onto the nylon machine screw, taking care not to cross-
+thread the wing nut. 
+49. Tighten the nylon wing nut sufficiently to clamp the boom in the window bracket 
+yoke.  DO NOT OVERTIGHTEN, STRIP, STRETCH, OR BREAK THE NYLON 
+WING NUT AND/OR MACHINE SCREW. 
+This completes the assembly of the antenna and its window bracket.  Should you choose 
+to use the antenna on the handle instead of on the window bracket, simply install the 
+handle in place of the window bracket, being sure to install the hardware in the same 
+manner.  The flat washers must go against the yoke ears of either the handle or the 
+window bracket, whichever is in use. 
+The antenna can now be tested using your NanoVNA and also by connection of the 
+antenna to the 915 MHz Meshtastic node and placing the node into operation. 

@@ -121,7 +121,64 @@
     {
       "id": "radio-antennas",
       "title": "Building antennas and understanding useful radio types",
-      "status": "source-acquisition-pending"
+      "status": "partial-source-backed",
+      "source_ids": [
+        "kuphaldt-radio-antennas",
+        "meshtastic-915-yagi",
+        "meshtastic-915-yagi-bom",
+        "meshtastic-915-yagi-elements"
+      ],
+      "source_pages": [
+        {
+          "source_id": "kuphaldt-radio-antennas",
+          "pdf_pages": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ],
+          "printed_pages": "8–14 and 21–32"
+        },
+        {
+          "source_id": "meshtastic-915-yagi",
+          "pdf_pages": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "source_id": "meshtastic-915-yagi-bom",
+          "pdf_pages": [
+            1
+          ]
+        },
+        {
+          "source_id": "meshtastic-915-yagi-elements",
+          "pdf_pages": [
+            1,
+            2,
+            3
+          ]
+        }
+      ],
+      "coverage_scope": "Illustrated 902–928 MHz monopole measurement/construction case plus antenna theory; separate 915 MHz US Meshtastic Yagi assembly, purchasing BOM and element-preparation supplement. Not GMRS, VHF/UHF or broadcast-FM build coverage and not a complete kit: GCARC fabrication models and measurement hardware are absent. No RF performance, regulatory or safety certification."
     },
     {
       "id": "combat-preparation",
@@ -301,7 +358,8 @@
       "title": "Filtering water",
       "status": "partial-source-backed",
       "source_ids": [
-        "cdc-backcountry-treatment"
+        "cdc-backcountry-treatment",
+        "cawst-biosand-2009"
       ],
       "source_pages": [
         {
@@ -309,9 +367,71 @@
           "pdf_pages": [
             1
           ]
+        },
+        {
+          "source_id": "cawst-biosand-2009",
+          "pdf_pages": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65
+          ],
+          "printed_pages": "1–9 and 11–57"
         }
       ],
-      "coverage_scope": "Historical CDC pathogen/treatment comparison sheet, including filter limitations and source warnings. Not chemical-contaminant testing, equipment selection certification or a complete treatment-system manual."
+      "coverage_scope": "Historical CDC pathogen/treatment comparison sheet, including filter limitations and source warnings. Not chemical-contaminant testing, equipment selection certification or a complete treatment-system manual. Also CAWST September 2009 Version 10.0 concrete biosand construction/operation/maintenance, including construction safety and disinfection limitations. Historical, training-dependent design; not certified potability, chemical-contaminant treatment or a universal filter."
     },
     {
       "id": "first-aid",
@@ -383,6 +503,72 @@
         }
       ],
       "coverage_scope": "Limited CERT sheltering-in-place/community-shelter context. No wilderness shelter construction, structural engineering plans or comprehensive shelter-management manual."
+    },
+    {
+      "id": "water-filter-construction",
+      "title": "Building a household biosand water filter",
+      "origin": "Editorial label for the explicit replacement-list request and this admission; not attributed to the older handwritten image.",
+      "status": "partial-source-backed",
+      "source_ids": [
+        "cawst-biosand-2009"
+      ],
+      "source_pages": [
+        {
+          "source_id": "cawst-biosand-2009",
+          "pdf_pages": [
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65
+          ],
+          "printed_pages": "10–57"
+        }
+      ],
+      "coverage_scope": "CAWST September 2009 Version 10.0 concrete biosand design and construction/installation/operation/maintenance stages, with original appendices and warnings preserved. Model/mold, materials, tools, training, disinfection and follow-up remain dependencies. Not a current safety approval or a guarantee of safe drinking water."
     }
   ],
   "status_definitions": {
@@ -390,10 +576,14 @@
     "partial-source-backed": "Named originals installed with limited page associations; neither complete coverage nor validated safety guidance. Editorial metadata only."
   },
   "last_source_acquisition": {
-    "batch": "historical-engine-repair-2026-10-31",
+    "batch": "water-antennas-2026-11-05",
     "new_document_ids": [
-      "war-department-tm9-1803a-1944"
+      "cawst-biosand-2009",
+      "kuphaldt-radio-antennas",
+      "meshtastic-915-yagi",
+      "meshtastic-915-yagi-bom",
+      "meshtastic-915-yagi-elements"
     ],
-    "scope": "Historical vehicle-specific gasoline-engine overhaul reference for Willys MB/Ford GPW; not modern all-vehicle repair. Written for trained ordnance-maintenance personnel. Obsolete practices, materials and OCR errors remain unchanged. No qualified mechanical safety review. Never transfer its dimensions or torques to a different engine. Covers historical engine removal, disassembly, inspection, repair, assembly, installation and clutch service only. No modern engine, electronic, brake or complete vehicle-maintenance coverage."
+    "scope": "Historical/specific household biosand filter and 900/915 MHz antenna documents only; no topic complete and no ISO built."
   }
 }

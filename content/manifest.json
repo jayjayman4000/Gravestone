@@ -70,7 +70,7 @@
       ],
       "acquisition_note": "Official U.S. Government Publishing Office (GovInfo) preserved 50-page PDF rendition, harvested from USDA FSIS according to archived MODS. Direct FSIS HTTP/HTTPS requests returned 403. Stored bytes match the GPO download, not a claimed byte comparison with the inaccessible current FSIS endpoint. GPO records its rendition as born digital; PDF modification metadata is 2026-06-26, not the publication edition.",
       "dependencies": [
-        "Publisher refers to A Consumer\u2019s Guide to Food Safety: Severe Storms and Hurricanes for additional container-salvage procedures; that separate document is not installed.",
+        "Publisher refers to A Consumer’s Guide to Food Safety: Severe Storms and Hurricanes for additional container-salvage procedures; that separate document is not installed.",
         "Publisher web links, hotline availability, regulatory references and edition currency have not been validated as current."
       ],
       "url": "https://www.govinfo.gov/content/pkg/GOVPUB-A110-PURL-gpo234150/pdf/GOVPUB-A110-PURL-gpo234150.pdf",
@@ -452,10 +452,10 @@
       "pdf_metadata": {
         "/Author": "USEPA, OW",
         "/CreationDate": "D:20170906152937-04'00'",
-        "/Creator": "Microsoft\u00ae Word 2016",
+        "/Creator": "Microsoft® Word 2016",
         "/Keywords": "drinking water, epa, emergency disinfection, water",
         "/ModDate": "D:20170906153257-04'00'",
-        "/Producer": "Microsoft\u00ae Word 2016",
+        "/Producer": "Microsoft® Word 2016",
         "/Subject": "Emergency Disinfection of Drinking Water",
         "/Title": "Emergency Disinfection of Drinking Water"
       },
@@ -693,7 +693,7 @@
           "role": "endmatter"
         }
       ],
-      "page_roles_note": "Editorial physical-page structure annotation, not publisher text or safety review. Publisher contents physical 5 (printed 3), scope 6 (printed 4), procedural chapters 10\u201373 (printed 8\u201371), references/index 74\u201379 (printed 72\u201377), notes/blank/rear cover 80\u201384. Introductory scope includes audience and separate-manual dependencies; it remains required context. Never label warnings or emergency caveats as non-substantive front/end matter."
+      "page_roles_note": "Editorial physical-page structure annotation, not publisher text or safety review. Publisher contents physical 5 (printed 3), scope 6 (printed 4), procedural chapters 10–73 (printed 8–71), references/index 74–79 (printed 72–77), notes/blank/rear cover 80–84. Introductory scope includes audience and separate-manual dependencies; it remains required context. Never label warnings or emergency caveats as non-substantive front/end matter."
     },
     {
       "id": "fema-power-outage-2018",
@@ -736,6 +736,276 @@
       "dependencies": [
         "Ready.gov website and FEMA app are not archived by this PDF."
       ]
+    },
+    {
+      "title": "Biosand Filter Manual: Design, Construction, Installation, Operation and Maintenance",
+      "publisher": "CAWST (Centre for Affordable Water and Sanitation Technology)",
+      "edition": "September 2009 Edition; Version 10.0 concrete biosand filter",
+      "url": "https://sswm.info/sites/default/files/reference_attachments/CAWST%202009%20Biosand%20Filter%20Manual.pdf",
+      "final_url": "https://sswm.info/sites/default/files/reference_attachments/CAWST%202009%20Biosand%20Filter%20Manual.pdf",
+      "retrieved_at": "2026-11-05T21:43:26.002331+00:00",
+      "bytes": 2935805,
+      "sha256": "10fbeecfa74d132775baa1b897b0f21b4c4aec711bb23d8f138f98f333d57c25",
+      "pages": 129,
+      "id": "cawst-biosand-2009",
+      "file": "originals/cawst-biosand-2009.pdf",
+      "text_file": "search/cawst-biosand-2009.txt",
+      "text_sha256": "86b422343117ead5c6fa274c3ca2e8921667404dee233b9aa74e866c3d24031c",
+      "publisher_url": "https://washresources.cawst.org/en/resources/b6be2637/biosand-filter-construction-manual",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult complete original PDF figures, tables, warnings and conditions. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string, every physical page joined by U+000C form feed, UTF-8. No OCR, normalization, correction or AI rewriting.",
+      "review_status": "Work-specific rights/provenance and bounded scope inspection only; no qualified safety, medical, engineering or currency certification.",
+      "acquisition_batch": "water-antennas-2026-11-05",
+      "rights": "Source: CAWST, Biosand Filter Manual, September 2009. Physical page 3 expressly licenses this document CC BY 3.0 Unported, permits sharing/adaptation with CAWST attribution and no implied endorsement, and disclaims warranties. Cover photo credit: Tommy Ngai (pictured: Ganesh Harijan, Nepal). No separate restrictive photo notice identified; whole-document grant retained, no standalone portrait/mark rights asserted. Original PDF unchanged; derivative is machine extraction only. License: https://creativecommons.org/licenses/by/3.0/.",
+      "rights_url": "https://creativecommons.org/licenses/by/3.0/",
+      "rights_evidence": [
+        {
+          "url": "https://creativecommons.org/licenses/by/3.0/",
+          "final_url": "https://creativecommons.org/licenses/by/3.0/",
+          "retrieved_at": "2026-11-05T21:44:19.791552+00:00",
+          "sha256": "befae005d7dc8701eed58fe2080fda2889c3749272d6c8aba8e8310114112095",
+          "bytes": 31824,
+          "file": "rights/cawst-cc-by-3.html",
+          "kind": "license-deed",
+          "snapshot_method": "Unmodified intake HTTP response body; no linked assets fetched."
+        },
+        {
+          "url": "https://sswm.info/index.php/node/359",
+          "final_url": "https://sswm.info/index.php/node/359",
+          "retrieved_at": "2026-11-05T21:44:18.332852+00:00",
+          "sha256": "48f45d50026b3f0bad1ebce1e3a2c2ad2d12cf9c84516cd1c3b0cb32aa53700b",
+          "bytes": 39346,
+          "file": "rights/cawst-mirror-record.html",
+          "kind": "work-specific-provenance",
+          "snapshot_method": "Unmodified intake HTTP response body; no linked assets fetched."
+        },
+        {
+          "url": "https://washresources.cawst.org/en/resources/b6be2637/biosand-filter-construction-manual",
+          "final_url": "https://washresources.cawst.org/en/resources/b6be2637/biosand-filter-construction-manual",
+          "retrieved_at": "2026-11-05T21:43:27.144892+00:00",
+          "sha256": "ab44acfe936b8f9cf217a9b26da0566b19c2b8266c392419b0ccd85e47b71c21",
+          "bytes": 59711,
+          "file": "rights/cawst-landing.html",
+          "kind": "work-specific-provenance",
+          "snapshot_method": "Unmodified intake HTTP response body; no linked assets fetched."
+        }
+      ],
+      "topics": [
+        "water-filtration",
+        "water-filter-construction"
+      ],
+      "source_landing_url": "https://sswm.info/index.php/node/359",
+      "source_caveat": "Historical September 2009 edition for Version 10.0 concrete household biosand filters, acquired from SSWM mirror, not directly from CAWST; no byte-identity claim with current publisher offerings. Not a guarantee of potability or chemical-contaminant removal. Original disinfection/maintenance/construction warnings retained. Physical p111 checklist contains 0.6 L/min maximum versus 0.4 L/min target; pp59 and 113 use 0.4 L/min. Discrepancy preserved, not resolved or silently harmonized.",
+      "dependencies": [
+        "Source assumes suitable mold, tools, graded media, construction skill, installation, monitoring and follow-up; appendices remain in original. No materials or fabricated parts supplied.",
+        "Source physical p16 explicitly retains further disinfection and safe-storage requirements; this edition is not a complete contaminant-testing or chemical-treatment reference. External references/standards and current training are not bundled."
+      ],
+      "extraction_notice": "Gravestone, 2026-11-05: unmodified original PDF retained. Separate UTF-8 search representation machine-extracted with pypdf; figures, layout and other non-textual content are not reproduced in this derivative. No correction, OCR or AI-authored instructions. All original rights/notices remain applicable; see this manifest entry, companion rights snapshots and THIRD_PARTY_NOTICES.md."
+    },
+    {
+      "title": "Radio Antennas",
+      "publisher": "Tony R. Kuphaldt, Modular Electronics Learning (ModEL)",
+      "edition": "Last update 16 September 2026; copyright 2020–2026",
+      "url": "https://ibiblio.org/kuphaldt/socratic/model/mod_antenna.pdf",
+      "final_url": "https://ibiblio.org/kuphaldt/socratic/model/mod_antenna.pdf",
+      "retrieved_at": "2026-11-05T21:43:25.854134+00:00",
+      "bytes": 2565677,
+      "sha256": "c3452f708a99faaa7ccf9d378b5269074a46d3f771b9a2a8f2218fcf1e474b9a",
+      "pages": 131,
+      "id": "kuphaldt-radio-antennas",
+      "file": "originals/kuphaldt-radio-antennas.pdf",
+      "text_file": "search/kuphaldt-radio-antennas.txt",
+      "text_sha256": "8b33ca067b3416dcc2ce3c80559489d70ca258a6445ee0a61d8ffd5faf224bb0",
+      "publisher_url": "https://ibiblio.org/kuphaldt/socratic/model/mod_antenna.pdf",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult complete original PDF figures, tables, warnings and conditions. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string, every physical page joined by U+000C form feed, UTF-8. No OCR, normalization, correction or AI rewriting.",
+      "review_status": "Work-specific rights/provenance and bounded scope inspection only; no qualified safety, medical, engineering or currency certification.",
+      "acquisition_batch": "water-antennas-2026-11-05",
+      "rights": "© 2020–2026 Tony R. Kuphaldt, Radio Antennas, ModEL project, last update 16 September 2026. Physical p1 expressly applies CC BY 4.0 International to this work; full license retained in Appendix D (physical pp116–123, substantive text pp116–122). Attribution, copyright, license, source URI and warranty disclaimers retained. Original PDF unchanged; derivative is machine extraction only. No author endorsement implied; no extra restrictions or rights in trademarks/patents asserted.",
+      "rights_url": "https://creativecommons.org/licenses/by/4.0/",
+      "topics": [
+        "radio-antennas"
+      ],
+      "source_caveat": "Specific illustrated 902–928 MHz ground-plane monopole case and VNA measurements (physical pp11–17); antenna theory pp24–35. Physical p21 is commercial VHF/UHF whip testing, not a build plan. Not a GMRS, broadcast-FM or all-radio construction manual. 2026 educational edition, not qualified RF/regulatory safety guidance.",
+      "dependencies": [
+        "Construction example depends on RF connector, wire and calibrated VNA/impedance measurement capability; neither equipment nor instrument operating manuals included.",
+        "Frequency, impedance, transmitter and applicable regulatory requirements are equipment/jurisdiction-specific; other radio bands need their own designs."
+      ],
+      "extraction_notice": "Gravestone, 2026-11-05: unmodified original PDF retained. Separate UTF-8 search representation machine-extracted with pypdf; figures, layout and other non-textual content are not reproduced in this derivative. No correction, OCR or AI-authored instructions. All original rights/notices remain applicable; see this manifest entry, companion rights snapshots and THIRD_PARTY_NOTICES.md."
+    },
+    {
+      "title": "Meshtastic 915 MHz Yagi Antenna Build Instructions",
+      "publisher": "Gloucester County Amateur Radio Club / w2mmdskunkworks; project lead Chris Prioli AD2CS",
+      "edition": "Undated PDF; repository README copyright 2025 and December 2025 club build",
+      "url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/Meshtastic%20915%20MHz%20Yagi%20Antenna%20Build%20Instructions.pdf",
+      "final_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/Meshtastic%20915%20MHz%20Yagi%20Antenna%20Build%20Instructions.pdf",
+      "retrieved_at": "2026-11-05T21:43:26.498644+00:00",
+      "bytes": 32077,
+      "sha256": "f3a5fc210a9ee6fa8e706eba85b93d5b193e4b9192c5d35f7dccb5c52daaded8",
+      "pages": 4,
+      "id": "meshtastic-915-yagi",
+      "file": "originals/meshtastic-915-yagi.pdf",
+      "text_file": "search/meshtastic-915-yagi.txt",
+      "text_sha256": "e7fe6f87047cc178afe1facbb1f641fc72605d3b241bbd7ae58940d6927f94e1",
+      "publisher_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/Meshtastic%20915%20MHz%20Yagi%20Antenna%20Build%20Instructions.pdf",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult complete original PDF figures, tables, warnings and conditions. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string, every physical page joined by U+000C form feed, UTF-8. No OCR, normalization, correction or AI rewriting.",
+      "review_status": "Work-specific rights/provenance and bounded scope inspection only; no qualified safety, medical, engineering or currency certification.",
+      "acquisition_batch": "water-antennas-2026-11-05",
+      "rights": "© 2025 Gloucester County Amateur Radio Club. Source: GCARC / w2mmdskunkworks 915MHzYagi repository, project lead Chris Prioli AD2CS. Repository README explicitly licenses this hardware design CERN-OHL-P v2; these same-repository instructions/BOM/element supplement are design information for making/testing/preparing the product (Source under §1.2). No conflicting PDF notice identified. Verbatim distribution under §3.1 retains all Notices; exact README, license, disclaimers and inspiration acknowledgments accompany originals. PDF unchanged; derivative is uncorrected machine extraction only. No separate license for third-party YagiCAD software, no endorsement by GCARC or CERN, no additional downstream restrictions.",
+      "rights_url": "https://cern.ch/cern-ohl/p/v2",
+      "rights_evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/README.md",
+          "final_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/README.md",
+          "retrieved_at": "2026-11-05T21:44:58.510138+00:00",
+          "sha256": "e3abd29ab36a134e5e2e18b4ef49be9f9254c079b0bd20ca8e9387952a544209",
+          "bytes": 2416,
+          "file": "rights/gcarc-915-readme.md",
+          "kind": "work-specific-license-declaration",
+          "snapshot_method": "Unmodified repository HTTP response body; independently matched archived GitHub root blob SHA-1.",
+          "source_git_blob_sha1": "9ea9b1b89a9089261bad3a123fa854c7e2971243"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/LICENSE",
+          "final_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/LICENSE",
+          "retrieved_at": "2026-11-05T21:44:58.295199+00:00",
+          "sha256": "6e471d647db50527d0c75ee5f1a55a74012ab177c73282bef0bdc7f6562b7ded",
+          "bytes": 8852,
+          "file": "rights/gcarc-915-license.txt",
+          "kind": "license-full-text",
+          "snapshot_method": "Unmodified repository HTTP response body; independently matched archived GitHub root blob SHA-1.",
+          "source_git_blob_sha1": "4fe041e077a8179e50d8d068fb5803cf1f80abba"
+        }
+      ],
+      "source_landing_url": "https://github.com/w2mmdskunkworks/915MHzYagi",
+      "topics": [
+        "radio-antennas"
+      ],
+      "source_caveat": "915 MHz US Meshtastic window-mounted Yagi project only; not GMRS, VHF/UHF or broadcast-FM construction. Undated December 2025-era project documentation, not a complete printable kit or validated RF design. No qualified electrical, fabrication or regulatory review. Supplier links and performance claims not independently certified.",
+      "dependencies": [
+        "Companion build instructions, BOM and element-preparation supplement are all installed; original build assumed club kits with prepared elements.",
+        "3D-printed boom, handle, window bracket and wrench are required/referenced; model files not acquired, inspected, validated or bundled. No fabrication-ready kit supplied.",
+        "NanoVNA, appropriate radio, tools and hardware are external dependencies; separately supplied YagiCAD model graphs/images/software are not installed."
+      ],
+      "extraction_notice": "Gravestone, 2026-11-05: unmodified original PDF retained. Separate UTF-8 search representation machine-extracted with pypdf; figures, layout and other non-textual content are not reproduced in this derivative. No correction, OCR or AI-authored instructions. All original rights/notices remain applicable; see this manifest entry, companion rights snapshots and THIRD_PARTY_NOTICES.md.",
+      "source_git_blob_sha1": "bfcd1b4d47afb23a695b92882128ff9870c7afd3"
+    },
+    {
+      "title": "915 MHz Meshtastic Yagi Bill of Materials",
+      "publisher": "Gloucester County Amateur Radio Club / w2mmdskunkworks",
+      "edition": "Undated repository companion PDF",
+      "url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/915%20MHz%20Meshtastic%20Yagi%20Bill%20of%20Materials.pdf",
+      "final_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/915%20MHz%20Meshtastic%20Yagi%20Bill%20of%20Materials.pdf",
+      "retrieved_at": "2026-11-05T21:44:58.707076+00:00",
+      "bytes": 64900,
+      "sha256": "0db8e8ba86642674d6a46ff6bc01fc90675896b1fc4050d1d17cceb69cfc81ec",
+      "pages": 1,
+      "id": "meshtastic-915-yagi-bom",
+      "file": "originals/meshtastic-915-yagi-bom.pdf",
+      "text_file": "search/meshtastic-915-yagi-bom.txt",
+      "text_sha256": "8e856b0888988e1123a93f7b5880338310fb6d197589f8dfd8180bfbc3ed8b2b",
+      "publisher_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/915%20MHz%20Meshtastic%20Yagi%20Bill%20of%20Materials.pdf",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult complete original PDF figures, tables, warnings and conditions. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string, every physical page joined by U+000C form feed, UTF-8. No OCR, normalization, correction or AI rewriting.",
+      "review_status": "Work-specific rights/provenance and bounded scope inspection only; no qualified safety, medical, engineering or currency certification.",
+      "acquisition_batch": "water-antennas-2026-11-05",
+      "rights": "© 2025 Gloucester County Amateur Radio Club. Source: GCARC / w2mmdskunkworks 915MHzYagi repository, project lead Chris Prioli AD2CS. Repository README explicitly licenses this hardware design CERN-OHL-P v2; these same-repository instructions/BOM/element supplement are design information for making/testing/preparing the product (Source under §1.2). No conflicting PDF notice identified. Verbatim distribution under §3.1 retains all Notices; exact README, license, disclaimers and inspiration acknowledgments accompany originals. PDF unchanged; derivative is uncorrected machine extraction only. No separate license for third-party YagiCAD software, no endorsement by GCARC or CERN, no additional downstream restrictions.",
+      "rights_url": "https://cern.ch/cern-ohl/p/v2",
+      "rights_evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/README.md",
+          "final_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/README.md",
+          "retrieved_at": "2026-11-05T21:44:58.510138+00:00",
+          "sha256": "e3abd29ab36a134e5e2e18b4ef49be9f9254c079b0bd20ca8e9387952a544209",
+          "bytes": 2416,
+          "file": "rights/gcarc-915-readme.md",
+          "kind": "work-specific-license-declaration",
+          "snapshot_method": "Unmodified repository HTTP response body; independently matched archived GitHub root blob SHA-1.",
+          "source_git_blob_sha1": "9ea9b1b89a9089261bad3a123fa854c7e2971243"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/LICENSE",
+          "final_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/LICENSE",
+          "retrieved_at": "2026-11-05T21:44:58.295199+00:00",
+          "sha256": "6e471d647db50527d0c75ee5f1a55a74012ab177c73282bef0bdc7f6562b7ded",
+          "bytes": 8852,
+          "file": "rights/gcarc-915-license.txt",
+          "kind": "license-full-text",
+          "snapshot_method": "Unmodified repository HTTP response body; independently matched archived GitHub root blob SHA-1.",
+          "source_git_blob_sha1": "4fe041e077a8179e50d8d068fb5803cf1f80abba"
+        }
+      ],
+      "source_landing_url": "https://github.com/w2mmdskunkworks/915MHzYagi",
+      "topics": [
+        "radio-antennas"
+      ],
+      "source_caveat": "915 MHz US Meshtastic window-mounted Yagi project only; not GMRS, VHF/UHF or broadcast-FM construction. Undated December 2025-era project documentation, not a complete printable kit or validated RF design. No qualified electrical, fabrication or regulatory review. Supplier links and performance claims not independently certified.",
+      "dependencies": [
+        "Companion build instructions, BOM and element-preparation supplement are all installed; original build assumed club kits with prepared elements.",
+        "3D-printed boom, handle, window bracket and wrench are required/referenced; model files not acquired, inspected, validated or bundled. No fabrication-ready kit supplied.",
+        "NanoVNA, appropriate radio, tools and hardware are external dependencies; separately supplied YagiCAD model graphs/images/software are not installed."
+      ],
+      "extraction_notice": "Gravestone, 2026-11-05: unmodified original PDF retained. Separate UTF-8 search representation machine-extracted with pypdf; figures, layout and other non-textual content are not reproduced in this derivative. No correction, OCR or AI-authored instructions. All original rights/notices remain applicable; see this manifest entry, companion rights snapshots and THIRD_PARTY_NOTICES.md.",
+      "source_git_blob_sha1": "ca93c82ea43581975d7c3ff278de983078d2a804"
+    },
+    {
+      "title": "Supplemental Instructions for 915 MHz Meshtastic Yagi Antenna Build",
+      "publisher": "Gloucester County Amateur Radio Club / w2mmdskunkworks",
+      "edition": "Undated repository companion PDF: Cutting and Finishing Element Rods",
+      "url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/Supplemental%20Instructions%20-%20Cutting%20and%20Finishing%20Element%20Rods.pdf",
+      "final_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/Supplemental%20Instructions%20-%20Cutting%20and%20Finishing%20Element%20Rods.pdf",
+      "retrieved_at": "2026-11-05T21:44:58.923853+00:00",
+      "bytes": 29713,
+      "sha256": "dbcf65fba62dd1440a5f848fd9d299ff3acee67f895ebd85081dfce368aca0a7",
+      "pages": 3,
+      "id": "meshtastic-915-yagi-elements",
+      "file": "originals/meshtastic-915-yagi-elements.pdf",
+      "text_file": "search/meshtastic-915-yagi-elements.txt",
+      "text_sha256": "2b5b96a02755b8d07569e9c0aebe8a5d88e734bff90725a86e476ff7b172b98f",
+      "publisher_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/Supplemental%20Instructions%20-%20Cutting%20and%20Finishing%20Element%20Rods.pdf",
+      "extraction_status": "UNVERIFIED machine-extracted search aid; not a checked transcription or safety summary. Consult complete original PDF figures, tables, warnings and conditions. Byte hashes do not verify transcription accuracy.",
+      "extraction_method": "pypdf 6.21.4 with fonttools 4.68.0; page.extract_text() or empty string, every physical page joined by U+000C form feed, UTF-8. No OCR, normalization, correction or AI rewriting.",
+      "review_status": "Work-specific rights/provenance and bounded scope inspection only; no qualified safety, medical, engineering or currency certification.",
+      "acquisition_batch": "water-antennas-2026-11-05",
+      "rights": "© 2025 Gloucester County Amateur Radio Club. Source: GCARC / w2mmdskunkworks 915MHzYagi repository, project lead Chris Prioli AD2CS. Repository README explicitly licenses this hardware design CERN-OHL-P v2; these same-repository instructions/BOM/element supplement are design information for making/testing/preparing the product (Source under §1.2). No conflicting PDF notice identified. Verbatim distribution under §3.1 retains all Notices; exact README, license, disclaimers and inspiration acknowledgments accompany originals. PDF unchanged; derivative is uncorrected machine extraction only. No separate license for third-party YagiCAD software, no endorsement by GCARC or CERN, no additional downstream restrictions.",
+      "rights_url": "https://cern.ch/cern-ohl/p/v2",
+      "rights_evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/README.md",
+          "final_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/README.md",
+          "retrieved_at": "2026-11-05T21:44:58.510138+00:00",
+          "sha256": "e3abd29ab36a134e5e2e18b4ef49be9f9254c079b0bd20ca8e9387952a544209",
+          "bytes": 2416,
+          "file": "rights/gcarc-915-readme.md",
+          "kind": "work-specific-license-declaration",
+          "snapshot_method": "Unmodified repository HTTP response body; independently matched archived GitHub root blob SHA-1.",
+          "source_git_blob_sha1": "9ea9b1b89a9089261bad3a123fa854c7e2971243"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/LICENSE",
+          "final_url": "https://raw.githubusercontent.com/w2mmdskunkworks/915MHzYagi/main/LICENSE",
+          "retrieved_at": "2026-11-05T21:44:58.295199+00:00",
+          "sha256": "6e471d647db50527d0c75ee5f1a55a74012ab177c73282bef0bdc7f6562b7ded",
+          "bytes": 8852,
+          "file": "rights/gcarc-915-license.txt",
+          "kind": "license-full-text",
+          "snapshot_method": "Unmodified repository HTTP response body; independently matched archived GitHub root blob SHA-1.",
+          "source_git_blob_sha1": "4fe041e077a8179e50d8d068fb5803cf1f80abba"
+        }
+      ],
+      "source_landing_url": "https://github.com/w2mmdskunkworks/915MHzYagi",
+      "topics": [
+        "radio-antennas"
+      ],
+      "source_caveat": "915 MHz US Meshtastic window-mounted Yagi project only; not GMRS, VHF/UHF or broadcast-FM construction. Undated December 2025-era project documentation, not a complete printable kit or validated RF design. No qualified electrical, fabrication or regulatory review. Supplier links and performance claims not independently certified.",
+      "dependencies": [
+        "Companion build instructions, BOM and element-preparation supplement are all installed; original build assumed club kits with prepared elements.",
+        "3D-printed boom, handle, window bracket and wrench are required/referenced; model files not acquired, inspected, validated or bundled. No fabrication-ready kit supplied.",
+        "NanoVNA, appropriate radio, tools and hardware are external dependencies; separately supplied YagiCAD model graphs/images/software are not installed."
+      ],
+      "extraction_notice": "Gravestone, 2026-11-05: unmodified original PDF retained. Separate UTF-8 search representation machine-extracted with pypdf; figures, layout and other non-textual content are not reproduced in this derivative. No correction, OCR or AI-authored instructions. All original rights/notices remain applicable; see this manifest entry, companion rights snapshots and THIRD_PARTY_NOTICES.md.",
+      "source_git_blob_sha1": "58c884d73d5092721d3fbc8b784d3d99cf7ee8df"
     }
   ],
   "map": {

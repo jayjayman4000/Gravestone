@@ -1,0 +1,8 @@
+Brass Rods Source URL Vendor Pkg Info Notes
+Coaxial Cable https://www.amazon.com/dp/B07SZ24TQD Amazon pkg/2 pcs yields 4 cables - cut each whole length in half
+Brass Rods https://www.amazon.com/dp/B09VN6K745 Amazon pkg/30 pcs each antenna requires 3 rods, but can be cut in  less if cutting for quantity build
+Suction Cup https://www.amazon.com/dp/B0BCKCKQ33 Amazon pkg/12 pcs each antenna uses one piece
+Nylon Screw https://www.digikey.com/en/products/detail/essentra-components/011032p200/9677317 Digikey per piece each antenna uses one piece
+Wing Nut https://www.digikey.com/en/products/detail/essentra-components/0601032wn/10243310 Digikey per piece each antenna uses one piece
+Flat Washers https://www.amazon.com/dp/B0DC6PYKT6 Amazon pkg/200 pcs each antenna uses 2 pieces
+Lock Washers https://www.amazon.com/dp/B0714PXB3G Amazon pkg/100 pcs each antenna uses 2 pieces

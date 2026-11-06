@@ -128,6 +128,16 @@ class BuildConfigTests(unittest.TestCase):
         self.assertIn("BIOS", smoke)
         self.assertIn("UEFI", smoke)
 
+    def test_measured_cooldown_precedes_real_overview_gate(self):
+        build = (ROOT / 'scripts/build-live.sh').read_text()
+        cooldown = 'python3 -u "$repo/scripts/wait-for-host-load.py"'
+        self.assertIn(cooldown, build)
+        self.assertIn('set -euo pipefail', build)
+        self.assertLess(build.index('-p test_ai_package.py'), build.index(cooldown))
+        self.assertLess(build.index(cooldown), build.index('GRAVESTONE_OVERVIEW_REAL_ROOT='))
+        # A failed cooldown must not be made optional by a shell conditional.
+        self.assertEqual(build.split(cooldown)[1].splitlines()[0], '')
+
     def test_real_overview_gate_runs_before_image_build(self):
         build = (ROOT / "scripts/build-live.sh").read_text()
         for token in ('GRAVESTONE_OVERVIEW_REAL_ROOT="$app_root"',

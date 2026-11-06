@@ -22,6 +22,8 @@ GRAVESTONE_AI_MODEL="$app_root/models/Qwen3-0.6B-Q8_0.gguf" \
 GRAVESTONE_AI_EVIDENCE="$out/real-inference.json" \
     python3 -m unittest discover -s tests -p test_ai_package.py -v
 # Exercise substantive source overviews against the exact packaged model too.
+# Let compile/inference load decay; timeout fails the build, never skips the gate.
+python3 -u "$repo/scripts/wait-for-host-load.py"
 GRAVESTONE_OVERVIEW_REAL_ROOT="$app_root" \
 GRAVESTONE_OVERVIEW_EVIDENCE="$out/overview-inference" \
     python3 -m unittest discover -s tests -p test_overview_real.py -v

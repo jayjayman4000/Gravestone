@@ -109,7 +109,7 @@ def vm_command(iso, root):
 
 # Standalone guest program: stdlib and the production image's existing tools only.
 GUEST_SOURCE = r'''
-import hashlib, json, os, pathlib, pwd, subprocess, time, urllib.request
+import hashlib, json, os, pathlib, pwd, subprocess, time, urllib.request, urllib.error
 BASE = 'http://127.0.0.1:8766'
 FIXTURE = 'http://10.0.2.2:8000'
 HTTP = urllib.request.build_opener(urllib.request.ProxyHandler({}))
@@ -178,6 +178,58 @@ def helper(action):
                    check=True, timeout=25)
 
 
+def diagnostic_command(args, raw=None, timeout=8):
+    # Pipes are essential: the SAME production worker sets RLIMIT_FSIZE=0.
+    # Never redirect its stdout to an evidence file or loosen its limits.
+    start = time.monotonic()
+    result = {'returncode': None}
+    try:
+        proc = subprocess.run(args, input=raw, cwd='/opt/gravestone',
+                              stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
+        result.update(status='exited', returncode=proc.returncode,
+                      stdout=proc.stdout, stderr=proc.stderr)
+    except subprocess.TimeoutExpired as exc:
+        result.update(status='timeout', stdout=exc.output or b'', stderr=exc.stderr or b'')
+    except Exception as exc:
+        result.update(status='unavailable', stdout=b'', stderr=type(exc).__name__.encode())
+    result['elapsed_seconds'] = round(time.monotonic() - start, 3)
+    for key in ('stdout', 'stderr'):
+        value = result[key]
+        result[key + '_truncated'] = len(value) > 4096
+        result[key] = value[-4096:].decode('utf-8', errors='replace')
+    return result
+
+
+def import_document(request, raw):
+    try:
+        with HTTP.open(request, timeout=30) as response:
+            assert response.status == 201
+            return json.load(response)
+    except urllib.error.HTTPError as exc:
+        # Diagnostic only: no retry, acceptance marker or private-data API reads.
+        record = {'http_status': exc.code}
+        try:
+            body = exc.read(4097)
+            record.update(http_body=body[:4096].decode('utf-8', errors='replace'),
+                          http_body_truncated=len(body) > 4096)
+        except Exception as read_error:
+            record['http_body_error'] = type(read_error).__name__
+        user_python = ['/usr/sbin/runuser', '-u', 'user', '--', '/usr/bin/python3']
+        record['worker'] = diagnostic_command(user_python + ['-m', 'app.personal_parser'],
+                                               raw=raw, timeout=40)
+        record['parser_module'] = diagnostic_command(user_python + ['-c',
+            'try:\n import pypdf as parser\nexcept ImportError:\n import PyPDF2 as parser\n'
+            'print(parser.__name__, parser.__version__, parser.__file__)'])
+        record['systemctl'] = diagnostic_command(['systemctl', 'show', 'gravestone.service',
+            '-p', 'ActiveState', '-p', 'SubState', '-p', 'Result', '-p', 'ExecMainStatus',
+            '-p', 'User', '-p', 'WorkingDirectory', '-p', 'MemoryCurrent', '-p', 'MemoryMax',
+            '-p', 'TasksCurrent', '-p', 'TasksMax', '-p', 'LimitAS', '-p', 'LimitFSIZE'])
+        record['journal'] = diagnostic_command(['journalctl', '-b', '-u', 'gravestone.service',
+            '--no-pager', '-n', '40', '-o', 'short-monotonic'])
+        print('IMPORT_DIAGNOSTIC=' + json.dumps(record, ensure_ascii=True), flush=True)
+        raise
+
+
 def main():
     nics = [p for p in pathlib.Path('/sys/class/net').iterdir()
             if (p / 'address').read_text().strip() == '52:54:00:12:34:56']
@@ -208,9 +260,7 @@ def main():
         headers={'Origin': BASE, 'Content-Type': 'application/pdf',
                  'X-Personal-Rights': 'acknowledged', 'X-Document-Title': 'Networking QA fixture'},
         method='POST')
-    with HTTP.open(request, timeout=30) as response:
-        assert response.status == 201
-        document = json.load(response)
+    document = import_document(request, raw)
     assert document['personal'] is True and document['sha256'] == EXPECTED_SHA256
     assert get(BASE + '/' + document['file']) == raw
     helper('offline')

@@ -243,6 +243,105 @@ class NetworkingHarnessTests(unittest.TestCase):
         self.assertIn("--exclude='tests'", preparation)
         self.assertIn("--exclude='.github'", preparation)
 
+    def test_http400_emits_bounded_diagnostic_and_reraises_same_error(self):
+        import contextlib
+        import io
+        import json
+        import subprocess
+        import urllib.error
+        import urllib.request
+        from unittest.mock import patch
+        h = load_harness()
+        ns: dict[str, Any] = {'__name__': 'guest_test'}
+        exec(h.guest_program('a' * 64), ns)
+        from email.message import Message
+        error = urllib.error.HTTPError(ns['BASE'], 400, 'Bad Request', Message(),
+                                       io.BytesIO(b'import failed ' + b'x' * 20000))
+        calls = []
+        def run(args, **kwargs):
+            calls.append((args, kwargs))
+            if 'app.personal_parser' in args:
+                return subprocess.CompletedProcess(args, 1, b'worker output', b'e' * 20000)
+            return subprocess.CompletedProcess(args, 0, b'module version or service status\n' * 1000, b'')
+        output = io.StringIO()
+        with patch.object(ns['HTTP'], 'open', side_effect=error), \
+                patch.object(ns['subprocess'], 'run', side_effect=run), \
+                contextlib.redirect_stdout(output):
+            with self.assertRaises(urllib.error.HTTPError) as caught:
+                ns['import_document'](object(), h.pdf_bytes())
+        self.assertIs(caught.exception, error)
+        record = json.loads(output.getvalue().split('IMPORT_DIAGNOSTIC=', 1)[1])
+        self.assertEqual(record['http_status'], 400)
+        self.assertLessEqual(len(record['http_body']), 4096)
+        self.assertEqual(record['worker']['returncode'], 1)
+        self.assertEqual(record['worker']['status'], 'exited')
+        self.assertGreaterEqual(record['worker']['elapsed_seconds'], 0)
+        self.assertLessEqual(len(record['worker']['stderr']), 4096)
+        self.assertIn('parser_module', record)
+        self.assertIn('systemctl', record)
+        self.assertIn('journal', record)
+        self.assertLess(len(output.getvalue()), 40000)
+        worker_args, worker_kw = next(c for c in calls if 'app.personal_parser' in c[0])
+        self.assertEqual(worker_args, ['/usr/sbin/runuser', '-u', 'user', '--',
+                                     '/usr/bin/python3', '-m', 'app.personal_parser'])
+        self.assertEqual(worker_kw['cwd'], '/opt/gravestone')
+        self.assertEqual(worker_kw['input'], h.pdf_bytes())
+        self.assertEqual(worker_kw['timeout'], 40)
+        self.assertIs(worker_kw['stdout'], subprocess.PIPE)
+        self.assertIs(worker_kw['stderr'], subprocess.PIPE)
+        for args, kw in calls:
+            self.assertGreater(kw['timeout'], 0)
+            self.assertLessEqual(kw['timeout'], 40)
+            self.assertNotIn('shell', kw)
+        self.assertEqual(sum('app.personal_parser' in a for a, _ in calls), 1)
+
+    def test_actual_http400_and_diagnostic_timeout_do_not_become_success(self):
+        import contextlib
+        import http.server
+        import io
+        import json
+        import subprocess
+        import threading
+        import urllib.error
+        import urllib.request
+        from unittest.mock import patch
+        h = load_harness()
+        ns: dict[str, Any] = {'__name__': 'guest_test'}
+        source = h.guest_program('a' * 64)
+        exec(source, ns)
+        class Handler(http.server.BaseHTTPRequestHandler):
+            def do_POST(self):
+                self.send_response(400)
+                self.send_header('Content-Length', '14')
+                self.end_headers()
+                self.wfile.write(b'parser refused')
+            def log_message(self, *args):
+                pass
+        server = http.server.HTTPServer(('127.0.0.1', 0), Handler)
+        thread = threading.Thread(target=server.serve_forever, daemon=True); thread.start()
+        output = io.StringIO()
+        def timeout(args, **kw):
+            raise subprocess.TimeoutExpired(args, kw['timeout'], output=b'o' * 20000,
+                                             stderr=b'e' * 20000)
+        try:
+            req = urllib.request.Request(f'http://127.0.0.1:{server.server_port}/import',
+                                         h.pdf_bytes(), method='POST')
+            with patch.object(ns['subprocess'], 'run', side_effect=timeout), \
+                    contextlib.redirect_stdout(output):
+                with self.assertRaises(urllib.error.HTTPError) as caught:
+                    ns['import_document'](req, h.pdf_bytes())
+            self.assertEqual(caught.exception.code, 400)
+            record = json.loads(output.getvalue().split('IMPORT_DIAGNOSTIC=', 1)[1])
+            self.assertEqual(record['http_body'], 'parser refused')
+            self.assertEqual(record['worker']['status'], 'timeout')
+            self.assertIsNone(record['worker']['returncode'])
+            self.assertLessEqual(len(record['worker']['stdout']), 4096)
+            self.assertLess(len(output.getvalue()), 50000)
+            self.assertNotIn('NETWORK_RESULT=', output.getvalue())
+            self.assertIn('document = import_document(request, raw)', source)
+        finally:
+            server.shutdown(); server.server_close(); thread.join(timeout=3)
+
     def test_isolation_checks_fail_closed(self):
         h = load_harness()
         good = 'CapEff:\t0000000000000000\nNoNewPrivs:\t1\n'

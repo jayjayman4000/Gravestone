@@ -9,9 +9,9 @@ from test_reverify_workflow import ReverifyWorkflowTests as GuardFixtures
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / '.github/workflows/diagnose-networking.yml'
-IMAGE_SOURCE = 'f483c265a417511a38c0eb4cc01b79f37d932ab5'
-IMAGE_RUN = '42164540994'
-IMAGE_SHA = '6b0c38671887cd54a8fbc7ac486e52bc628c35172e23de83a643b691bb7bf2ce'
+IMAGE_SOURCE = '80b4d44487c4aad230f788400c56d0134bd3d701'
+IMAGE_RUN = '42269018314'
+IMAGE_SHA = '3e05fcab634a15a81b204a1ea9f80d23e9126706fcd90e16d0970163e53f9bfa'
 
 
 class NetworkingDiagnosticWorkflowTests(unittest.TestCase):

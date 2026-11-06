@@ -144,6 +144,51 @@ class NetworkingHarnessTests(unittest.TestCase):
             finally:
                 left.close(); right.close()
 
+    def test_total_budget_covers_parser_increase_and_tcg_shutdown(self):
+        import ast
+        from app.personal import PARSER_WALL_TIMEOUT
+        h = load_harness()
+        self.assertEqual(PARSER_WALL_TIMEOUT, 40)
+        self.assertEqual(getattr(h, 'NETWORK_TOTAL_SECONDS', None), 420)
+        # Previous total plus the 12 -> 40 parser increase and a 90s
+        # shutdown reserve, rounded up. This is one total, not per phase.
+        self.assertGreaterEqual(h.NETWORK_TOTAL_SECONDS, 300 + (40 - 12) + 90)
+        tree = ast.parse((ROOT / 'scripts/test-networking.py').read_text())
+        run = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'run')
+        deadlines = [n for n in ast.walk(run) if isinstance(n, ast.Assign)
+                     and any(isinstance(t, ast.Name) and t.id == 'deadline' for t in n.targets)]
+        self.assertEqual(len(deadlines), 1, 'never renew the total budget for shutdown')
+        self.assertEqual(ast.unparse(deadlines[0].value),
+                         'time.monotonic() + NETWORK_TOTAL_SECONDS')
+        calls = [n for n in ast.walk(run) if isinstance(n, ast.Call)
+                 and isinstance(n.func, ast.Name) and n.func.id == 'collect_serial']
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(ast.unparse(calls[0].args[2]), 'deadline')
+
+    def test_serial_uses_supplied_absolute_deadline_without_renewal(self):
+        import socket
+        from unittest.mock import Mock, patch
+        h = load_harness()
+        proc, conn = Mock(), Mock()
+        clock = [700.0]
+        def recv(_):
+            clock[0] += conn.settimeout.call_args.args[0]
+            raise socket.timeout()
+        conn.recv.side_effect = recv
+        with tempfile.TemporaryDirectory() as tmp, \
+                patch.object(h.time, 'monotonic', side_effect=lambda: clock[0]):
+            with self.assertRaisesRegex(TimeoutError, 'before total deadline'):
+                h.collect_serial(proc, conn, 702.5, '', Path(tmp) / 'timeout.log')
+        self.assertEqual(clock[0], 702.5)
+        self.assertEqual([c.args[0] for c in conn.settimeout.call_args_list], [1, 1, .5])
+        proc.wait.assert_not_called()
+        conn.sendall.assert_not_called()
+        # EOF waits only for the remainder of that same absolute budget.
+        conn.reset_mock(); conn.recv.side_effect = None; conn.recv.return_value = b''
+        with tempfile.TemporaryDirectory() as tmp, patch.object(h.time, 'monotonic', return_value=702):
+            self.assertEqual(h.collect_serial(proc, conn, 702.5, '', Path(tmp) / 'eof.log'), '')
+        proc.wait.assert_called_once_with(timeout=.5)
+
     def test_result_requires_one_marker_exact_hits_hash_and_clean_exit(self):
         import json
         h = load_harness()

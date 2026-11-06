@@ -19,6 +19,13 @@ import threading
 import time
 
 
+# One boot-through-kernel-poweroff budget. The retained 300s run completed
+# import/offline checks but reached only poweroff.target before timing out.
+# Allow the parser's 12 -> 40s increase plus 90s TCG shutdown headroom,
+# rounded up (300 + 28 + 90 = 418). Never renew this deadline per phase.
+NETWORK_TOTAL_SECONDS = 420
+
+
 def pdf_bytes():
     # Synthetic QA text, explicitly not survival guidance or shipped content.
     objects = [b'<< /Type /Catalog /Pages 2 0 R >>',
@@ -396,7 +403,7 @@ def run():
             proc = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=log, stderr=log)
             conn = socket.socket(socket.AF_UNIX)
             try:
-                deadline = time.monotonic() + 300
+                deadline = time.monotonic() + NETWORK_TOTAL_SECONDS
                 serial = root / 'serial.sock'
                 while not serial.exists():
                     if proc.poll() is not None or time.monotonic() >= deadline:

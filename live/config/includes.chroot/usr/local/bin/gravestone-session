@@ -5,10 +5,15 @@ xset -dpms || true
 xset s noblank || true
 openbox &
 wm=$!
-trap 'kill "$wm" 2>/dev/null || true' EXIT HUP INT TERM
+cd /opt/gravestone
+# Inherit the real display and DBus environment, outside the HTTP service sandbox.
+python3 -B -m app.desktop &
+bridge=$!
+trap 'kill "$bridge" "$wm" 2>/dev/null || true' EXIT HUP INT TERM
 /usr/local/bin/gravestone-wait-ready
-# Keep the X session alive; restart the kiosk if its window is closed.
+mkdir -p "$HOME/.mozilla/gravestone-kiosk" "$HOME/Downloads"
+# Keep the X session alive; never share the online browser's profile/window.
 while :; do
-    firefox-esr --no-remote --kiosk http://127.0.0.1:8766 || true
+    firefox-esr --no-remote --profile "$HOME/.mozilla/gravestone-kiosk" --kiosk http://127.0.0.1:8766 || true
     sleep 2
 done

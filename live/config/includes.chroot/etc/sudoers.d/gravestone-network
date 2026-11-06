@@ -1,0 +1,1 @@
+user ALL=(root) NOPASSWD: /usr/local/sbin/gravestone-network online, /usr/local/sbin/gravestone-network offline

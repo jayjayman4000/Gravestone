@@ -32,6 +32,7 @@
     </nav>
     <div id="utility-navigation" class="utility-navigation" role="group" aria-label="Archive utilities">
       <button type="button" id="nav-display-menu" class="primary" aria-haspopup="dialog" aria-controls="display-menu">Display colors</button>
+      <button type="button" id="nav-network-setup" aria-haspopup="dialog" aria-controls="online-setup">Network &amp; downloads</button>
       <button type="button" id="nav-online-setup" aria-haspopup="dialog" aria-controls="online-setup">Import personal content</button>
       <button type="button" id="nav-start-here" class="start-button" aria-haspopup="dialog" aria-controls="start-here">Start here <span aria-hidden="true">→</span></button>
     </div>
@@ -70,8 +71,17 @@
 <dialog id="online-setup" class="workspace-dialog" aria-labelledby="setup-title">
   <header class="drawer-header"><h2 id="setup-title">Import personal content</h2><button type="button" id="setup-skip" class="primary">Close / Home</button></header>
   <div class="drawer-body">
-    <p>Prepare your own equipment manuals and other authorized PDFs on an ordinary computer before flashing. Use official publishers, check the exact equipment model and applicable terms, and keep the original files and a separate private backup. Transfer the files to this archive when ready.</p>
-    <p>This screen imports local PDFs only; it does not prepare or flash a bootable drive. Nothing downloads automatically. Installed documents remain available offline. Gravestone cannot configure Wi-Fi or accept publisher terms for you.</p>
+    <p>Prepare your own equipment manuals and other authorized PDFs on an ordinary computer, or use the optional on-appliance network and download workflow below. Use official publishers, check the exact equipment model and applicable terms, and keep the original files and a separate private backup. Transfer the files to this archive when ready.</p>
+    <p>Nothing connects or downloads automatically. Installed documents remain available offline. This screen does not flash drives or accept publisher terms for you.</p>
+    <h3>Optional network &amp; downloads</h3>
+    <p>The live image starts offline every boot, including with persistence. To connect now, enable networking and use the native NetworkManager screen for Wi-Fi or wired connections. Passwords stay in the native screen, not this web app. This requires a keyboard (Tab, arrow keys, Enter); choose Activate a connection, then Back / Quit to return.</p>
+    <div class="note-actions"><button type="button" id="setup-network-connect">Enable network / Wi-Fi &amp; wired setup</button><button type="button" id="setup-network-offline">Go offline</button><button type="button" id="setup-network-refresh">Refresh network status</button></div>
+    <p id="setup-network-state" role="status">Network status not checked.</p>
+    <button type="button" id="setup-browser">Open download browser</button>
+    <p>Opens a normal Firefox window with its own profile and address bar. Visit an official publisher, check applicable terms, and save an authorized PDF. Downloads go to <strong>/home/user/Downloads</strong> (Home → Downloads). If a PDF opens in Firefox, use its Download button. Close the browser window with its × or Alt+F4 to return here; the archive stays open behind it. Alt+Tab switches between windows.</p>
+    <p>Then choose a local PDF below. In the file chooser choose Home → Downloads, or press Ctrl+L and enter /home/user/Downloads. Enter a title and import. Choose Go offline when finished; reading/import/search continue locally. Downloads are not imported automatically and may disappear at shutdown without verified persistence. Keep a separate backup. Network connections/passwords may persist with root-union persistence, but networking is still off at each boot.</p>
+    <p class="small">If a publisher opens a new browser window, close all download-browser windows before returning. Prefer the publisher’s actual PDF download link or the PDF viewer’s Download button, not Save Page As for an HTML page.</p>
+    <p id="setup-network-status" role="status" aria-live="polite"></p>
     <h3>Import a personally acquired PDF</h3>
     <form id="setup-import">
       <label for="setup-title-input">Your document title</label><input id="setup-title-input" type="text" maxlength="200" required>

@@ -1,0 +1,31 @@
+#!/bin/sh
+# Root-owned, fixed actions only. Never source user input or accept a device/command.
+set -eu
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+export PATH
+[ "$(id -u)" = 0 ] || exit 1
+[ "$#" = 1 ] || exit 2
+case "$1" in
+    online)
+        # Complete the boot reset before creating this boot's explicit consent marker.
+        /usr/bin/timeout 5 systemctl start gravestone-network-default.service
+        touch /run/gravestone-network-enabled
+        if ! /usr/bin/timeout 5 systemctl start NetworkManager.service; then
+            rm -f /run/gravestone-network-enabled
+            exit 1
+        fi
+        nmcli --wait 5 networking on
+        nmcli --wait 5 radio wifi on
+        ;;
+    offline)
+        failed=0
+        if systemctl is-active --quiet NetworkManager.service; then
+            nmcli --wait 5 radio wifi off || failed=1
+            nmcli --wait 5 networking off || failed=1
+        fi
+        rm -f /run/gravestone-network-enabled
+        /usr/bin/timeout 5 systemctl stop NetworkManager.service || failed=1
+        exit "$failed"
+        ;;
+    *) exit 2 ;;
+esac

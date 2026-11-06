@@ -41,7 +41,7 @@ class ConsoleLayoutTests(unittest.TestCase):
         self.assertEqual(primary_ids, ['nav-home', 'nav-library', 'nav-notebook', 'nav-map'])
         self.assertEqual(nodes['nav-home']['attrs']['href'], '#main')
         utility_ids = [key for key, node in nodes.items() if utilities in node['ancestors']]
-        self.assertEqual(utility_ids, ['nav-display-menu', 'nav-online-setup', 'nav-start-here'])
+        self.assertEqual(utility_ids, ['nav-display-menu', 'nav-network-setup', 'nav-online-setup', 'nav-start-here'])
         self.assertNotIn(utilities, nodes['nav-map']['ancestors'])
         css = (ROOT / 'app/static/style.css').read_text()
         self.assertRegex(css, r'\.primary-navigation\s*\{[^}]*grid-template-columns:\s*repeat\(4,\s*max-content\)')

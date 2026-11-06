@@ -13,6 +13,9 @@ python3-pypdf2
 curl
 ca-certificates
 dbus-x11
+network-manager
+xterm
+policykit-1
 x11-xserver-utils
 fonts-dejavu-core
 locales

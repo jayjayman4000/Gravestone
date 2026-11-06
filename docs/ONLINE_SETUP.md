@@ -1,6 +1,28 @@
-# Personal preparation and offline import
+# Optional networking, downloads and personal import
 
-Prepare personal material on your normal internet-connected computer **before flashing**. The generic Gravestone appliance does not ship a creator-specific radio/vehicle catalog or configure networking.
+Gravestone remains offline by default. Prepare material on an ordinary computer, or explicitly connect the live appliance when needed. The generic archive has no creator-specific equipment catalog and never accepts publisher terms or downloads personal documents automatically.
+
+## Connect on the live appliance (optional)
+
+1. On Home choose **Network & downloads** (also available through **Import personal content**).
+2. Choose **Enable network / Wi-Fi & wired setup**. This starts NetworkManager for this boot and enables networking/Wi-Fi. A normal wired DHCP connection may connect immediately. The separate native `nmtui` screen opens in xterm; use Tab/arrow keys/Enter, **Activate a connection** for Wi-Fi or wired, and **Edit a connection** if a wired profile needs manual configuration. Enter passwords only there. This is keyboard-driven, not a touch-only network manager.
+3. Choose **Back / Quit** or close xterm to return. **Refresh network status** reads NetworkManager's local state; connected does not prove internet or publisher availability. Missing hardware/firmware, unsupported Wi-Fi, captive portals, enterprise authentication and restricted networks may require administrator help. Only Debian main drivers are packaged; no proprietary firmware is added.
+4. Choose **Open download browser**. A normal Firefox window opens at a blank page, with an address bar, separate from the kiosk. Navigate to legitimate publishers, check exact equipment/edition and applicable terms, and download an authorized **original PDF**, not a printed HTML page. If Firefox displays a PDF, use its Download button. No publisher-specific bookmarks or permissions are implied.
+5. Downloads default to **`/home/user/Downloads`**. Close the normal browser (× or Alt+F4; close all of its windows if more opened) to reveal the unchanged archive. Alt+Tab switches windows. The kiosk has its own profile and remains open; neither native window replaces its page or loses notebook drafts.
+6. In the import form, choose a local PDF. In Firefox's native chooser select **Home → Downloads**, or press **Ctrl+L**, enter `/home/user/Downloads`, then select the PDF. Enter its title, acknowledge authorized personal storage and choose **Import personal PDF**. Wait for the library read-back confirmation, then open **Source Documents** to read/search it.
+7. Choose **Go offline** when finished. NetworkManager networking/Wi-Fi are disabled and its service is stopped. This does not close browser windows, erase downloads/passwords, disable Bluetooth, or impose a hardware radio kill switch. Local PDF import, reading, search, notebook and installed maps keep working.
+
+The live recipe resets networking to disabled **every boot**, even if a root-union persistent overlay remembers NetworkManager settings. Reconnection requires the explicit enable action again. Saved connection profiles/passwords can persist under `/etc` with root-union persistence; downloads and both Firefox profiles live under `/home/user`. None is encrypted. Without verified persistence, downloads/imports may disappear at shutdown. Keep separate permitted backups; the notebook/maps backup excludes personal PDFs and download-browser state.
+
+When running a source checkout without the live desktop session, native launch actions report unavailable; local file import still works. The web app never accepts commands, arbitrary executable paths, URLs or Wi-Fi secrets. It only sends fixed same-origin actions to a private same-user Unix socket in the X session. That session invokes fixed shell-free command arrays. The bridge uses sudoers entries for only two exact helper arguments; it never passes arbitrary privileged arguments. The HTTP backend retains `NoNewPrivileges` and its original filesystem sandbox. Neither service is a public-network endpoint.
+
+### Maintainer contract / verification
+
+- Fixed root helper: `/usr/local/sbin/gravestone-network online` or `offline`; live account: `sudo -n /usr/local/sbin/gravestone-network online` to enable, or `sudo -n /usr/local/sbin/gravestone-network offline` to disable. It does not open nmtui; graphical launch is separate.
+- `gravestone-network-default.service` writes disabled NetworkManager state before NM can start. The NM drop-in requires this reset and a transient `/run/gravestone-network-enabled` marker. NM is installed but disabled, not permanently masked; competing DHCP/network services remain masked. The helper never changes boot enablement.
+- `python3 -B -m app.desktop` runs only in the live X session, inheriting its display/DBus environment. Its socket is `/home/user/.local/share/gravestone-desktop/control.sock`, mode 0600, same-UID peers only, single session lock. HTTP has no generic proxy or download endpoint.
+- `POST /api/desktop/network-online`, `network-settings`, `network-offline`, `browser`: exact `{}` JSON body only; exact loopback Host/Origin and same-origin Fetch metadata required; malformed/duplicate framing rejected and connection closed. `GET /api/desktop/status` is read-only and does not enable networking. A successful launch acknowledges process creation, not confirmed display/internet/download.
+- Unit/HTTP/Node tests use disposable directories and mocks only at native command boundaries. They do **not** change host networking or prove native NetworkManager/Firefox behavior on a booted image. Verify real Wi-Fi/wired, browser download → chooser → import/read/search → offline and reboot-default-off on the exact next image; physical Wi-Fi remains a separate gate.
 
 ## Prepare on your normal computer
 

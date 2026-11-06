@@ -138,12 +138,19 @@ notes save. Backend markers alone do not prove Xorg/LightDM/Firefox succeeded.
 
 - The service cannot write the source system. Notes live under the user's
   home; the browser profile is also in home. No automatic cloud sync exists.
-- External network auto-configuration services are masked; the provided
-  interfaces file configures loopback only. The kernel uses `ip=frommedia`.
-  There is no NetworkManager connection or DHCP autoconnect. Firefox telemetry,
-  studies, first-run pages and captive-portal checking are disabled. This is
-  **offline by default**, not a hardened network sandbox or hardware radio
-  kill switch. A privileged user can change configuration.
+- The interfaces file configures loopback only; the kernel uses `ip=frommedia`.
+  NetworkManager is installed but disabled and boot-gated by a transient opt-in
+  marker. `gravestone-network-default.service` resets NM networking/radios off
+  each boot, including root-union persistence. Home's **Network & downloads**
+  explicitly enables NM, opens native nmtui (xterm) for Wi-Fi/wired setup, and
+  offers **Go offline** to disable networking and stop NM. Competing automatic
+  networking services remain masked; wpa_supplicant is available to NM on demand.
+  Firefox telemetry, studies, first-run pages and captive-portal checking remain
+  disabled. The normal download browser has a separate profile/window and uses
+  `/home/user/Downloads`, accessible from the personal PDF import chooser.
+  See [network/download/import instructions](ONLINE_SETUP.md). This is
+  **offline by default**, not a hardened network sandbox or hardware radio kill
+  switch. Physical Wi-Fi support depends on available drivers/firmware.
 - Swap discovery is disabled in kernel arguments and `swap.target` is masked.
   UDisks is masked, and no desktop file manager or installer is included.
   Ordinary internal volumes are not automatically mounted into the desktop

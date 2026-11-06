@@ -43,6 +43,12 @@ The Maps view is fullscreen, not a tiny home decoration. County packs provide re
 
 Installed map data is served locally from the configured external writable data directory. It retains original ZIPs and source/digest/edition metadata, with bounded atomic conversion. Network availability/configuration is separate from a Download button; the live image still defaults to offline operation. Detailed global maps, computed routes, live passability, elevation and water drinkability are not supplied. Missing topography is shown disabled, not faked. See `MAPS.md` for import/download steps, limits and actual execution evidence.
 
+## Optional network and download setup
+
+Home's **Network & downloads** opens the same private import workspace, with an explicit enable/native Wi-Fi & wired setup action, a normal separate Firefox download window, local NetworkManager status and **Go offline**. Nothing enables networking at page load. The kiosk is never navigated to external pages. The native chooser can import downloaded PDFs from `/home/user/Downloads`; imported originals retain the existing validation/read-back/private-library behavior. See [the complete workflow and native/boot verification limits](ONLINE_SETUP.md).
+
+The live X-session bridge accepts only fixed local actions, not web-provided shell commands/URLs/credentials. The HTTP backend remains unprivileged and sandboxed. Native actions are unavailable for a standalone source-server without the live desktop; offline imports remain functional.
+
 ## Run on an existing computer
 
 Requires Linux and Python 3.11+. The app uses the standard library plus the bundled, licensed pure-Python shapefile reader; no pip installation or online browser assets are needed. JavaScript and canvas must be enabled.
@@ -71,6 +77,8 @@ A successful Save or application restart test does not prove USB-reboot or power
 - `GET /api/status`: backend readiness and unverified-persistence note, not a safety certification.
 - `GET /api/system`: actual configured-volume storage and supported sysfs battery readings.
 - `GET/POST /api/notes`: local plain-text notebook, JSON `{text}` on mutations.
+- `GET /api/desktop/status`: read-only local NetworkManager state through the live desktop bridge.
+- `POST /api/desktop/{network-online,network-settings,network-offline,browser}`: fixed live-session actions; exact empty JSON object only, same-origin protected; no command/URL inputs. See `ONLINE_SETUP.md`.
 - `/api/maps/*`: see `MAPS.md` for opt-in download, local data/import/removal and job routes.
 
 Host validation applies to reads/writes. Mutations require an exactly matching loopback Origin and accepted same-origin Fetch metadata. Transfer encoding and duplicate/missing/oversized Content-Length are rejected as applicable; no permissive CORS is added. Notebook transport permits bounded JSON-escaping overhead. Errors retain appropriate statuses instead of inventing content or accepting partial input.

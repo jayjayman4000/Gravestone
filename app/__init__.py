@@ -167,6 +167,12 @@ class Handler(BaseHTTPRequestHandler):
         if path.startswith('/personal/'):
             from .personal import serve_personal
             return serve_personal(self)
+        if path == '/api/desktop/status':
+            from .desktop import request_action
+            try:
+                return self.send_json(200, request_action('status'))
+            except (OSError, ValueError):
+                return self.send_json(503, {'error': 'Live desktop unavailable; local PDF import still works.'})
         if path == '/api/setup':
             return self.send_json(200, {'automatic_downloads': False, 'import_kind': 'local-personal-pdf'})
         if path == '/api/system':
@@ -259,6 +265,9 @@ class Handler(BaseHTTPRequestHandler):
 
 
     def do_POST(self):
+        if self.path.startswith('/api/desktop/'):
+            from .desktop import handle_post
+            return handle_post(self)
         if self.path == '/api/personal/import':
             from .personal import handle_import
             return handle_import(self)

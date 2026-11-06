@@ -1,0 +1,11 @@
+[Unit]
+Description=Reset Gravestone opt-in networking each boot
+Before=NetworkManager.service network-pre.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/gravestone-network-default
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

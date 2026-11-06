@@ -1,0 +1,12 @@
+#!/bin/sh
+# Runs every live boot, even with root-union persistence. Does not start NM.
+set -eu
+rm -f /run/gravestone-network-enabled
+install -d -m 0700 /var/lib/NetworkManager
+cat > /var/lib/NetworkManager/NetworkManager.state <<'STATE'
+[main]
+NetworkingEnabled=false
+WirelessEnabled=false
+WWANEnabled=false
+STATE
+chmod 0600 /var/lib/NetworkManager/NetworkManager.state

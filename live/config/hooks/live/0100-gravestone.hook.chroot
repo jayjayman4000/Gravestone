@@ -1,9 +1,12 @@
 #!/bin/sh
 set -eu
-chmod 0755 /usr/local/bin/gravestone-* /usr/local/sbin/gravestone-boot-smoke
-systemctl enable gravestone.service gravestone-ai.service gravestone-smoke.service lightdm.service
-# No external network auto-configuration, desktop disk automount, or swap.
-# Mask absent units as well, so a future dependency cannot silently activate them.
-systemctl mask networking.service NetworkManager.service systemd-networkd.service \
-    systemd-networkd.socket wpa_supplicant.service udisks2.service swap.target
+chmod 0755 /usr/local/bin/gravestone-* /usr/local/sbin/gravestone-*
+chmod 0440 /etc/sudoers.d/gravestone-network
+visudo -cf /etc/sudoers.d/gravestone-network
+systemctl enable gravestone.service gravestone-ai.service gravestone-smoke.service lightdm.service gravestone-network-default.service
+# NetworkManager can be explicitly started only after this boot's opt-in marker.
+systemctl disable NetworkManager.service NetworkManager-wait-online.service
+# No competing DHCP, desktop disk automount, or swap. NM starts wpa_supplicant on demand.
+systemctl mask networking.service systemd-networkd.service \
+    systemd-networkd.socket udisks2.service swap.target
 systemctl set-default graphical.target

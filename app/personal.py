@@ -16,6 +16,7 @@ from .maps import _publish_directory, _clear_directory
 MAX_PDF = 32 * 1024 * 1024
 MAX_TEXT = 16 * 1024 * 1024
 MAX_PAGES = 1000
+PARSER_WALL_TIMEOUT = 40
 
 
 def extract(raw):
@@ -24,10 +25,10 @@ def extract(raw):
         raise ValueError('Expected a complete PDF, not a web page or partial download')
     try:
         result = subprocess.run([sys.executable, '-m', 'app.personal_parser'], input=raw,
-                                stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, timeout=12,
+                                stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, timeout=PARSER_WALL_TIMEOUT,
                                 cwd=Path(__file__).resolve().parent.parent)
     except subprocess.TimeoutExpired as exc:
-        raise ValueError('PDF parsing exceeded 12 seconds') from exc
+        raise ValueError(f'PDF parsing exceeded {PARSER_WALL_TIMEOUT} seconds') from exc
     if result.returncode == 3:
         raise ValueError('PDF parser unavailable; install python3-pypdf2 (or pypdf) before importing')
     if result.returncode or len(result.stdout) > MAX_TEXT + 32768:

@@ -243,6 +243,26 @@ class NetworkingHarnessTests(unittest.TestCase):
         self.assertIn("--exclude='tests'", preparation)
         self.assertIn("--exclude='.github'", preparation)
 
+    def test_import_client_allows_60_seconds_without_changing_get_timeout(self):
+        import io
+        import json
+        from unittest.mock import patch
+        h = load_harness()
+        ns: dict[str, Any] = {'__name__': 'guest_test'}
+        exec(h.guest_program('a' * 64), ns)
+        class Response(io.BytesIO):
+            status = 201
+        response = Response(json.dumps({'id': 'fixture'}).encode())
+        request = object()
+        with patch.object(ns['HTTP'], 'open', return_value=response) as opened:
+            self.assertEqual(ns['import_document'](request, h.pdf_bytes()), {'id': 'fixture'})
+        opened.assert_called_once_with(request, timeout=60)
+        response = Response(b'fixture')
+        response.status = 200
+        with patch.object(ns['HTTP'], 'open', return_value=response) as opened:
+            self.assertEqual(ns['get']('http://fixture.invalid/fixture.pdf'), b'fixture')
+        opened.assert_called_once_with('http://fixture.invalid/fixture.pdf', timeout=8)
+
     def test_http400_emits_bounded_diagnostic_and_reraises_same_error(self):
         import contextlib
         import io

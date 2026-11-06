@@ -202,7 +202,7 @@ def diagnostic_command(args, raw=None, timeout=8):
 
 def import_document(request, raw):
     try:
-        with HTTP.open(request, timeout=30) as response:
+        with HTTP.open(request, timeout=60) as response:
             assert response.status == 201
             return json.load(response)
     except urllib.error.HTTPError as exc:

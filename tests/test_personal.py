@@ -26,6 +26,49 @@ def pdf_bytes():
     return raw + b'trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n' + str(start).encode() + b'\n%%EOF\n'
 
 
+class ParserDeadlineTests(unittest.TestCase):
+    def test_production_worker_has_40_second_wall_deadline(self):
+        import subprocess
+        from unittest.mock import patch
+        from app.personal import extract
+        with patch('app.personal.subprocess.run', wraps=subprocess.run) as run:
+            pages, text, parser = extract(pdf_bytes())
+        self.assertEqual(pages, 1)
+        self.assertIn('Quasar fixture text', text)
+        self.assertTrue(parser)
+        self.assertEqual(run.call_args.kwargs['timeout'], 40)
+
+
+    def test_timeout_expired_remains_a_rejected_parse(self):
+        import subprocess
+        from unittest.mock import patch
+        from app.personal import extract
+        error = subprocess.TimeoutExpired('app.personal_parser', 40)
+        with patch('app.personal.subprocess.run', side_effect=error):
+            with self.assertRaisesRegex(ValueError, 'PDF parsing exceeded 40 seconds') as caught:
+                extract(pdf_bytes())
+        self.assertIs(caught.exception.__cause__, error)
+
+    def test_worker_resource_limits_are_unchanged(self):
+        import io
+        import resource
+        from types import SimpleNamespace
+        from unittest.mock import call, patch
+        from app import personal_parser
+        output = io.StringIO()
+        # Observe limits without applying them to the test runner itself.
+        with patch.object(personal_parser.resource, 'setrlimit') as limits, \
+                patch.object(personal_parser.sys, 'stdin', SimpleNamespace(buffer=io.BytesIO(pdf_bytes()))), \
+                patch.object(personal_parser.sys, 'stdout', output):
+            self.assertEqual(personal_parser.main(), 0)
+        self.assertEqual(limits.call_args_list, [
+            call(resource.RLIMIT_AS, (384 * 1024 * 1024,) * 2),
+            call(resource.RLIMIT_CPU, (8, 8)),
+            call(resource.RLIMIT_FSIZE, (0, 0)),
+            call(resource.RLIMIT_NOFILE, (64, 64))])
+        self.assertIn('Quasar fixture text', json.loads(output.getvalue())['text'])
+
+
 class PersonalTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -54,6 +97,18 @@ class PersonalTests(unittest.TestCase):
         response = connection.getresponse(); raw = response.read(); status = response.status
         connection.close()
         return status, raw
+
+    def test_worker_wall_timeout_returns_400_without_publishing(self):
+        import subprocess
+        from unittest.mock import patch
+        with patch('app.personal.subprocess.run',
+                   side_effect=subprocess.TimeoutExpired('app.personal_parser', 40)) as run:
+            status, body = self.request('/api/personal/import', pdf_bytes())
+        self.assertEqual(status, 400, body)
+        self.assertEqual(run.call_args.kwargs['timeout'], 40)
+        self.assertEqual(self.server.personal.documents(), [])
+        self.assertFalse(any(self.data.rglob('original.pdf')))
+        self.assertFalse(any(self.data.rglob('.import-*')))
 
     def test_corrupt_metadata_is_ignored_not_a_path_source(self):
         status, body = self.request('/api/personal/import', pdf_bytes())

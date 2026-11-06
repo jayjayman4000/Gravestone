@@ -46,7 +46,7 @@ Home's **Display colors** button opens four persistent choices: amber on black (
 
 ## Limits and storage
 
-- PDF import: maximum 32 MiB and 1,000 pages; conservative 2 MiB UTF-8 extraction budget. Encrypted, malformed, slow or over-budget files are rejected. A bounded parser process is not a complete hostile-document sandbox.
+- PDF import: maximum 32 MiB and 1,000 pages; conservative 2 MiB UTF-8 extraction budget. The parser worker has a 40-second wall deadline, with unchanged limits of 8 CPU seconds, 384 MiB address space, zero file-output bytes and 64 open descriptors. Wall time allows for slower emulated CPUs; it does not increase the CPU budget. Encrypted, malformed, slow or over-budget files are rejected. A bounded parser process is not a complete hostile-document sandbox.
 - Imported originals, extraction and metadata live under `<data-dir>/personal/<sha256>/`, outside the public manifest and checkout.
 - Bundled-source reading needs no PDF parser package. Personal import needs `pypdf` or `PyPDF2`; the live recipe installs Debian's `python3-pypdf2`.
 - Private PDFs participate in source/command search, not experimental public-collection AI overviews.
